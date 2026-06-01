@@ -37,38 +37,42 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
     def generate(self, image_path: str, prompt: str, **kwargs) -> str:
         try:
             base64_image = self._encode_image(image_path)
-            
-            # Llama.cpp multimodal OpenAI-compatible payload
-            messages = [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt},
+            # Port-based API branch
+            if "8083" in self.endpoint_url:
+                # Qwen2-VL natively supports OpenAI Chat API
+                req_url = self.endpoint_url
+                payload = {
+                    "messages": [
                         {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/png;base64,{base64_image}"
-                            }
+                            "role": "user",
+                            "content": [
+                                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
+                                {"type": "text", "text": prompt}
+                            ]
                         }
-                    ]
+                    ],
+                    "temperature": kwargs.get("temperature", 0.1),
+                    "max_tokens": kwargs.get("max_tokens", 1024)
                 }
-            ]
-            
-            payload = {
-                "messages": messages,
-                "temperature": kwargs.get("temperature", 0.1),
-                "max_tokens": kwargs.get("max_tokens", 512)
-            }
+            else:
+                # Moondream2 uses /completion with strict <image> tagging
+                req_url = self.endpoint_url.replace("/v1/chat/completions", "/completion")
+                payload = {
+                    "prompt": f"<image>\n\nQuestion: Please describe this image in detail. The user asks: {prompt}\n\nAnswer:",
+                    "image_data": [{"data": base64_image, "id": 10}],
+                    "temperature": kwargs.get("temperature", 0.1),
+                    "n_predict": kwargs.get("max_tokens", 512)
+                }
             
             req = urllib.request.Request(
-                self.endpoint_url,
+                req_url,
                 data=json.dumps(payload).encode("utf-8"),
                 headers={"Content-Type": "application/json"}
             )
             
             with urllib.request.urlopen(req, timeout=120) as response:
                 resp_data = json.loads(response.read().decode("utf-8"))
-                return resp_data["choices"][0]["message"]["content"].strip()
+                return resp_data.get("content", "").strip()
                 
         except urllib.error.URLError as e:
             logger.error(f"Local VLM connection failed: {e}")
@@ -83,13 +87,15 @@ class VLMClient:
     High-level client for multimodal reasoning.
     Strictly restricted to load only LocalMultimodalAdapters.
     """
-    def __init__(self, cfg):
+    def __init__(self, cfg, endpoint_url: str = None):
         self.cfg = cfg
         self.provider_name = self.cfg.get("vlm", "provider", default="llama_cpp").lower()
         
+        url = endpoint_url or self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
+        
         if self.provider_name == "llama_cpp":
             self.adapter = LocalLlamaCppMultimodalAdapter(
-                endpoint_url=self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
+                endpoint_url=url
             )
         else:
             raise ValueError(f"Unknown VLM provider: {self.provider_name}")

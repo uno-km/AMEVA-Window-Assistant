@@ -68,6 +68,8 @@ class MainWindow(tk.Tk):
         self._spinner_idx = 0
         self._dots_idx = 0
         self._recording = False
+        self._draft_image_path: str | None = None
+        self._draft_photo = None
 
         # Queues
         self._job_queue: queue.Queue = queue.Queue()
@@ -189,6 +191,18 @@ class MainWindow(tk.Tk):
         # Top row: text entry + mic button
         entry_row = tk.Frame(input_frame, bg=_CLR_ENTRY_BG)
         entry_row.pack(fill=tk.X, pady=(0, 4))
+        
+        # Preview row inside entry row
+        self._preview_frame = tk.Frame(entry_row, bg=_CLR_ENTRY_BG)
+        self._preview_frame.pack(side=tk.TOP, fill=tk.X, padx=8, pady=(4, 0))
+        self._lbl_preview = tk.Label(self._preview_frame, bg=_CLR_ENTRY_BG)
+        self._lbl_preview.pack(side=tk.LEFT)
+        self._btn_clear_preview = tk.Button(
+            self._preview_frame, text="✖", font=("Segoe UI", 8),
+            bg=_CLR_ENTRY_BG, fg=_CLR_ERROR, relief=tk.FLAT, cursor="hand2",
+            activebackground=_CLR_ENTRY_BG, command=self._clear_draft
+        )
+        self._preview_frame.pack_forget() # Hide by default
 
         self._input_text = tk.Text(
             entry_row, height=3, wrap=tk.WORD,
@@ -271,6 +285,14 @@ class MainWindow(tk.Tk):
             command=self._on_manual_capture,
         )
         btn_capture.pack(side=tk.RIGHT, padx=4)
+
+        btn_snip = tk.Button(
+            btn_row, text="✂ 영역 지정", font=("Segoe UI", 9),
+            bg=_CLR_BTN, fg=_CLR_FG, relief=tk.FLAT, cursor="hand2",
+            activebackground=_CLR_BTN_HOVER,
+            command=self._on_snip,
+        )
+        btn_snip.pack(side=tk.RIGHT, padx=4)
 
     # ------------------------------------------------------------------
     # Status bar
@@ -479,12 +501,15 @@ class MainWindow(tk.Tk):
             except:
                 pass
 
+        capture_path_override = self._draft_image_path
+
         # Push to worker queue
         job = Job(
             job_id=job_id,
             session_id=self._current_session_id,
             input_text=text,
             inp_mode=inp_mode,
+            capture_path=capture_path_override,
             tts_enabled=self._tts_var.get(),
             capture_mode=capture_mode,
             monitor_index=monitor_index
@@ -492,6 +517,7 @@ class MainWindow(tk.Tk):
         self._job_queue.put(job)
         self._is_running = True
         self._update_status()
+        self._clear_draft()
 
         # Auto-update session title from first message
         msgs = self.db.get_messages(self._current_session_id)
@@ -584,6 +610,39 @@ class MainWindow(tk.Tk):
                 
         except Exception as e:
             logger.error(f"Identify monitors failed: {e}")
+
+    def _clear_draft(self):
+        self._draft_image_path = None
+        self._draft_photo = None
+        self._preview_frame.pack_forget()
+
+    def _on_snip(self):
+        try:
+            from src.ui.snipping_tool import SnippingTool
+            SnippingTool(self, self._on_snip_complete)
+        except Exception as e:
+            logger.error(f"Snipping tool failed: {e}")
+            messagebox.showerror("오류", f"스니핑 도구를 열 수 없습니다: {e}")
+
+    def _on_snip_complete(self, img):
+        import time
+        from PIL import ImageTk
+        from pathlib import Path
+        
+        # Save to captures
+        capture_dir = Path("data/captures") / time.strftime("%Y%m%d")
+        capture_dir.mkdir(parents=True, exist_ok=True)
+        ts = time.strftime("%Y%m%d_%H%M%S")
+        path = capture_dir / f"cap_{ts}_snip.png"
+        img.save(path)
+        self._draft_image_path = str(path)
+        
+        # Create thumbnail
+        img.thumbnail((150, 150))
+        self._draft_photo = ImageTk.PhotoImage(img)
+        self._lbl_preview.configure(image=self._draft_photo)
+        self._btn_clear_preview.pack(side=tk.RIGHT, padx=4)
+        self._preview_frame.pack(side=tk.TOP, fill=tk.X, padx=8, pady=(4, 0), before=self._input_text)
 
     def _on_settings(self):
         """Open the settings dialog."""

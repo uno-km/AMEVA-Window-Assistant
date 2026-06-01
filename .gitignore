@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.pytest_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs/
+
+# Database
+db/*.db
+
+# Temporary Data & Output
+out*.txt
+out*.json
+
+# AMEVA Captures (Screenshots and JSON info)
+data/captures/
+*.png
+*.jpg

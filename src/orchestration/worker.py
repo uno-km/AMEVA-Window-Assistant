@@ -177,7 +177,7 @@ class WorkerThread(threading.Thread):
             # Qwen Intent Routing
             from src.orchestration.intent_router import IntentRouter
             qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:8082/v1/chat/completions"))
-            route_decision, route_reason = qwen_router.route(job.input_text)
+            route_decision, route_reason, translated_prompt = qwen_router.route(job.input_text)
             self.db.update_job_routing(job.job_id, route_decision, route_reason)
 
             should_fallback = False
@@ -207,11 +207,45 @@ class WorkerThread(threading.Thread):
             def run_vlm_fallback(fallback_reason: str):
                 job.semantic_fallback_used = True
                 logger.info(f"Routing job {job.job_id} to VLM. Reason: {fallback_reason} (SG supplemented: {sg_fallback})")
-                vlm = VLMClient(self.cfg)
+                
+                # Image Resolution-based Routing
+                use_qwen_vl = False
+                if job.capture_path and os.path.exists(job.capture_path):
+                    try:
+                        from PIL import Image
+                        with Image.open(job.capture_path) as img:
+                            width, height = img.size
+                            pixels = width * height
+                            # If image is larger than 800x800 (640,000 pixels), use Qwen2-VL
+                            if pixels > 640000:
+                                use_qwen_vl = True
+                    except Exception as e:
+                        logger.warning(f"Failed to check image size: {e}")
+                
+                if use_qwen_vl:
+                    logger.info("Image is large (full screen). Routing to Qwen2-VL (8083).")
+                    vlm_endpoint = "http://127.0.0.1:8083/v1/chat/completions"
+                else:
+                    logger.info("Image is small/cropped. Routing to Moondream2 (8081).")
+                    vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
+                    
+                vlm = VLMClient(self.cfg, endpoint_url=vlm_endpoint)
+                
+                # Use translated prompt from Qwen if available
+                base_prompt = translated_prompt if 'translated_prompt' in locals() and translated_prompt else job.input_text
+                
+                if 'semantic_summary' in locals() and semantic_summary and not use_qwen_vl:
+                    # Append OCR context to ground Moondream2 and prevent hallucination on dense screens
+                    # We don't need this for Qwen2-VL as it reads text perfectly on its own.
+                    short_summary = semantic_summary[:800] # Limit length to save context
+                    vlm_prompt = f"Context (Text found on screen):\n{short_summary}\n\nQuestion: {base_prompt}"
+                else:
+                    vlm_prompt = base_prompt
+
                 while job.backend_retry_count < 3:
                     try:
                         t0 = time.perf_counter()
-                        r_text = vlm.ask_image(job.capture_path, job.input_text)
+                        r_text = vlm.ask_image(job.capture_path, vlm_prompt)
                         job.latency_ms = int((time.perf_counter() - t0) * 1000)
                         return r_text, vlm.adapter.__class__.__name__
                     except Exception as e:
@@ -244,6 +278,7 @@ class WorkerThread(threading.Thread):
                     f"<details><summary>💡 생각보기 (Qwen Router)</summary>\n"
                     f"- 판단 경로: **{route_decision}**\n"
                     f"- 판단 근거: {route_reason}\n"
+                    f"- 영문 번역: {translated_prompt if 'translated_prompt' in locals() else 'N/A'}\n"
                     f"</details>\n\n"
                 )
                 response_text = think_block + response_text
