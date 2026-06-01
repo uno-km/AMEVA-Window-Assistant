@@ -7,6 +7,7 @@ and pushes results back to the UI via a result queue.
 """
 
 import logging
+import os
 import queue
 import threading
 import time
@@ -205,6 +206,7 @@ class WorkerThread(threading.Thread):
             
             # Helper to run VLM
             def run_vlm_fallback(fallback_reason: str):
+                import os
                 job.semantic_fallback_used = True
                 logger.info(f"Routing job {job.job_id} to VLM. Reason: {fallback_reason} (SG supplemented: {sg_fallback})")
                 
@@ -246,6 +248,21 @@ class WorkerThread(threading.Thread):
                     try:
                         t0 = time.perf_counter()
                         r_text = vlm.ask_image(job.capture_path, vlm_prompt)
+                        
+                        # Translate Moondream2 (English) response to Korean
+                        if not use_qwen_vl:
+                            try:
+                                translator_llm = self._get_llm()
+                                trans_msgs = [
+                                    {"role": "system", "content": "You are a professional translator. Translate the following English text into natural Korean. Output ONLY the Korean translation without any additional comments."},
+                                    {"role": "user", "content": r_text}
+                                ]
+                                translated_r_text = translator_llm.generate(trans_msgs)
+                                if translated_r_text and translated_r_text.strip():
+                                    r_text = translated_r_text.strip()
+                            except Exception as ex:
+                                logger.warning(f"Translation of VLM response failed: {ex}")
+                                
                         job.latency_ms = int((time.perf_counter() - t0) * 1000)
                         return r_text, vlm.adapter.__class__.__name__
                     except Exception as e:
