@@ -15,29 +15,18 @@ from typing import Tuple
 logger = logging.getLogger("ameva.router.intent")
 
 class IntentRouter:
-    """Uses a local Qwen LLM on port 8082 to classify intent."""
+    """Uses a local Qwen LLM on port 9082 to classify intent."""
     
-    def __init__(self, endpoint_url="http://127.0.0.1:8082/v1/chat/completions"):
+    def __init__(self, endpoint_url="http://127.0.0.1:9082/v1/chat/completions"):
         self.endpoint_url = endpoint_url
         self.timeout = 30
         
-        # We craft a highly constrained system prompt for Qwen.
+        # Simplified system prompt for Qwen 0.5B fallback
         self.system_prompt = (
-            "You are an ultra-fast, intelligent routing agent for AMEVA (AI Assistant).\n"
-            "Your ONLY task is to decide whether a user's prompt requires visual scene/image understanding (VLM) "
-            "or text/content understanding (OCR).\n"
-            "Additionally, you MUST translate the user's prompt into concise English, as the VLM is an English-centric model.\n\n"
-            "## Rules for Classification:\n"
-            "1. Route to 'VLM' if the user asks 'what screen is this?', 'what is this?', 'describe the layout', 'where is the button?', 'what color', or asks to identify visual elements.\n"
-            "2. Route to 'OCR' if the user asks to summarize text, translate, read the content, or asks 'what does it say?'.\n"
-            "3. **When in doubt or if it's a general question about the screen state, strongly prefer 'VLM'.**\n\n"
-            "## Output Format (Strict JSON ONLY):\n"
-            "You MUST output exactly valid JSON and nothing else. Do not use markdown wrappers.\n"
-            "Schema: {\"route\": \"VLM\" or \"OCR\", \"cause\": \"one line reason in Korean\", \"translated_prompt\": \"English translation of the user's input\"}\n\n"
-            "Example 1:\n"
-            '{"route": "VLM", "cause": "화면 전체의 정체(무슨 화면인지)를 묻는 질문이므로 시각적 이해가 필요함", "translated_prompt": "What screen is this?"}\n\n'
-            "Example 2:\n"
-            '{"route": "OCR", "cause": "화면에 적힌 내용을 요약해 달라고 했으므로 텍스트 파악이 중요함", "translated_prompt": "Please summarize the text on this screen."}'
+            "당신은 사용자의 질문을 'OCR'과 'VLM' 중 하나로 분류하는 라우팅 에이전트입니다.\n\n"
+            "사용자의 질문이 화면 속 텍스트(글자)를 읽거나, 번역하거나, 요약해달라는 것이라면 'OCR'이라고 답하세요.\n"
+            "화면이 어떤 화면인지 묻거나, 색상, 레이아웃, 버튼 위치 등 시각적 요소를 묻는 것이라면 'VLM'이라고 답하세요.\n\n"
+            "대답은 오직 'OCR' 또는 'VLM' 중 하나로만 하세요. 다른 단어는 절대 추가하지 마세요."
         )
 
     def route(self, user_input: str) -> Tuple[str, str, str]:
@@ -46,15 +35,44 @@ class IntentRouter:
         Decision is either "VLM" or "OCR".
         """
         import time
+        import re
+
+        user_input_clean = user_input.strip().lower()
+        
+        # OCR Keywords (high precision text reading indicators)
+        ocr_keywords = [
+            r"읽어", r"써있", r"써 있", r"적혀", r"뭐라", r"글자", r"텍스트", 
+            r"요약", r"번역", r"영어", r"한글", r"내용", r"뜻"
+        ]
+        
+        # VLM Keywords (visual elements, screen identity, layout indicators)
+        vlm_keywords = [
+            r"화면", r"디자인", r"레이아웃", r"버튼", r"아이콘", r"색", 
+            r"그림", r"이미지", r"정체", r"뭐야", r"어디", r"위치", r"모양"
+        ]
+        
+        # 1. Fast-track keyword match for OCR
+        for kw in ocr_keywords:
+            if re.search(kw, user_input_clean):
+                logger.info(f"[IntentRouter] Fast-track OCR match on keyword: '{kw}'")
+                return "OCR", f"키워드 분석 ('{kw}')에 의해 OCR로 판단됨", user_input
+                
+        # 2. Fast-track keyword match for VLM
+        for kw in vlm_keywords:
+            if re.search(kw, user_input_clean):
+                logger.info(f"[IntentRouter] Fast-track VLM match on keyword: '{kw}'")
+                return "VLM", f"키워드 분석 ('{kw}')에 의해 VLM으로 판단됨", user_input
+
+        # 3. Model Fallback if ambiguous
         messages = [
             {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": f"User Prompt: {user_input}"}
+            {"role": "user", "content": user_input}
         ]
         payload = {
             "model": "qwen2.5-1.5b-instruct",
             "messages": messages,
             "temperature": 0.1,
-            "max_tokens": 150
+            "max_tokens": 10
         }
         
         logger.info(f"[IntentRouter] Requesting route decision from {self.endpoint_url}")
@@ -78,24 +96,16 @@ class IntentRouter:
                 data = json.loads(resp_text)
                 content = data["choices"][0]["message"]["content"].strip()
                 
-                # Remove markdown code blocks if any
-                if content.startswith("```"):
-                    lines = content.split('\n')
-                    if len(lines) >= 3:
-                        content = '\n'.join(lines[1:-1])
-                        
-                parsed = json.loads(content)
-                decision = parsed.get("route", "VLM")
-                cause = parsed.get("cause", "")
-                translated = parsed.get("translated_prompt", "")
+                decision = "VLM"
+                if "ocr" in content.lower():
+                    decision = "OCR"
+                elif "vlm" in content.lower():
+                    decision = "VLM"
                 
+                cause = f"Qwen Router ({latency_ms}ms): {content}"
                 logger.info(f"[IntentRouter] Parsed Decision: {decision} | Cause: {cause}")
-                return decision, cause, translated
+                return decision, cause, user_input
                 
-        except json.JSONDecodeError as e:
-            latency_ms = int((time.perf_counter() - t0) * 1000)
-            logger.error(f"[IntentRouter] JSON decode failed after {latency_ms}ms. Content: {content if 'content' in locals() else 'N/A'}")
-            return "VLM", f"Parse error: {e}", ""
         except Exception as e:
-            logger.warning(f"[IntentRouter] Routing failed or timed out: {e}. Falling back to OCR.")
-            return "OCR", f"Router Error: {str(e)}", user_input
+            logger.warning(f"[IntentRouter] Routing model call failed: {e}. Defaulting to VLM.")
+            return "VLM", f"Router Model Error/Timeout: {str(e)}", user_input

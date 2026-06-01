@@ -60,7 +60,7 @@ _DEFAULTS = {
     },
     "vlm": {
         "provider": "llama_cpp",
-        "endpoint": "http://127.0.0.1:8081/v1/chat/completions",
+        "endpoint": "http://127.0.0.1:9083/v1/chat/completions",
     },
     "db": {
         "path": "db/ameva_assistant.db",

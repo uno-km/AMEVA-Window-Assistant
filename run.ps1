@@ -6,7 +6,7 @@ Write-Host ""
 
 Write-Host "[INFO] Starting LLM & VLM servers via Docker Compose..."
 Set-Location docker
-docker compose up -d
+docker compose up -d --remove-orphans
 Set-Location ..
 Write-Host ""
 

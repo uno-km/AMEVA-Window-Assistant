@@ -99,7 +99,7 @@ def _try_start_docker(logger):
         if (docker_dir / "docker-compose.yml").exists():
             logger.info("Starting Docker Compose...")
             subprocess.run(
-                ["docker", "compose", "up", "-d"],
+                ["docker", "compose", "up", "-d", "--remove-orphans"],
                 cwd=str(docker_dir)
             )
             return True
@@ -141,8 +141,8 @@ def main():
 
     # Auto-start LLM and VLM servers if not alive
     llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
-    vlm_url = "http://127.0.0.1:8081/v1"
-    router_url = "http://127.0.0.1:8082/v1"
+    vlm_url = "http://127.0.0.1:9083/v1"
+    router_url = "http://127.0.0.1:9082/v1"
     
     max_retries = 5
     max_wait = 60

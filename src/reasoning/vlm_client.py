@@ -53,7 +53,7 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
         try:
             base64_image = self._encode_image(image_path)
             # Port-based API branch
-            if "8083" in self.endpoint_url:
+            if "9083" in self.endpoint_url:
                 # Qwen2-VL natively supports OpenAI Chat API
                 req_url = self.endpoint_url
                 payload = {
@@ -125,7 +125,7 @@ class VLMClient:
         self.cfg = cfg
         self.provider_name = self.cfg.get("vlm", "provider", default="llama_cpp").lower()
         
-        url = endpoint_url or self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
+        url = endpoint_url or self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:9083/v1/chat/completions")
         
         if self.provider_name == "llama_cpp":
             self.adapter = LocalLlamaCppMultimodalAdapter(

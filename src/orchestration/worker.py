@@ -177,7 +177,7 @@ class WorkerThread(threading.Thread):
 
             # Qwen Intent Routing
             from src.orchestration.intent_router import IntentRouter
-            qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:8082/v1/chat/completions"))
+            qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:9082/v1/chat/completions"))
             route_decision, route_reason, translated_prompt = qwen_router.route(job.input_text)
             self.db.update_job_routing(job.job_id, route_decision, route_reason)
 
@@ -214,8 +214,8 @@ class WorkerThread(threading.Thread):
                 use_qwen_vl = True
                 
                 if use_qwen_vl:
-                    logger.info("Image is large (full screen). Routing to Qwen2-VL (8083).")
-                    vlm_endpoint = "http://127.0.0.1:8083/v1/chat/completions"
+                    logger.info("Image is large (full screen). Routing to Qwen2-VL (9083).")
+                    vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:9083/v1/chat/completions")
                 else:
                     logger.info("Image is small/cropped. Routing to Moondream2 (8081).")
                     vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
@@ -305,6 +305,9 @@ class WorkerThread(threading.Thread):
                     f"</details>\n\n"
                 )
                 response_text = think_block + response_text
+                
+            if not response_text or not response_text.strip():
+                response_text = "⚠️ 모델이 빈 응답을 반환했습니다. 내부 엔진 오류일 수 있습니다."
                 
             job.result_text = response_text
             job.extra["llm_response"] = response_text
