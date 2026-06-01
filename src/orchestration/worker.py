@@ -174,7 +174,24 @@ class WorkerThread(threading.Thread):
                 if job.extra.get("scene_graph"):
                     sg_fallback = FallbackRouter.should_fallback_based_on_scene_graph(job.extra["scene_graph"])
 
-            should_fallback = (fast_track or ocr_fallback or sg_fallback)
+            # Qwen Intent Routing
+            from src.orchestration.intent_router import IntentRouter
+            qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:8082/v1/chat/completions"))
+            route_decision, route_reason = qwen_router.route(job.input_text)
+            self.db.update_job_routing(job.job_id, route_decision, route_reason)
+
+            should_fallback = False
+            reasons = []
+            
+            if route_decision == "VLM":
+                should_fallback = True
+                reasons.append(f"Qwen Router: {route_reason}")
+            else:
+                # Even if Qwen chooses OCR, fallback if OCR is physically broken/poor
+                should_fallback = (ocr_fallback or sg_fallback)
+                if ocr_fallback: reasons.append("Poor OCR Quality")
+                if sg_fallback: reasons.append("SG Classification Failed")
+                
             llm_prov = "Unknown"
 
             # 4. Prompt Build
@@ -206,9 +223,6 @@ class WorkerThread(threading.Thread):
                 return '{"status": "local_vlm_unavailable", "message": "Failed to connect to local VLM"}', "FallbackFailed"
 
             if should_fallback and not job.semantic_fallback_used:
-                reasons = []
-                if fast_track: reasons.append("Visual Affordance (Fast-track)")
-                if ocr_fallback: reasons.append("Poor OCR Quality")
                 reason_str = " + ".join(reasons) if reasons else "Unknown Fallback"
                 response_text, llm_prov = run_vlm_fallback(reason_str)
             else:
@@ -224,6 +238,16 @@ class WorkerThread(threading.Thread):
                     response_text, llm_prov = run_vlm_fallback("Text LLM Failure Response")
 
             job.result_text = response_text
+            
+            if 'route_decision' in locals() and 'route_reason' in locals():
+                think_block = (
+                    f"<details><summary>💡 생각보기 (Qwen Router)</summary>\n"
+                    f"- 판단 경로: **{route_decision}**\n"
+                    f"- 판단 근거: {route_reason}\n"
+                    f"</details>\n\n"
+                )
+                response_text = think_block + response_text
+                
             job.extra["llm_response"] = response_text
             
             # Save artifacts for debugging

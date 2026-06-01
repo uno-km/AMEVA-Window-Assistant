@@ -558,3 +558,47 @@ TimeoutError: LLM request timed out (60s)
 [2026-06-01 21:16:32] INFO    ameva.orchestration.worker — Routing job 13 to VLM. Reason: Poor OCR Quality (SG supplemented: False)
 [2026-06-01 21:16:32] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
 [2026-06-01 21:16:33] INFO    ameva.orchestration.worker — Job 13 completed (503ms)
+[2026-06-01 21:26:12] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 21:26:12] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 21:26:12] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 21:26:14] INFO    ameva — UI launched — entering main loop
+[2026-06-01 21:26:27] INFO    ameva.orchestration.worker — Processing job 14 (mode=text)
+[2026-06-01 21:26:27] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_212627_345.png
+[2026-06-01 21:26:27] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_212627_345.png
+[2026-06-01 21:26:28] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 21:26:29] INFO    ameva.orchestration.worker — Job 14 completed (506ms)
+[2026-06-01 21:27:01] INFO    ameva.ui — Shutting down…
+[2026-06-01 21:27:01] INFO    ameva.orchestration.worker — Worker received shutdown signal
+[2026-06-01 21:27:01] INFO    ameva.orchestration.worker — Worker thread stopped
+[2026-06-01 21:27:01] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-06-01 21:29:03] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 21:29:03] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 21:29:03] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 21:29:04] INFO    ameva — UI launched — entering main loop
+[2026-06-01 21:30:42] INFO    ameva.orchestration.worker — Processing job 15 (mode=text)
+[2026-06-01 21:30:42] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_213042_671.png
+[2026-06-01 21:30:43] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_213042_671.png
+[2026-06-01 21:30:43] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 21:32:59] INFO    ameva.orchestration.worker — Job 15 completed (135471ms)
+[2026-06-01 21:34:37] INFO    ameva.orchestration.worker — Processing job 16 (mode=text)
+[2026-06-01 21:34:37] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_213437_192.png
+[2026-06-01 21:34:37] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_213437_192.png
+[2026-06-01 21:34:38] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 21:35:58] INFO    ameva.orchestration.worker — Job 16 completed (80666ms)
+[2026-06-01 21:49:25] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 21:49:25] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 21:49:25] WARNING ameva — LLM, VLM or Router Server is unreachable. (Attempt 1/5)
+[2026-06-01 21:49:25] INFO    ameva — Attempting to start servers via Docker Compose...
+[2026-06-01 21:49:25] INFO    ameva — Starting Docker Compose...
+[2026-06-01 21:49:25] INFO    ameva — Waiting up to 60s for models to load into memory...
+[2026-06-01 21:49:40] INFO    ameva — LLM, VLM & Router Servers successfully started via Docker!
+[2026-06-01 21:49:40] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 21:49:42] INFO    ameva — UI launched — entering main loop
+[2026-06-01 21:50:05] INFO    ameva.orchestration.worker — Processing job 17 (mode=text)
+[2026-06-01 21:50:06] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_215005_973.png
+[2026-06-01 21:50:06] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_215005_973.png
+[2026-06-01 21:50:07] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 21:50:09] INFO    ameva.router.intent — [IntentRouter] Decision: VLM | Reason: 화면 전체의 정체(무슨 화면인지)를 묻는 질문이므로 시각적 이해가 필요함
+[2026-06-01 21:50:09] INFO    ameva.orchestration.worker — Routing job 17 to VLM. Reason: Qwen Router: 화면 전체의 정체(무슨 화면인지)를 묻는 질문이므로 시각적 이해가 필요함 (SG supplemented: False)
+[2026-06-01 21:50:09] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
+[2026-06-01 21:50:10] INFO    ameva.orchestration.worker — Job 17 completed (582ms)

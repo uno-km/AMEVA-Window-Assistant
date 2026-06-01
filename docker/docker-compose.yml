@@ -10,14 +10,10 @@ services:
       # Mounted your actual model directory
       - C:/ameva/models:/models
     command: >
-      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
-      --host 0.0.0.0
-      --port 8080
-      --ctx-size 8192
-      --n-gpu-layers 0
+      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 0
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/v1/models"]
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:8080/v1/models" ]
       interval: 5s
       timeout: 3s
       retries: 10
@@ -30,15 +26,26 @@ services:
     volumes:
       - C:/ameva/models:/models
     command: >
-      --model /models/moondream2-text-model-f16_ct-vicuna.gguf
-      --mmproj /models/moondream2-mmproj-f16-20250414.gguf
-      --host 0.0.0.0
-      --port 8081
-      --ctx-size 2048
-      --n-gpu-layers 0
+      --model /models/moondream2-text-model-f16_ct-vicuna.gguf --mmproj /models/moondream2-mmproj-f16-20250414.gguf --host 0.0.0.0 --port 8081 --ctx-size 2048 --n-gpu-layers 0
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1:8081/v1/models"]
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:8081/v1/models" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  qwen-router-server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: ameva-router-server
+    ports:
+      - "8082:8082"
+    volumes:
+      - C:/ameva/models:/models
+    command: >
+      --model /models/qwen2.5-0.5b.gguf --host 0.0.0.0 --port 8082 --ctx-size 4096 --n-gpu-layers 0
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:8082/v1/models" ]
       interval: 5s
       timeout: 3s
       retries: 10

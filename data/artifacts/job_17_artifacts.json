@@ -1,0 +1,1843 @@
+{
+  "ocr_raw": [
+    {
+      "text": "O",
+      "bbox": [
+        25,
+        84,
+        46,
+        105
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "Ate)",
+      "bbox": [
+        59,
+        88,
+        109,
+        103
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "#",
+      "bbox": [
+        353,
+        91,
+        363,
+        103
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        368,
+        91,
+        425,
+        104
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        430,
+        90,
+        478,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        486,
+        91,
+        506,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Inspector",
+      "bbox": [
+        513,
+        91,
+        583,
+        108
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "---",
+      "bbox": [
+        589,
+        98,
+        608,
+        99
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "##",
+      "bbox": [
+        614,
+        91,
+        634,
+        103
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "1.",
+      "bbox": [
+        641,
+        91,
+        645,
+        104
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "712",
+      "bbox": [
+        658,
+        90,
+        689,
+        105
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "(Ov",
+      "bbox": [
+        695,
+        91,
+        721,
+        107
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "GPT",
+      "bbox": [
+        1561,
+        91,
+        1593,
+        104
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "5.2",
+      "bbox": [
+        1599,
+        91,
+        1620,
+        104
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Think",
+      "bbox": [
+        1626,
+        90,
+        1670,
+        104
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "v",
+      "bbox": [
+        1678,
+        96,
+        1687,
+        101
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "ig)",
+      "bbox": [
+        1815,
+        82,
+        1840,
+        112
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "Q",
+      "bbox": [
+        27,
+        131,
+        45,
+        149
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "as",
+      "bbox": [
+        59,
+        133,
+        88,
+        148
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "“",
+      "bbox": [
+        1892,
+        137,
+        1899,
+        143
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "My",
+      "bbox": [
+        25,
+        174,
+        46,
+        195
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "Ul",
+      "bbox": [
+        1073,
+        167,
+        1087,
+        186
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "ISON",
+      "bbox": [
+        1095,
+        170,
+        1141,
+        184
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "AAS",
+      "bbox": [
+        1228,
+        167,
+        1281,
+        186
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "21",
+      "bbox": [
+        1521,
+        157,
+        1539,
+        199
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        951,
+        202,
+        1022,
+        221
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "IT",
+      "bbox": [
+        60,
+        279,
+        72,
+        292
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "@®",
+      "bbox": [
+        595,
+        276,
+        623,
+        302
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "copilot",
+      "bbox": [
+        635,
+        282,
+        699,
+        302
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "@",
+      "bbox": [
+        24,
+        321,
+        49,
+        346
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "waa!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": ">",
+      "bbox": [
+        647,
+        330,
+        652,
+        340
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "BH",
+      "bbox": [
+        24,
+        371,
+        48,
+        393
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "A",
+      "bbox": [
+        59,
+        375,
+        72,
+        390
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "Fei",
+      "bbox": [
+        706,
+        373,
+        739,
+        392
+      ],
+      "confidence": 0.31
+    },
+    {
+      "text": "S...",
+      "bbox": [
+        747,
+        374,
+        777,
+        392
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "+",
+      "bbox": [
+        40,
+        427,
+        43,
+        430
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "=",
+      "bbox": [
+        677,
+        514,
+        687,
+        521
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "|",
+      "bbox": [
+        777,
+        495,
+        797,
+        532
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "#",
+      "bbox": [
+        24,
+        528,
+        34,
+        540
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        39,
+        528,
+        98,
+        541
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        103,
+        527,
+        153,
+        541
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        160,
+        528,
+        181,
+        541
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Inspector...",
+      "bbox": [
+        188,
+        528,
+        274,
+        545
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Iai:",
+      "bbox": [
+        810,
+        529,
+        829,
+        537
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "model",
+      "bbox": [
+        835,
+        529,
+        860,
+        537
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "Be",
+      "bbox": [
+        724,
+        544,
+        738,
+        565
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "12044)",
+      "bbox": [
+        741,
+        544,
+        770,
+        565
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "Is",
+      "bbox": [
+        835,
+        543,
+        841,
+        564
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "listening",
+      "bbox": [
+        846,
+        548,
+        893,
+        557
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "on",
+      "bbox": [
+        884,
+        543,
+        896,
+        564
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "http:",
+      "bbox": [
+        902,
+        548,
+        921,
+        558
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "/0/0.00.0.8081",
+      "bbox": [
+        927,
+        548,
+        992,
+        556
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "Traceback",
+      "bbox": [
+        24,
+        573,
+        100,
+        587
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "(most",
+      "bbox": [
+        106,
+        574,
+        148,
+        590
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "recent",
+      "bbox": [
+        154,
+        575,
+        201,
+        587
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "call",
+      "bbox": [
+        207,
+        573,
+        230,
+        587
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "last):",
+      "bbox": [
+        238,
+        573,
+        271,
+        590
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "ee",
+      "bbox": [
+        675,
+        567,
+        926,
+        595
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "Pd",
+      "bbox": [
+        143,
+        615,
+        155,
+        636
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        237,
+        620,
+        251,
+        631
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "Bhat.",
+      "bbox": [
+        725,
+        612,
+        752,
+        633
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "C71",
+      "bbox": [
+        809,
+        618,
+        825,
+        625
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "Copliot",
+      "bbox": [
+        830,
+        618,
+        859,
+        627
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "vba",
+      "bbox": [
+        24,
+        620,
+        50,
+        634
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "&",
+      "bbox": [
+        58,
+        629,
+        70,
+        635
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "2}",
+      "bbox": [
+        149,
+        620,
+        162,
+        635
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "AES",
+      "bbox": [
+        168,
+        620,
+        214,
+        635
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "Bhat...",
+      "bbox": [
+        221,
+        619,
+        264,
+        635
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "wo",
+      "bbox": [
+        675,
+        629,
+        693,
+        649
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "|",
+      "bbox": [
+        711,
+        643,
+        717,
+        650
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "|",
+      "bbox": [
+        792,
+        610,
+        800,
+        654
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "fen",
+      "bbox": [
+        872,
+        655,
+        876,
+        661
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "OF",
+      "bbox": [
+        138,
+        656,
+        150,
+        692
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "2.",
+      "bbox": [
+        227,
+        666,
+        266,
+        681
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "|",
+      "bbox": [
+        785,
+        649,
+        800,
+        685
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "a...",
+      "bbox": [
+        242,
+        713,
+        269,
+        728
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": ">>",
+      "bbox": [
+        26,
+        763,
+        46,
+        772
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "venv\\Scripts\\python.exe",
+      "bbox": [
+        53,
+        759,
+        237,
+        777
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "sr.",
+      "bbox": [
+        243,
+        764,
+        268,
+        773
+      ],
+      "confidence": 0.8
+    },
+    {
+      "text": "HE",
+      "bbox": [
+        110,
+        852,
+        140,
+        867
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "tHE,",
+      "bbox": [
+        146,
+        852,
+        196,
+        868
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "...",
+      "bbox": [
+        260,
+        864,
+        271,
+        866
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        756,
+        857,
+        791,
+        875
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "copilot",
+      "bbox": [
+        27,
+        926,
+        161,
+        942
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "chat",
+      "bbox": [
+        105,
+        917,
+        130,
+        946
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "71)",
+      "bbox": [
+        136,
+        917,
+        166,
+        946
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "©",
+      "bbox": [
+        170,
+        929,
+        183,
+        942
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "+",
+      "bbox": [
+        638,
+        925,
+        660,
+        947
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "S",
+      "bbox": [
+        708,
+        923,
+        731,
+        949
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "Designer",
+      "bbox": [
+        742,
+        929,
+        821,
+        949
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "X",
+      "bbox": [
+        836,
+        929,
+        851,
+        944
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "AIMS",
+      "bbox": [
+        983,
+        986,
+        1026,
+        999
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "Be",
+      "bbox": [
+        1151,
+        986,
+        1177,
+        999
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "4",
+      "bbox": [
+        1183,
+        986,
+        1195,
+        999
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "e",
+      "bbox": [
+        82,
+        1035,
+        112,
+        1065
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "&",
+      "bbox": [
+        137,
+        1037,
+        167,
+        1065
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "23",
+      "bbox": [
+        1833,
+        1032,
+        1862,
+        1046
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "9:50",
+      "bbox": [
+        1868,
+        1034,
+        1896,
+        1045
+      ],
+      "confidence": 0.82
+    },
+    {
+      "text": "=)",
+      "bbox": [
+        248,
+        1052,
+        273,
+        1061
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "©C",
+      "bbox": [
+        1523,
+        923,
+        1541,
+        949
+      ],
+      "confidence": 0.5
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "ig) O Ate) Global 712 Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+      "bbox": [
+        25,
+        82,
+        1840,
+        112
+      ],
+      "confidence": 0.934
+    },
+    {
+      "text": "v",
+      "bbox": [
+        1678,
+        96,
+        1687,
+        101
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "Q as",
+      "bbox": [
+        27,
+        131,
+        88,
+        149
+      ],
+      "confidence": 0.685
+    },
+    {
+      "text": "21 Ul AAS ISON",
+      "bbox": [
+        1073,
+        157,
+        1539,
+        199
+      ],
+      "confidence": 0.611
+    },
+    {
+      "text": "My",
+      "bbox": [
+        25,
+        174,
+        46,
+        195
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        951,
+        202,
+        1022,
+        221
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "IT",
+      "bbox": [
+        60,
+        279,
+        72,
+        292
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "copilot",
+      "bbox": [
+        635,
+        282,
+        699,
+        302
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "waa!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "BH",
+      "bbox": [
+        24,
+        371,
+        48,
+        393
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "Fei S... A",
+      "bbox": [
+        59,
+        373,
+        777,
+        392
+      ],
+      "confidence": 0.603
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "Global AMEVA DB Inspector...",
+      "bbox": [
+        39,
+        527,
+        274,
+        545
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Iai: model",
+      "bbox": [
+        810,
+        529,
+        860,
+        537
+      ],
+      "confidence": 0.605
+    },
+    {
+      "text": "Is",
+      "bbox": [
+        835,
+        543,
+        841,
+        564
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "on Be 12044) listening http: /0/0.00.0.8081",
+      "bbox": [
+        724,
+        543,
+        992,
+        565
+      ],
+      "confidence": 0.688
+    },
+    {
+      "text": "ee Traceback call last): (most recent",
+      "bbox": [
+        24,
+        567,
+        926,
+        595
+      ],
+      "confidence": 0.937
+    },
+    {
+      "text": "Bhat. Pd",
+      "bbox": [
+        143,
+        612,
+        752,
+        636
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "C71 Copliot Bhat... vba 2} AES AE",
+      "bbox": [
+        24,
+        618,
+        859,
+        635
+      ],
+      "confidence": 0.518
+    },
+    {
+      "text": "wo",
+      "bbox": [
+        675,
+        629,
+        693,
+        649
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "fen OF 2.",
+      "bbox": [
+        138,
+        655,
+        876,
+        692
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "a...",
+      "bbox": [
+        242,
+        713,
+        269,
+        728
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "venv\\Scripts\\python.exe sr.",
+      "bbox": [
+        53,
+        759,
+        268,
+        777
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "HE tHE,",
+      "bbox": [
+        110,
+        852,
+        196,
+        868
+      ],
+      "confidence": 0.435
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        756,
+        857,
+        791,
+        875
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "chat 71)",
+      "bbox": [
+        105,
+        917,
+        166,
+        946
+      ],
+      "confidence": 0.8
+    },
+    {
+      "text": "S",
+      "bbox": [
+        708,
+        923,
+        731,
+        949
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "©C copilot Designer X",
+      "bbox": [
+        27,
+        923,
+        1541,
+        949
+      ],
+      "confidence": 0.689
+    },
+    {
+      "text": "AIMS",
+      "bbox": [
+        983,
+        986,
+        1026,
+        999
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "Be 4",
+      "bbox": [
+        1151,
+        986,
+        1195,
+        999
+      ],
+      "confidence": 0.655
+    },
+    {
+      "text": "23 9:50 e",
+      "bbox": [
+        82,
+        1032,
+        1896,
+        1065
+      ],
+      "confidence": 0.698
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            82,
+            1840,
+            112
+          ],
+          "text": "ig) O Ate) Global 712 Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+          "confidence": 0.934
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1678,
+            96,
+            1687,
+            101
+          ],
+          "text": "v",
+          "confidence": 0.48
+        },
+        {
+          "role": "text",
+          "bbox": [
+            27,
+            131,
+            88,
+            149
+          ],
+          "text": "Q as",
+          "confidence": 0.685
+        }
+      ],
+      "sidebar": [
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            174,
+            46,
+            195
+          ],
+          "text": "My",
+          "confidence": 0.51
+        },
+        {
+          "role": "title",
+          "bbox": [
+            60,
+            279,
+            72,
+            292
+          ],
+          "text": "IT",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            327,
+            121,
+            342
+          ],
+          "text": "waa!",
+          "confidence": 0.42
+        },
+        {
+          "role": "title",
+          "bbox": [
+            24,
+            371,
+            48,
+            393
+          ],
+          "text": "BH",
+          "confidence": 0.38
+        },
+        {
+          "role": "text",
+          "bbox": [
+            59,
+            373,
+            777,
+            392
+          ],
+          "text": "Fei S... A",
+          "confidence": 0.603
+        },
+        {
+          "role": "title",
+          "bbox": [
+            58,
+            422,
+            89,
+            437
+          ],
+          "text": "BE",
+          "confidence": 0.87
+        },
+        {
+          "role": "text",
+          "bbox": [
+            39,
+            527,
+            274,
+            545
+          ],
+          "text": "Global AMEVA DB Inspector...",
+          "confidence": 0.91
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            567,
+            926,
+            595
+          ],
+          "text": "ee Traceback call last): (most recent",
+          "confidence": 0.937
+        },
+        {
+          "role": "text",
+          "bbox": [
+            143,
+            612,
+            752,
+            636
+          ],
+          "text": "Bhat. Pd",
+          "confidence": 0.66
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            618,
+            859,
+            635
+          ],
+          "text": "C71 Copliot Bhat... vba 2} AES AE",
+          "confidence": 0.518
+        },
+        {
+          "role": "text",
+          "bbox": [
+            242,
+            713,
+            269,
+            728
+          ],
+          "text": "a...",
+          "confidence": 0.39
+        },
+        {
+          "role": "text",
+          "bbox": [
+            53,
+            759,
+            268,
+            777
+          ],
+          "text": "venv\\Scripts\\python.exe sr.",
+          "confidence": 0.79
+        },
+        {
+          "role": "text",
+          "bbox": [
+            110,
+            852,
+            196,
+            868
+          ],
+          "text": "HE tHE,",
+          "confidence": 0.435
+        },
+        {
+          "role": "text",
+          "bbox": [
+            30,
+            917,
+            38,
+            925
+          ],
+          "text": "o",
+          "confidence": 0.53
+        },
+        {
+          "role": "text",
+          "bbox": [
+            105,
+            917,
+            166,
+            946
+          ],
+          "text": "chat 71)",
+          "confidence": 0.8
+        }
+      ],
+      "body": [
+        {
+          "role": "text",
+          "bbox": [
+            1073,
+            157,
+            1539,
+            199
+          ],
+          "text": "21 Ul AAS ISON",
+          "confidence": 0.611
+        },
+        {
+          "role": "title",
+          "bbox": [
+            951,
+            202,
+            1022,
+            221
+          ],
+          "text": "AE",
+          "confidence": 0.49
+        },
+        {
+          "role": "text",
+          "bbox": [
+            635,
+            282,
+            699,
+            302
+          ],
+          "text": "copilot",
+          "confidence": 0.73
+        },
+        {
+          "role": "text",
+          "bbox": [
+            810,
+            529,
+            860,
+            537
+          ],
+          "text": "Iai: model",
+          "confidence": 0.605
+        },
+        {
+          "role": "text",
+          "bbox": [
+            835,
+            543,
+            841,
+            564
+          ],
+          "text": "Is",
+          "confidence": 0.62
+        },
+        {
+          "role": "text",
+          "bbox": [
+            724,
+            543,
+            992,
+            565
+          ],
+          "text": "on Be 12044) listening http: /0/0.00.0.8081",
+          "confidence": 0.688
+        },
+        {
+          "role": "text",
+          "bbox": [
+            675,
+            629,
+            693,
+            649
+          ],
+          "text": "wo",
+          "confidence": 0.33
+        },
+        {
+          "role": "text",
+          "bbox": [
+            138,
+            655,
+            876,
+            692
+          ],
+          "text": "fen OF 2.",
+          "confidence": 0.44
+        },
+        {
+          "role": "title",
+          "bbox": [
+            756,
+            857,
+            791,
+            875
+          ],
+          "text": "AE",
+          "confidence": 0.33
+        },
+        {
+          "role": "title",
+          "bbox": [
+            708,
+            923,
+            731,
+            949
+          ],
+          "text": "S",
+          "confidence": 0.42
+        },
+        {
+          "role": "text",
+          "bbox": [
+            27,
+            923,
+            1541,
+            949
+          ],
+          "text": "©C copilot Designer X",
+          "confidence": 0.689
+        },
+        {
+          "role": "title",
+          "bbox": [
+            983,
+            986,
+            1026,
+            999
+          ],
+          "text": "AIMS",
+          "confidence": 0.39
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1151,
+            986,
+            1195,
+            999
+          ],
+          "text": "Be 4",
+          "confidence": 0.655
+        }
+      ],
+      "status_bar": [
+        {
+          "role": "text",
+          "bbox": [
+            82,
+            1032,
+            1896,
+            1065
+          ],
+          "text": "23 9:50 e",
+          "confidence": 0.698
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1818,
+            1054,
+            1893,
+            1065
+          ],
+          "text": "2026-06-01",
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "assistant",
+      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ELdyd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "도커온라인인데.."
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ddd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ddd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "지금 어떤화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 VLM 서버 응답] 질문 확인: '지금 어떤화면이야?'\n\n이미지 데이터(Base64)가 감지되었습니다!\n실제 도커(Docker) VLM 서버가 연결되면 Moondream2 모델을 사용해 화면의 시각 요소를 직접 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "무슨화면이야??"
+    },
+    {
+      "role": "assistant",
+      "content": "지금 화면은 서비스 플로우(SERVICE FLOW) 화면처럼 보인다.\n\n화면의 제목은 \"CH260601-000106\"이며, 여러 가지 정보가 표시되어 있다. \n\n이 화면에서 ServiceFLOW, Sale, serviceflowsk.com, Risk e202 등과 같은 텍스트가 감지되었습니다.\n\n화면의 목적은 서비스 플로우를 관리하고 추적하는 것처럼 보인다."
+    },
+    {
+      "role": "user",
+      "content": "지금은?"
+    },
+    {
+      "role": "assistant",
+      "content": "지금 화면은 DB Inspector 화면처럼 보인다.\n\n화면의 제목은 \"DB Inspector\"이며, 여러 가지 정보가 표시되어 있다. \n\n이 화면에서 Think AMEVA DB Inspector, Q a4, init: chat template, example_format: 'vicuna’, stv, main: model loaded 등과 같은 텍스트가 감지되었습니다.\n\n화면의 목적은 데이터베이스를 관리하고 검사하는 것처럼 보인다."
+    },
+    {
+      "role": "user",
+      "content": "이건 무슨화면인가?\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] ---\n[TEXT] ig) O Ate) Global 712 Think AMEVA DB Inspector 1. (Ov GPT 5.2\n[TEXT] v\n[TEXT] Q as\n--- [REGION: SIDEBAR] (15 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] 21 Ul AAS ISON\n[TITLE] AE\n[TEXT] copilot\n[TEXT] Iai: model\n[TEXT] Is\n[TEXT] on Be 12044) listening http: /0/0.00.0.8081\n[TEXT] wo\n[TEXT] fen OF 2.\n[TITLE] AE\n[TITLE] S\n[TEXT] ©C copilot Designer X\n[TITLE] AIMS\n[TEXT] Be 4\n--- [REGION: STATUS_BAR] ---\n[TEXT] 23 9:50 e\n[TEXT] 2026-06-01"
+    }
+  ],
+  "llm_response": "[가짜 VLM 서버 응답] 질문 확인: '이건 무슨화면인가?'\n\n이미지 데이터(Base64)가 감지되었습니다!\n실제 도커(Docker) VLM 서버가 연결되면 Moondream2 모델을 사용해 화면의 시각 요소를 직접 분석하여 진짜 답변을 드립니다."
+}

@@ -1,0 +1,1954 @@
+{
+  "ocr_raw": [
+    {
+      "text": "O",
+      "bbox": [
+        25,
+        84,
+        46,
+        105
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Q",
+      "bbox": [
+        27,
+        131,
+        45,
+        149
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "a4",
+      "bbox": [
+        59,
+        133,
+        88,
+        148
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "IT",
+      "bbox": [
+        60,
+        279,
+        72,
+        292
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Be",
+      "bbox": [
+        78,
+        278,
+        107,
+        293
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "12049]",
+      "bbox": [
+        116,
+        278,
+        172,
+        293
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "@",
+      "bbox": [
+        24,
+        321,
+        49,
+        346
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "wana!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "BH",
+      "bbox": [
+        24,
+        371,
+        48,
+        393
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "A",
+      "bbox": [
+        59,
+        375,
+        72,
+        390
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "#",
+      "bbox": [
+        24,
+        528,
+        34,
+        540
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        39,
+        528,
+        98,
+        541
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        103,
+        527,
+        153,
+        541
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        160,
+        528,
+        181,
+        541
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Inspector...",
+      "bbox": [
+        188,
+        528,
+        274,
+        545
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "Traceback",
+      "bbox": [
+        24,
+        573,
+        100,
+        587
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "(most",
+      "bbox": [
+        106,
+        574,
+        148,
+        590
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "recent",
+      "bbox": [
+        154,
+        575,
+        201,
+        587
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "call",
+      "bbox": [
+        207,
+        573,
+        230,
+        587
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "last):",
+      "bbox": [
+        238,
+        573,
+        271,
+        590
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "vba",
+      "bbox": [
+        24,
+        620,
+        50,
+        634
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "&",
+      "bbox": [
+        57,
+        620,
+        71,
+        635
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "2}",
+      "bbox": [
+        147,
+        620,
+        162,
+        635
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "AES",
+      "bbox": [
+        168,
+        620,
+        214,
+        635
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "Bhat...",
+      "bbox": [
+        221,
+        619,
+        264,
+        635
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "Of",
+      "bbox": [
+        137,
+        656,
+        150,
+        691
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "Xa",
+      "bbox": [
+        25,
+        713,
+        55,
+        728
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "VAL",
+      "bbox": [
+        136,
+        713,
+        182,
+        728
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "a...",
+      "bbox": [
+        242,
+        713,
+        269,
+        728
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": ">>",
+      "bbox": [
+        26,
+        763,
+        46,
+        772
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "venv\\Scripts\\python.exe",
+      "bbox": [
+        53,
+        759,
+        237,
+        777
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "sr...",
+      "bbox": [
+        243,
+        764,
+        268,
+        773
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "SAIS",
+      "bbox": [
+        24,
+        805,
+        102,
+        821
+      ],
+      "confidence": 0.32
+    },
+    {
+      "text": "(SS",
+      "bbox": [
+        25,
+        851,
+        61,
+        869
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "AB]",
+      "bbox": [
+        67,
+        852,
+        102,
+        869
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "He",
+      "bbox": [
+        110,
+        852,
+        140,
+        867
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "ite,",
+      "bbox": [
+        146,
+        852,
+        196,
+        868
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "...",
+      "bbox": [
+        260,
+        864,
+        271,
+        866
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Copilot",
+      "bbox": [
+        60,
+        929,
+        99,
+        942
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "Chat",
+      "bbox": [
+        103,
+        929,
+        128,
+        939
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "(71)",
+      "bbox": [
+        132,
+        929,
+        161,
+        941
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "©",
+      "bbox": [
+        170,
+        929,
+        183,
+        942
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "&",
+      "bbox": [
+        27,
+        926,
+        41,
+        933
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "#",
+      "bbox": [
+        353,
+        91,
+        363,
+        103
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        368,
+        91,
+        425,
+        104
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        430,
+        90,
+        478,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        486,
+        91,
+        506,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Inspector",
+      "bbox": [
+        513,
+        91,
+        583,
+        108
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "---",
+      "bbox": [
+        589,
+        98,
+        608,
+        99
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "##",
+      "bbox": [
+        614,
+        91,
+        634,
+        103
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "1.",
+      "bbox": [
+        641,
+        91,
+        645,
+        104
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "(Ov",
+      "bbox": [
+        695,
+        91,
+        721,
+        107
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "init:",
+      "bbox": [
+        951,
+        145,
+        981,
+        160
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "chat",
+      "bbox": [
+        988,
+        145,
+        1024,
+        160
+      ],
+      "confidence": 0.97
+    },
+    {
+      "text": "template,",
+      "bbox": [
+        1031,
+        145,
+        1111,
+        165
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "example_format:",
+      "bbox": [
+        1119,
+        145,
+        1263,
+        165
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "'vicuna’",
+      "bbox": [
+        1271,
+        145,
+        1333,
+        160
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "stv",
+      "bbox": [
+        951,
+        211,
+        975,
+        239
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "init:",
+      "bbox": [
+        1029,
+        215,
+        1059,
+        230
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "init:",
+      "bbox": [
+        1067,
+        215,
+        1097,
+        230
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "chat",
+      "bbox": [
+        1104,
+        215,
+        1140,
+        230
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "template,",
+      "bbox": [
+        1146,
+        215,
+        1227,
+        235
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "thinking",
+      "bbox": [
+        1234,
+        215,
+        1305,
+        235
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "=",
+      "bbox": [
+        1313,
+        221,
+        1323,
+        226
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "0",
+      "bbox": [
+        1331,
+        216,
+        1340,
+        230
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "main:",
+      "bbox": [
+        951,
+        285,
+        997,
+        300
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "model",
+      "bbox": [
+        1004,
+        285,
+        1057,
+        300
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "loaded",
+      "bbox": [
+        1066,
+        285,
+        1123,
+        300
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "main:",
+      "bbox": [
+        951,
+        355,
+        997,
+        370
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "server",
+      "bbox": [
+        1004,
+        360,
+        1056,
+        370
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "is",
+      "bbox": [
+        1063,
+        355,
+        1074,
+        370
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "listening",
+      "bbox": [
+        1082,
+        355,
+        1153,
+        375
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "on",
+      "bbox": [
+        1161,
+        360,
+        1181,
+        370
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "http://0.0.0.0:8081",
+      "bbox": [
+        1190,
+        355,
+        1343,
+        375
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "main:",
+      "bbox": [
+        951,
+        425,
+        997,
+        440
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "starting",
+      "bbox": [
+        1004,
+        425,
+        1069,
+        445
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "the",
+      "bbox": [
+        1076,
+        425,
+        1103,
+        440
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "main",
+      "bbox": [
+        1111,
+        425,
+        1151,
+        440
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "loop...",
+      "bbox": [
+        1160,
+        425,
+        1210,
+        445
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "stv",
+      "bbox": [
+        951,
+        500,
+        975,
+        510
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "update_slots:",
+      "bbox": [
+        987,
+        495,
+        1100,
+        515
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "all",
+      "bbox": [
+        1107,
+        495,
+        1125,
+        510
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "slots",
+      "bbox": [
+        1132,
+        495,
+        1171,
+        510
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "are",
+      "bbox": [
+        1178,
+        500,
+        1204,
+        510
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "idle",
+      "bbox": [
+        1211,
+        495,
+        1241,
+        510
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "GPT",
+      "bbox": [
+        1561,
+        91,
+        1593,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "5.2",
+      "bbox": [
+        1599,
+        91,
+        1620,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Think",
+      "bbox": [
+        1626,
+        90,
+        1670,
+        104
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "~",
+      "bbox": [
+        1678,
+        96,
+        1687,
+        101
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "C7)",
+      "bbox": [
+        591,
+        668,
+        625,
+        702
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "Copilot",
+      "bbox": [
+        635,
+        674,
+        699,
+        702
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "@",
+      "bbox": [
+        599,
+        723,
+        616,
+        740
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": ">",
+      "bbox": [
+        753,
+        727,
+        758,
+        737
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "APSA",
+      "bbox": [
+        635,
+        759,
+        688,
+        778
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "QAO",
+      "bbox": [
+        695,
+        759,
+        747,
+        778
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "Cet",
+      "bbox": [
+        756,
+        759,
+        791,
+        778
+      ],
+      "confidence": 0.59
+    },
+    {
+      "text": "SSS",
+      "bbox": [
+        1135,
+        759,
+        1189,
+        777
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "S/O}",
+      "bbox": [
+        1257,
+        759,
+        1290,
+        778
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "ICH.",
+      "bbox": [
+        1299,
+        759,
+        1338,
+        778
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "CopilotO]",
+      "bbox": [
+        635,
+        858,
+        715,
+        879
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "+",
+      "bbox": [
+        638,
+        925,
+        660,
+        947
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "©",
+      "bbox": [
+        1523,
+        923,
+        1541,
+        948
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "O",
+      "bbox": [
+        25,
+        84,
+        46,
+        105
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        430,
+        90,
+        478,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+      "bbox": [
+        368,
+        90,
+        1670,
+        108
+      ],
+      "confidence": 0.957
+    },
+    {
+      "text": "Q a4",
+      "bbox": [
+        27,
+        131,
+        88,
+        149
+      ],
+      "confidence": 0.835
+    },
+    {
+      "text": "init: chat template, example_format: 'vicuna’",
+      "bbox": [
+        951,
+        145,
+        1333,
+        165
+      ],
+      "confidence": 0.889
+    },
+    {
+      "text": "stv",
+      "bbox": [
+        951,
+        211,
+        975,
+        239
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "init: init: chat template, thinking",
+      "bbox": [
+        1029,
+        215,
+        1305,
+        235
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "0",
+      "bbox": [
+        1331,
+        216,
+        1340,
+        230
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Be 12049] IT",
+      "bbox": [
+        60,
+        278,
+        172,
+        293
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "main: model loaded",
+      "bbox": [
+        951,
+        285,
+        1123,
+        300
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "wana!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "main:",
+      "bbox": [
+        951,
+        355,
+        997,
+        370
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "is listening",
+      "bbox": [
+        1063,
+        355,
+        1153,
+        375
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "http://0.0.0.0:8081 server on",
+      "bbox": [
+        1004,
+        355,
+        1343,
+        375
+      ],
+      "confidence": 0.935
+    },
+    {
+      "text": "BH A",
+      "bbox": [
+        24,
+        371,
+        72,
+        393
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "main: starting the main loop...",
+      "bbox": [
+        951,
+        425,
+        1210,
+        445
+      ],
+      "confidence": 0.954
+    },
+    {
+      "text": "update_slots: all slots",
+      "bbox": [
+        987,
+        495,
+        1171,
+        515
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "idle stv are",
+      "bbox": [
+        951,
+        495,
+        1241,
+        510
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "Global AMEVA DB Inspector...",
+      "bbox": [
+        39,
+        527,
+        274,
+        545
+      ],
+      "confidence": 0.839
+    },
+    {
+      "text": "Traceback",
+      "bbox": [
+        24,
+        573,
+        100,
+        587
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "call last): (most recent",
+      "bbox": [
+        106,
+        573,
+        271,
+        590
+      ],
+      "confidence": 0.928
+    },
+    {
+      "text": "Bhat... vba 2} AES",
+      "bbox": [
+        24,
+        619,
+        264,
+        635
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "Of",
+      "bbox": [
+        137,
+        656,
+        150,
+        691
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "C7) Copilot",
+      "bbox": [
+        591,
+        668,
+        699,
+        702
+      ],
+      "confidence": 0.635
+    },
+    {
+      "text": "Xa",
+      "bbox": [
+        25,
+        713,
+        55,
+        728
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "VAL",
+      "bbox": [
+        136,
+        713,
+        182,
+        728
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "a...",
+      "bbox": [
+        242,
+        713,
+        269,
+        728
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "venv\\Scripts\\python.exe",
+      "bbox": [
+        53,
+        759,
+        237,
+        777
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "APSA QAO Cet",
+      "bbox": [
+        635,
+        759,
+        791,
+        778
+      ],
+      "confidence": 0.497
+    },
+    {
+      "text": "SSS",
+      "bbox": [
+        1135,
+        759,
+        1189,
+        777
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "S/O} ICH. sr...",
+      "bbox": [
+        243,
+        759,
+        1338,
+        778
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "SAIS",
+      "bbox": [
+        24,
+        805,
+        102,
+        821
+      ],
+      "confidence": 0.32
+    },
+    {
+      "text": "(SS AB] He ite,",
+      "bbox": [
+        25,
+        851,
+        196,
+        869
+      ],
+      "confidence": 0.482
+    },
+    {
+      "text": "CopilotO]",
+      "bbox": [
+        635,
+        858,
+        715,
+        879
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Copilot Chat (71)",
+      "bbox": [
+        60,
+        929,
+        161,
+        942
+      ],
+      "confidence": 0.725
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [
+        {
+          "role": "title",
+          "bbox": [
+            25,
+            84,
+            46,
+            105
+          ],
+          "text": "O",
+          "confidence": 0.91
+        },
+        {
+          "role": "text",
+          "bbox": [
+            430,
+            90,
+            478,
+            104
+          ],
+          "text": "Global",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            368,
+            90,
+            1670,
+            108
+          ],
+          "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+          "confidence": 0.957
+        },
+        {
+          "role": "text",
+          "bbox": [
+            27,
+            131,
+            88,
+            149
+          ],
+          "text": "Q a4",
+          "confidence": 0.835
+        },
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            145,
+            1333,
+            165
+          ],
+          "text": "init: chat template, example_format: 'vicuna’",
+          "confidence": 0.889
+        }
+      ],
+      "sidebar": [
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            278,
+            172,
+            293
+          ],
+          "text": "Be 12049] IT",
+          "confidence": 0.78
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            327,
+            121,
+            342
+          ],
+          "text": "wana!",
+          "confidence": 0.4
+        },
+        {
+          "role": "title",
+          "bbox": [
+            24,
+            371,
+            72,
+            393
+          ],
+          "text": "BH A",
+          "confidence": 0.52
+        },
+        {
+          "role": "title",
+          "bbox": [
+            58,
+            422,
+            89,
+            437
+          ],
+          "text": "BE",
+          "confidence": 0.66
+        },
+        {
+          "role": "text",
+          "bbox": [
+            39,
+            527,
+            274,
+            545
+          ],
+          "text": "Global AMEVA DB Inspector...",
+          "confidence": 0.839
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            573,
+            100,
+            587
+          ],
+          "text": "Traceback",
+          "confidence": 0.9
+        },
+        {
+          "role": "text",
+          "bbox": [
+            106,
+            573,
+            271,
+            590
+          ],
+          "text": "call last): (most recent",
+          "confidence": 0.928
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            619,
+            264,
+            635
+          ],
+          "text": "Bhat... vba 2} AES",
+          "confidence": 0.61
+        },
+        {
+          "role": "text",
+          "bbox": [
+            137,
+            656,
+            150,
+            691
+          ],
+          "text": "Of",
+          "confidence": 0.61
+        },
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            713,
+            55,
+            728
+          ],
+          "text": "Xa",
+          "confidence": 0.53
+        },
+        {
+          "role": "title",
+          "bbox": [
+            136,
+            713,
+            182,
+            728
+          ],
+          "text": "VAL",
+          "confidence": 0.42
+        },
+        {
+          "role": "text",
+          "bbox": [
+            242,
+            713,
+            269,
+            728
+          ],
+          "text": "a...",
+          "confidence": 0.4
+        },
+        {
+          "role": "text",
+          "bbox": [
+            53,
+            759,
+            237,
+            777
+          ],
+          "text": "venv\\Scripts\\python.exe",
+          "confidence": 0.78
+        },
+        {
+          "role": "title",
+          "bbox": [
+            24,
+            805,
+            102,
+            821
+          ],
+          "text": "SAIS",
+          "confidence": 0.32
+        },
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            851,
+            196,
+            869
+          ],
+          "text": "(SS AB] He ite,",
+          "confidence": 0.482
+        },
+        {
+          "role": "text",
+          "bbox": [
+            30,
+            917,
+            38,
+            925
+          ],
+          "text": "o",
+          "confidence": 0.54
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            929,
+            161,
+            942
+          ],
+          "text": "Copilot Chat (71)",
+          "confidence": 0.725
+        }
+      ],
+      "body": [
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            211,
+            975,
+            239
+          ],
+          "text": "stv",
+          "confidence": 0.48
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1029,
+            215,
+            1305,
+            235
+          ],
+          "text": "init: init: chat template, thinking",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1331,
+            216,
+            1340,
+            230
+          ],
+          "text": "0",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            285,
+            1123,
+            300
+          ],
+          "text": "main: model loaded",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            355,
+            997,
+            370
+          ],
+          "text": "main:",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1063,
+            355,
+            1153,
+            375
+          ],
+          "text": "is listening",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1004,
+            355,
+            1343,
+            375
+          ],
+          "text": "http://0.0.0.0:8081 server on",
+          "confidence": 0.935
+        },
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            425,
+            1210,
+            445
+          ],
+          "text": "main: starting the main loop...",
+          "confidence": 0.954
+        },
+        {
+          "role": "text",
+          "bbox": [
+            987,
+            495,
+            1171,
+            515
+          ],
+          "text": "update_slots: all slots",
+          "confidence": 0.94
+        },
+        {
+          "role": "text",
+          "bbox": [
+            951,
+            495,
+            1241,
+            510
+          ],
+          "text": "idle stv are",
+          "confidence": 0.84
+        },
+        {
+          "role": "text",
+          "bbox": [
+            591,
+            668,
+            699,
+            702
+          ],
+          "text": "C7) Copilot",
+          "confidence": 0.635
+        },
+        {
+          "role": "text",
+          "bbox": [
+            635,
+            759,
+            791,
+            778
+          ],
+          "text": "APSA QAO Cet",
+          "confidence": 0.497
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1135,
+            759,
+            1189,
+            777
+          ],
+          "text": "SSS",
+          "confidence": 0.83
+        },
+        {
+          "role": "text",
+          "bbox": [
+            243,
+            759,
+            1338,
+            778
+          ],
+          "text": "S/O} ICH. sr...",
+          "confidence": 0.67
+        },
+        {
+          "role": "text",
+          "bbox": [
+            635,
+            858,
+            715,
+            879
+          ],
+          "text": "CopilotO]",
+          "confidence": 0.57
+        }
+      ],
+      "status_bar": [
+        {
+          "role": "text",
+          "bbox": [
+            1818,
+            1054,
+            1893,
+            1065
+          ],
+          "text": "2026-06-01",
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ELdyd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "도커온라인인데.."
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ddd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ddd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "지금 어떤화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 VLM 서버 응답] 질문 확인: '지금 어떤화면이야?'\n\n이미지 데이터(Base64)가 감지되었습니다!\n실제 도커(Docker) VLM 서버가 연결되면 Moondream2 모델을 사용해 화면의 시각 요소를 직접 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "무슨화면이야??"
+    },
+    {
+      "role": "assistant",
+      "content": "지금 화면은 서비스 플로우(SERVICE FLOW) 화면처럼 보인다.\n\n화면의 제목은 \"CH260601-000106\"이며, 여러 가지 정보가 표시되어 있다. \n\n이 화면에서 ServiceFLOW, Sale, serviceflowsk.com, Risk e202 등과 같은 텍스트가 감지되었습니다.\n\n화면의 목적은 서비스 플로우를 관리하고 추적하는 것처럼 보인다."
+    },
+    {
+      "role": "user",
+      "content": "지금은?\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] ---\n[TITLE] O\n[TEXT] Global\n[TEXT] Think AMEVA DB Inspector 1. (Ov GPT 5.2\n[TEXT] Q a4\n[TEXT] init: chat template, example_format: 'vicuna’\n--- [REGION: SIDEBAR] (17 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] stv\n[TEXT] init: init: chat template, thinking\n[TEXT] 0\n[TEXT] main: model loaded\n[TEXT] main:\n[TEXT] is listening\n[TEXT] http://0.0.0.0:8081 server on\n[TEXT] main: starting the main loop...\n[TEXT] update_slots: all slots\n[TEXT] idle stv are\n[TEXT] C7) Copilot\n[TEXT] APSA QAO Cet\n[TITLE] SSS\n[TEXT] S/O} ICH. sr...\n[TEXT] CopilotO]\n--- [REGION: STATUS_BAR] ---\n[TEXT] 2026-06-01"
+    }
+  ],
+  "llm_response": "지금 화면은 DB Inspector 화면처럼 보인다.\n\n화면의 제목은 \"DB Inspector\"이며, 여러 가지 정보가 표시되어 있다. \n\n이 화면에서 Think AMEVA DB Inspector, Q a4, init: chat template, example_format: 'vicuna’, stv, main: model loaded 등과 같은 텍스트가 감지되었습니다.\n\n화면의 목적은 데이터베이스를 관리하고 검사하는 것처럼 보인다."
+}

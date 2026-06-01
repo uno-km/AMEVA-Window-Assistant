@@ -69,6 +69,8 @@ CREATE TABLE IF NOT EXISTS tb_job (
     llm_mdl     TEXT,
     err_id      INTEGER,
     inp_mode    TEXT    DEFAULT 'text',
+    route_decision TEXT,
+    route_reason TEXT,
     FOREIGN KEY (sess_id) REFERENCES tb_session (id) ON DELETE CASCADE
 );
 
@@ -115,6 +117,11 @@ class DatabaseManager:
         conn = self._connect()
         try:
             conn.executescript(_SCHEMA_SQL)
+            try:
+                conn.execute("ALTER TABLE tb_job ADD COLUMN route_decision TEXT;")
+                conn.execute("ALTER TABLE tb_job ADD COLUMN route_reason TEXT;")
+            except sqlite3.OperationalError:
+                pass
             conn.commit()
         finally:
             conn.close()
@@ -305,6 +312,18 @@ class DatabaseManager:
                 "SELECT COUNT(*) AS cnt FROM tb_job WHERE stt_state = 'queued'"
             ).fetchone()
             return row["cnt"]
+        finally:
+            conn.close()
+
+    def update_job_routing(self, job_id: int, decision: str, reason: str):
+        """Update job with the intent router's decision and reasoning."""
+        conn = self._connect()
+        try:
+            conn.execute(
+                "UPDATE tb_job SET route_decision = ?, route_reason = ? WHERE id = ?",
+                (decision, reason, job_id),
+            )
+            conn.commit()
         finally:
             conn.close()
 
