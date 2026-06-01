@@ -411,7 +411,54 @@ class MainWindow(tk.Tk):
 
         self._chat_text.insert(tk.END, f"{label}  ", tag)
         self._chat_text.insert(tk.END, f"{ts}\n", "meta")
-        self._chat_text.insert(tk.END, f"{content}\n", tag)
+
+        # Parse and render collapsible details block if present
+        if role == "assistant" and "<details>" in content:
+            import re
+            import time
+            pattern = re.compile(r"<details><summary>(.*?)</summary>(.*?)</details>(.*)", re.DOTALL)
+            match = pattern.search(content)
+            if match:
+                summary_text = match.group(1).strip()
+                details_text = match.group(2).strip()
+                remaining_text = match.group(3).strip()
+                
+                msg_id = msg.get("id") or int(time.time() * 1000)
+                details_tag = f"details_{msg_id}"
+                btn_tag = f"btn_{msg_id}"
+                
+                # Grayish color, italic/smaller font for reasoning
+                self._chat_text.tag_configure(details_tag, elide=True, foreground="#94e2d5", font=("Segoe UI", 9, "italic"))
+                
+                def toggle_details(e, d_tag=details_tag, b_tag=btn_tag, s_text=summary_text):
+                    current_elide = self._chat_text.tag_cget(d_tag, "elide")
+                    # In Tkinter, elide value can be '1', '0', True, or False
+                    is_hidden = current_elide in [True, "1", 1]
+                    new_elide = not is_hidden
+                    self._chat_text.tag_configure(d_tag, elide=new_elide)
+                    
+                    btn_text = f"▼ {s_text}" if not new_elide else f"▶ {s_text}"
+                    
+                    ranges = self._chat_text.tag_ranges(b_tag)
+                    if ranges:
+                        self._chat_text.configure(state=tk.NORMAL)
+                        self._chat_text.delete(ranges[0], ranges[1])
+                        self._chat_text.insert(ranges[0], btn_text, (b_tag, "link"))
+                        self._chat_text.configure(state=tk.DISABLED)
+                
+                start_btn_text = f"▶ {summary_text}"
+                self._chat_text.insert(tk.END, f"{start_btn_text}\n", (btn_tag, "link"))
+                
+                self._chat_text.tag_bind(btn_tag, "<Button-1>", toggle_details)
+                self._chat_text.tag_bind(btn_tag, "<Enter>", lambda e: self._chat_text.configure(cursor="hand2"))
+                self._chat_text.tag_bind(btn_tag, "<Leave>", lambda e: self._chat_text.configure(cursor="arrow"))
+                
+                self._chat_text.insert(tk.END, f"{details_text}\n\n", details_tag)
+                self._chat_text.insert(tk.END, f"{remaining_text}\n", tag)
+            else:
+                self._chat_text.insert(tk.END, f"{content}\n", tag)
+        else:
+            self._chat_text.insert(tk.END, f"{content}\n", tag)
 
         # Meta line
         meta_parts = []

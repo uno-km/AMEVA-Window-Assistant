@@ -31,6 +31,21 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
         self.endpoint_url = endpoint_url
         
     def _encode_image(self, image_path: str) -> str:
+        try:
+            from PIL import Image
+            import io
+            with Image.open(image_path) as img:
+                max_size = 1024
+                if img.width > max_size or img.height > max_size:
+                    logger.info(f"[VLM] Resizing image from {img.width}x{img.height} to fit within {max_size}x{max_size}")
+                    img.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
+                    img_bytes = io.BytesIO()
+                    fmt = img.format if img.format else "JPEG"
+                    img.save(img_bytes, format=fmt)
+                    return base64.b64encode(img_bytes.getvalue()).decode('utf-8')
+        except Exception as e:
+            logger.warning(f"[VLM] Failed to optimize image: {e}. Falling back to original.")
+            
         with open(image_path, "rb") as f:
             return base64.b64encode(f.read()).decode('utf-8')
 
@@ -75,7 +90,7 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
             logger.debug(f"[VLM] Payload prompt structure: keys={list(payload.keys())}, base64 length={len(base64_image)} bytes")
             t0 = time.perf_counter()
             
-            with urllib.request.urlopen(req, timeout=120) as response:
+            with urllib.request.urlopen(req, timeout=300) as response:
                 latency_ms = int((time.perf_counter() - t0) * 1000)
                 raw_body = response.read().decode("utf-8")
                 
@@ -83,6 +98,14 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
                 logger.debug(f"[VLM] Raw response: {raw_body}")
                 
                 resp_data = json.loads(raw_body)
+                if "choices" in resp_data:
+                    # OpenAI chat completions format
+                    if "message" in resp_data["choices"][0]:
+                        return resp_data["choices"][0]["message"].get("content", "").strip()
+                    # OpenAI completions format (fallback)
+                    elif "text" in resp_data["choices"][0]:
+                        return resp_data["choices"][0].get("text", "").strip()
+                # llama.cpp /completion format
                 return resp_data.get("content", "").strip()
                 
         except urllib.error.URLError as e:

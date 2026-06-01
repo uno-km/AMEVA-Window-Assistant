@@ -279,8 +279,6 @@ class WorkerThread(threading.Thread):
                     logger.info("Text LLM returned a failure response. Triggering VLM fallback!")
                     response_text, llm_prov = run_vlm_fallback("Text LLM Failure Response")
 
-            job.result_text = response_text
-            
             think_parts = []
             if 'route_decision' in locals() and 'route_reason' in locals():
                 think_parts.append(f"- **라우터 판단**: {route_decision}")
@@ -289,7 +287,10 @@ class WorkerThread(threading.Thread):
                     think_parts.append(f"- **영문 번역**: {translated_prompt}")
                     
             if should_fallback:
-                think_parts.append(f"- **폴백(Fallback) 발생**: {reason_str}")
+                try:
+                    think_parts.append(f"- **폴백(Fallback) 발생**: {reason_str}")
+                except NameError:
+                    think_parts.append(f"- **폴백(Fallback) 발생**: Qwen Router")
                 
             if 'raw_vlm_text' in locals() and 'translated_r_text' in locals() and translated_r_text:
                 think_parts.append(f"- **VLM 원본(영어)**: {raw_vlm_text}")
@@ -305,6 +306,7 @@ class WorkerThread(threading.Thread):
                 )
                 response_text = think_block + response_text
                 
+            job.result_text = response_text
             job.extra["llm_response"] = response_text
             
             # Save artifacts for debugging

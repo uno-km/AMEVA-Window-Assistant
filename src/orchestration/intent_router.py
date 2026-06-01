@@ -19,7 +19,7 @@ class IntentRouter:
     
     def __init__(self, endpoint_url="http://127.0.0.1:8082/v1/chat/completions"):
         self.endpoint_url = endpoint_url
-        self.timeout = 10
+        self.timeout = 30
         
         # We craft a highly constrained system prompt for Qwen.
         self.system_prompt = (
