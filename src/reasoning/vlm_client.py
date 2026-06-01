@@ -58,7 +58,7 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
                 # Moondream2 uses /completion with strict <image> tagging
                 req_url = self.endpoint_url.replace("/v1/chat/completions", "/completion")
                 payload = {
-                    "prompt": f"<image>\n\nQuestion: Please describe this image in detail. The user asks: {prompt}\n\nAnswer:",
+                    "prompt": f"<image>\n\nQuestion: {prompt}\n\nAnswer:",
                     "image_data": [{"data": base64_image, "id": 10}],
                     "temperature": kwargs.get("temperature", 0.1),
                     "n_predict": kwargs.get("max_tokens", 512)

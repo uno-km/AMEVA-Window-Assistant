@@ -210,19 +210,8 @@ class WorkerThread(threading.Thread):
                 job.semantic_fallback_used = True
                 logger.info(f"Routing job {job.job_id} to VLM. Reason: {fallback_reason} (SG supplemented: {sg_fallback})")
                 
-                # Image Resolution-based Routing
-                use_qwen_vl = False
-                if job.capture_path and os.path.exists(job.capture_path):
-                    try:
-                        from PIL import Image
-                        with Image.open(job.capture_path) as img:
-                            width, height = img.size
-                            pixels = width * height
-                            # If image is larger than 800x800 (640,000 pixels), use Qwen2-VL
-                            if pixels > 640000:
-                                use_qwen_vl = True
-                    except Exception as e:
-                        logger.warning(f"Failed to check image size: {e}")
+                # Route all images to Qwen2-VL since the file will be repaired
+                use_qwen_vl = True
                 
                 if use_qwen_vl:
                     logger.info("Image is large (full screen). Routing to Qwen2-VL (8083).")
