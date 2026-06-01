@@ -82,12 +82,23 @@ class LlamaCppOpenAICompat(BaseLLM):
             method="POST",
         )
 
+        import time
+        logger.info(f"[TextLLM] Sending generation request to {url} (Model: {self.model_alias})")
+        logger.debug(f"[TextLLM] Payload messages: {json.dumps(messages, ensure_ascii=False)[:1500]}...")
+        t0 = time.perf_counter()
+
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 body = resp.read().decode("utf-8")
+                latency_ms = int((time.perf_counter() - t0) * 1000)
+                logger.info(f"[TextLLM] Received response in {latency_ms}ms")
+                logger.debug(f"[TextLLM] Raw response body: {body[:1000]}...")
         except urllib.error.URLError as e:
+            latency_ms = int((time.perf_counter() - t0) * 1000)
+            logger.error(f"[TextLLM] Connection failed after {latency_ms}ms: {e}")
             raise ConnectionError(f"LLM server unreachable: {e}") from e
         except TimeoutError:
+            logger.error(f"[TextLLM] Request timed out ({self.timeout}s)")
             raise TimeoutError(f"LLM request timed out ({self.timeout}s)")
 
         try:

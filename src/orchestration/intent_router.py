@@ -45,17 +45,22 @@ class IntentRouter:
         Returns (decision, reason, translated_prompt).
         Decision is either "VLM" or "OCR".
         """
+        import time
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": f"User Prompt: {user_input}"}
+        ]
         payload = {
-            "messages": [
-                {"role": "system", "content": self.system_prompt},
-                {"role": "user", "content": f"User Input: {user_input}"}
-            ],
-            "temperature": 0.0,
-            "max_tokens": 128,
-            # Force JSON format if supported by llama.cpp
-            "response_format": {"type": "json_object"}
+            "model": "qwen2.5-1.5b-instruct",
+            "messages": messages,
+            "temperature": 0.1,
+            "max_tokens": 150
         }
-
+        
+        logger.info(f"[IntentRouter] Requesting route decision from {self.endpoint_url}")
+        logger.debug(f"[IntentRouter] Payload sent: {json.dumps(payload, ensure_ascii=False)}")
+        t0 = time.perf_counter()
+        
         try:
             req = urllib.request.Request(
                 self.endpoint_url,
@@ -63,30 +68,34 @@ class IntentRouter:
                 headers={"Content-Type": "application/json"},
                 method="POST"
             )
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                body = resp.read().decode("utf-8")
-                result = json.loads(body)
-                content = result["choices"][0]["message"]["content"].strip()
+            with urllib.request.urlopen(req, timeout=self.timeout) as response:
+                latency_ms = int((time.perf_counter() - t0) * 1000)
+                resp_text = response.read().decode("utf-8")
                 
-                # Cleanup potential markdown wrap
-                if content.startswith("```json"):
-                    content = content[7:-3].strip()
-                elif content.startswith("```"):
-                    content = content[3:-3].strip()
-                    
+                logger.info(f"[IntentRouter] Received response in {latency_ms}ms")
+                logger.debug(f"[IntentRouter] Raw response: {resp_text}")
+                
+                data = json.loads(resp_text)
+                content = data["choices"][0]["message"]["content"].strip()
+                
+                # Remove markdown code blocks if any
+                if content.startswith("```"):
+                    lines = content.split('\n')
+                    if len(lines) >= 3:
+                        content = '\n'.join(lines[1:-1])
+                        
                 parsed = json.loads(content)
-                route_decision = parsed.get("route", "OCR").upper()
-                if route_decision not in ["VLM", "OCR"]:
-                    route_decision = "OCR"
-                cause = parsed.get("cause", "No reason provided")
-                translated = parsed.get("translated_prompt", user_input)
+                decision = parsed.get("route", "VLM")
+                cause = parsed.get("cause", "")
+                translated = parsed.get("translated_prompt", "")
                 
-                logger.info(f"[IntentRouter] Decision: {route_decision} | Reason: {cause} | Translated: {translated}")
-                return route_decision, cause, translated
+                logger.info(f"[IntentRouter] Parsed Decision: {decision} | Cause: {cause}")
+                return decision, cause, translated
                 
         except json.JSONDecodeError as e:
-            logger.warning(f"[IntentRouter] JSON Parse Error: {e}. Raw content: {content}")
-            return "OCR", "Router JSON Error", user_input
+            latency_ms = int((time.perf_counter() - t0) * 1000)
+            logger.error(f"[IntentRouter] JSON decode failed after {latency_ms}ms. Content: {content if 'content' in locals() else 'N/A'}")
+            return "VLM", f"Parse error: {e}", ""
         except Exception as e:
             logger.warning(f"[IntentRouter] Routing failed or timed out: {e}. Falling back to OCR.")
             return "OCR", f"Router Error: {str(e)}", user_input

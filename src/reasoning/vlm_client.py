@@ -70,8 +70,19 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
                 headers={"Content-Type": "application/json"}
             )
             
+            import time
+            logger.info(f"[VLM] Sending image analysis request to {req_url}")
+            logger.debug(f"[VLM] Payload prompt structure: keys={list(payload.keys())}, base64 length={len(base64_image)} bytes")
+            t0 = time.perf_counter()
+            
             with urllib.request.urlopen(req, timeout=120) as response:
-                resp_data = json.loads(response.read().decode("utf-8"))
+                latency_ms = int((time.perf_counter() - t0) * 1000)
+                raw_body = response.read().decode("utf-8")
+                
+                logger.info(f"[VLM] Received response in {latency_ms}ms")
+                logger.debug(f"[VLM] Raw response: {raw_body}")
+                
+                resp_data = json.loads(raw_body)
                 return resp_data.get("content", "").strip()
                 
         except urllib.error.URLError as e:

@@ -248,9 +248,11 @@ class WorkerThread(threading.Thread):
                     try:
                         t0 = time.perf_counter()
                         r_text = vlm.ask_image(job.capture_path, vlm_prompt)
+                        raw_vlm_text = r_text
                         
                         # Translate Moondream2 (English) response to Korean
                         if not use_qwen_vl:
+                            logger.info("[Worker/Narrative] Moondream2 output is English. Translating to Korean via Text LLM...")
                             try:
                                 translator_llm = self._get_llm()
                                 trans_msgs = [
@@ -290,12 +292,26 @@ class WorkerThread(threading.Thread):
 
             job.result_text = response_text
             
+            think_parts = []
             if 'route_decision' in locals() and 'route_reason' in locals():
+                think_parts.append(f"- **라우터 판단**: {route_decision}")
+                think_parts.append(f"- **판단 근거**: {route_reason}")
+                if 'translated_prompt' in locals() and translated_prompt:
+                    think_parts.append(f"- **영문 번역**: {translated_prompt}")
+                    
+            if should_fallback:
+                think_parts.append(f"- **폴백(Fallback) 발생**: {reason_str}")
+                
+            if 'raw_vlm_text' in locals() and 'translated_r_text' in locals() and translated_r_text:
+                think_parts.append(f"- **VLM 원본(영어)**: {raw_vlm_text}")
+                
+            think_parts.append(f"- **최종 응답 모델**: {llm_prov}")
+            
+            if think_parts:
+                think_content = "\n".join(think_parts)
                 think_block = (
-                    f"<details><summary>💡 생각보기 (Qwen Router)</summary>\n"
-                    f"- 판단 경로: **{route_decision}**\n"
-                    f"- 판단 근거: {route_reason}\n"
-                    f"- 영문 번역: {translated_prompt if 'translated_prompt' in locals() else 'N/A'}\n"
+                    f"<details><summary>💡 추론 과정 보기</summary>\n\n"
+                    f"{think_content}\n"
                     f"</details>\n\n"
                 )
                 response_text = think_block + response_text
