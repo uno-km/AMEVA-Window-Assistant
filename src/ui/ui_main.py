@@ -489,6 +489,26 @@ class MainWindow(tk.Tk):
         self._chat_text.configure(state=tk.DISABLED)
         self._chat_text.see(tk.END)
 
+    def _append_thinking_indicator(self):
+        """Show a temporary thinking animation in the chat."""
+        self._chat_text.configure(state=tk.NORMAL)
+        self._chat_text.insert(tk.END, "🤖 Assistant  ", ("assistant", "thinking_indicator"))
+        self._chat_text.insert(tk.END, "\n", ("meta", "thinking_indicator"))
+        self._chat_text.insert(tk.END, "🤔 생각 중...\n\n", ("thinking_indicator", "system"))
+        self._chat_text.tag_configure("thinking_indicator", foreground="#6c7086", font=("Segoe UI", 9, "italic"))
+        self._chat_text.configure(state=tk.DISABLED)
+        self._chat_text.see(tk.END)
+
+    def _remove_thinking_indicator(self):
+        """Remove the temporary thinking animation."""
+        self._chat_text.configure(state=tk.NORMAL)
+        while True:
+            ranges = self._chat_text.tag_ranges("thinking_indicator")
+            if not ranges:
+                break
+            self._chat_text.delete(ranges[0], ranges[1])
+        self._chat_text.configure(state=tk.DISABLED)
+
     # ==================================================================
     #  Input handlers
     # ==================================================================
@@ -527,6 +547,7 @@ class MainWindow(tk.Tk):
             "id": msg_id, "role": "user", "content": text,
             "create_dt": "", "ltncy_ms": None, "llm_mdl": None, "cap_path": None,
         })
+        self._append_thinking_indicator()
 
         # Create job
         job_id = self.db.insert_job(
@@ -729,6 +750,8 @@ class MainWindow(tk.Tk):
 
     def _handle_result(self, result: WorkerResult):
         """Process a completed job result."""
+        self._is_running = False
+        self._remove_thinking_indicator()
         job = result.job
         if job.session_id != self._current_session_id:
             return  # Result for a different session tab
@@ -779,27 +802,36 @@ class MainWindow(tk.Tk):
 
     def _poll_server_status(self):
         import urllib.request
+        import threading
+        
         llm_url = self.cfg.get("llm", "base_url", default="http://127.0.0.1:8080/v1") + "/models"
-        vlm_url = "http://127.0.0.1:8081/v1/models"
+        vlm_url = "http://127.0.0.1:9083/v1/models"
         
-        def check_url(url):
-            try:
-                req = urllib.request.Request(url, method="GET")
-                with urllib.request.urlopen(req, timeout=0.5) as resp:
-                    return resp.status == 200
-            except Exception:
-                return False
-                
-        llm_ok = check_url(llm_url)
-        vlm_ok = check_url(vlm_url)
-        
-        if llm_ok and vlm_ok:
-            self._lbl_server_status.configure(text="🔵 도커 서버(LLM+VLM) 온라인", fg="#89b4fa")
-        elif llm_ok or vlm_ok:
-            self._lbl_server_status.configure(text="🟡 서버 로딩 중...", fg="#f39c12")
-        else:
-            self._lbl_server_status.configure(text="🔴 도커 서버 오프라인", fg="#e74c3c")
+        def do_check():
+            def check_url(url):
+                try:
+                    req = urllib.request.Request(url, method="GET")
+                    with urllib.request.urlopen(req, timeout=0.5) as resp:
+                        return resp.status == 200
+                except Exception:
+                    return False
+                    
+            llm_ok = check_url(llm_url)
+            vlm_ok = check_url(vlm_url)
             
+            def update_ui():
+                try:
+                    if llm_ok and vlm_ok:
+                        self._lbl_server_status.configure(text="🔵 도커 서버(LLM+VLM) 온라인", fg="#89b4fa")
+                    elif llm_ok or vlm_ok:
+                        self._lbl_server_status.configure(text="🟡 서버 로딩 중...", fg="#f39c12")
+                    else:
+                        self._lbl_server_status.configure(text="🔴 도커 서버 오프라인", fg="#f38ba8")
+                except Exception:
+                    pass
+            self.after(0, update_ui)
+            
+        threading.Thread(target=do_check, daemon=True).start()
         self.after(3000, self._poll_server_status)
 
     # ==================================================================

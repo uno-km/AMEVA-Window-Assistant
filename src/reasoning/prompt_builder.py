@@ -42,9 +42,14 @@ class PromptBuilder:
         messages = [{"role": "system", "content": system_prompt}]
 
         # Load recent conversation history from this session
+        import re
         history = self.db.get_messages(job_session_id)
         for msg in history[-20:]:  # last 20 messages for context window
-            messages.append({"role": msg["role"], "content": msg["content"]})
+            content = msg["content"]
+            if msg["role"] == "assistant":
+                # Remove <details><summary>...</summary>...</details> to prevent the model from repeating details blocks.
+                content = re.sub(r'<details\b[^>]*>.*?</details>\s*', '', content, flags=re.DOTALL).strip()
+            messages.append({"role": msg["role"], "content": content})
 
         # Inject semantic summary if available
         if semantic_summary:

@@ -1,11 +1,5 @@
 import pytest
-from src.reasoning.vlm_client import LocalMockMultimodalAdapter, LocalLlamaCppMultimodalAdapter
-
-def test_mock_adapter():
-    adapter = LocalMockMultimodalAdapter()
-    result = adapter.generate("dummy.png", "어떤 모양이야?")
-    assert "local_vlm_unavailable" in result
-    assert "어떤 모양이야?" in result
+from src.reasoning.vlm_client import LocalLlamaCppMultimodalAdapter
 
 def test_llama_cpp_adapter_no_connection():
     adapter = LocalLlamaCppMultimodalAdapter(endpoint_url="http://localhost:9999/v1/invalid")

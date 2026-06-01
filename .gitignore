@@ -22,5 +22,6 @@ out*.json
 
 # AMEVA Captures (Screenshots and JSON info)
 data/captures/
+data/artifacts/
 *.png
 *.jpg
