@@ -142,6 +142,7 @@ def main():
     # Auto-start LLM and VLM servers if not alive
     llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
     vlm_url = "http://127.0.0.1:8081/v1"
+    router_url = "http://127.0.0.1:8082/v1"
     
     max_retries = 5
     max_wait = 60
@@ -151,20 +152,21 @@ def main():
     for attempt in range(1, max_retries + 1):
         llm_alive = _is_server_alive(llm_url)
         vlm_alive = _is_server_alive(vlm_url)
+        router_alive = _is_server_alive(router_url)
         
-        if llm_alive and vlm_alive:
+        if llm_alive and vlm_alive and router_alive:
             servers_alive = True
             break
             
-        logger.warning(f"LLM or VLM Server is unreachable. (Attempt {attempt}/{max_retries})")
+        logger.warning(f"LLM, VLM or Router Server is unreachable. (Attempt {attempt}/{max_retries})")
         logger.info("Attempting to start servers via Docker Compose...")
         _try_start_docker(logger)
         
         logger.info(f"Waiting up to {max_wait}s for models to load into memory...")
         for _ in range(max_wait):
             time.sleep(1.0)
-            if _is_server_alive(llm_url) and _is_server_alive(vlm_url):
-                logger.info("LLM & VLM Servers successfully started via Docker!")
+            if _is_server_alive(llm_url) and _is_server_alive(vlm_url) and _is_server_alive(router_url):
+                logger.info("LLM, VLM & Router Servers successfully started via Docker!")
                 servers_alive = True
                 break
                 
