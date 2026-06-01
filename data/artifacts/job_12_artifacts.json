@@ -1,0 +1,1787 @@
+{
+  "ocr_raw": [
+    {
+      "text": "@",
+      "bbox": [
+        17,
+        9,
+        33,
+        21
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "upc",
+      "bbox": [
+        45,
+        11,
+        73,
+        22
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "x",
+      "bbox": [
+        223,
+        12,
+        231,
+        20
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "|",
+      "bbox": [
+        266,
+        12,
+        275,
+        21
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "€",
+      "bbox": [
+        21,
+        50,
+        33,
+        61
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "*",
+      "bbox": [
+        117,
+        50,
+        128,
+        62
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "QO",
+      "bbox": [
+        215,
+        48,
+        229,
+        63
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": ">",
+      "bbox": [
+        250,
+        52,
+        254,
+        60
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "Wee",
+      "bbox": [
+        276,
+        50,
+        309,
+        63
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": ">",
+      "bbox": [
+        329,
+        52,
+        333,
+        60
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Pc",
+      "bbox": [
+        1446,
+        52,
+        1461,
+        62
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "at",
+      "bbox": [
+        1469,
+        50,
+        1493,
+        63
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "Q",
+      "bbox": [
+        1885,
+        51,
+        1895,
+        61
+      ],
+      "confidence": 0.82
+    },
+    {
+      "text": "WN",
+      "bbox": [
+        446,
+        99,
+        461,
+        111
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "BS",
+      "bbox": [
+        471,
+        100,
+        492,
+        111
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "87",
+      "bbox": [
+        560,
+        100,
+        578,
+        109
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "Voice",
+      "bbox": [
+        211,
+        141,
+        238,
+        150
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Screen",
+      "bbox": [
+        243,
+        141,
+        277,
+        150
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Assistant",
+      "bbox": [
+        281,
+        132,
+        328,
+        159
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "-",
+      "bbox": [
+        1119,
+        145,
+        1129,
+        146
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "a",
+      "bbox": [
+        1164,
+        140,
+        1174,
+        150
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "x",
+      "bbox": [
+        1210,
+        140,
+        1220,
+        150
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "La]",
+      "bbox": [
+        30,
+        167,
+        50,
+        196
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "MASS",
+      "bbox": [
+        151,
+        176,
+        213,
+        190
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": ":",
+      "bbox": [
+        478,
+        178,
+        479,
+        181
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": ">",
+      "bbox": [
+        15,
+        211,
+        19,
+        218
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "7",
+      "bbox": [
+        110,
+        214,
+        113,
+        215
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "Se",
+      "bbox": [
+        429,
+        209,
+        460,
+        221
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "a",
+      "bbox": [
+        1729,
+        202,
+        1813,
+        263
+      ],
+      "confidence": 0.46
+    },
+    {
+      "text": "B",
+      "bbox": [
+        169,
+        240,
+        174,
+        241
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "a",
+      "bbox": [
+        294,
+        242,
+        298,
+        243
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "S(Docker)",
+      "bbox": [
+        373,
+        243,
+        445,
+        256
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "LLM",
+      "bbox": [
+        452,
+        245,
+        474,
+        254
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "A",
+      "bbox": [
+        482,
+        243,
+        490,
+        255
+      ],
+      "confidence": 0.46
+    },
+    {
+      "text": "am",
+      "bbox": [
+        35,
+        278,
+        50,
+        284
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "sei",
+      "bbox": [
+        84,
+        272,
+        105,
+        283
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "7",
+      "bbox": [
+        169,
+        258,
+        174,
+        259
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "2",
+      "bbox": [
+        345,
+        295,
+        357,
+        306
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "You",
+      "bbox": [
+        365,
+        295,
+        387,
+        305
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "LUM",
+      "bbox": [
+        377,
+        364,
+        399,
+        373
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "AH",
+      "bbox": [
+        407,
+        362,
+        428,
+        374
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "Ui",
+      "bbox": [
+        1642,
+        378,
+        1655,
+        393
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "PC",
+      "bbox": [
+        1662,
+        380,
+        1694,
+        394
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "BS)",
+      "bbox": [
+        1700,
+        378,
+        1736,
+        394
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "AO",
+      "bbox": [
+        386,
+        396,
+        422,
+        408
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "AL",
+      "bbox": [
+        414,
+        392,
+        424,
+        416
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "AS",
+      "bbox": [
+        429,
+        396,
+        453,
+        408
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "dataset",
+      "bbox": [
+        56,
+        464,
+        93,
+        474
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "ggml",
+      "bbox": [
+        56,
+        496,
+        82,
+        509
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "study_tiny",
+      "bbox": [
+        56,
+        528,
+        107,
+        541
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "mod",
+      "bbox": [
+        126,
+        531,
+        137,
+        538
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "AO",
+      "bbox": [
+        386,
+        583,
+        422,
+        595
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "AL",
+      "bbox": [
+        414,
+        579,
+        424,
+        603
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "AS",
+      "bbox": [
+        429,
+        583,
+        453,
+        595
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": ">",
+      "bbox": [
+        15,
+        627,
+        19,
+        634
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "@",
+      "bbox": [
+        34,
+        626,
+        43,
+        635
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "OneDrive",
+      "bbox": [
+        56,
+        625,
+        105,
+        634
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "S31",
+      "bbox": [
+        378,
+        612,
+        396,
+        636
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "(Docker)",
+      "bbox": [
+        399,
+        618,
+        446,
+        630
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "LLM",
+      "bbox": [
+        452,
+        619,
+        474,
+        628
+      ],
+      "confidence": 0.75
+    },
+    {
+      "text": "HI",
+      "bbox": [
+        482,
+        617,
+        490,
+        629
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "v",
+      "bbox": [
+        12,
+        659,
+        21,
+        664
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "2",
+      "bbox": [
+        345,
+        669,
+        353,
+        680
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "You",
+      "bbox": [
+        365,
+        669,
+        387,
+        679
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": ">",
+      "bbox": [
+        23,
+        691,
+        27,
+        698
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "system",
+      "bbox": [
+        64,
+        689,
+        106,
+        698
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "ddd",
+      "bbox": [
+        343,
+        686,
+        365,
+        696
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": ">",
+      "bbox": [
+        15,
+        723,
+        19,
+        730
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "wy",
+      "bbox": [
+        36,
+        721,
+        61,
+        731
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": ">",
+      "bbox": [
+        15,
+        755,
+        19,
+        762
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "B",
+      "bbox": [
+        37,
+        750,
+        47,
+        766
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "tinux",
+      "bbox": [
+        56,
+        753,
+        84,
+        762
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "@",
+      "bbox": [
+        1058,
+        863,
+        1068,
+        873
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "£A",
+      "bbox": [
+        1073,
+        860,
+        1094,
+        871
+      ],
+      "confidence": 0.59
+    },
+    {
+      "text": "Be",
+      "bbox": [
+        1727,
+        1050,
+        1761,
+        1059
+      ],
+      "confidence": 0.59
+    },
+    {
+      "text": "103",
+      "bbox": [
+        1880,
+        1043,
+        1900,
+        1052
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "A",
+      "bbox": [
+        1634,
+        1053,
+        1644,
+        1059
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "8",
+      "bbox": [
+        1663,
+        1049,
+        1679,
+        1063
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "A",
+      "bbox": [
+        1697,
+        1048,
+        1709,
+        1064
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "FW",
+      "bbox": [
+        1731,
+        1050,
+        1764,
+        1062
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "306-0601",
+      "bbox": [
+        1839,
+        1059,
+        1899,
+        1068
+      ],
+      "confidence": 0.57
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "upc",
+      "bbox": [
+        45,
+        11,
+        73,
+        22
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "x",
+      "bbox": [
+        223,
+        12,
+        231,
+        20
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "QO",
+      "bbox": [
+        215,
+        48,
+        229,
+        63
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "Wee",
+      "bbox": [
+        276,
+        50,
+        309,
+        63
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "at",
+      "bbox": [
+        1469,
+        50,
+        1493,
+        63
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "Q Pc",
+      "bbox": [
+        1446,
+        51,
+        1895,
+        62
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "WN BS",
+      "bbox": [
+        446,
+        99,
+        492,
+        111
+      ],
+      "confidence": 0.525
+    },
+    {
+      "text": "87",
+      "bbox": [
+        560,
+        100,
+        578,
+        109
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "Assistant",
+      "bbox": [
+        281,
+        132,
+        328,
+        159
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "a",
+      "bbox": [
+        1164,
+        140,
+        1174,
+        150
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "x Voice Screen",
+      "bbox": [
+        211,
+        140,
+        1220,
+        150
+      ],
+      "confidence": 0.855
+    },
+    {
+      "text": "La]",
+      "bbox": [
+        30,
+        167,
+        50,
+        196
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "MASS",
+      "bbox": [
+        151,
+        176,
+        213,
+        190
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "a Se 7",
+      "bbox": [
+        110,
+        202,
+        1813,
+        263
+      ],
+      "confidence": 0.537
+    },
+    {
+      "text": "B",
+      "bbox": [
+        169,
+        240,
+        174,
+        241
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "a",
+      "bbox": [
+        294,
+        242,
+        298,
+        243
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "S(Docker)",
+      "bbox": [
+        373,
+        243,
+        445,
+        256
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "A LLM",
+      "bbox": [
+        452,
+        243,
+        490,
+        255
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "7",
+      "bbox": [
+        169,
+        258,
+        174,
+        259
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "sei",
+      "bbox": [
+        84,
+        272,
+        105,
+        283
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "am",
+      "bbox": [
+        35,
+        278,
+        50,
+        284
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "2 You",
+      "bbox": [
+        345,
+        295,
+        387,
+        306
+      ],
+      "confidence": 0.725
+    },
+    {
+      "text": "AH LUM",
+      "bbox": [
+        377,
+        362,
+        428,
+        374
+      ],
+      "confidence": 0.395
+    },
+    {
+      "text": "Ui",
+      "bbox": [
+        1642,
+        378,
+        1655,
+        393
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "BS) PC",
+      "bbox": [
+        1662,
+        378,
+        1736,
+        394
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "AL AO AS",
+      "bbox": [
+        386,
+        392,
+        453,
+        416
+      ],
+      "confidence": 0.415
+    },
+    {
+      "text": "dataset",
+      "bbox": [
+        56,
+        464,
+        93,
+        474
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "ggml",
+      "bbox": [
+        56,
+        496,
+        82,
+        509
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "study_tiny",
+      "bbox": [
+        56,
+        528,
+        107,
+        541
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "mod",
+      "bbox": [
+        126,
+        531,
+        137,
+        538
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "AL AO AS",
+      "bbox": [
+        386,
+        579,
+        453,
+        603
+      ],
+      "confidence": 0.415
+    },
+    {
+      "text": "S31",
+      "bbox": [
+        378,
+        612,
+        396,
+        636
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "HI (Docker) LLM",
+      "bbox": [
+        399,
+        617,
+        490,
+        630
+      ],
+      "confidence": 0.647
+    },
+    {
+      "text": "OneDrive",
+      "bbox": [
+        56,
+        625,
+        105,
+        634
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "v",
+      "bbox": [
+        12,
+        659,
+        21,
+        664
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "2 You",
+      "bbox": [
+        345,
+        669,
+        387,
+        680
+      ],
+      "confidence": 0.745
+    },
+    {
+      "text": "ddd system",
+      "bbox": [
+        64,
+        686,
+        365,
+        698
+      ],
+      "confidence": 0.895
+    },
+    {
+      "text": "wy",
+      "bbox": [
+        36,
+        721,
+        61,
+        731
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "B tinux",
+      "bbox": [
+        37,
+        750,
+        84,
+        766
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "£A",
+      "bbox": [
+        1073,
+        860,
+        1094,
+        871
+      ],
+      "confidence": 0.59
+    },
+    {
+      "text": "103 A 8 Be FW",
+      "bbox": [
+        1663,
+        1043,
+        1900,
+        1064
+      ],
+      "confidence": 0.583
+    },
+    {
+      "text": "A",
+      "bbox": [
+        1634,
+        1053,
+        1644,
+        1059
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "306-0601",
+      "bbox": [
+        1839,
+        1059,
+        1899,
+        1068
+      ],
+      "confidence": 0.57
+    }
+  ],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [
+        {
+          "role": "text",
+          "bbox": [
+            45,
+            11,
+            73,
+            22
+          ],
+          "text": "upc",
+          "confidence": 0.56
+        },
+        {
+          "role": "text",
+          "bbox": [
+            223,
+            12,
+            231,
+            20
+          ],
+          "text": "x",
+          "confidence": 0.94
+        },
+        {
+          "role": "title",
+          "bbox": [
+            215,
+            48,
+            229,
+            63
+          ],
+          "text": "QO",
+          "confidence": 0.51
+        },
+        {
+          "role": "text",
+          "bbox": [
+            276,
+            50,
+            309,
+            63
+          ],
+          "text": "Wee",
+          "confidence": 0.73
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1469,
+            50,
+            1493,
+            63
+          ],
+          "text": "at",
+          "confidence": 0.42
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1446,
+            51,
+            1895,
+            62
+          ],
+          "text": "Q Pc",
+          "confidence": 0.69
+        },
+        {
+          "role": "title",
+          "bbox": [
+            446,
+            99,
+            492,
+            111
+          ],
+          "text": "WN BS",
+          "confidence": 0.525
+        },
+        {
+          "role": "text",
+          "bbox": [
+            560,
+            100,
+            578,
+            109
+          ],
+          "text": "87",
+          "confidence": 0.49
+        },
+        {
+          "role": "text",
+          "bbox": [
+            281,
+            132,
+            328,
+            159
+          ],
+          "text": "Assistant",
+          "confidence": 0.9
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1164,
+            140,
+            1174,
+            150
+          ],
+          "text": "a",
+          "confidence": 0.79
+        },
+        {
+          "role": "text",
+          "bbox": [
+            211,
+            140,
+            1220,
+            150
+          ],
+          "text": "x Voice Screen",
+          "confidence": 0.855
+        }
+      ],
+      "sidebar": [
+        {
+          "role": "text",
+          "bbox": [
+            30,
+            167,
+            50,
+            196
+          ],
+          "text": "La]",
+          "confidence": 0.54
+        },
+        {
+          "role": "title",
+          "bbox": [
+            151,
+            176,
+            213,
+            190
+          ],
+          "text": "MASS",
+          "confidence": 0.57
+        },
+        {
+          "role": "title",
+          "bbox": [
+            169,
+            240,
+            174,
+            241
+          ],
+          "text": "B",
+          "confidence": 0.62
+        },
+        {
+          "role": "text",
+          "bbox": [
+            294,
+            242,
+            298,
+            243
+          ],
+          "text": "a",
+          "confidence": 0.65
+        },
+        {
+          "role": "text",
+          "bbox": [
+            373,
+            243,
+            445,
+            256
+          ],
+          "text": "S(Docker)",
+          "confidence": 0.39
+        },
+        {
+          "role": "title",
+          "bbox": [
+            452,
+            243,
+            490,
+            255
+          ],
+          "text": "A LLM",
+          "confidence": 0.67
+        },
+        {
+          "role": "text",
+          "bbox": [
+            169,
+            258,
+            174,
+            259
+          ],
+          "text": "7",
+          "confidence": 0.57
+        },
+        {
+          "role": "text",
+          "bbox": [
+            84,
+            272,
+            105,
+            283
+          ],
+          "text": "sei",
+          "confidence": 0.39
+        },
+        {
+          "role": "text",
+          "bbox": [
+            35,
+            278,
+            50,
+            284
+          ],
+          "text": "am",
+          "confidence": 0.58
+        },
+        {
+          "role": "text",
+          "bbox": [
+            345,
+            295,
+            387,
+            306
+          ],
+          "text": "2 You",
+          "confidence": 0.725
+        },
+        {
+          "role": "title",
+          "bbox": [
+            377,
+            362,
+            428,
+            374
+          ],
+          "text": "AH LUM",
+          "confidence": 0.395
+        },
+        {
+          "role": "title",
+          "bbox": [
+            386,
+            392,
+            453,
+            416
+          ],
+          "text": "AL AO AS",
+          "confidence": 0.415
+        },
+        {
+          "role": "text",
+          "bbox": [
+            56,
+            464,
+            93,
+            474
+          ],
+          "text": "dataset",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            56,
+            496,
+            82,
+            509
+          ],
+          "text": "ggml",
+          "confidence": 0.62
+        },
+        {
+          "role": "text",
+          "bbox": [
+            56,
+            528,
+            107,
+            541
+          ],
+          "text": "study_tiny",
+          "confidence": 0.9
+        },
+        {
+          "role": "text",
+          "bbox": [
+            126,
+            531,
+            137,
+            538
+          ],
+          "text": "mod",
+          "confidence": 0.9
+        },
+        {
+          "role": "title",
+          "bbox": [
+            386,
+            579,
+            453,
+            603
+          ],
+          "text": "AL AO AS",
+          "confidence": 0.415
+        },
+        {
+          "role": "title",
+          "bbox": [
+            378,
+            612,
+            396,
+            636
+          ],
+          "text": "S31",
+          "confidence": 0.45
+        },
+        {
+          "role": "text",
+          "bbox": [
+            399,
+            617,
+            490,
+            630
+          ],
+          "text": "HI (Docker) LLM",
+          "confidence": 0.647
+        },
+        {
+          "role": "text",
+          "bbox": [
+            56,
+            625,
+            105,
+            634
+          ],
+          "text": "OneDrive",
+          "confidence": 0.86
+        },
+        {
+          "role": "text",
+          "bbox": [
+            12,
+            659,
+            21,
+            664
+          ],
+          "text": "v",
+          "confidence": 0.34
+        },
+        {
+          "role": "text",
+          "bbox": [
+            345,
+            669,
+            387,
+            680
+          ],
+          "text": "2 You",
+          "confidence": 0.745
+        },
+        {
+          "role": "text",
+          "bbox": [
+            64,
+            686,
+            365,
+            698
+          ],
+          "text": "ddd system",
+          "confidence": 0.895
+        },
+        {
+          "role": "text",
+          "bbox": [
+            36,
+            721,
+            61,
+            731
+          ],
+          "text": "wy",
+          "confidence": 0.65
+        },
+        {
+          "role": "text",
+          "bbox": [
+            37,
+            750,
+            84,
+            766
+          ],
+          "text": "B tinux",
+          "confidence": 0.6
+        }
+      ],
+      "body": [
+        {
+          "role": "text",
+          "bbox": [
+            110,
+            202,
+            1813,
+            263
+          ],
+          "text": "a Se 7",
+          "confidence": 0.537
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1642,
+            378,
+            1655,
+            393
+          ],
+          "text": "Ui",
+          "confidence": 0.53
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1662,
+            378,
+            1736,
+            394
+          ],
+          "text": "BS) PC",
+          "confidence": 0.66
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1073,
+            860,
+            1094,
+            871
+          ],
+          "text": "£A",
+          "confidence": 0.59
+        }
+      ],
+      "status_bar": [
+        {
+          "role": "text",
+          "bbox": [
+            1663,
+            1043,
+            1900,
+            1064
+          ],
+          "text": "103 A 8 Be FW",
+          "confidence": 0.583
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1634,
+            1053,
+            1644,
+            1059
+          ],
+          "text": "A",
+          "confidence": 0.72
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1839,
+            1059,
+            1899,
+            1068
+          ],
+          "text": "306-0601",
+          "confidence": 0.57
+        }
+      ]
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ELdyd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "도커온라인인데.."
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ddd\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] (11 items hidden) ---\n--- [REGION: SIDEBAR] (25 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] a Se 7\n[TEXT] Ui\n[TITLE] BS) PC\n[TITLE] £A\n--- [REGION: STATUS_BAR] ---\n[TEXT] 103 A 8 Be FW\n[TITLE] A\n[TEXT] 306-0601"
+    }
+  ],
+  "llm_response": "[가짜 LLM 서버 응답] 질문 확인: 'ddd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+}

@@ -1,0 +1,51 @@
+{
+    "llm": {
+        "base_url": "http://127.0.0.1:8080/v1",
+        "model_alias": "Meta-Llama-3.1-8B-Instruct-Q4_K_M",
+        "temperature": 0.2,
+        "max_tokens": 512,
+        "timeout_sec": 300,
+        "system_prompt": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly."
+    },
+    "docker": {
+        "image": "ghcr.io/ggml-org/llama.cpp:server",
+        "container_name": "ameva-llm-server",
+        "port": 8080,
+        "model_dir": "C:/ameva/models",
+        "model_file": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "extra_args": "",
+        "mmproj_file": "None"
+    },
+    "capture": {
+        "mode": "monitor",
+        "monitor_index": 1,
+        "root_dir": "data/captures",
+        "auto_capture": true
+    },
+    "stt": {
+        "provider": "whisper_cpp",
+        "whisper_executable": "",
+        "whisper_model": "",
+        "recording_max_sec": 30
+    },
+    "tts": {
+        "provider": "windows_sapi",
+        "enabled": false
+    },
+    "vision": {
+        "provider": "none"
+    },
+    "vlm": {
+        "provider": "llama_cpp",
+        "endpoint": "http://127.0.0.1:8081/v1/chat/completions"
+    },
+    "db": {
+        "path": "db/ameva_assistant.db"
+    },
+    "logging": {
+        "log_dir": "logs",
+        "log_file": "app.log",
+        "max_bytes": 5242880,
+        "backup_count": 3
+    }
+}

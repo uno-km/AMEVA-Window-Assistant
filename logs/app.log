@@ -1,0 +1,543 @@
+[2026-05-31 22:51:10] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:51:10] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:51:10] INFO    ameva — Created default session: 1cee6620faaf
+[2026-05-31 22:51:11] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:51:12] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:51:23] INFO    ameva.worker — Processing job 1 (mode=text)
+[2026-05-31 22:51:23] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_225123_042.png
+[2026-05-31 22:51:25] ERROR   ameva.worker — Job 1 failed: LLM server unreachable: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1037, in send
+    self.connect()
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1003, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\providers.py", line 98, in generate
+    with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\worker.py", line 156, in _process_job
+    response_text = llm.generate(messages)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\providers.py", line 101, in generate
+    raise ConnectionError(f"LLM server unreachable: {e}") from e
+ConnectionError: LLM server unreachable: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-05-31 22:51:46] INFO    ameva.ui — Shutting down…
+[2026-05-31 22:51:46] INFO    ameva.worker — Worker received shutdown signal
+[2026-05-31 22:51:46] INFO    ameva.worker — Worker thread stopped
+[2026-05-31 22:51:46] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 22:55:05] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:55:05] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:55:05] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:55:06] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:55:26] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:55:26] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:55:27] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:55:28] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:55:32] INFO    ameva.worker — Processing job 2 (mode=text)
+[2026-05-31 22:55:32] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_225532_301.png
+[2026-05-31 22:55:34] ERROR   ameva.worker — Job 2 failed: LLM server unreachable: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1037, in send
+    self.connect()
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1003, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\providers.py", line 98, in generate
+    with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\worker.py", line 156, in _process_job
+    response_text = llm.generate(messages)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\providers.py", line 101, in generate
+    raise ConnectionError(f"LLM server unreachable: {e}") from e
+ConnectionError: LLM server unreachable: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-05-31 22:55:54] INFO    ameva.ui — Shutting down…
+[2026-05-31 22:55:54] INFO    ameva.worker — Worker received shutdown signal
+[2026-05-31 22:55:54] INFO    ameva.worker — Worker thread stopped
+[2026-05-31 22:55:54] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 22:56:42] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:56:43] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-05-31 22:56:43] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-05-31 22:56:46] WARNING ameva — Docker Compose failed or daemon is offline.
+[2026-05-31 22:56:46] INFO    ameva — Starting Mock LLM Server on port 8080...
+[2026-05-31 22:56:48] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:56:48] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:56:49] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:57:16] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:57:17] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-05-31 22:57:17] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-05-31 22:57:20] WARNING ameva — Docker Compose failed or daemon is offline.
+[2026-05-31 22:57:20] INFO    ameva — Starting Mock LLM Server on port 8080...
+[2026-05-31 22:57:22] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:57:22] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:57:23] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:57:28] INFO    ameva.worker — Processing job 3 (mode=text)
+[2026-05-31 22:57:29] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_225728_823.png
+[2026-05-31 22:57:29] INFO    ameva.worker — Job 3 completed (531ms)
+[2026-05-31 22:59:21] INFO    ameva.ui — Shutting down…
+[2026-05-31 22:59:21] INFO    ameva.worker — Worker received shutdown signal
+[2026-05-31 22:59:21] INFO    ameva.worker — Worker thread stopped
+[2026-05-31 22:59:21] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 22:59:23] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 22:59:24] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-05-31 22:59:24] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-05-31 22:59:28] INFO    ameva — LLM Server successfully started via Docker!
+[2026-05-31 22:59:28] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 22:59:28] INFO    ameva.worker — Worker thread started
+[2026-05-31 22:59:29] INFO    ameva — UI launched — entering main loop
+[2026-05-31 22:59:37] INFO    ameva.worker — Processing job 4 (mode=text)
+[2026-05-31 22:59:38] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_225937_760.png
+[2026-05-31 22:59:40] ERROR   ameva.worker — Job 4 failed: Remote end closed connection without response
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\worker.py", line 156, in _process_job
+    response_text = llm.generate(messages)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\providers.py", line 98, in generate
+    with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Program Files\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+[2026-05-31 23:00:24] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:00:25] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-05-31 23:00:25] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-05-31 23:00:29] WARNING ameva — Docker Compose failed or daemon is offline.
+[2026-05-31 23:00:29] INFO    ameva — Starting Mock LLM Server on port 8080...
+[2026-05-31 23:00:30] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:00:31] INFO    ameva.worker — Worker thread started
+[2026-05-31 23:00:32] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:00:37] INFO    ameva.worker — Processing job 5 (mode=text)
+[2026-05-31 23:00:37] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_230037_509.png
+[2026-05-31 23:00:38] INFO    ameva.worker — Job 5 completed (506ms)
+[2026-05-31 23:10:24] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:10:24] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:10:25] INFO    ameva.worker — Worker thread started
+[2026-05-31 23:10:26] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:23:23] INFO    ameva.ui — Shutting down…
+[2026-05-31 23:23:23] INFO    ameva.worker — Worker received shutdown signal
+[2026-05-31 23:23:23] INFO    ameva.worker — Worker thread stopped
+[2026-05-31 23:23:23] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 23:23:24] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:23:24] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:23:24] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:23:25] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:23:29] INFO    ameva.ui — Shutting down…
+[2026-05-31 23:23:29] INFO    ameva.orchestration.worker — Worker received shutdown signal
+[2026-05-31 23:23:29] INFO    ameva.orchestration.worker — Worker thread stopped
+[2026-05-31 23:23:29] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 23:23:33] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:23:34] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:23:34] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:23:35] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:23:40] INFO    ameva.orchestration.worker — Processing job 6 (mode=text)
+[2026-05-31 23:23:40] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_232340_508.png
+[2026-05-31 23:23:42] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_232340_508.png
+[2026-05-31 23:23:42] ERROR   ameva.perception.ocr — Tesseract OCR failed: tesseract is not installed or it's not in your PATH. See README file for more information.
+[2026-05-31 23:23:42] WARNING ameva.orchestration.worker — OCR failed: OCR failed: tesseract is not installed or it's not in your PATH. See README file for more information.
+Traceback (most recent call last):
+  File "C:\Users\ATSAdmin\AppData\Roaming\Python\Python312\site-packages\pytesseract\pytesseract.py", line 451, in get_tesseract_version
+    output = subprocess.check_output(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Program Files\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] 지정된 파일을 찾을 수 없습니다
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\perception\ocr\tesseract_provider.py", line 35, in extract_text_blocks
+    data = pytesseract.image_to_data(img, lang=self.lang, output_type=pytesseract.Output.DICT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ATSAdmin\AppData\Roaming\Python\Python312\site-packages\pytesseract\pytesseract.py", line 590, in image_to_data
+    if get_tesseract_version(cached=True) < TESSERACT_MIN_VERSION:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ATSAdmin\AppData\Roaming\Python\Python312\site-packages\pytesseract\pytesseract.py", line 163, in wrapper
+    wrapper._result = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ATSAdmin\AppData\Roaming\Python\Python312\site-packages\pytesseract\pytesseract.py", line 458, in get_tesseract_version
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: tesseract is not installed or it's not in your PATH. See README file for more information.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\orchestration\worker.py", line 141, in _process_job
+    ocr_data = ocr.extract_text_blocks(job.capture_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\perception\ocr\tesseract_provider.py", line 66, in extract_text_blocks
+    raise RuntimeError(f"OCR failed: {e}") from e
+RuntimeError: OCR failed: tesseract is not installed or it's not in your PATH. See README file for more information.
+[2026-05-31 23:23:43] INFO    ameva.orchestration.worker — Job 6 completed (517ms)
+[2026-05-31 23:26:40] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:26:40] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:26:40] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:26:41] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:26:47] INFO    ameva.orchestration.worker — Processing job 7 (mode=text)
+[2026-05-31 23:26:47] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_232647_315.png
+[2026-05-31 23:26:47] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_232647_315.png
+[2026-05-31 23:26:50] INFO    ameva.orchestration.worker — Job 7 completed (503ms)
+[2026-05-31 23:32:56] INFO    ameva.ui — Shutting down…
+[2026-05-31 23:32:56] INFO    ameva.orchestration.worker — Worker received shutdown signal
+[2026-05-31 23:32:56] INFO    ameva.orchestration.worker — Worker thread stopped
+[2026-05-31 23:32:56] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 23:32:59] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:32:59] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:32:59] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:33:00] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:33:53] INFO    ameva.ui_settings — docker-compose.yml updated with new model and mmproj settings.
+[2026-05-31 23:33:53] INFO    ameva.ui_settings — Restarting docker container with new model settings...
+[2026-05-31 23:33:53] INFO    ameva.ui_settings — Settings saved
+[2026-05-31 23:33:54] INFO    ameva.ui_settings — Docker container restarted successfully with new model settings.
+[2026-05-31 23:33:58] INFO    ameva.ui — Shutting down…
+[2026-05-31 23:33:58] INFO    ameva.orchestration.worker — Worker received shutdown signal
+[2026-05-31 23:33:58] INFO    ameva.orchestration.worker — Worker thread stopped
+[2026-05-31 23:33:58] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-05-31 23:34:00] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:34:00] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:34:00] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:34:01] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:34:15] INFO    ameva.orchestration.worker — Processing job 8 (mode=text)
+[2026-05-31 23:34:15] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_233415_620.png
+[2026-05-31 23:34:16] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_233415_620.png
+[2026-05-31 23:34:18] INFO    ameva.orchestration.worker — Job 8 completed (503ms)
+[2026-05-31 23:38:03] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:38:03] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:38:03] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:38:04] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:38:06] INFO    ameva.orchestration.worker — Processing job 9 (mode=text)
+[2026-05-31 23:38:07] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_233806_760.png
+[2026-05-31 23:38:07] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_233806_760.png
+[2026-05-31 23:38:08] ERROR   ameva.orchestration.worker — Job 9 failed at llm: LLM server unreachable: HTTP Error 400: Bad Request
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\reasoning\llm_client.py", line 84, in generate
+    with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\orchestration\worker.py", line 163, in _process_job
+    response_text = llm.generate(messages)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\reasoning\llm_client.py", line 87, in generate
+    raise ConnectionError(f"LLM server unreachable: {e}") from e
+ConnectionError: LLM server unreachable: HTTP Error 400: Bad Request
+[2026-05-31 23:40:21] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:40:21] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:40:21] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:40:22] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:40:27] INFO    ameva.orchestration.worker — Processing job 10 (mode=text)
+[2026-05-31 23:40:27] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_234027_539.png
+[2026-05-31 23:40:28] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_234027_539.png
+[2026-05-31 23:41:29] ERROR   ameva.orchestration.worker — Job 10 failed at llm: LLM request timed out (60s)
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\reasoning\llm_client.py", line 84, in generate
+    with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Program Files\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ameva\AMEVA-Window-Assistant\src\orchestration\worker.py", line 163, in _process_job
+    response_text = llm.generate(messages)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ameva\AMEVA-Window-Assistant\src\reasoning\llm_client.py", line 89, in generate
+    raise TimeoutError(f"LLM request timed out ({self.timeout}s)")
+TimeoutError: LLM request timed out (60s)
+[2026-05-31 23:42:47] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:42:47] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:42:47] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:42:48] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:42:52] INFO    ameva.orchestration.worker — Processing job 11 (mode=text)
+[2026-05-31 23:42:52] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_234252_239.png
+[2026-05-31 23:42:52] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_234252_239.png
+[2026-05-31 23:43:44] INFO    ameva.orchestration.worker — Job 11 completed (50566ms)
+[2026-05-31 23:50:37] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:50:37] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:50:37] INFO    ameva — Created default session: f4b218825a7a
+[2026-05-31 23:50:37] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:50:38] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:51:00] INFO    ameva.orchestration.worker — Processing job 1 (mode=text)
+[2026-05-31 23:51:00] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235100_404.png
+[2026-05-31 23:51:01] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235100_404.png
+[2026-05-31 23:51:33] INFO    ameva.orchestration.worker — Job 1 completed (30907ms)
+[2026-05-31 23:52:00] INFO    ameva.orchestration.worker — Processing job 2 (mode=text)
+[2026-05-31 23:52:00] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235200_587.png
+[2026-05-31 23:52:00] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235200_587.png
+[2026-05-31 23:52:37] INFO    ameva.orchestration.worker — Job 2 completed (36041ms)
+[2026-05-31 23:52:57] INFO    ameva.orchestration.worker — Processing job 3 (mode=text)
+[2026-05-31 23:52:57] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235257_125.png
+[2026-05-31 23:52:57] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235257_125.png
+[2026-05-31 23:53:37] INFO    ameva.input — Recording for up to 30s at 16000Hz
+[2026-05-31 23:53:41] INFO    ameva.orchestration.worker — Job 3 completed (43239ms)
+[2026-05-31 23:57:38] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-05-31 23:57:38] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-05-31 23:57:38] INFO    ameva.orchestration.worker — Worker thread started
+[2026-05-31 23:57:39] INFO    ameva — UI launched — entering main loop
+[2026-05-31 23:57:47] INFO    ameva.orchestration.worker — Processing job 4 (mode=text)
+[2026-05-31 23:57:47] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235747_598.png
+[2026-05-31 23:57:48] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235747_598.png
+[2026-05-31 23:58:04] INFO    ameva.orchestration.worker — Job 4 completed (14951ms)
+[2026-05-31 23:59:57] INFO    ameva.orchestration.worker — Processing job 5 (mode=text)
+[2026-05-31 23:59:57] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235957_512.png
+[2026-05-31 23:59:57] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260531\cap_20260531_235957_512.png
+[2026-06-01 00:00:11] INFO    ameva.orchestration.worker — Job 5 completed (12698ms)
+[2026-06-01 00:00:30] INFO    ameva.orchestration.worker — Processing job 6 (mode=text)
+[2026-06-01 00:00:30] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_000030_883.png
+[2026-06-01 00:00:30] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_000030_883.png
+[2026-06-01 00:00:55] INFO    ameva.orchestration.worker — Job 6 completed (23287ms)
+[2026-06-01 00:32:09] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:32:09] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-06-01 00:32:09] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-06-01 00:32:11] WARNING ameva — Docker Compose failed or daemon is offline.
+[2026-06-01 00:32:11] INFO    ameva — Starting Mock LLM Server on port 8080...
+[2026-06-01 00:32:13] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:32:13] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:32:14] INFO    ameva — UI launched — entering main loop
+[2026-06-01 00:33:20] INFO    ameva.ui_settings — docker-compose.yml updated with new model and mmproj settings.
+[2026-06-01 00:33:20] INFO    ameva.ui_settings — Restarting docker container with new model settings...
+[2026-06-01 00:33:20] INFO    ameva.ui_settings — Settings saved
+[2026-06-01 00:33:22] INFO    ameva.ui_settings — Docker container restarted successfully with new model settings.
+[2026-06-01 00:33:46] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:33:46] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:33:46] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:33:48] INFO    ameva — UI launched — entering main loop
+[2026-06-01 00:47:07] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:47:07] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:47:07] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:47:08] INFO    ameva — UI launched — entering main loop
+[2026-06-01 00:47:22] INFO    ameva.orchestration.worker — Processing job 7 (mode=text)
+[2026-06-01 00:47:22] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_004722_453.png
+[2026-06-01 00:47:23] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_004722_453.png
+[2026-06-01 00:47:23] INFO    ameva.router — [Router] Fallback triggered: Scene graph screen_type classification failed
+[2026-06-01 00:47:23] INFO    ameva.orchestration.worker — Routing job 7 to VLM (Fast-track=False, OCR=False, SG=True)
+[2026-06-01 00:47:23] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
+[2026-06-01 00:47:24] ERROR   ameva.vlm — Local VLM connection failed: HTTP Error 503: Service Unavailable
+[2026-06-01 00:47:24] WARNING ameva.orchestration.worker — VLM backend failed (retry 1/3): Failed to connect to local VLM: HTTP Error 503: Service Unavailable
+[2026-06-01 00:47:25] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
+[2026-06-01 00:47:27] ERROR   ameva.vlm — Local VLM connection failed: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-06-01 00:47:27] WARNING ameva.orchestration.worker — VLM backend failed (retry 2/3): Failed to connect to local VLM: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-06-01 00:47:28] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
+[2026-06-01 00:47:30] ERROR   ameva.vlm — Local VLM connection failed: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-06-01 00:47:30] WARNING ameva.orchestration.worker — VLM backend failed (retry 3/3): Failed to connect to local VLM: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>
+[2026-06-01 00:47:31] ERROR   ameva.orchestration.worker — VLM failed after 3 retries. Degraded response.
+[2026-06-01 00:47:31] INFO    ameva.orchestration.worker — Job 7 completed (0ms)
+[2026-06-01 00:50:50] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:50:50] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:50:50] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:50:52] INFO    ameva — UI launched — entering main loop
+[2026-06-01 00:50:59] INFO    ameva.orchestration.worker — Processing job 8 (mode=text)
+[2026-06-01 00:50:59] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_005059_586.png
+[2026-06-01 00:51:00] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_005059_586.png
+[2026-06-01 00:51:00] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 00:51:01] INFO    ameva.orchestration.worker — Job 8 completed (532ms)
+[2026-06-01 00:54:04] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:54:04] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:54:04] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:54:05] INFO    ameva — UI launched — entering main loop
+[2026-06-01 00:58:38] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:58:38] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-06-01 00:58:38] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-06-01 00:58:38] INFO    ameva — Waiting up to 30s for LLM models to load into memory...
+[2026-06-01 00:59:23] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 00:59:23] WARNING ameva — LLM Server at http://127.0.0.1:8080/v1 is unreachable.
+[2026-06-01 00:59:23] INFO    ameva — Attempting to start LLM server via Docker Compose...
+[2026-06-01 00:59:23] INFO    ameva — Waiting up to 30s for LLM models to load into memory...
+[2026-06-01 00:59:54] WARNING ameva — Docker Compose failed or models took too long to load.
+[2026-06-01 00:59:54] INFO    ameva — Starting Mock LLM Server on port 8080...
+[2026-06-01 00:59:55] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 00:59:55] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 00:59:57] INFO    ameva — UI launched — entering main loop
+[2026-06-01 01:00:11] INFO    ameva.orchestration.worker — Processing job 9 (mode=text)
+[2026-06-01 01:00:12] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010011_899.png
+[2026-06-01 01:00:12] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010011_899.png
+[2026-06-01 01:00:13] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 01:00:13] INFO    ameva.orchestration.worker — Job 9 completed (502ms)
+[2026-06-01 01:00:28] INFO    ameva.orchestration.worker — Processing job 10 (mode=text)
+[2026-06-01 01:00:28] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010028_097.png
+[2026-06-01 01:00:28] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010028_097.png
+[2026-06-01 01:00:28] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 01:00:29] INFO    ameva.orchestration.worker — Job 10 completed (502ms)
+[2026-06-01 01:03:09] INFO    ameva.orchestration.worker — Processing job 11 (mode=text)
+[2026-06-01 01:03:09] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010309_889.png
+[2026-06-01 01:03:09] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010309_889.png
+[2026-06-01 01:03:10] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 01:03:11] INFO    ameva.orchestration.worker — Job 11 completed (518ms)
+[2026-06-01 01:03:34] INFO    ameva.orchestration.worker — Processing job 12 (mode=text)
+[2026-06-01 01:03:34] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010334_619.png
+[2026-06-01 01:03:34] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010334_619.png
+[2026-06-01 01:03:35] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 01:03:35] DEBUG   ameva.output — TTS speak dispatched
+[2026-06-01 01:03:35] INFO    ameva.orchestration.worker — Job 12 completed (511ms)
+[2026-06-01 01:04:07] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010407_609.png
+[2026-06-01 01:04:07] INFO    ameva.ui — Manual capture: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_010407_609.png
+[2026-06-01 01:04:24] INFO    ameva.ui_settings — docker-compose.yml updated with new model and mmproj settings.
+[2026-06-01 01:04:24] INFO    ameva.ui_settings — Restarting docker container with new model settings...
+[2026-06-01 01:04:24] INFO    ameva.ui_settings — Settings saved
+[2026-06-01 01:04:27] INFO    ameva.ui_settings — Docker container restarted successfully with new model settings.
+[2026-06-01 01:04:29] INFO    ameva.ui — Shutting down…
+[2026-06-01 01:04:29] INFO    ameva.orchestration.worker — Worker received shutdown signal
+[2026-06-01 01:04:29] INFO    ameva.orchestration.worker — Worker thread stopped
+[2026-06-01 01:04:29] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===

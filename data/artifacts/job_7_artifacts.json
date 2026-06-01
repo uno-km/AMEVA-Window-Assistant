@@ -1,0 +1,1688 @@
+{
+  "ocr_raw": [
+    {
+      "text": "a",
+      "bbox": [
+        23,
+        24,
+        46,
+        45
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "O",
+      "bbox": [
+        25,
+        84,
+        45,
+        105
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "AE",
+      "bbox": [
+        59,
+        88,
+        109,
+        103
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "Q",
+      "bbox": [
+        27,
+        131,
+        45,
+        149
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "as",
+      "bbox": [
+        59,
+        133,
+        88,
+        148
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "(0)",
+      "bbox": [
+        25,
+        174,
+        46,
+        195
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "IT",
+      "bbox": [
+        60,
+        279,
+        72,
+        292
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Bel",
+      "bbox": [
+        78,
+        278,
+        107,
+        293
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "120049]",
+      "bbox": [
+        116,
+        278,
+        172,
+        293
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "@",
+      "bbox": [
+        24,
+        321,
+        49,
+        346
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "waa!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "BH",
+      "bbox": [
+        24,
+        371,
+        48,
+        393
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "A",
+      "bbox": [
+        59,
+        375,
+        72,
+        390
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "ae",
+      "bbox": [
+        24,
+        484,
+        49,
+        497
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "#",
+      "bbox": [
+        24,
+        528,
+        34,
+        540
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        39,
+        528,
+        98,
+        541
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        103,
+        527,
+        153,
+        541
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        160,
+        528,
+        181,
+        541
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Inspector...",
+      "bbox": [
+        188,
+        528,
+        274,
+        545
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Traceback",
+      "bbox": [
+        24,
+        573,
+        100,
+        587
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "(most",
+      "bbox": [
+        106,
+        574,
+        148,
+        590
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "recent",
+      "bbox": [
+        154,
+        575,
+        201,
+        587
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "call",
+      "bbox": [
+        207,
+        573,
+        230,
+        587
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "last):",
+      "bbox": [
+        238,
+        573,
+        271,
+        590
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "vba",
+      "bbox": [
+        24,
+        620,
+        50,
+        634
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "3",
+      "bbox": [
+        57,
+        620,
+        71,
+        635
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "2}",
+      "bbox": [
+        147,
+        620,
+        162,
+        635
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "AES",
+      "bbox": [
+        168,
+        620,
+        214,
+        635
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "Bet...",
+      "bbox": [
+        221,
+        619,
+        264,
+        635
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "Aa",
+      "bbox": [
+        25,
+        713,
+        55,
+        728
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "LAL",
+      "bbox": [
+        136,
+        713,
+        182,
+        728
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "OLS",
+      "bbox": [
+        189,
+        713,
+        234,
+        728
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": ">>",
+      "bbox": [
+        26,
+        763,
+        46,
+        772
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "venv\\Scripts\\python.exe",
+      "bbox": [
+        53,
+        759,
+        237,
+        777
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "sr...",
+      "bbox": [
+        243,
+        764,
+        268,
+        773
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "(SS",
+      "bbox": [
+        25,
+        851,
+        61,
+        869
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "AB]",
+      "bbox": [
+        67,
+        852,
+        102,
+        869
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "He",
+      "bbox": [
+        110,
+        852,
+        140,
+        867
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "ite,",
+      "bbox": [
+        146,
+        852,
+        196,
+        868
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "...",
+      "bbox": [
+        260,
+        864,
+        271,
+        866
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Copilot",
+      "bbox": [
+        60,
+        929,
+        99,
+        942
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "Chat",
+      "bbox": [
+        103,
+        929,
+        128,
+        939
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "(71)",
+      "bbox": [
+        132,
+        929,
+        161,
+        941
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "©",
+      "bbox": [
+        170,
+        929,
+        183,
+        942
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "#",
+      "bbox": [
+        353,
+        91,
+        363,
+        103
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        368,
+        91,
+        425,
+        104
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        430,
+        90,
+        478,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "DB",
+      "bbox": [
+        486,
+        91,
+        506,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Inspector",
+      "bbox": [
+        513,
+        91,
+        583,
+        108
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "---",
+      "bbox": [
+        589,
+        98,
+        608,
+        99
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "##",
+      "bbox": [
+        614,
+        91,
+        634,
+        103
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "1.",
+      "bbox": [
+        641,
+        91,
+        645,
+        104
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "(Ov",
+      "bbox": [
+        695,
+        91,
+        721,
+        107
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "CHS",
+      "bbox": [
+        729,
+        171,
+        774,
+        230
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "Phase",
+      "bbox": [
+        736,
+        258,
+        787,
+        273
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "3",
+      "bbox": [
+        794,
+        259,
+        803,
+        273
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "+",
+      "bbox": [
+        872,
+        263,
+        881,
+        272
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Moondream2",
+      "bbox": [
+        890,
+        258,
+        1011,
+        273
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "YA]",
+      "bbox": [
+        1019,
+        256,
+        1053,
+        275
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "AS",
+      "bbox": [
+        1060,
+        256,
+        1096,
+        275
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Sf.",
+      "bbox": [
+        1190,
+        256,
+        1230,
+        275
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "DEAE",
+      "bbox": [
+        709,
+        427,
+        817,
+        455
+      ],
+      "confidence": 0.76
+    },
+    {
+      "text": "7/%",
+      "bbox": [
+        827,
+        427,
+        878,
+        455
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "TODO",
+      "bbox": [
+        976,
+        431,
+        1056,
+        452
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "GPT",
+      "bbox": [
+        1561,
+        91,
+        1593,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "5.2",
+      "bbox": [
+        1599,
+        91,
+        1620,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Think",
+      "bbox": [
+        1626,
+        90,
+        1670,
+        104
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "~",
+      "bbox": [
+        1678,
+        96,
+        1687,
+        101
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "+",
+      "bbox": [
+        647,
+        144,
+        652,
+        149
+      ],
+      "confidence": 0.77
+    },
+    {
+      "text": "CH",
+      "bbox": [
+        671,
+        136,
+        705,
+        155
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "+",
+      "bbox": [
+        816,
+        143,
+        825,
+        152
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "BA/BS",
+      "bbox": [
+        834,
+        136,
+        914,
+        155
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "Se",
+      "bbox": [
+        921,
+        136,
+        956,
+        155
+      ],
+      "confidence": 0.33
+    },
+    {
+      "text": "SAA]",
+      "bbox": [
+        963,
+        136,
+        1015,
+        155
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "+",
+      "bbox": [
+        1025,
+        143,
+        1035,
+        152
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "B",
+      "bbox": [
+        1043,
+        136,
+        1059,
+        155
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "SO]",
+      "bbox": [
+        1066,
+        136,
+        1101,
+        155
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "THA",
+      "bbox": [
+        1169,
+        136,
+        1204,
+        155
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "SAO]",
+      "bbox": [
+        1211,
+        136,
+        1263,
+        155
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "VS",
+      "bbox": [
+        1272,
+        136,
+        1307,
+        154
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "sharepoint",
+      "bbox": [
+        1321,
+        141,
+        1379,
+        154
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "CopilotO]",
+      "bbox": [
+        635,
+        858,
+        715,
+        879
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "+",
+      "bbox": [
+        638,
+        925,
+        660,
+        947
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "PAO",
+      "bbox": [
+        1366,
+        755,
+        1427,
+        770
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "Bete?",
+      "bbox": [
+        1525,
+        755,
+        1580,
+        770
+      ],
+      "confidence": 0.32
+    },
+    {
+      "text": "Phase",
+      "bbox": [
+        1331,
+        804,
+        1374,
+        818
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "3",
+      "bbox": [
+        1380,
+        805,
+        1387,
+        818
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "23S}",
+      "bbox": [
+        1394,
+        804,
+        1441,
+        819
+      ],
+      "confidence": 0.46
+    },
+    {
+      "text": "©",
+      "bbox": [
+        1583,
+        923,
+        1601,
+        948
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "24",
+      "bbox": [
+        1825,
+        1032,
+        1853,
+        1046
+      ],
+      "confidence": 0.48
+    },
+    {
+      "text": "12:47",
+      "bbox": [
+        1861,
+        1034,
+        1896,
+        1045
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "a",
+      "bbox": [
+        23,
+        24,
+        46,
+        45
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "O AE",
+      "bbox": [
+        25,
+        84,
+        109,
+        105
+      ],
+      "confidence": 0.695
+    },
+    {
+      "text": "Global",
+      "bbox": [
+        430,
+        90,
+        478,
+        104
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+      "bbox": [
+        368,
+        90,
+        1670,
+        108
+      ],
+      "confidence": 0.957
+    },
+    {
+      "text": "Q as",
+      "bbox": [
+        27,
+        131,
+        88,
+        149
+      ],
+      "confidence": 0.685
+    },
+    {
+      "text": "CH",
+      "bbox": [
+        671,
+        136,
+        705,
+        155
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "BA/BS Se SAA] B SO]",
+      "bbox": [
+        834,
+        136,
+        1101,
+        155
+      ],
+      "confidence": 0.637
+    },
+    {
+      "text": "THA SAO] VS sharepoint",
+      "bbox": [
+        1169,
+        136,
+        1379,
+        155
+      ],
+      "confidence": 0.572
+    },
+    {
+      "text": "CHS (0)",
+      "bbox": [
+        25,
+        171,
+        774,
+        230
+      ],
+      "confidence": 0.505
+    },
+    {
+      "text": "YA] AS",
+      "bbox": [
+        1019,
+        256,
+        1096,
+        275
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "Sf. Phase Moondream2 3",
+      "bbox": [
+        736,
+        256,
+        1230,
+        275
+      ],
+      "confidence": 0.843
+    },
+    {
+      "text": "Bel 120049] IT",
+      "bbox": [
+        60,
+        278,
+        172,
+        293
+      ],
+      "confidence": 0.742
+    },
+    {
+      "text": "waa!",
+      "bbox": [
+        60,
+        327,
+        121,
+        342
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "BH A",
+      "bbox": [
+        24,
+        371,
+        72,
+        393
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "BE",
+      "bbox": [
+        58,
+        422,
+        89,
+        437
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "DEAE 7/%",
+      "bbox": [
+        709,
+        427,
+        878,
+        455
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "TODO",
+      "bbox": [
+        976,
+        431,
+        1056,
+        452
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "ae",
+      "bbox": [
+        24,
+        484,
+        49,
+        497
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "Global AMEVA DB Inspector...",
+      "bbox": [
+        39,
+        527,
+        274,
+        545
+      ],
+      "confidence": 0.949
+    },
+    {
+      "text": "Traceback",
+      "bbox": [
+        24,
+        573,
+        100,
+        587
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "call last): (most recent",
+      "bbox": [
+        106,
+        573,
+        271,
+        590
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Bet... vba 3 2} AES",
+      "bbox": [
+        24,
+        619,
+        264,
+        635
+      ],
+      "confidence": 0.543
+    },
+    {
+      "text": "Aa",
+      "bbox": [
+        25,
+        713,
+        55,
+        728
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "LAL OLS",
+      "bbox": [
+        136,
+        713,
+        234,
+        728
+      ],
+      "confidence": 0.435
+    },
+    {
+      "text": "PAO",
+      "bbox": [
+        1366,
+        755,
+        1427,
+        770
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "Bete? venv\\Scripts\\python.exe",
+      "bbox": [
+        53,
+        755,
+        1580,
+        777
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "sr...",
+      "bbox": [
+        243,
+        764,
+        268,
+        773
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Phase 23S} 3",
+      "bbox": [
+        1331,
+        804,
+        1441,
+        819
+      ],
+      "confidence": 0.835
+    },
+    {
+      "text": "(SS AB] He ite,",
+      "bbox": [
+        25,
+        851,
+        196,
+        869
+      ],
+      "confidence": 0.482
+    },
+    {
+      "text": "CopilotO]",
+      "bbox": [
+        635,
+        858,
+        715,
+        879
+      ],
+      "confidence": 0.57
+    },
+    {
+      "text": "o",
+      "bbox": [
+        30,
+        917,
+        38,
+        925
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Copilot Chat (71)",
+      "bbox": [
+        60,
+        929,
+        161,
+        942
+      ],
+      "confidence": 0.725
+    },
+    {
+      "text": "24 12:47",
+      "bbox": [
+        1825,
+        1032,
+        1896,
+        1046
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [
+        {
+          "role": "text",
+          "bbox": [
+            23,
+            24,
+            46,
+            45
+          ],
+          "text": "a",
+          "confidence": 0.66
+        },
+        {
+          "role": "title",
+          "bbox": [
+            25,
+            84,
+            109,
+            105
+          ],
+          "text": "O AE",
+          "confidence": 0.695
+        },
+        {
+          "role": "text",
+          "bbox": [
+            430,
+            90,
+            478,
+            104
+          ],
+          "text": "Global",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            368,
+            90,
+            1670,
+            108
+          ],
+          "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+          "confidence": 0.957
+        },
+        {
+          "role": "text",
+          "bbox": [
+            27,
+            131,
+            88,
+            149
+          ],
+          "text": "Q as",
+          "confidence": 0.685
+        },
+        {
+          "role": "title",
+          "bbox": [
+            671,
+            136,
+            705,
+            155
+          ],
+          "text": "CH",
+          "confidence": 0.39
+        },
+        {
+          "role": "text",
+          "bbox": [
+            834,
+            136,
+            1101,
+            155
+          ],
+          "text": "BA/BS Se SAA] B SO]",
+          "confidence": 0.637
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1169,
+            136,
+            1379,
+            155
+          ],
+          "text": "THA SAO] VS sharepoint",
+          "confidence": 0.572
+        }
+      ],
+      "sidebar": [
+        {
+          "role": "title",
+          "bbox": [
+            25,
+            171,
+            774,
+            230
+          ],
+          "text": "CHS (0)",
+          "confidence": 0.505
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            278,
+            172,
+            293
+          ],
+          "text": "Bel 120049] IT",
+          "confidence": 0.742
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            327,
+            121,
+            342
+          ],
+          "text": "waa!",
+          "confidence": 0.42
+        },
+        {
+          "role": "title",
+          "bbox": [
+            24,
+            371,
+            72,
+            393
+          ],
+          "text": "BH A",
+          "confidence": 0.52
+        },
+        {
+          "role": "title",
+          "bbox": [
+            58,
+            422,
+            89,
+            437
+          ],
+          "text": "BE",
+          "confidence": 0.66
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            484,
+            49,
+            497
+          ],
+          "text": "ae",
+          "confidence": 0.61
+        },
+        {
+          "role": "text",
+          "bbox": [
+            39,
+            527,
+            274,
+            545
+          ],
+          "text": "Global AMEVA DB Inspector...",
+          "confidence": 0.949
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            573,
+            100,
+            587
+          ],
+          "text": "Traceback",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            106,
+            573,
+            271,
+            590
+          ],
+          "text": "call last): (most recent",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            24,
+            619,
+            264,
+            635
+          ],
+          "text": "Bet... vba 3 2} AES",
+          "confidence": 0.543
+        },
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            713,
+            55,
+            728
+          ],
+          "text": "Aa",
+          "confidence": 0.52
+        },
+        {
+          "role": "title",
+          "bbox": [
+            136,
+            713,
+            234,
+            728
+          ],
+          "text": "LAL OLS",
+          "confidence": 0.435
+        },
+        {
+          "role": "text",
+          "bbox": [
+            243,
+            764,
+            268,
+            773
+          ],
+          "text": "sr...",
+          "confidence": 0.91
+        },
+        {
+          "role": "text",
+          "bbox": [
+            25,
+            851,
+            196,
+            869
+          ],
+          "text": "(SS AB] He ite,",
+          "confidence": 0.482
+        },
+        {
+          "role": "text",
+          "bbox": [
+            30,
+            917,
+            38,
+            925
+          ],
+          "text": "o",
+          "confidence": 0.54
+        },
+        {
+          "role": "text",
+          "bbox": [
+            60,
+            929,
+            161,
+            942
+          ],
+          "text": "Copilot Chat (71)",
+          "confidence": 0.725
+        }
+      ],
+      "body": [
+        {
+          "role": "title",
+          "bbox": [
+            1019,
+            256,
+            1096,
+            275
+          ],
+          "text": "YA] AS",
+          "confidence": 0.71
+        },
+        {
+          "role": "text",
+          "bbox": [
+            736,
+            256,
+            1230,
+            275
+          ],
+          "text": "Sf. Phase Moondream2 3",
+          "confidence": 0.843
+        },
+        {
+          "role": "title",
+          "bbox": [
+            709,
+            427,
+            878,
+            455
+          ],
+          "text": "DEAE 7/%",
+          "confidence": 0.56
+        },
+        {
+          "role": "title",
+          "bbox": [
+            976,
+            431,
+            1056,
+            452
+          ],
+          "text": "TODO",
+          "confidence": 0.88
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1366,
+            755,
+            1427,
+            770
+          ],
+          "text": "PAO",
+          "confidence": 0.43
+        },
+        {
+          "role": "text",
+          "bbox": [
+            53,
+            755,
+            1580,
+            777
+          ],
+          "text": "Bete? venv\\Scripts\\python.exe",
+          "confidence": 0.55
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1331,
+            804,
+            1441,
+            819
+          ],
+          "text": "Phase 23S} 3",
+          "confidence": 0.835
+        },
+        {
+          "role": "text",
+          "bbox": [
+            635,
+            858,
+            715,
+            879
+          ],
+          "text": "CopilotO]",
+          "confidence": 0.57
+        }
+      ],
+      "status_bar": [
+        {
+          "role": "text",
+          "bbox": [
+            1825,
+            1032,
+            1896,
+            1046
+          ],
+          "text": "24 12:47",
+          "confidence": 0.55
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1818,
+            1054,
+            1893,
+            1065
+          ],
+          "text": "2026-06-01",
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] (8 items hidden) ---\n--- [REGION: SIDEBAR] (16 items hidden) ---\n--- [REGION: BODY] ---\n[TITLE] YA] AS\n[TEXT] Sf. Phase Moondream2 3\n[TITLE] DEAE 7/%\n[TITLE] TODO\n[TITLE] PAO\n[TEXT] Bete? venv\\Scripts\\python.exe\n[TEXT] Phase 23S} 3\n[TEXT] CopilotO]\n--- [REGION: STATUS_BAR] ---\n[TEXT] 24 12:47\n[TEXT] 2026-06-01"
+    }
+  ],
+  "llm_response": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+}

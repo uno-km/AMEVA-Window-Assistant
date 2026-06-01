@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  llama-server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: ameva-llm-server
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mounted your actual model directory
+      - C:/ameva/models:/models
+    command: >
+      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+      --host 0.0.0.0
+      --port 8080
+      --ctx-size 8192
+      --n-gpu-layers 0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/v1/models"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  vlm-server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: ameva-vlm-server
+    ports:
+      - "8081:8081"
+    volumes:
+      - C:/ameva/models:/models
+    command: >
+      --model /models/moondream2-text-model-f16_ct-vicuna.gguf
+      --mmproj /models/moondream2-mmproj-f16-20250414.gguf
+      --host 0.0.0.0
+      --port 8081
+      --ctx-size 2048
+      --n-gpu-layers 0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8081/v1/models"]
+      interval: 5s
+      timeout: 3s
+      retries: 10

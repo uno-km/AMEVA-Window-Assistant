@@ -1,0 +1,13 @@
+# AMEVA Voice Screen Assistant — Dependencies
+# Windows-only Tkinter desktop assistant
+
+# Screen capture (multi-monitor)
+Pillow>=10.0
+mss>=9.0
+
+# Audio recording for STT
+sounddevice>=0.5
+soundfile>=0.12
+
+# OCR
+pytesseract>=0.3.10

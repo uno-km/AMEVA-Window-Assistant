@@ -1,0 +1,1990 @@
+{
+  "ocr_raw": [
+    {
+      "text": "Vv",
+      "bbox": [
+        14,
+        12,
+        33,
+        38
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "hometax.go.kr/html/comm/error/:",
+      "bbox": [
+        91,
+        20,
+        305,
+        34
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "X",
+      "bbox": [
+        325,
+        20,
+        335,
+        30
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "@",
+      "bbox": [
+        360,
+        16,
+        378,
+        34
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "OCR",
+      "bbox": [
+        389,
+        18,
+        490,
+        32
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "-",
+      "bbox": [
+        420,
+        12,
+        430,
+        38
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "x",
+      "bbox": [
+        623,
+        20,
+        634,
+        30
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "+",
+      "bbox": [
+        664,
+        16,
+        683,
+        35
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "=",
+      "bbox": [
+        1769,
+        23,
+        1782,
+        24
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "a",
+      "bbox": [
+        1827,
+        18,
+        1840,
+        31
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Ss",
+      "bbox": [
+        60,
+        15,
+        80,
+        35
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "<",
+      "bbox": [
+        15,
+        67,
+        35,
+        84
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "CB",
+      "bbox": [
+        62,
+        66,
+        123,
+        84
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "hitps://namu.wiki/w/OCR",
+      "bbox": [
+        136,
+        67,
+        330,
+        85
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "So",
+      "bbox": [
+        15,
+        113,
+        35,
+        126
+      ],
+      "confidence": 0.46
+    },
+    {
+      "text": "&",
+      "bbox": [
+        70,
+        110,
+        90,
+        129
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "|",
+      "bbox": [
+        246,
+        110,
+        247,
+        130
+      ],
+      "confidence": 0.82
+    },
+    {
+      "text": "SAA7|S",
+      "bbox": [
+        433,
+        110,
+        519,
+        127
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "SOM",
+      "bbox": [
+        659,
+        110,
+        730,
+        127
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "Aas",
+      "bbox": [
+        738,
+        112,
+        766,
+        126
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "Bel",
+      "bbox": [
+        835,
+        112,
+        863,
+        126
+      ],
+      "confidence": 0.76
+    },
+    {
+      "text": "2.",
+      "bbox": [
+        127,
+        177,
+        141,
+        191
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "ABBYY",
+      "bbox": [
+        147,
+        177,
+        203,
+        191
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "OCR",
+      "bbox": [
+        209,
+        177,
+        246,
+        191
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Ye",
+      "bbox": [
+        168,
+        217,
+        182,
+        224
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "tow",
+      "bbox": [
+        225,
+        217,
+        240,
+        224
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "este",
+      "bbox": [
+        714,
+        216,
+        749,
+        224
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "=a",
+      "bbox": [
+        129,
+        226,
+        218,
+        238
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "Clan",
+      "bbox": [
+        281,
+        230,
+        312,
+        258
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "SD",
+      "bbox": [
+        130,
+        239,
+        156,
+        273
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "te)",
+      "bbox": [
+        175,
+        239,
+        224,
+        273
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "|",
+      "bbox": [
+        481,
+        239,
+        493,
+        273
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "Se",
+      "bbox": [
+        537,
+        246,
+        606,
+        260
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "4",
+      "bbox": [
+        744,
+        257,
+        750,
+        260
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "inne",
+      "bbox": [
+        324,
+        268,
+        357,
+        278
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "1",
+      "bbox": [
+        364,
+        270,
+        369,
+        278
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "ma",
+      "bbox": [
+        378,
+        258,
+        393,
+        286
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "ety",
+      "bbox": [
+        397,
+        258,
+        416,
+        286
+      ],
+      "confidence": 0.58
+    },
+    {
+      "text": "nd",
+      "bbox": [
+        506,
+        269,
+        521,
+        275
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "se",
+      "bbox": [
+        1487,
+        523,
+        1550,
+        549
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "|",
+      "bbox": [
+        1787,
+        478,
+        1793,
+        536
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "OCR",
+      "bbox": [
+        127,
+        673,
+        164,
+        687
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "J",
+      "bbox": [
+        247,
+        672,
+        255,
+        689
+      ],
+      "confidence": 0.59
+    },
+    {
+      "text": "7/4",
+      "bbox": [
+        267,
+        671,
+        301,
+        689
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "SCH",
+      "bbox": [
+        364,
+        671,
+        414,
+        689
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "ABBYY",
+      "bbox": [
+        477,
+        673,
+        533,
+        687
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "FineReader",
+      "bbox": [
+        539,
+        672,
+        637,
+        687
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "11.",
+      "bbox": [
+        643,
+        673,
+        667,
+        687
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "5X",
+      "bbox": [
+        738,
+        671,
+        764,
+        688
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "7|%",
+      "bbox": [
+        771,
+        671,
+        804,
+        689
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "ABBYY",
+      "bbox": [
+        810,
+        673,
+        866,
+        687
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "FineReader",
+      "bbox": [
+        872,
+        672,
+        970,
+        687
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "PDF",
+      "bbox": [
+        976,
+        673,
+        1010,
+        687
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "4/4!",
+      "bbox": [
+        1077,
+        671,
+        1109,
+        689
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "HA",
+      "bbox": [
+        1117,
+        671,
+        1149,
+        689
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "14",
+      "bbox": [
+        1231,
+        671,
+        1256,
+        688
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "FS",
+      "bbox": [
+        1263,
+        672,
+        1297,
+        689
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "AWA",
+      "bbox": [
+        429,
+        702,
+        497,
+        719
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "S",
+      "bbox": [
+        561,
+        703,
+        577,
+        720
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "BA",
+      "bbox": [
+        680,
+        702,
+        712,
+        720
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "DS",
+      "bbox": [
+        777,
+        703,
+        810,
+        720
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "AHL",
+      "bbox": [
+        816,
+        702,
+        866,
+        720
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "So]",
+      "bbox": [
+        873,
+        702,
+        906,
+        720
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "WSS",
+      "bbox": [
+        914,
+        702,
+        964,
+        719
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "Pole",
+      "bbox": [
+        971,
+        702,
+        1038,
+        720
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "BH]",
+      "bbox": [
+        1044,
+        702,
+        1094,
+        720
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "SAS",
+      "bbox": [
+        1146,
+        702,
+        1197,
+        720
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "PDF",
+      "bbox": [
+        1295,
+        704,
+        1329,
+        718
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "Uf",
+      "bbox": [
+        1335,
+        702,
+        1352,
+        720
+      ],
+      "confidence": 0.52
+    },
+    {
+      "text": "22",
+      "bbox": [
+        127,
+        730,
+        161,
+        747
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "Seal,",
+      "bbox": [
+        167,
+        730,
+        223,
+        749
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "2",
+      "bbox": [
+        229,
+        730,
+        262,
+        748
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "BOM",
+      "bbox": [
+        387,
+        730,
+        435,
+        748
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "AA",
+      "bbox": [
+        443,
+        730,
+        475,
+        748
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "PDFS",
+      "bbox": [
+        541,
+        732,
+        591,
+        746
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "OHS",
+      "bbox": [
+        127,
+        786,
+        161,
+        804
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "10S",
+      "bbox": [
+        167,
+        787,
+        196,
+        802
+      ],
+      "confidence": 0.77
+    },
+    {
+      "text": "169]",
+      "bbox": [
+        203,
+        786,
+        238,
+        804
+      ],
+      "confidence": 0.75
+    },
+    {
+      "text": "AS",
+      "bbox": [
+        376,
+        786,
+        407,
+        804
+      ],
+      "confidence": 0.8
+    },
+    {
+      "text": "HA",
+      "bbox": [
+        603,
+        786,
+        635,
+        804
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "OCR",
+      "bbox": [
+        700,
+        788,
+        737,
+        802
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "7/50]",
+      "bbox": [
+        744,
+        786,
+        792,
+        804
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "3.",
+      "bbox": [
+        127,
+        844,
+        141,
+        858
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Deepseek-OCR",
+      "bbox": [
+        149,
+        843,
+        276,
+        862
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "SHH",
+      "bbox": [
+        127,
+        871,
+        178,
+        888
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "OCRS",
+      "bbox": [
+        549,
+        872,
+        602,
+        888
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "S",
+      "bbox": [
+        609,
+        871,
+        625,
+        888
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "+",
+      "bbox": [
+        629,
+        867,
+        640,
+        898
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "Sich.",
+      "bbox": [
+        654,
+        871,
+        692,
+        888
+      ],
+      "confidence": 0.46
+    },
+    {
+      "text": "§",
+      "bbox": [
+        490,
+        900,
+        498,
+        916
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "O92",
+      "bbox": [
+        505,
+        900,
+        537,
+        916
+      ],
+      "confidence": 0.32
+    },
+    {
+      "text": "AAS",
+      "bbox": [
+        544,
+        901,
+        595,
+        914
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "SHE!",
+      "bbox": [
+        602,
+        899,
+        651,
+        916
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "Al",
+      "bbox": [
+        657,
+        901,
+        673,
+        915
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "t",
+      "bbox": [
+        1851,
+        889,
+        1869,
+        910
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "v",
+      "bbox": [
+        1851,
+        940,
+        1869,
+        961
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "[az]",
+      "bbox": [
+        1315,
+        967,
+        1353,
+        983
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "2H",
+      "bbox": [
+        1833,
+        1032,
+        1861,
+        1046
+      ],
+      "confidence": 0.31
+    },
+    {
+      "text": "1:03",
+      "bbox": [
+        1869,
+        1034,
+        1895,
+        1045
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "Vv Ss",
+      "bbox": [
+        14,
+        12,
+        80,
+        38
+      ],
+      "confidence": 0.505
+    },
+    {
+      "text": "OCR",
+      "bbox": [
+        389,
+        18,
+        490,
+        32
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "a hometax.go.kr/html/comm/error/: X x",
+      "bbox": [
+        91,
+        18,
+        1840,
+        34
+      ],
+      "confidence": 0.698
+    },
+    {
+      "text": "CB hitps://namu.wiki/w/OCR",
+      "bbox": [
+        62,
+        66,
+        330,
+        85
+      ],
+      "confidence": 0.545
+    },
+    {
+      "text": "SAA7|S",
+      "bbox": [
+        433,
+        110,
+        519,
+        127
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "SOM Aas",
+      "bbox": [
+        659,
+        110,
+        766,
+        127
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "Bel So",
+      "bbox": [
+        15,
+        112,
+        863,
+        126
+      ],
+      "confidence": 0.61
+    },
+    {
+      "text": "2. ABBYY OCR",
+      "bbox": [
+        127,
+        177,
+        246,
+        191
+      ],
+      "confidence": 0.943
+    },
+    {
+      "text": "este Ye tow",
+      "bbox": [
+        168,
+        216,
+        749,
+        224
+      ],
+      "confidence": 0.375
+    },
+    {
+      "text": "=a",
+      "bbox": [
+        129,
+        226,
+        218,
+        238
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "Clan SD te)",
+      "bbox": [
+        130,
+        230,
+        312,
+        273
+      ],
+      "confidence": 0.535
+    },
+    {
+      "text": "Se",
+      "bbox": [
+        537,
+        246,
+        606,
+        260
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "4 ma ety",
+      "bbox": [
+        378,
+        257,
+        750,
+        286
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "inne",
+      "bbox": [
+        324,
+        268,
+        357,
+        278
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "nd 1",
+      "bbox": [
+        364,
+        269,
+        521,
+        278
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "se",
+      "bbox": [
+        1487,
+        523,
+        1550,
+        549
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "7/4",
+      "bbox": [
+        267,
+        671,
+        301,
+        689
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "SCH",
+      "bbox": [
+        364,
+        671,
+        414,
+        689
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "5X 7|%",
+      "bbox": [
+        738,
+        671,
+        804,
+        689
+      ],
+      "confidence": 0.445
+    },
+    {
+      "text": "4/4! HA",
+      "bbox": [
+        1077,
+        671,
+        1149,
+        689
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF",
+      "bbox": [
+        127,
+        671,
+        1297,
+        689
+      ],
+      "confidence": 0.919
+    },
+    {
+      "text": "AWA",
+      "bbox": [
+        429,
+        702,
+        497,
+        719
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "BA",
+      "bbox": [
+        680,
+        702,
+        712,
+        720
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "AHL So] WSS Pole BH]",
+      "bbox": [
+        816,
+        702,
+        1094,
+        720
+      ],
+      "confidence": 0.506
+    },
+    {
+      "text": "SAS",
+      "bbox": [
+        1146,
+        702,
+        1197,
+        720
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "Uf S DS PDF",
+      "bbox": [
+        561,
+        702,
+        1352,
+        720
+      ],
+      "confidence": 0.741
+    },
+    {
+      "text": "22 Seal, 2",
+      "bbox": [
+        127,
+        730,
+        262,
+        749
+      ],
+      "confidence": 0.445
+    },
+    {
+      "text": "BOM AA",
+      "bbox": [
+        387,
+        730,
+        475,
+        748
+      ],
+      "confidence": 0.525
+    },
+    {
+      "text": "PDFS",
+      "bbox": [
+        541,
+        732,
+        591,
+        746
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "OHS",
+      "bbox": [
+        127,
+        786,
+        161,
+        804
+      ],
+      "confidence": 0.36
+    },
+    {
+      "text": "169]",
+      "bbox": [
+        203,
+        786,
+        238,
+        804
+      ],
+      "confidence": 0.75
+    },
+    {
+      "text": "AS",
+      "bbox": [
+        376,
+        786,
+        407,
+        804
+      ],
+      "confidence": 0.8
+    },
+    {
+      "text": "HA",
+      "bbox": [
+        603,
+        786,
+        635,
+        804
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "7/50] 10S OCR",
+      "bbox": [
+        167,
+        786,
+        792,
+        804
+      ],
+      "confidence": 0.827
+    },
+    {
+      "text": "Deepseek-OCR 3.",
+      "bbox": [
+        127,
+        843,
+        276,
+        862
+      ],
+      "confidence": 0.915
+    },
+    {
+      "text": "SHH",
+      "bbox": [
+        127,
+        871,
+        178,
+        888
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "S",
+      "bbox": [
+        609,
+        871,
+        625,
+        888
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "Sich. OCRS",
+      "bbox": [
+        549,
+        871,
+        692,
+        888
+      ],
+      "confidence": 0.675
+    },
+    {
+      "text": "t",
+      "bbox": [
+        1851,
+        889,
+        1869,
+        910
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "SHE! O92 AAS Al",
+      "bbox": [
+        505,
+        899,
+        673,
+        916
+      ],
+      "confidence": 0.778
+    },
+    {
+      "text": "v",
+      "bbox": [
+        1851,
+        940,
+        1869,
+        961
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "[az]",
+      "bbox": [
+        1315,
+        967,
+        1353,
+        983
+      ],
+      "confidence": 0.38
+    },
+    {
+      "text": "2H 1:03",
+      "bbox": [
+        1833,
+        1032,
+        1895,
+        1046
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "2026-06-01",
+      "bbox": [
+        1818,
+        1054,
+        1893,
+        1065
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [
+        {
+          "role": "text",
+          "bbox": [
+            14,
+            12,
+            80,
+            38
+          ],
+          "text": "Vv Ss",
+          "confidence": 0.505
+        },
+        {
+          "role": "title",
+          "bbox": [
+            389,
+            18,
+            490,
+            32
+          ],
+          "text": "OCR",
+          "confidence": 0.88
+        },
+        {
+          "role": "log",
+          "bbox": [
+            91,
+            18,
+            1840,
+            34
+          ],
+          "text": "a hometax.go.kr/html/comm/error/: X x",
+          "confidence": 0.698
+        },
+        {
+          "role": "text",
+          "bbox": [
+            62,
+            66,
+            330,
+            85
+          ],
+          "text": "CB hitps://namu.wiki/w/OCR",
+          "confidence": 0.545
+        },
+        {
+          "role": "title",
+          "bbox": [
+            433,
+            110,
+            519,
+            127
+          ],
+          "text": "SAA7|S",
+          "confidence": 0.54
+        },
+        {
+          "role": "text",
+          "bbox": [
+            659,
+            110,
+            766,
+            127
+          ],
+          "text": "SOM Aas",
+          "confidence": 0.53
+        },
+        {
+          "role": "text",
+          "bbox": [
+            15,
+            112,
+            863,
+            126
+          ],
+          "text": "Bel So",
+          "confidence": 0.61
+        }
+      ],
+      "sidebar": [
+        {
+          "role": "title",
+          "bbox": [
+            127,
+            177,
+            246,
+            191
+          ],
+          "text": "2. ABBYY OCR",
+          "confidence": 0.943
+        },
+        {
+          "role": "text",
+          "bbox": [
+            168,
+            216,
+            749,
+            224
+          ],
+          "text": "este Ye tow",
+          "confidence": 0.375
+        },
+        {
+          "role": "text",
+          "bbox": [
+            129,
+            226,
+            218,
+            238
+          ],
+          "text": "=a",
+          "confidence": 0.39
+        },
+        {
+          "role": "text",
+          "bbox": [
+            130,
+            230,
+            312,
+            273
+          ],
+          "text": "Clan SD te)",
+          "confidence": 0.535
+        },
+        {
+          "role": "text",
+          "bbox": [
+            324,
+            268,
+            357,
+            278
+          ],
+          "text": "inne",
+          "confidence": 0.43
+        },
+        {
+          "role": "text",
+          "bbox": [
+            364,
+            269,
+            521,
+            278
+          ],
+          "text": "nd 1",
+          "confidence": 0.44
+        },
+        {
+          "role": "text",
+          "bbox": [
+            267,
+            671,
+            301,
+            689
+          ],
+          "text": "7/4",
+          "confidence": 0.73
+        },
+        {
+          "role": "title",
+          "bbox": [
+            364,
+            671,
+            414,
+            689
+          ],
+          "text": "SCH",
+          "confidence": 0.37
+        },
+        {
+          "role": "title",
+          "bbox": [
+            429,
+            702,
+            497,
+            719
+          ],
+          "text": "AWA",
+          "confidence": 0.64
+        },
+        {
+          "role": "text",
+          "bbox": [
+            127,
+            730,
+            262,
+            749
+          ],
+          "text": "22 Seal, 2",
+          "confidence": 0.445
+        },
+        {
+          "role": "title",
+          "bbox": [
+            387,
+            730,
+            475,
+            748
+          ],
+          "text": "BOM AA",
+          "confidence": 0.525
+        },
+        {
+          "role": "title",
+          "bbox": [
+            127,
+            786,
+            161,
+            804
+          ],
+          "text": "OHS",
+          "confidence": 0.36
+        },
+        {
+          "role": "text",
+          "bbox": [
+            203,
+            786,
+            238,
+            804
+          ],
+          "text": "169]",
+          "confidence": 0.75
+        },
+        {
+          "role": "title",
+          "bbox": [
+            376,
+            786,
+            407,
+            804
+          ],
+          "text": "AS",
+          "confidence": 0.8
+        },
+        {
+          "role": "title",
+          "bbox": [
+            167,
+            786,
+            792,
+            804
+          ],
+          "text": "7/50] 10S OCR",
+          "confidence": 0.827
+        },
+        {
+          "role": "text",
+          "bbox": [
+            127,
+            843,
+            276,
+            862
+          ],
+          "text": "Deepseek-OCR 3.",
+          "confidence": 0.915
+        },
+        {
+          "role": "title",
+          "bbox": [
+            127,
+            871,
+            178,
+            888
+          ],
+          "text": "SHH",
+          "confidence": 0.42
+        }
+      ],
+      "body": [
+        {
+          "role": "text",
+          "bbox": [
+            537,
+            246,
+            606,
+            260
+          ],
+          "text": "Se",
+          "confidence": 0.51
+        },
+        {
+          "role": "text",
+          "bbox": [
+            378,
+            257,
+            750,
+            286
+          ],
+          "text": "4 ma ety",
+          "confidence": 0.62
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1487,
+            523,
+            1550,
+            549
+          ],
+          "text": "se",
+          "confidence": 0.38
+        },
+        {
+          "role": "title",
+          "bbox": [
+            738,
+            671,
+            804,
+            689
+          ],
+          "text": "5X 7|%",
+          "confidence": 0.445
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1077,
+            671,
+            1149,
+            689
+          ],
+          "text": "4/4! HA",
+          "confidence": 0.47
+        },
+        {
+          "role": "text",
+          "bbox": [
+            127,
+            671,
+            1297,
+            689
+          ],
+          "text": "14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF",
+          "confidence": 0.919
+        },
+        {
+          "role": "title",
+          "bbox": [
+            680,
+            702,
+            712,
+            720
+          ],
+          "text": "BA",
+          "confidence": 0.86
+        },
+        {
+          "role": "text",
+          "bbox": [
+            816,
+            702,
+            1094,
+            720
+          ],
+          "text": "AHL So] WSS Pole BH]",
+          "confidence": 0.506
+        },
+        {
+          "role": "title",
+          "bbox": [
+            1146,
+            702,
+            1197,
+            720
+          ],
+          "text": "SAS",
+          "confidence": 0.55
+        },
+        {
+          "role": "text",
+          "bbox": [
+            561,
+            702,
+            1352,
+            720
+          ],
+          "text": "Uf S DS PDF",
+          "confidence": 0.741
+        },
+        {
+          "role": "title",
+          "bbox": [
+            541,
+            732,
+            591,
+            746
+          ],
+          "text": "PDFS",
+          "confidence": 0.51
+        },
+        {
+          "role": "title",
+          "bbox": [
+            603,
+            786,
+            635,
+            804
+          ],
+          "text": "HA",
+          "confidence": 0.54
+        },
+        {
+          "role": "title",
+          "bbox": [
+            609,
+            871,
+            625,
+            888
+          ],
+          "text": "S",
+          "confidence": 0.5
+        },
+        {
+          "role": "text",
+          "bbox": [
+            549,
+            871,
+            692,
+            888
+          ],
+          "text": "Sich. OCRS",
+          "confidence": 0.675
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1851,
+            889,
+            1869,
+            910
+          ],
+          "text": "t",
+          "confidence": 0.71
+        },
+        {
+          "role": "text",
+          "bbox": [
+            505,
+            899,
+            673,
+            916
+          ],
+          "text": "SHE! O92 AAS Al",
+          "confidence": 0.778
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1851,
+            940,
+            1869,
+            961
+          ],
+          "text": "v",
+          "confidence": 0.56
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1315,
+            967,
+            1353,
+            983
+          ],
+          "text": "[az]",
+          "confidence": 0.38
+        }
+      ],
+      "status_bar": [
+        {
+          "role": "title",
+          "bbox": [
+            1833,
+            1032,
+            1895,
+            1046
+          ],
+          "text": "2H 1:03",
+          "confidence": 0.51
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1818,
+            1054,
+            1893,
+            1065
+          ],
+          "text": "2026-06-01",
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ELdyd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "도커온라인인데..\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] (7 items hidden) ---\n--- [REGION: SIDEBAR] (17 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] Se\n[TEXT] 4 ma ety\n[TEXT] se\n[TITLE] 5X 7|%\n[TITLE] 4/4! HA\n[TEXT] 14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF\n[TITLE] BA\n[TEXT] AHL So] WSS Pole BH]\n[TITLE] SAS\n[TEXT] Uf S DS PDF\n[TITLE] PDFS\n[TITLE] HA\n[TITLE] S\n[TEXT] Sich. OCRS\n[TEXT] t\n[TEXT] SHE! O92 AAS Al\n[TEXT] v\n[TEXT] [az]\n--- [REGION: STATUS_BAR] ---\n[TITLE] 2H 1:03\n[TEXT] 2026-06-01"
+    }
+  ],
+  "llm_response": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+}
