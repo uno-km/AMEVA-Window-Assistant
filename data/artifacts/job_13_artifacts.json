@@ -1,0 +1,76 @@
+{
+  "ocr_raw": [],
+  "ocr_cleaned": [],
+  "scene_graph": {
+    "screen_type": "unknown_application",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "regions": {
+      "toolbar": [],
+      "sidebar": [],
+      "body": [],
+      "status_bar": []
+    }
+  },
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "이거 무슨화면이야?"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ELdyd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "도커온라인인데.."
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "ddd"
+    },
+    {
+      "role": "assistant",
+      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ddd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+    },
+    {
+      "role": "user",
+      "content": "지금 어떤화면이야?\n\n[Screen Context from OCR]:\nNo readable text found on the screen."
+    }
+  ],
+  "llm_response": "[가짜 VLM 서버 응답] 질문 확인: '지금 어떤화면이야?'\n\n이미지 데이터(Base64)가 감지되었습니다!\n실제 도커(Docker) VLM 서버가 연결되면 Moondream2 모델을 사용해 화면의 시각 요소를 직접 분석하여 진짜 답변을 드립니다."
+}

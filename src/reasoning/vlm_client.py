@@ -21,20 +21,6 @@ class LocalMultimodalAdapter:
     def generate(self, image_path: str, prompt: str, **kwargs) -> str:
         raise NotImplementedError()
 
-class LocalMockMultimodalAdapter(LocalMultimodalAdapter):
-    """
-    Mock adapter for when a real local VLM is not available.
-    Returns a structured fallback-unavailable response.
-    """
-    def generate(self, image_path: str, prompt: str, **kwargs) -> str:
-        logger.info(f"[LocalMockVLM] Received multimodal request for image: {image_path}")
-        return (
-            "{\n"
-            '  "status": "local_vlm_unavailable",\n'
-            '  "message": "Local multimodal backend is not configured or offline. Fallback aborted.",\n'
-            f'  "mock_received_prompt": "{prompt[:50]}..."\n'
-            "}"
-        )
 
 class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
     """
@@ -99,14 +85,14 @@ class VLMClient:
     """
     def __init__(self, cfg):
         self.cfg = cfg
-        self.provider_name = self.cfg.get("vlm", "provider", default="mock").lower()
+        self.provider_name = self.cfg.get("vlm", "provider", default="llama_cpp").lower()
         
         if self.provider_name == "llama_cpp":
             self.adapter = LocalLlamaCppMultimodalAdapter(
                 endpoint_url=self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
             )
         else:
-            self.adapter = LocalMockMultimodalAdapter()
+            raise ValueError(f"Unknown VLM provider: {self.provider_name}")
             
     def ask_image(self, image_path: str, prompt: str, **kwargs) -> str:
         """Process an image and text prompt using the configured local VLM."""

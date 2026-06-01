@@ -1,163 +1,215 @@
-# AMEVA Voice Screen Assistant - Project Export
+# AMEVA Voice Screen Assistant — Project Export (Full Specification & Source Code)
 
-This document contains the complete architecture, implementation plans, tasks, and source code of the AMEVA project.
-
-## 1. Architecture & Design Documents
-
-### Document: implementation_plan.md
-
-# Phase 3: Hybrid OCR + Multimodal Fallback Architecture & UI
-
-사용자님의 엄격한 보안 요구사항(망분리 완전 로컬)과 아키텍처 규칙을 반영한 최종 설계도입니다.
-
-## User Review Required
-
-> [!IMPORTANT]
-> **설계 확정 및 실행 승인 대기**
-> 아래 설계가 사용자가 명시한 모든 제약 조건(오프라인 전용 VLM, 최대 3회 재시도, 5가지 Fallback 조건)을 완벽히 만족하는지 확인해 주십시오. 승인하시면 즉시 코딩(Execution)에 돌입합니다!
-
-## Proposed Changes
+본 문서는 AMEVA Voice Screen Assistant 프로젝트의 전체 아키텍처 설계, 핵심 기능 정의, 최근 구현된 변경 사항(Walkthrough) 및 테스트 시나리오, 그리고 모든 소스 코드 파일을 하나로 통합한 마스터 검수 문서입니다. 외부의 다른 AI 모델(예: Copilot)이 이 문서를 읽는 것만으로도 전체 아키텍처 및 구현 코드를 완벽하게 이해하고 분석 및 검수를 수행할 수 있도록 정밀하게 패키징되었습니다.
 
 ---
 
-### 1. Perception & UI Layer (Monitor Selection)
-
-#### [MODIFY] src/ui/ui_main.py
-- 드롭다운/라디오 버튼으로 캡처 대상을 선택할 수 있도록 UI 요소 추가 (`전체 화면`, `모니터 1`, `모니터 2` 등).
-- `ScreenCapture.list_monitors()`를 활용하여 동적 바인딩.
-
-#### [MODIFY] src/orchestration/worker.py
-- UI에서 전달받은 `mode`와 `monitor_index`를 `capture()` 호출 시 인자로 전달.
+## 1. 프로젝트 개요 (Project Overview)
+**AMEVA Voice Screen Assistant**는 인터넷이나 클라우드 API 연결이 완전히 제한된 **오프라인 망분리 보안 환경**에서도 구동할 수 있도록 설계된 **온프레미스형 데스크톱 AI 보조(Assistant) 시스템**입니다. 
+사용자의 화면 상황을 주기적으로 캡처하고, 화면 내의 텍스트와 UI 구조를 분석(OCR & Scene Graph)하여 최적의 오프라인 로컬 LLM 또는 VLM(시각 멀티모달 모델)에 작업을 분배 및 라우팅합니다. 또한 마이크를 통한 오프라인 STT(Speech-to-Text) 및 Windows SAPI 연동을 통한 오프라인 TTS(Text-to-Speech)를 구현하여, 음성과 텍스트 인터페이스 모두를 지원하는 차세대 업무 보조 솔루션입니다.
 
 ---
 
-### 2. Orchestration Layer (Router & Retry Logic)
+## 2. 주요 기능 명세 (Core Features)
 
-#### [NEW] src/orchestration/router.py
-- **Fallback Conditions (라우팅 규칙)**:
-  1. OCR text block count < N
-  2. Average OCR confidence < T
-  3. 사용자 질문에 시각적/공간적 의도 포함 (`어디`, `버튼`, `아이콘`, `모양`, `색깔`, `그림`, `눌러`, `위치`)
-  4. 1차 Text LLM 응답에 실패/애매함 키워드 포함 (`정확히 판단하기 어렵다`, `알 수 없다`, `OCR 결과가 불명확하다`)
-  5. `scene_graph`의 `screen_type` 분류 실패 (unknown)
-- 위 조건 중 하나라도 만족하면 VLM Fallback 경로로 작업(Job)을 라우팅.
+### 2.1. 캡처 및 화면 인지 레이어 (Screen Capture & Perception)
+* **다중 디스플레이 캡처 (`ScreenCapture`)**: 로컬 화면 캡처 모듈로, `mss` 라이브러리를 사용해 복수의 모니터 디스플레이 지오메트리를 동적으로 탐색하고 특정 모니터 인덱스나 전체 가상 화면을 PNG 이미지로 캡처합니다. (mss 미설치 시 Pillow의 `PIL.ImageGrab`으로 자동 Fallback)
+* **동적 모니터 탐색 UI**: PyQt6/Tkinter 메인 윈도우 UI에서 현재 연결된 모니터 목록을 가져와 드롭다운에서 선택할 수 있도록 바인딩합니다.
 
-#### [MODIFY] src/orchestration/worker.py
-- **Auto-Retry & 무한루프 방지**: 라우터가 Fallback을 결정하면 VLM 워커로 작업을 넘김. 단, `job.retry_count`를 도입하여 최대 **3회**까지만 재시도하도록 제한.
+### 2.2. 구조 분석 및 문맥 압축 레이어 (OCR & Scene Graph)
+* **Tesseract OCR 엔진 (`TesseractProvider`)**: 캡처된 화면 이미지로부터 문자열 블록을 추출합니다.
+* **OCR 사후 처리 (`OCRPostProcessor`)**: 노이즈 텍스트 필터링, 사소한 기호 제거 및 인접 단어 블록 병합 알고리즘을 수행하여 문맥 가독성을 향상시킵니다.
+* **레이아웃 세그멘테이션 및 시나리오 필터링 (`SceneGraphBuilder`)**: 화면을 상단(Toolbar), 좌측(Sidebar), 중앙(Body), 하단(Status Bar) 등 좌표 기반 논리 영역으로 구별합니다. 이후 사용자 질문의 키워드(예: "그리기" 관련 질문 시 Toolbar 및 Body 우선 노출, Sidebar 및 Status Bar 숨김)를 분석하여 중요도가 낮은 영역을 차단(Hiding)함으로써, 로컬 LLM의 컨텍스트 윈도우 한계를 수호하고 연산 속도를 단축합니다.
 
----
+### 2.3. 지능형 로컬 라우팅 레이어 (Hybrid Fallback Router)
+* **Fallback Router (`FallbackRouter`)**: 비용이 적게 드는 Text LLM(OCR 기반)과 비용이 높은 VLM(이미지 직접 주입) 간의 호출을 상황에 맞게 제어하는 하이브리드 라우팅을 수행합니다.
+* **VLM 직송 조건 (Fast-track)**: 사용자의 질문에 시각적/공간적 의도가 담긴 핵심 키워드(`어디`, `버튼`, `아이콘`, `모양`, `색깔`, `그림`, `눌러`, `위치` 등)가 감지되면 OCR 단계를 건너뛰고 VLM으로 직접 전달합니다.
+* **품질 기반 Fallback 조건**: 
+  1. OCR 텍스트 블록의 개수가 5개 미만인 경우.
+  2. OCR 텍스트 문자열의 총 길이가 20자 미만인 경우.
+  3. OCR 글자 인식 신뢰도 평균이 55% (0.55) 미만인 경우.
+  4. Scene Graph 분석 결과 화면 유형이 `unknown_application`으로 판별되는 경우.
+* **실패 감지 기반 Fallback 조건**: 1차 Text LLM의 응답에서 실패 또는 확답 보류 문구(`정확히 판단하기 어렵다`, `알 수 없다`, `ocr 결과가 불명확하다` 등)가 검출되는 경우, 자동으로 VLM Fallback을 재시도합니다.
 
-### 3. Reasoning Layer (Strictly Local VLM Client)
+### 2.4. 로컬 AI 클라이언트 & 무한루프 방지 오케스트레이션
+* **오프라인 로컬 VLM 클라이언트 (`VLMClient`)**: 로컬 Llama.cpp 서버를 통해 Moondream2 등의 비주얼 멀티모달 모델로 추론을 처리하는 `LocalLlamaCppMultimodalAdapter`를 내장하고 있습니다. 만약 로컬 서버가 동작하지 않을 경우 `LocalMockMultimodalAdapter`로 우회하여 `local_vlm_unavailable` JSON 구조를 반환함으로써 예외 발생을 사전에 차단합니다.
+* **백그라운드 세션 및 오케스트레이션 (`WorkerThread` / `Job`)**:
+  * `semantic_fallback_used`: 하나의 작업 내에서 VLM으로의 Fallback 에스컬레이션은 최대 **1회**로 제한하여 핑퐁 현상과 무한루프를 방지합니다.
+  * `backend_retry_count`: 로컬 VLM 서버 연결 실패 및 지연 발생 시 최대 **3회**의 리트라이를 수행하며, 이후에는 안전한 기본값으로 응답을 복구(Graceful Degradation)합니다.
+* **로컬 LLM 도커 컨테이너 (`docker-compose.yml`)**: Llama-3.1-8B-Instruct 모델과 Moondream2 멀티모달 모델을 로컬 GPU 또는 CPU 가속을 활용해 실행할 수 있는 Docker 환경 설정을 포함합니다.
 
-#### [NEW] src/reasoning/vlm_client.py
-- **Local-Only Provider Adapters**: 모든 VLM 백엔드는 로컬/오프라인 전용으로 설계. 클라우드, API(GPT-4o 등), 원격 URL 업로드는 **명시적으로 금지**.
-- **Adapter Interface**:
-  - `LocalLlamaCppMultimodalAdapter`: 로컬 llama.cpp (mmproj 포함) 전용 어댑터.
-  - `LocalMockMultimodalAdapter`: 실제 로컬 VLM이 준비되지 않았을 때 파이프라인을 테스트하기 위한 Mock 어댑터.
-- 하드코딩 모델명 배제, 설정값으로 모델 관리.
-
----
-
-## Verification Plan
-
-### Automated Tests
-- `pytest tests_harness/test_router.py`:
-  - 5가지 Fallback 조건(OCR 부족, 특정 단어 포함, LLM 실패 응답 등)이 각각 정확히 VLM 라우팅을 트리거하는지 검증.
-  - 재시도 횟수가 3회를 초과할 경우 안전하게 Fallback을 포기하는지 검증.
-- `pytest tests_harness/test_vlm_client.py`:
-  - Mock 어댑터를 통해 로컬 멀티모달 포맷이 정상적으로 생성 및 반환되는지 검증.
-
+### 2.5. 멀티모달 입출력 및 데이터 관리 레이어
+* **오프라인 STT (`WhisperCppSTT`)**: `whisper.cpp` 바이너리 및 16kHz Mono WAV 녹음 파일 포맷을 활용한 완전 로컬 음성 전사(Transcription)를 실행합니다.
+* **오프라인 TTS (`WindowsSAPITTS`)**: PowerShell 서브프로세스를 비동기 호출하여 Windows의 기본 SAPI를 사용한 텍스트 음성 변환을 실행하므로 UI 메인 스레드가 블로킹되는 현상이 전혀 없습니다.
+* **SQLite 데이터베이스 (`DatabaseManager`)**: 태스크 대기열 관리(`tb_job`), 메시지 기록(`tb_message`), 유저 세션(`tb_session`), 시스템 예외 로그(`tb_log`)를 완전하게 영구 보존하며 관계 관리를 수행합니다.
 
 ---
 
-### Document: task.md
+## 3. 최근 수정 내역 및 검수 사항 (Walkthrough)
 
-# Phase 3: Hybrid OCR + Multimodal Fallback & UI
-
-## 1. Perception & UI Layer
-- [x] Add Monitor Selection dropdown in `src/ui/ui_main.py`
-- [x] Bind `ScreenCapture.list_monitors()` to UI
-- [x] Pass `mode` and `monitor_index` to `worker.py`
-
-## 2. Reasoning Layer (Strictly Local VLM Client)
-- [x] Create `src/reasoning/vlm_client.py`
-- [x] Implement `LocalMockMultimodalAdapter`
-- [x] Implement `LocalLlamaCppMultimodalAdapter`
-- [x] Add Graceful Fallback (`local_vlm_unavailable`)
-
-## 3. Orchestration Layer (Router)
-- [x] Create `src/orchestration/router.py`
-- [x] Implement `Fast-track multimodal routing` (Affordance keywords)
-- [x] Implement `Retry-based multimodal fallback` (OCR block count < 5, confidence < 0.55, chars < 20, LLM failure phrases)
-
-## 4. Orchestration Layer (Worker modifications)
-- [x] Add `semantic_fallback_used` (max 1) and `backend_retry_count` (max 3)
-- [x] Integrate `router.py` to decide VLM vs Text LLM
-- [x] Refactor LLM call loop to support Fallback retry flow
-
-## 5. Automated Tests
-- [x] Create `tests_harness/test_router.py`
-- [x] Create `tests_harness/test_vlm_client.py`
-
+이전 개발 단계(Phase 3)에서 추가/수정된 주요 업데이트 내역은 다음과 같습니다:
+1. **모니터 선택 드롭다운 UI 구현**: `src/ui/ui_main.py`에 모니터 목록을 수집하여 보여주는 콤보박스 위젯을 배치하였으며, 선택한 모니터 정보가 백그라운드 워커에 바인딩되도록 연결했습니다.
+2. **Fallback Router 설계 및 적용**: `src/orchestration/router.py`에 5가지 하이브리드 VLM 에스컬레이션 라우팅 알고리즘을 구축하여 테스트를 통과했습니다.
+3. **엄격한 로컬 어댑터 패턴 VLM 클라이언트**: `src/reasoning/vlm_client.py`에서 Moondream2 연동 및 Mock 클라이언트를 분리 설계했습니다.
+4. **리트라이 정책 및 에러 복구 로직**: `src/orchestration/worker.py` 내부의 추론 루프를 개선하여 3회 리트라이 방어막 및 1회 제한 샌드박스를 완비했습니다.
+5. **자동화 테스트 패키지**: `tests_harness/test_router.py` 및 `tests_harness/test_vlm_client.py`에 대한 Pytest 검증 통과를 완료했습니다.
 
 ---
 
-### Document: walkthrough.md
+## 4. 소스 코드 명세 (Source Code Repository)
 
-# Phase 3 완료: Hybrid Multimodal Fallback & Monitor Selection
+아래는 프로젝트 내의 핵심 설정, 스크립트 및 모든 소스 코드 파일들의 원본 내용입니다.
 
-승인해주신 아키텍처 설계를 기반으로, 완벽한 로컬 망분리 환경에서 동작하는 **하이브리드 VLM Fallback 시스템**과 **다중 모니터 선택 UI** 구현을 성공적으로 완료했습니다.
-
-## 1. 캡처 대상 모니터 선택 UI 추가
-
-[ui_main.py](file:///c:/ameva/AMEVA-Window-Assistant/src/ui/ui_main.py) 하단 `Send` 버튼 옆에 사용자의 디스플레이 환경을 동적으로 읽어오는 드롭다운을 추가했습니다.
-이제 "전체 화면" 뿐만 아니라 "모니터 1", "모니터 2" 등 특정 화면만 골라서 캡처 후 분석할 수 있습니다. 수동 캡처(Capture 버튼)에도 동일하게 적용됩니다.
-
-## 2. 깐깐한 조건부 라우팅 (Fallback Router)
-
-[router.py](file:///c:/ameva/AMEVA-Window-Assistant/src/orchestration/router.py)에 명시해주신 5가지 조건을 완벽히 구현했습니다.
-- **Fast-track**: `어디`, `버튼` 등 시각적 의도가 담긴 키워드 감지 시 OCR 단계를 건너뛰고 바로 VLM 호출
-- **OCR 품질 검증**: Text block 5개 미만, 총 문자열 길이 20자 미만, 평균 Confidence 0.55 미만일 경우 Fallback
-- **LLM 응답 실패 감지**: 1차 LLM이 `정확히 판단하기 어렵다`, `알 수 없다` 등의 문구를 반환하면 VLM 재시도
-- **Scene Graph 실패 감지**: 화면 유형이 `unknown_application` 일 경우 Fallback
-
-## 3. 철저한 망분리 VLM 클라이언트 (Local Only)
-
-[vlm_client.py](file:///c:/ameva/AMEVA-Window-Assistant/src/reasoning/vlm_client.py)는 그 어떠한 외부 통신도 허용하지 않도록 엄격한 어댑터 패턴으로 구현되었습니다.
-- **LocalLlamaCppMultimodalAdapter**: 로컬에 떠 있는 llama.cpp 서버로 로컬 이미지 바이트를 Base64 변환 후 전송합니다.
-- **LocalMockMultimodalAdapter**: 로컬 VLM이 켜져있지 않거나 다운되었을 때 안전하게 우회하기 위해 `local_vlm_unavailable` 이라는 정형화된 JSON을 반환하며 장애 확산을 막습니다.
-
-## 4. 백그라운드 재시도 정책 및 무한루프 차단
-
-[worker.py](file:///c:/ameva/AMEVA-Window-Assistant/src/orchestration/worker.py)를 대대적으로 리팩토링했습니다.
-- `semantic_fallback_used`: 한 개의 작업(Job) 당 VLM으로의 "의미적" 에스컬레이션은 **단 1회**만 발생하도록 막아 무한 핑퐁을 방지합니다.
-- `backend_retry_count`: 로컬 VLM 서버 응답 지연 등 런타임 오류가 발생하면 최대 3번까지 재시도한 뒤 우아하게 포기합니다.
-
-## 자동화 테스트 결과
-
-```
-============================= test session starts =============================
-platform win32 -- Python 3.12.10, pytest-9.0.3, pluggy-1.6.0
-rootdir: C:\ameva\AMEVA-Window-Assistant
-plugins: anyio-4.13.0
-collected 5 items
-
-tests_harness\test_router.py ...                                         [ 60%]
-tests_harness\test_vlm_client.py ..                                      [100%]
-
-============================== 5 passed in 4.14s ==============================
+### File: .\config.json
+```json
+{
+    "llm": {
+        "base_url": "http://127.0.0.1:8080/v1",
+        "model_alias": "Meta-Llama-3.1-8B-Instruct-Q4_K_M",
+        "temperature": 0.2,
+        "max_tokens": 512,
+        "timeout_sec": 300,
+        "system_prompt": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly."
+    },
+    "docker": {
+        "image": "ghcr.io/ggml-org/llama.cpp:server",
+        "container_name": "ameva-llm-server",
+        "port": 8080,
+        "model_dir": "C:/ameva/models",
+        "model_file": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "extra_args": "",
+        "mmproj_file": "None"
+    },
+    "capture": {
+        "mode": "monitor",
+        "monitor_index": 1,
+        "root_dir": "data/captures",
+        "auto_capture": true
+    },
+    "stt": {
+        "provider": "whisper_cpp",
+        "whisper_executable": "",
+        "whisper_model": "",
+        "recording_max_sec": 30
+    },
+    "tts": {
+        "provider": "windows_sapi",
+        "enabled": false
+    },
+    "vision": {
+        "provider": "none"
+    },
+    "vlm": {
+        "provider": "llama_cpp",
+        "endpoint": "http://127.0.0.1:8081/v1/chat/completions"
+    },
+    "db": {
+        "path": "db/ameva_assistant.db"
+    },
+    "logging": {
+        "log_dir": "logs",
+        "log_file": "app.log",
+        "max_bytes": 5242880,
+        "backup_count": 3
+    }
+}
 ```
 
-> [!TIP]
-> 백그라운드에서는 4.58GB 짜리 Llama-3.1-8B 모델 다운로드(`Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf`)도 무사히 100% 완료되었습니다! 이제 이 시스템은 어떠한 외부 인터넷 연결도 필요 없는 강력하고 완전한 온프레미스 AI Assistant가 되었습니다.
+### File: .\docker\README_docker.md
+```markdown
+# llama.cpp Docker 설정 가이드
 
+## 사전 준비
 
----
+1. Docker Desktop이 설치되어 있어야 합니다.
+2. GGUF 모델 파일을 `C:\ameva\models\` 디렉토리에 배치합니다. (docker-compose가 이 경로를 /models로 마운트합니다)
 
-## 2. Source Code
+## 실행 방법
+
+```powershell
+cd docker
+
+# docker-compose.yml에서 모델 파일명 수정 후 실행
+docker compose up -d
+
+# 상태 확인
+docker compose ps
+
+# 로그 보기
+docker compose logs -f
+
+# 중지
+docker compose down
+```
+
+## Health Check
+
+```powershell
+# 서버 상태 확인
+curl http://127.0.0.1:8080/v1/models
+
+# 테스트 요청
+curl -X POST http://127.0.0.1:8080/v1/chat/completions `
+  -H "Content-Type: application/json" `
+  -d '{"model":"local-gguf","messages":[{"role":"user","content":"Hello"}]}'
+```
+
+## 참고 자료
+
+- [llama.cpp server README](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md)
+- [llama.cpp Docker 가이드](https://lindevs.com/install-llama-cpp-server-inside-docker-container-on-linux)
+```
+
+### File: .\docker\docker-compose.yml
+```yaml
+version: "3.8"
+
+services:
+  llama-server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: ameva-llm-server
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mounted your actual model directory
+      - C:/ameva/models:/models
+    command: >
+      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+      --host 0.0.0.0
+      --port 8080
+      --ctx-size 8192
+      --n-gpu-layers 0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/v1/models"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  vlm-server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: ameva-vlm-server
+    ports:
+      - "8081:8081"
+    volumes:
+      - C:/ameva/models:/models
+    command: >
+      --model /models/moondream2-text-model-f16_ct-vicuna.gguf
+      --mmproj /models/moondream2-mmproj-f16-20250414.gguf
+      --host 0.0.0.0
+      --port 8081
+      --ctx-size 2048
+      --n-gpu-layers 0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8081/v1/models"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+```
 
 ### File: .\run.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Application Entry Point
 ======================================================
@@ -302,25 +354,34 @@ def main():
     # Config singleton (already loaded on import)
     from src.config import CFG
 
-    # Auto-start LLM server if not alive
-    base_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
-    p = urllib.parse.urlparse(base_url)
-    host = p.hostname or '127.0.0.1'
-    port = p.port or 8080
+    # Auto-start LLM and VLM servers if not alive
+    llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
+    vlm_url = "http://127.0.0.1:8081/v1"
+    
+    llm_alive = _is_server_alive(llm_url)
+    vlm_alive = _is_server_alive(vlm_url)
 
-    if not _is_server_alive(base_url):
-        logger.warning(f"LLM Server at {base_url} is unreachable.")
-        logger.info("Attempting to start LLM server via Docker Compose...")
+    if not llm_alive or not vlm_alive:
+        logger.warning("LLM or VLM Server is unreachable.")
+        logger.info("Attempting to start servers via Docker Compose...")
         _try_start_docker()
         
-        # Wait a bit and recheck
-        time.sleep(2.0)
-        if _is_server_alive(base_url):
-            logger.info("LLM Server successfully started via Docker!")
+        # Wait up to 30 seconds for the heavy models to load into memory
+        max_wait = 30
+        logger.info(f"Waiting up to {max_wait}s for models to load into memory...")
+        for _ in range(max_wait):
+            time.sleep(1.0)
+            if _is_server_alive(llm_url) and _is_server_alive(vlm_url):
+                logger.info("LLM & VLM Servers successfully started via Docker!")
+                break
         else:
-            logger.warning("Docker Compose failed or daemon is offline.")
-            logger.info(f"Starting Mock LLM Server on port {port}...")
-            _start_mock_server(port)
+            logger.warning("Docker Compose failed or models took too long to load.")
+            if not _is_server_alive(llm_url):
+                logger.info("Starting Mock LLM Server on port 8080...")
+                _start_mock_server(8080)
+            if not _is_server_alive(vlm_url):
+                logger.info("Starting Mock VLM Server on port 8081...")
+                _start_mock_server(8081)
             time.sleep(1.5)
 
     # Database
@@ -352,12 +413,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-
-`
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n[INFO] Application gracefully stopped by user (Ctrl+C).")
+        sys.exit(0)
+```
 
 ### File: .\run_app.bat
-`bat
+```bat
 @echo off
 title AMEVA Voice Screen Assistant
 cd /d "%~dp0"
@@ -392,109 +456,123 @@ echo [ERROR] Application exited with error code %ERRORLEVEL%.
 pause
 
 :end
+```
 
-`
-
-### File: .\.pytest_cache\README.md
-`markdown
-# pytest cache directory #
-
-This directory contains data from the pytest's cache plugin,
-which provides the `--lf` and `--ff` options, as well as the `cache` fixture.
-
-**Do not** commit this to version control.
-
-See [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.
-
-`
-
-### File: .\docker\docker-compose.yml
-`yaml
-version: "3.8"
-
-services:
-  llama-server:
-    image: ghcr.io/ggml-org/llama.cpp:server
-    container_name: ameva-llm-server
-    ports:
-      - "8080:8080"
-    volumes:
-      # Mounted your actual model directory
-      - C:/ameva/models:/models
-    command: >
-      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
-      --host 0.0.0.0
-      --port 8080
-      --ctx-size 8192
-      --n-gpu-layers 0
-    restart: unless-stopped
-
-  vlm-server:
-    image: ghcr.io/ggml-org/llama.cpp:server
-    container_name: ameva-vlm-server
-    ports:
-      - "8081:8081"
-    volumes:
-      - C:/ameva/models:/models
-    command: >
-      --model /models/moondream2-text-model-f16_ct-vicuna.gguf
-      --mmproj /models/moondream2-mmproj-f16-20250414.gguf
-      --host 0.0.0.0
-      --port 8081
-      --ctx-size 2048
-      --n-gpu-layers 0
-    restart: unless-stopped
-
-`
-
-### File: .\docker\README_docker.md
-`markdown
-# llama.cpp Docker 설정 가이드
-
-## 사전 준비
-
-1. Docker Desktop이 설치되어 있어야 합니다.
-2. GGUF 모델 파일을 `docker/models/` 디렉토리에 배치합니다.
-
-## 실행 방법
-
+### File: .\run_app.ps1
 ```powershell
-cd docker
+$Host.UI.RawUI.WindowTitle = "AMEVA Voice Screen Assistant"
+Set-Location $PSScriptRoot
 
-# docker-compose.yml에서 모델 파일명 수정 후 실행
+Write-Host "Starting AMEVA Voice Screen Assistant..."
+Write-Host ""
+
+Write-Host "[INFO] Starting LLM & VLM servers via Docker Compose..."
+Set-Location docker
 docker compose up -d
+Set-Location ..
+Write-Host ""
 
-# 상태 확인
-docker compose ps
+$pythonExe = "python"
+if (Test-Path "venv\Scripts\python.exe") {
+    Write-Host "[INFO] Using virtual environment (venv)..."
+    $pythonExe = "venv\Scripts\python.exe"
+} else {
+    Write-Host "[WARNING] virtual environment (venv) not found. Using system python."
+}
 
-# 로그 보기
-docker compose logs -f
+Write-Host ""
+& $pythonExe run.py
+$exitCode = $LASTEXITCODE
 
-# 중지
-docker compose down
+if ($exitCode -ne 0) {
+    Write-Host ""
+    Write-Host "[ERROR] Application exited with error code $exitCode."
+    Read-Host "Press Enter to exit..."
+}
 ```
 
-## Health Check
-
+### File: .\setup.ps1
 ```powershell
-# 서버 상태 확인
-curl http://127.0.0.1:8080/v1/models
+# =============================================================================
+# AMEVA Voice Screen Assistant — Windows Environment Setup
+# =============================================================================
+# Usage: powershell -ExecutionPolicy Bypass -File setup.ps1
+# =============================================================================
 
-# 테스트 요청
-curl -X POST http://127.0.0.1:8080/v1/chat/completions `
-  -H "Content-Type: application/json" `
-  -d '{"model":"local-gguf","messages":[{"role":"user","content":"Hello"}]}'
+$ErrorActionPreference = "Stop"
+
+$PROJECT_ROOT = Split-Path -Parent $MyInvocation.MyCommand.Path
+$VENV_DIR     = Join-Path $PROJECT_ROOT "venv"
+$REQ_FILE     = Join-Path $PROJECT_ROOT "requirements.txt"
+
+Write-Host ""
+Write-Host "============================================" -ForegroundColor Cyan
+Write-Host "  AMEVA Voice Screen Assistant Setup"        -ForegroundColor Cyan
+Write-Host "============================================" -ForegroundColor Cyan
+Write-Host ""
+
+# --- Step 1: Check Python ---
+Write-Host "[1/4] Checking Python installation..." -ForegroundColor Yellow
+try {
+    $pyVersion = python --version 2>&1
+    Write-Host "  Found: $pyVersion" -ForegroundColor Green
+} catch {
+    Write-Host "  ERROR: Python not found. Please install Python 3.10+ first." -ForegroundColor Red
+    exit 1
+}
+
+# --- Step 2: Create virtual environment ---
+Write-Host "[2/4] Creating virtual environment..." -ForegroundColor Yellow
+if (Test-Path $VENV_DIR) {
+    Write-Host "  venv already exists, skipping creation." -ForegroundColor DarkGray
+} else {
+    python -m venv $VENV_DIR
+    Write-Host "  Created: $VENV_DIR" -ForegroundColor Green
+}
+
+# --- Step 3: Activate and upgrade pip ---
+Write-Host "[3/4] Activating venv and upgrading pip..." -ForegroundColor Yellow
+$activateScript = Join-Path $VENV_DIR "Scripts\Activate.ps1"
+& $activateScript
+python -m pip install --upgrade pip --quiet
+
+# --- Step 4: Install dependencies ---
+Write-Host "[4/4] Installing dependencies..." -ForegroundColor Yellow
+if (Test-Path $REQ_FILE) {
+    pip install -r $REQ_FILE --quiet
+    Write-Host "  Dependencies installed successfully." -ForegroundColor Green
+} else {
+    Write-Host "  WARNING: requirements.txt not found at $REQ_FILE" -ForegroundColor Red
+}
+
+# --- Create runtime directories ---
+Write-Host ""
+Write-Host "Creating runtime directories..." -ForegroundColor Yellow
+$dirs = @("db", "logs", "data\captures")
+foreach ($d in $dirs) {
+    $fullPath = Join-Path $PROJECT_ROOT $d
+    if (-not (Test-Path $fullPath)) {
+        New-Item -ItemType Directory -Path $fullPath -Force | Out-Null
+        Write-Host "  Created: $d" -ForegroundColor Green
+    }
+}
+
+Write-Host ""
+Write-Host "============================================" -ForegroundColor Cyan
+Write-Host "  Setup complete!"                           -ForegroundColor Green
+Write-Host "  Run the app with: python run.py"           -ForegroundColor Cyan
+Write-Host "============================================" -ForegroundColor Cyan
+Write-Host ""
 ```
 
-## 참고 자료
-
-- [llama.cpp server README](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md)
-- [llama.cpp Docker 가이드](https://lindevs.com/install-llama-cpp-server-inside-docker-container-on-linux)
-
-`
+### File: .\src\__init__.py
+```python
+# AMEVA Voice Screen Assistant — Source Package
+__version__ = "0.1.0"
+```
 
 ### File: .\src\config.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Configuration Manager
 =====================================================
@@ -554,6 +632,10 @@ _DEFAULTS = {
     },
     "vision": {
         "provider": "none",
+    },
+    "vlm": {
+        "provider": "llama_cpp",
+        "endpoint": "http://127.0.0.1:8081/v1/chat/completions",
     },
     "db": {
         "path": "db/ameva_assistant.db",
@@ -686,11 +768,10 @@ class AppConfig:
 # Global singleton
 # ---------------------------------------------------------------------------
 CFG = AppConfig()
-
-`
+```
 
 ### File: .\src\guard.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Exception Guard
 ===============================================
@@ -775,18 +856,10 @@ def exception_guard(location: str = None, reraise: bool = False):
         return wrapper
 
     return decorator
-
-`
-
-### File: .\src\__init__.py
-`python
-# AMEVA Voice Screen Assistant — Source Package
-__version__ = "0.1.0"
-
-`
+```
 
 ### File: .\src\input\audio_input.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Audio Input
 ==========================================
@@ -905,11 +978,10 @@ class WhisperCppSTT:
         sf.write(str(wav_path), audio, sample_rate)
         logger.info(f"Recorded: {wav_path}")
         return str(wav_path)
-
-`
+```
 
 ### File: .\src\input\screen_capture.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Screen Capture Module
 =====================================================
@@ -1061,11 +1133,10 @@ class ScreenCapture:
 
         filename = now.strftime("cap_%Y%m%d_%H%M%S_") + f"{now.microsecond // 1000:03d}.png"
         return day_dir / filename
-
-`
+```
 
 ### File: .\src\orchestration\router.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Fallback Router
 ================================================
@@ -1135,11 +1206,12 @@ class FallbackRouter:
     def should_fallback_based_on_scene_graph(scene_graph: dict) -> bool:
         """
         Check if the scene graph heuristic failed to classify the screen type.
+        NOTE: Disabled as a standalone trigger until the classifier is fully implemented.
+        It serves as a supplementary context rather than a direct fallback condition.
         """
         stype = scene_graph.get("screen_type", "unknown_application")
         if stype == "unknown_application":
-            logger.info("[Router] Fallback triggered: Scene graph screen_type classification failed")
-            return True
+            logger.info("[Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).")
         return False
 
     @staticmethod
@@ -1153,11 +1225,10 @@ class FallbackRouter:
                 logger.info(f"[Router] Fallback triggered: LLM failure phrase detected '{phrase}'")
                 return True
         return False
-
-`
+```
 
 ### File: .\src\orchestration\worker.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Worker Thread
 =============================================
@@ -1347,9 +1418,9 @@ class WorkerThread(threading.Thread):
             job.extra["prompt"] = messages
             
             # Helper to run VLM
-            def run_vlm_fallback():
+            def run_vlm_fallback(fallback_reason: str):
                 job.semantic_fallback_used = True
-                logger.info(f"Routing job {job.job_id} to VLM (Fast-track={fast_track}, OCR={ocr_fallback}, SG={sg_fallback})")
+                logger.info(f"Routing job {job.job_id} to VLM. Reason: {fallback_reason} (SG supplemented: {sg_fallback})")
                 vlm = VLMClient(self.cfg)
                 while job.backend_retry_count < 3:
                     try:
@@ -1366,7 +1437,11 @@ class WorkerThread(threading.Thread):
                 return '{"status": "local_vlm_unavailable", "message": "Failed to connect to local VLM"}', "FallbackFailed"
 
             if should_fallback and not job.semantic_fallback_used:
-                response_text, llm_prov = run_vlm_fallback()
+                reasons = []
+                if fast_track: reasons.append("Visual Affordance (Fast-track)")
+                if ocr_fallback: reasons.append("Poor OCR Quality")
+                reason_str = " + ".join(reasons) if reasons else "Unknown Fallback"
+                response_text, llm_prov = run_vlm_fallback(reason_str)
             else:
                 llm = self._get_llm()
                 llm_prov = type(llm).__name__
@@ -1377,7 +1452,7 @@ class WorkerThread(threading.Thread):
                 # Retry-based LLM failure check
                 if FallbackRouter.should_fallback_based_on_llm_failure(response_text) and not job.semantic_fallback_used:
                     logger.info("Text LLM returned a failure response. Triggering VLM fallback!")
-                    response_text, llm_prov = run_vlm_fallback()
+                    response_text, llm_prov = run_vlm_fallback("Text LLM Failure Response")
 
             job.result_text = response_text
             job.extra["llm_response"] = response_text
@@ -1450,11 +1525,10 @@ class WorkerThread(threading.Thread):
         self.job_queue.put(_SHUTDOWN)
 
 SHUTDOWN_SENTINEL = _SHUTDOWN
-
-`
+```
 
 ### File: .\src\output\tts_client.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — TTS Client
 =========================================
@@ -1502,11 +1576,10 @@ class WindowsSAPITTS:
             logger.debug("TTS speak dispatched")
         except Exception as e:
             logger.warning(f"TTS failed: {e}")
-
-`
+```
 
 ### File: .\src\perception\ocr\ocr_interface.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — OCR Interface
 ============================================
@@ -1538,11 +1611,10 @@ class OCRProvider(Protocol):
         }
         """
         ...
-
-`
+```
 
 ### File: .\src\perception\ocr\postprocessor.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — OCR Post-processor
 =================================================
@@ -1638,11 +1710,10 @@ class OCRPostProcessor:
             merged_blocks.append(current_block)
 
         return merged_blocks
-
-`
+```
 
 ### File: .\src\perception\ocr\tesseract_provider.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Tesseract OCR Provider
 =====================================================
@@ -1723,11 +1794,10 @@ class TesseractProvider:
         except Exception as e:
             logger.error(f"Tesseract OCR failed: {e}")
             raise RuntimeError(f"OCR failed: {e}") from e
-
-`
+```
 
 ### File: .\src\reasoning\llm_client.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — LLM Client
 ==========================================
@@ -1849,11 +1919,10 @@ class DummyLLM(BaseLLM):
                 last_user = m.get("content", "")
                 break
         return f"[DummyLLM echo] {last_user}"
-
-`
+```
 
 ### File: .\src\reasoning\prompt_builder.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Prompt Builder
 =============================================
@@ -1916,11 +1985,10 @@ class PromptBuilder:
                 messages[-1]["content"] += ctx_note
 
         return messages
-
-`
+```
 
 ### File: .\src\reasoning\vlm_client.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Strictly Local Multimodal VLM Client
 =====================================================================
@@ -2038,11 +2106,10 @@ class VLMClient:
             
         logger.info(f"VLM reasoning invoked using adapter: {self.adapter.__class__.__name__}")
         return self.adapter.generate(image_path, prompt, **kwargs)
-
-`
+```
 
 ### File: .\src\semantic\scene_graph_builder.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Scene Graph Builder
 ==================================================
@@ -2157,11 +2224,10 @@ class SceneGraphBuilder:
             summary = "No readable text found on the screen."
             
         return scene_graph, summary
-
-`
+```
 
 ### File: .\src\storage\db.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Database Manager
 ================================================
@@ -2507,11 +2573,10 @@ class DatabaseManager:
             return [dict(r) for r in rows]
         finally:
             conn.close()
-
-`
+```
 
 ### File: .\src\ui\ui_main.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Main Tkinter UI
 ================================================
@@ -2812,6 +2877,14 @@ class MainWindow(tk.Tk):
         )
         self._lbl_queue.pack(side=tk.LEFT, padx=12)
 
+        self._lbl_server_status = tk.Label(
+            bar, text="⚫ 도커 헬스체크 대기중...", font=("Segoe UI", 9, "bold"),
+            bg=_CLR_BG_LIGHT, fg=_CLR_FG, anchor="e",
+        )
+        self._lbl_server_status.pack(side=tk.RIGHT, padx=8)
+
+        # Start polling
+        self.after(2000, self._poll_server_status)
         self._lbl_model = tk.Label(
             bar, text=f"LLM: {self.cfg.get('llm', 'model_alias', default='—')}",
             font=("Segoe UI", 9), bg=_CLR_BG_LIGHT, fg=_CLR_SYSTEM,
@@ -3177,6 +3250,31 @@ class MainWindow(tk.Tk):
 
         self.after(_ANIM_MS, self._animate_status)
 
+    def _poll_server_status(self):
+        import urllib.request
+        llm_url = self.cfg.get("llm", "base_url", default="http://127.0.0.1:8080/v1") + "/models"
+        vlm_url = "http://127.0.0.1:8081/v1/models"
+        
+        def check_url(url):
+            try:
+                req = urllib.request.Request(url, method="GET")
+                with urllib.request.urlopen(req, timeout=0.5) as resp:
+                    return resp.status == 200
+            except Exception:
+                return False
+                
+        llm_ok = check_url(llm_url)
+        vlm_ok = check_url(vlm_url)
+        
+        if llm_ok and vlm_ok:
+            self._lbl_server_status.configure(text="🔵 도커 서버(LLM+VLM) 온라인", fg="#89b4fa")
+        elif llm_ok or vlm_ok:
+            self._lbl_server_status.configure(text="🟡 서버 로딩 중...", fg="#f39c12")
+        else:
+            self._lbl_server_status.configure(text="🔴 도커 서버 오프라인", fg="#e74c3c")
+            
+        self.after(3000, self._poll_server_status)
+
     # ==================================================================
     #  Shutdown
     # ==================================================================
@@ -3185,11 +3283,10 @@ class MainWindow(tk.Tk):
         logger.info("Shutting down…")
         self._worker.request_shutdown()
         self.destroy()
-
-`
+```
 
 ### File: .\src\ui\ui_settings.py
-`python
+```python
 """
 AMEVA Voice Screen Assistant — Settings Dialog
 ================================================
@@ -3593,11 +3690,15 @@ class SettingsDialog(tk.Toplevel):
         path = filedialog.askdirectory()
         if path:
             var.set(path)
+```
 
-`
+### File: .\tests_harness\__init__.py
+```python
+# tests_harness package
+```
 
 ### File: .\tests_harness\fakes.py
-`python
+```python
 """
 AMEVA Test Harness — Fake STT & TTS Providers
 ===============================================
@@ -3649,11 +3750,10 @@ class FakeTTS:
     def speak(self, text: str, **kwargs):
         self.history.append(text)
         logger.info(f"FakeTTS.speak: '{text[:60]}...'")
-
-`
+```
 
 ### File: .\tests_harness\manual_test_scenarios.md
-`markdown
+```markdown
 # AMEVA Test Harness — Manual Test Scenarios
 
 ## 시나리오 1: 정상 기본 흐름 (텍스트 채팅)
@@ -3719,11 +3819,10 @@ $env:MOCK_ERROR=500; python tests_harness/mock_llm_server.py --port 8080
 # 잘못된 JSON 모드
 $env:MOCK_MALFORMED=1; python tests_harness/mock_llm_server.py --port 8080
 ```
-
-`
+```
 
 ### File: .\tests_harness\mock_llm_server.py
-`python
+```python
 """
 AMEVA Test Harness — Mock LLM Server
 ======================================
@@ -3798,13 +3897,31 @@ class MockHandler(BaseHTTPRequestHandler):
 
         messages = req.get("messages", [])
         last_user = ""
+        has_image = False
         for m in reversed(messages):
             if m.get("role") == "user":
-                last_user = m.get("content", "")
+                content_val = m.get("content", "")
+                if isinstance(content_val, list):
+                    text_parts = []
+                    for item in content_val:
+                        if isinstance(item, dict):
+                            if item.get("type") == "text":
+                                text_parts.append(item.get("text", ""))
+                            elif item.get("type") == "image_url":
+                                has_image = True
+                    last_user = " ".join(text_parts)
+                else:
+                    last_user = str(content_val)
                 break
 
         # Generate a friendly mock response if OCR context is injected
-        if "[Screen Context from OCR]" in last_user:
+        if has_image:
+            content = (
+                f"[가짜 VLM 서버 응답] 질문 확인: '{last_user}'\n\n"
+                f"이미지 데이터(Base64)가 감지되었습니다!\n"
+                f"실제 도커(Docker) VLM 서버가 연결되면 Moondream2 모델을 사용해 화면의 시각 요소를 직접 분석하여 진짜 답변을 드립니다."
+            )
+        elif "[Screen Context from OCR]" in last_user:
             parts = last_user.split("[Screen Context from OCR]")
             actual_question = parts[0].strip()
             ocr_context = parts[1].strip()
@@ -3874,11 +3991,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-`
+```
 
 ### File: .\tests_harness\sample_db_builder.py
-`python
+```python
 """
 AMEVA Test Harness — Sample Database Builder
 ==============================================
@@ -3897,7 +4013,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.config import CFG
-from src.database import DatabaseManager
+from src.storage.db import DatabaseManager
 
 
 def build_sample_data():
@@ -3966,11 +4082,10 @@ def build_sample_data():
 
 if __name__ == "__main__":
     build_sample_data()
-
-`
+```
 
 ### File: .\tests_harness\test_router.py
-`python
+```python
 import pytest
 from src.orchestration.router import FallbackRouter
 
@@ -4001,11 +4116,10 @@ def test_ocr_fallback_routing():
 def test_llm_failure_routing():
     assert FallbackRouter.should_fallback_based_on_llm_failure("어쩌고 저쩌고 정확히 판단하기 어렵다.") == True
     assert FallbackRouter.should_fallback_based_on_llm_failure("이 화면은 편집기입니다.") == False
-
-`
+```
 
 ### File: .\tests_harness\test_scene_graph.py
-`python
+```python
 """
 Tests for Phase 2: Scene Graph Builder (Layout Segmentation & Context Compression)
 """
@@ -4076,11 +4190,10 @@ def test_scene_graph_relevance():
 if __name__ == "__main__":
     test_scene_graph_relevance()
     print("All tests passed!")
-
-`
+```
 
 ### File: .\tests_harness\test_vlm_client.py
-`python
+```python
 import pytest
 from src.reasoning.vlm_client import LocalMockMultimodalAdapter, LocalLlamaCppMultimodalAdapter
 
@@ -4105,12 +4218,5 @@ def test_llama_cpp_adapter_no_connection():
             adapter.generate(tf_name, "test prompt")
     finally:
         os.unlink(tf_name)
-
-`
-
-### File: .\tests_harness\__init__.py
-`python
-# tests_harness package
-
-`
+```
 

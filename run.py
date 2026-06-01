@@ -93,41 +93,32 @@ def _is_server_alive(base_url):
         return False
 
 
-def _try_start_docker():
+def _try_start_docker(logger):
     try:
         docker_dir = _PROJECT_ROOT / "docker"
         if (docker_dir / "docker-compose.yml").exists():
+            logger.info("Starting Docker Compose...")
             subprocess.run(
                 ["docker", "compose", "up", "-d"],
-                cwd=str(docker_dir),
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                timeout=5
+                cwd=str(docker_dir)
             )
             return True
-    except Exception:
-        pass
+    except Exception as e:
+        logger.error(f"Failed to start Docker Compose: {e}")
     return False
 
 
-def _start_mock_server(port):
+def _stop_docker(logger):
     try:
-        mock_script = _PROJECT_ROOT / "tests_harness" / "mock_llm_server.py"
-        if mock_script.exists():
-            creation_flags = 0
-            if sys.platform == "win32":
-                creation_flags = 0x00000010  # CREATE_NEW_CONSOLE
-            
-            subprocess.Popen(
-                [sys.executable, str(mock_script), "--port", str(port)],
-                creationflags=creation_flags,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
+        docker_dir = _PROJECT_ROOT / "docker"
+        if (docker_dir / "docker-compose.yml").exists():
+            logger.info("Stopping Docker Compose and cleaning up resources...")
+            subprocess.run(
+                ["docker", "compose", "down"],
+                cwd=str(docker_dir)
             )
-            return True
-    except Exception:
-        pass
-    return False
+    except Exception as e:
+        logger.error(f"Failed to stop Docker Compose: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -142,42 +133,50 @@ def main():
     # Config singleton (already loaded on import)
     from src.config import CFG
 
+    # Database setup early for logging errors
+    from src.storage.db import DatabaseManager
+    db_path = CFG.resolve_path(CFG.get("db", "path", default="db/ameva_assistant.db"))
+    db = DatabaseManager(db_path)
+    logger.info(f"Database ready: {db_path}")
+
     # Auto-start LLM and VLM servers if not alive
     llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
     vlm_url = "http://127.0.0.1:8081/v1"
     
-    llm_alive = _is_server_alive(llm_url)
-    vlm_alive = _is_server_alive(vlm_url)
-
-    if not llm_alive or not vlm_alive:
-        logger.warning("LLM or VLM Server is unreachable.")
-        logger.info("Attempting to start servers via Docker Compose...")
-        _try_start_docker()
+    max_retries = 5
+    max_wait = 60
+    
+    servers_alive = False
+    
+    for attempt in range(1, max_retries + 1):
+        llm_alive = _is_server_alive(llm_url)
+        vlm_alive = _is_server_alive(vlm_url)
         
-        # Wait up to 30 seconds for the heavy models to load into memory
-        max_wait = 30
+        if llm_alive and vlm_alive:
+            servers_alive = True
+            break
+            
+        logger.warning(f"LLM or VLM Server is unreachable. (Attempt {attempt}/{max_retries})")
+        logger.info("Attempting to start servers via Docker Compose...")
+        _try_start_docker(logger)
+        
         logger.info(f"Waiting up to {max_wait}s for models to load into memory...")
         for _ in range(max_wait):
             time.sleep(1.0)
             if _is_server_alive(llm_url) and _is_server_alive(vlm_url):
                 logger.info("LLM & VLM Servers successfully started via Docker!")
+                servers_alive = True
                 break
-        else:
-            logger.warning("Docker Compose failed or models took too long to load.")
-            if not _is_server_alive(llm_url):
-                logger.info("Starting Mock LLM Server on port 8080...")
-                _start_mock_server(8080)
-            if not _is_server_alive(vlm_url):
-                logger.info("Starting Mock VLM Server on port 8081...")
-                _start_mock_server(8081)
-            time.sleep(1.5)
-
-    # Database
-    from src.storage.db import DatabaseManager
-
-    db_path = CFG.resolve_path(CFG.get("db", "path", default="db/ameva_assistant.db"))
-    db = DatabaseManager(db_path)
-    logger.info(f"Database ready: {db_path}")
+                
+        if servers_alive:
+            break
+            
+    if not servers_alive:
+        err_msg = "Docker Compose failed to start the models after 5 attempts. Shutting down system."
+        logger.error(err_msg)
+        db.insert_log(level="ERROR", message=err_msg)
+        _stop_docker(logger)
+        sys.exit(1)
 
     # Bind DB to exception guard
     from src.guard import set_db_ref

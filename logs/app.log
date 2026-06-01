@@ -541,3 +541,20 @@ TimeoutError: LLM request timed out (60s)
 [2026-06-01 01:04:29] INFO    ameva.orchestration.worker — Worker received shutdown signal
 [2026-06-01 01:04:29] INFO    ameva.orchestration.worker — Worker thread stopped
 [2026-06-01 01:04:29] INFO    ameva — === AMEVA Voice Screen Assistant stopped ===
+[2026-06-01 21:15:33] INFO    ameva — === AMEVA Voice Screen Assistant starting ===
+[2026-06-01 21:15:33] WARNING ameva — LLM or VLM Server is unreachable.
+[2026-06-01 21:15:33] INFO    ameva — Attempting to start servers via Docker Compose...
+[2026-06-01 21:15:34] INFO    ameva — Waiting up to 30s for models to load into memory...
+[2026-06-01 21:16:04] WARNING ameva — Docker Compose failed or models took too long to load.
+[2026-06-01 21:16:04] INFO    ameva — Starting Mock VLM Server on port 8081...
+[2026-06-01 21:16:06] INFO    ameva — Database ready: C:\ameva\AMEVA-Window-Assistant\db\ameva_assistant.db
+[2026-06-01 21:16:07] INFO    ameva.orchestration.worker — Worker thread started
+[2026-06-01 21:16:09] INFO    ameva — UI launched — entering main loop
+[2026-06-01 21:16:28] INFO    ameva.orchestration.worker — Processing job 13 (mode=text)
+[2026-06-01 21:16:29] INFO    ameva.capture — Captured: C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_211628_978.png
+[2026-06-01 21:16:31] INFO    ameva.perception.ocr — Running Tesseract OCR on C:\ameva\AMEVA-Window-Assistant\data\captures\20260601\cap_20260601_211628_978.png
+[2026-06-01 21:16:32] INFO    ameva.router — [Router] Fallback triggered: Low OCR block count (0 < 5)
+[2026-06-01 21:16:32] INFO    ameva.router — [Router] Scene graph classification is 'unknown_application'. Logging for supplementary context (SG-only fallback disabled).
+[2026-06-01 21:16:32] INFO    ameva.orchestration.worker — Routing job 13 to VLM. Reason: Poor OCR Quality (SG supplemented: False)
+[2026-06-01 21:16:32] INFO    ameva.vlm — VLM reasoning invoked using adapter: LocalLlamaCppMultimodalAdapter
+[2026-06-01 21:16:33] INFO    ameva.orchestration.worker — Job 13 completed (503ms)
