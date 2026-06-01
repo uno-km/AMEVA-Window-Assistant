@@ -24,13 +24,19 @@
     },
     "stt": {
         "provider": "whisper_cpp",
-        "whisper_executable": "",
-        "whisper_model": "",
-        "recording_max_sec": 30
+        "whisper_executable": "C:/ameva/AI_Models/whisper.cpp/main.exe",
+        "whisper_model": "ggml-small-q5_1.bin",
+        "model_dir": "C:/ameva/AI_Models/ggml",
+        "recording_max_sec": 30,
+        "mic_device_index": null,
+        "silence_timeout_on": 5,
+        "silence_timeout_all": 4,
+        "silence_threshold_rms": 500
     },
     "tts": {
         "provider": "windows_sapi",
-        "enabled": false
+        "enabled": false,
+        "speaker_device": null
     },
     "vision": {
         "provider": "none"

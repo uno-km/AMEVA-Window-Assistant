@@ -118,10 +118,98 @@ class SettingsDialog(tk.Toplevel):
         # --- STT/TTS tab ---
         tab_voice = tk.Frame(notebook, bg=_CLR_BG)
         notebook.add(tab_voice, text="음성")
-        self._add_path_entry(tab_voice, "stt.whisper_executable", "Whisper 실행파일", row=0)
-        self._add_path_entry(tab_voice, "stt.whisper_model", "Whisper 모델", row=1)
-        self._add_entry(tab_voice, "stt.recording_max_sec", "최대 녹음(초)", row=2)
-        self._add_check(tab_voice, "tts.enabled", "TTS 활성화", row=3)
+        
+        # Audio Devices
+        try:
+            from src.input.audio_input import list_audio_devices
+            devices = list_audio_devices()
+            
+            in_opts = ["기본 마이크 (None)"]
+            in_map = {"기본 마이크 (None)": None}
+            for d in devices["input"]:
+                name = f"[{d['index']}] {d['name']}"
+                in_opts.append(name)
+                in_map[name] = d['index']
+                
+            out_opts = ["기본 스피커 (None)"]
+            out_map = {"기본 스피커 (None)": None}
+            for d in devices["output"]:
+                name = d['name']
+                out_opts.append(name)
+                out_map[name] = name
+                
+        except Exception as e:
+            logger.warning(f"Failed to list audio devices for settings: {e}")
+            in_opts, out_opts = ["기본 마이크 (None)"], ["기본 스피커 (None)"]
+            in_map, out_map = {"기본 마이크 (None)": None}, {"기본 스피커 (None)": None}
+
+        # Mic Device
+        self._device_map_in = in_map
+        tk.Label(
+            tab_voice, text="마이크 선택", font=("Segoe UI", 10),
+            bg=_CLR_BG, fg=_CLR_FG, anchor="w",
+        ).grid(row=0, column=0, sticky="w", padx=12, pady=6)
+        
+        self._vars["stt.mic_device_index"] = tk.StringVar()
+        current_in = self.cfg.get("stt", "mic_device_index")
+        current_in_name = "기본 마이크 (None)"
+        for name, idx in in_map.items():
+            if idx == current_in and idx is not None:
+                current_in_name = name
+                break
+        self._vars["stt.mic_device_index"].set(current_in_name)
+        
+        ttk.Combobox(
+            tab_voice, textvariable=self._vars["stt.mic_device_index"],
+            values=in_opts, font=("Segoe UI", 10), state="readonly", width=37
+        ).grid(row=0, column=1, sticky="ew", padx=12, pady=6)
+        
+        # Speaker Device
+        self._device_map_out = out_map
+        tk.Label(
+            tab_voice, text="스피커 (TTS) 선택", font=("Segoe UI", 10),
+            bg=_CLR_BG, fg=_CLR_FG, anchor="w",
+        ).grid(row=1, column=0, sticky="w", padx=12, pady=6)
+        
+        self._vars["tts.speaker_device"] = tk.StringVar()
+        current_out = self.cfg.get("tts", "speaker_device")
+        current_out_name = "기본 스피커 (None)"
+        for name, dev in out_map.items():
+            if dev == current_out and dev is not None:
+                current_out_name = name
+                break
+        self._vars["tts.speaker_device"].set(current_out_name)
+        
+        ttk.Combobox(
+            tab_voice, textvariable=self._vars["tts.speaker_device"],
+            values=out_opts, font=("Segoe UI", 10), state="readonly", width=37
+        ).grid(row=1, column=1, sticky="ew", padx=12, pady=6)
+
+        # STT settings
+        self._add_path_entry(tab_voice, "stt.whisper_executable", "Whisper 실행파일", row=2)
+        
+        self._vars["stt.model_dir"] = tk.StringVar()
+        self._vars["stt.whisper_model"] = tk.StringVar()
+        
+        tk.Label(
+            tab_voice, text="STT 모델 (.bin)", font=("Segoe UI", 10),
+            bg=_CLR_BG, fg=_CLR_FG, anchor="w",
+        ).grid(row=3, column=0, sticky="w", padx=12, pady=6)
+        
+        self.stt_model_combo = ttk.Combobox(
+            tab_voice, textvariable=self._vars["stt.whisper_model"],
+            font=("Segoe UI", 10), state="readonly", width=37
+        )
+        self.stt_model_combo.grid(row=3, column=1, sticky="ew", padx=12, pady=6)
+        
+        self._vars["stt.model_dir"].trace_add("write", lambda *args: self._update_stt_model_list())
+        
+        # Other settings
+        self._add_entry(tab_voice, "stt.silence_timeout_on", "ON 침묵 대기(초)", row=4)
+        self._add_entry(tab_voice, "stt.silence_timeout_all", "ALL 침묵 대기(초)", row=5)
+        self._add_check(tab_voice, "tts.enabled", "TTS 활성화 (ALL 모드는 강제)", row=6)
+        
+        tab_voice.columnconfigure(1, weight=1)
 
         # --- Save / Cancel ---
         btn_frame = tk.Frame(self, bg=_CLR_BG)
@@ -245,13 +333,21 @@ class SettingsDialog(tk.Toplevel):
                 except ValueError:
                     pass
             elif key in ("llm.max_tokens", "llm.timeout_sec", "docker.port",
-                         "capture.monitor_index", "stt.recording_max_sec"):
+                         "capture.monitor_index", "stt.recording_max_sec",
+                         "stt.silence_timeout_on", "stt.silence_timeout_all"):
                 try:
                     val = int(val)
                 except ValueError:
                     pass
             elif isinstance(var, tk.BooleanVar):
                 val = var.get()
+
+            # Handle mic device selection string mapping back to index
+            if key == "stt.mic_device_index":
+                val = getattr(self, "_device_map_in", {}).get(val, None)
+            # Handle speaker device selection string mapping
+            elif key == "tts.speaker_device":
+                val = getattr(self, "_device_map_out", {}).get(val, None)
 
             self.cfg.set(*parts, val)
 
@@ -321,6 +417,34 @@ class SettingsDialog(tk.Toplevel):
         else:
             self.model_combo["values"] = []
             self.mmproj_combo["values"] = []
+
+    def _update_stt_model_list(self):
+        from pathlib import Path
+        model_dir = self._vars["stt.model_dir"].get()
+        if not model_dir:
+            self.stt_model_combo["values"] = []
+            return
+
+        path = Path(model_dir)
+        if path.exists() and path.is_dir():
+            try:
+                # STT models for whisper.cpp are usually .bin
+                stt_models = [p.name for p in path.glob("*.bin")]
+                sorted_models = sorted(stt_models)
+                self.stt_model_combo["values"] = sorted_models
+                
+                current_model = self._vars["stt.whisper_model"].get()
+                if sorted_models:
+                    if not current_model or current_model not in sorted_models:
+                        # Optionally don't auto-set to avoid overriding with wrong model
+                        pass
+                else:
+                    self.stt_model_combo["values"] = []
+            except Exception as e:
+                logger.error(f"Error scanning STT model directory: {e}")
+                self.stt_model_combo["values"] = []
+        else:
+            self.stt_model_combo["values"] = []
 
     def _update_docker_compose(self, model_dir: str, model_file: str, mmproj_file: str):
         from pathlib import Path

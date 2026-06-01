@@ -8,9 +8,11 @@ All long-running operations happen in the worker thread.  The UI
 polls ``result_queue`` via ``after()`` and never blocks.
 """
 
+import enum
 import logging
 import os
 import queue
+import threading
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
@@ -40,7 +42,16 @@ _CLR_ENTRY_BG  = "#313244"
 _CLR_BTN       = "#45475a"
 _CLR_BTN_HOVER = "#585b70"
 _CLR_MIC_REC   = "#f38ba8"
+_CLR_MIC_ON    = "#a6e3a1"
+_CLR_MIC_ALL   = "#f38ba8"
 _CLR_LINK      = "#74c7ec"
+
+
+# Mic state enum
+class MicState(enum.Enum):
+    OFF = "off"     # Keyboard-only, no mic
+    ON  = "on"      # Voice → text in input (green), user must press Send
+    ALL = "all"     # Full auto: voice → text → auto-send → TTS response → loop (red)
 
 
 # ---------------------------------------------------------------------------
@@ -67,9 +78,12 @@ class MainWindow(tk.Tk):
         self._is_running = False
         self._spinner_idx = 0
         self._dots_idx = 0
-        self._recording = False
+        self._mic_state = MicState.OFF
+        self._mic_recorder = None     # MicRecorder instance
+        self._stt_engine = None       # STTEngine instance
         self._draft_image_path: str | None = None
         self._draft_photo = None
+        self._all_mode_loop_active = False  # Flag for ALL mode auto-loop
 
         # Queues
         self._job_queue: queue.Queue = queue.Queue()
@@ -218,9 +232,17 @@ class MainWindow(tk.Tk):
             bg=_CLR_BTN, fg=_CLR_FG, relief=tk.FLAT,
             width=3, cursor="hand2",
             activebackground=_CLR_BTN_HOVER,
-            command=self._on_mic_click,
         )
         self._mic_btn.pack(side=tk.RIGHT, padx=(4, 4), pady=4)
+        self._mic_btn.bind("<Button-1>", self._on_mic_left_click)
+        self._mic_btn.bind("<Button-3>", self._on_mic_right_click)
+
+        # Mic status indicator label (shows below mic button area)
+        self._lbl_mic_status = tk.Label(
+            entry_row, text="", font=("Segoe UI", 8),
+            bg=_CLR_ENTRY_BG, fg=_CLR_SYSTEM,
+        )
+        self._lbl_mic_status.pack(side=tk.RIGHT, padx=(0, 4))
 
         # Bottom row: buttons
         btn_row = tk.Frame(input_frame, bg=_CLR_BG)
@@ -594,34 +616,190 @@ class MainWindow(tk.Tk):
             self.db.update_session_title(self._current_session_id, title)
             self._load_sessions()
 
-    def _on_mic_click(self):
-        """Toggle microphone recording state."""
-        if self._recording:
-            # Stop recording
-            self._recording = False
-            self._mic_btn.configure(bg=_CLR_BTN, text="🎙")
-            self._lbl_state.configure(text="STT 변환 중...")
+    # ------------------------------------------------------------------
+    # Microphone 3-State handlers (Phase 4)
+    # ------------------------------------------------------------------
+    def _ensure_stt_engine(self) -> bool:
+        """Initialize STT engine if needed. Returns True if configured."""
+        if self._stt_engine is None:
+            from src.input.stt_engine import STTEngine
+            self._stt_engine = STTEngine(self.cfg)
+        
+        if not self._stt_engine.is_configured():
+            msg = self._stt_engine.get_missing_config_message()
+            messagebox.showwarning("STT 설정 필요", msg, parent=self)
+            return False
+        return True
 
-            # In Phase 4 this will call the actual STT provider.
-            # For now, show a placeholder message.
+    def _on_mic_left_click(self, event=None):
+        """
+        Left-click mic button:
+        - OFF → ON (start recording, green)
+        - ON → OFF (stop recording, transcribe)
+        - ALL → OFF (stop ALL mode loop)
+        """
+        if self._mic_state == MicState.OFF:
+            # OFF → ON
+            if not self._ensure_stt_engine():
+                return
+            self._mic_state = MicState.ON
+            self._update_mic_ui()
+            silence_timeout = self.cfg.get("stt", "silence_timeout_on", default=5)
+            self._start_recording(silence_timeout=silence_timeout, auto_send=False)
+
+        elif self._mic_state == MicState.ON:
+            # ON → OFF
+            self._mic_state = MicState.OFF
+            self._update_mic_ui()
+            self._stop_and_transcribe(auto_send=False)
+
+        elif self._mic_state == MicState.ALL:
+            # ALL → OFF
+            self._all_mode_loop_active = False
+            self._mic_state = MicState.OFF
+            self._update_mic_ui()
+            self._stop_and_transcribe(auto_send=False)
+
+    def _on_mic_right_click(self, event=None):
+        """
+        Right-click mic button:
+        - OFF → ALL (start full auto mode, red)
+        - ON → ALL (switch to full auto mode)
+        - ALL → OFF (stop ALL mode)
+        """
+        if self._mic_state == MicState.OFF or self._mic_state == MicState.ON:
+            # Switch to ALL mode
+            if not self._ensure_stt_engine():
+                return
+            
+            # If currently ON, stop first
+            if self._mic_state == MicState.ON:
+                if self._mic_recorder and self._mic_recorder.is_recording:
+                    self._mic_recorder.stop()
+
+            self._mic_state = MicState.ALL
+            self._all_mode_loop_active = True
+            self._update_mic_ui()
+            
+            # Force TTS on for ALL mode
+            self._tts_var.set(True)
+            
+            silence_timeout = self.cfg.get("stt", "silence_timeout_all", default=4)
+            self._start_recording(silence_timeout=silence_timeout, auto_send=True)
+
+        elif self._mic_state == MicState.ALL:
+            # ALL → OFF
+            self._all_mode_loop_active = False
+            self._mic_state = MicState.OFF
+            self._update_mic_ui()
+            self._stop_and_transcribe(auto_send=False)
+
+    def _start_recording(self, silence_timeout: float, auto_send: bool):
+        """Start the MicRecorder with silence detection."""
+        from src.input.audio_input import MicRecorder
+
+        def on_recording_complete(wav_path: str):
+            """Called from MicRecorder's background thread when silence is detected."""
+            # Schedule on main thread
+            self.after(0, lambda: self._on_recording_done(wav_path, auto_send))
+
+        self._mic_recorder = MicRecorder(self.cfg, on_complete=on_recording_complete)
+        
+        try:
+            self._mic_recorder.start(silence_timeout=silence_timeout)
+            logger.info(f"[MicUI] Recording started (mode={self._mic_state.value}, timeout={silence_timeout}s)")
+        except Exception as e:
+            logger.error(f"[MicUI] Failed to start recording: {e}")
+            messagebox.showerror("마이크 오류", f"마이크를 시작할 수 없습니다:\n{e}", parent=self)
+            self._mic_state = MicState.OFF
+            self._update_mic_ui()
+
+    def _stop_and_transcribe(self, auto_send: bool):
+        """Stop recording and run STT transcription."""
+        if self._mic_recorder is None:
+            return
+
+        wav_path = self._mic_recorder.stop()
+        self._mic_recorder = None
+
+        if wav_path:
+            self._on_recording_done(wav_path, auto_send)
+
+    def _on_recording_done(self, wav_path: str, auto_send: bool):
+        """Called when recording is complete. Runs STT and puts text in input."""
+        self._lbl_state.configure(text="🔄 STT 변환 중...", fg=_CLR_ACCENT)
+        self._lbl_mic_status.configure(text="변환 중...")
+
+        def run_stt():
             try:
-                from src.input.audio_input import WhisperCppSTT
-                stt = WhisperCppSTT(self.cfg)
-                transcribed = stt.transcribe()
-                if transcribed:
-                    self._input_text.delete("1.0", tk.END)
-                    self._input_text.insert("1.0", transcribed)
-                    self._pending_inp_mode = "voice"
-                self._lbl_state.configure(text="Idle")
+                text = self._stt_engine.transcribe(wav_path)
+                self.after(0, lambda: self._on_stt_complete(text, auto_send))
             except Exception as e:
-                logger.warning(f"STT failed: {e}")
-                self._lbl_state.configure(text="STT 실패")
-                self.db.insert_log(level="WARNING", message=f"[stt] {e}")
+                logger.error(f"[MicUI] STT failed: {e}")
+                self.after(0, lambda: self._on_stt_failed(str(e)))
+
+        threading.Thread(target=run_stt, daemon=True).start()
+
+    def _on_stt_complete(self, text: str, auto_send: bool):
+        """Called on main thread when STT transcription is complete."""
+        if not text or not text.strip():
+            logger.info("[MicUI] STT returned empty text")
+            self._lbl_mic_status.configure(text="")
+            if self._mic_state == MicState.OFF:
+                self._lbl_state.configure(text="Idle", fg=_CLR_ASST)
+            elif self._mic_state == MicState.ALL and self._all_mode_loop_active:
+                # Restart recording in ALL mode even if empty
+                silence_timeout = self.cfg.get("stt", "silence_timeout_all", default=4)
+                self._start_recording(silence_timeout=silence_timeout, auto_send=True)
+            return
+
+        logger.info(f"[MicUI] STT result: {text[:50]}...")
+        
+        # Insert text into input field
+        self._input_text.delete("1.0", tk.END)
+        self._input_text.insert("1.0", text)
+        self._pending_inp_mode = "voice"
+        self._lbl_mic_status.configure(text="")
+
+        if auto_send and self._all_mode_loop_active:
+            # ALL mode: auto-send after transcription
+            self._lbl_state.configure(text="🔴 자동 전송 중...", fg=_CLR_MIC_ALL)
+            self._on_send()
         else:
-            # Start recording
-            self._recording = True
-            self._mic_btn.configure(bg=_CLR_MIC_REC, text="⏹")
-            self._lbl_state.configure(text="🔴 녹음 중...")
+            # ON mode: user must press Send
+            if self._mic_state == MicState.OFF:
+                self._lbl_state.configure(text="Idle", fg=_CLR_ASST)
+            else:
+                self._lbl_state.configure(text="🟢 음성 입력 완료 — Enter로 전송", fg=_CLR_MIC_ON)
+
+    def _on_stt_failed(self, error_msg: str):
+        """Called on main thread when STT transcription fails."""
+        self._lbl_state.configure(text="STT 실패", fg=_CLR_ERROR)
+        self._lbl_mic_status.configure(text="")
+        self.db.insert_log(level="WARNING", message=f"[stt] {error_msg}")
+        messagebox.showerror("STT 오류", f"음성 인식에 실패했습니다:\n{error_msg}", parent=self)
+        
+        # If in ALL mode, don't restart after error
+        if self._mic_state == MicState.ALL:
+            self._all_mode_loop_active = False
+            self._mic_state = MicState.OFF
+            self._update_mic_ui()
+
+    def _update_mic_ui(self):
+        """Update mic button appearance and status label based on current mic state."""
+        if self._mic_state == MicState.OFF:
+            self._mic_btn.configure(bg=_CLR_BTN, text="🎙", fg=_CLR_FG)
+            self._lbl_mic_status.configure(text="")
+            if not self._is_running:
+                self._lbl_state.configure(text="Idle", fg=_CLR_ASST)
+        elif self._mic_state == MicState.ON:
+            self._mic_btn.configure(bg=_CLR_MIC_ON, text="🎙", fg="#1e1e2e")
+            self._lbl_mic_status.configure(text="ON", fg=_CLR_MIC_ON)
+            self._lbl_state.configure(text="🟢 음성 입력 중...", fg=_CLR_MIC_ON)
+        elif self._mic_state == MicState.ALL:
+            self._mic_btn.configure(bg=_CLR_MIC_ALL, text="🎙", fg="#1e1e2e")
+            self._lbl_mic_status.configure(text="AUTO", fg=_CLR_MIC_ALL)
+            self._lbl_state.configure(text="🔴 자동 대화 모드", fg=_CLR_MIC_ALL)
 
     def _on_manual_capture(self):
         """Manually capture the screen."""

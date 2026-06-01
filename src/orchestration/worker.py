@@ -333,7 +333,7 @@ class WorkerThread(threading.Thread):
             self.db.insert_message(
                 sess_id=job.session_id,
                 role="assistant",
-                content=response_text,
+                content=final_response,
                 cap_path=job.capture_path,
                 llm_prov=llm_prov,
                 llm_mdl=llm_mdl,
@@ -341,15 +341,14 @@ class WorkerThread(threading.Thread):
                 ltncy_ms=job.latency_ms,
             )
 
-            # (Optional) TTS
-            stage = "tts"
+            # TTS
             if job.tts_enabled:
-                tts = self._get_tts()
-                if tts is not None:
-                    try:
-                        tts.speak(response_text)
-                    except Exception as e:
-                        logger.warning(f"TTS failed (non-fatal): {e}")
+                try:
+                    from src.output.tts_client import WindowsSAPITTS
+                    tts = WindowsSAPITTS(self.cfg)
+                    tts.speak(response_text) # response_text is clean of the injected <details> block
+                except Exception as e:
+                    logger.warning(f"TTS failed: {e}")
 
             # 7. UI Emit
             stage = "emit"

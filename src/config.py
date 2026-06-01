@@ -49,11 +49,17 @@ _DEFAULTS = {
         "provider": "whisper_cpp",
         "whisper_executable": "",
         "whisper_model": "",
+        "model_dir": "C:/ameva/AI_Models/ggml",
         "recording_max_sec": 30,
+        "mic_device_index": None,
+        "silence_timeout_on": 5,
+        "silence_timeout_all": 4,
+        "silence_threshold_rms": 500,
     },
     "tts": {
         "provider": "windows_sapi",
         "enabled": False,
+        "speaker_device": None,
     },
     "vision": {
         "provider": "none",
