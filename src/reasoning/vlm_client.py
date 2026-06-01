@@ -59,6 +59,15 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
                 payload = {
                     "messages": [
                         {
+                            "role": "system",
+                            "content": (
+                                "You are a precise desktop screen analysis AI.\n"
+                                "CRITICAL RULES:\n"
+                                "1. Answer in the same language as the user's question. (e.g., if the user asks in Korean, answer in Korean; if in Chinese, answer in Chinese; if in Hindi, answer in Hindi).\n"
+                                "2. Analyze the screen image carefully and provide a precise and direct response to the user's question."
+                            )
+                        },
+                        {
                             "role": "user",
                             "content": [
                                 {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
