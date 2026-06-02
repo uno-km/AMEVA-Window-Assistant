@@ -94,9 +94,9 @@ class STTEngine:
             exe,
             "-m", model,
             "-f", wav_path,
-            "-l", "ko",           # Korean language
-            "--no-timestamps",    # Clean text output
-            "--no-prints",        # Suppress progress
+            "-l", "ko",     # Korean language
+            "-nt",          # Clean text output (no timestamps)
+            "-otxt",        # Output result in a text file
         ]
 
         logger.info(f"[STT] Running whisper.cpp: {' '.join(cmd)}")
@@ -106,6 +106,8 @@ class STTEngine:
                 cmd,
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 timeout=120,
                 creationflags=subprocess.CREATE_NO_WINDOW if hasattr(subprocess, 'CREATE_NO_WINDOW') else 0,
             )

@@ -973,7 +973,7 @@ class MainWindow(tk.Tk):
             )
         else:
             self._lbl_spinner.configure(text="")
-            if not self._recording:
+            if getattr(self, "mic_state", None) == MicState.OFF:
                 self._lbl_state.configure(text="Idle", fg=_CLR_ASST)
 
         self.after(_ANIM_MS, self._animate_status)
