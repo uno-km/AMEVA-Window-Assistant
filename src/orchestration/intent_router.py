@@ -69,7 +69,7 @@ class IntentRouter:
             {"role": "user", "content": user_input}
         ]
         payload = {
-            "model": "qwen2.5-1.5b-instruct",
+            "model": "qwen2.5-0.5b-instruct",
             "messages": messages,
             "temperature": 0.1,
             "max_tokens": 10
