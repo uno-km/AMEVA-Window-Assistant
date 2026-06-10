@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - C:/ameva/models:/models
+      - C:/ameva/models/llm:/models
     command: >
       --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 0
     restart: unless-stopped
@@ -23,9 +23,9 @@ services:
     ports:
       - "9082:8082"
     volumes:
-      - C:/ameva/models:/models
+      - C:/ameva/models/llm:/models
     command: >
-      --model /models/qwen2.5-0.5b.gguf --host 0.0.0.0 --port 8082 --ctx-size 2048 --n-gpu-layers 0
+      --model /models/qwen2.5-0.5b-q4_k_m.gguf --host 0.0.0.0 --port 8082 --ctx-size 2048 --n-gpu-layers 0
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://127.0.0.1:8082/v1/models" ]
@@ -39,9 +39,9 @@ services:
     ports:
       - "9083:8083"
     volumes:
-      - C:/ameva/models:/models
+      - C:/ameva/models/vlm:/models
     command: >
-      --model /models/qwen2-vl-2b-instruct-q4_k_m.gguf --mmproj /models/mmproj-Qwen2-VL-2B-Instruct-f16.gguf --host 0.0.0.0 --port 8083 --ctx-size 4096 --n-gpu-layers 0
+      --model /models/Qwen2-VL-2B-Instruct-Q4_K_M.gguf --mmproj /models/mmproj-Qwen2-VL-2B-Instruct-f16.gguf --host 0.0.0.0 --port 8083 --ctx-size 4096 --n-gpu-layers 0
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://127.0.0.1:8083/v1/models" ]

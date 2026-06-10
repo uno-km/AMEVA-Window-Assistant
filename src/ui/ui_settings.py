@@ -310,8 +310,8 @@ class SettingsDialog(tk.Toplevel):
                 # Proactively default model_dir if empty
                 if key == "docker.model_dir" and not val:
                     from pathlib import Path
-                    if Path("C:/ameva/models").exists():
-                        val = "C:/ameva/models"
+                    if Path("C:/ameva/models/llm").exists():
+                        val = "C:/ameva/models/llm"
                 var.set(str(val) if val is not None else "")
         
         # Force initial update of model dropdown values
@@ -456,33 +456,41 @@ class SettingsDialog(tk.Toplevel):
             lines = compose_path.read_text(encoding="utf-8").splitlines()
             new_lines = []
             in_volumes = False
+            current_service = None
 
             for line in lines:
                 stripped = line.strip()
-                if stripped == "volumes:":
-                    in_volumes = True
-                    new_lines.append(line)
-                    continue
+                if line.startswith("  ") and line.endswith(":") and not line.startswith("    "):
+                    current_service = stripped.rstrip(":")
 
-                if in_volumes and stripped.startswith("- ") and stripped.endswith(":/models"):
-                    indent = line[:line.index("-")]
-                    clean_dir = str(Path(model_dir).resolve()).replace("\\", "/")
-                    new_lines.append(f"{indent}- {clean_dir}:/models")
-                    in_volumes = False
-                    continue
+                if current_service == "llm-server":
+                    if stripped == "volumes:":
+                        in_volumes = True
+                        new_lines.append(line)
+                        continue
 
-                if stripped.startswith("--model "):
-                    indent = line[:line.index("--model")]
-                    new_lines.append(f"{indent}--model /models/{model_file}")
-                    
-                    # Automatically append --mmproj line right after --model if specified
-                    if mmproj_file:
-                        new_lines.append(f"{indent}--mmproj /models/{mmproj_file}")
-                    continue
+                    if in_volumes and stripped.startswith("- ") and stripped.endswith(":/models"):
+                        indent = line[:line.index("-")]
+                        clean_dir = str(Path(model_dir).resolve()).replace("\\", "/")
+                        new_lines.append(f"{indent}- {clean_dir}:/models")
+                        in_volumes = False
+                        continue
 
-                if stripped.startswith("--mmproj "):
-                    # Skip the old mmproj line, we regenerate it right after --model
-                    continue
+                    if stripped.startswith("--model "):
+                        indent = line[:line.index("--model")]
+                        new_lines.append(f"{indent}--model /models/{model_file}")
+                        
+                        # Automatically append --mmproj line right after --model if specified
+                        if mmproj_file:
+                            new_lines.append(f"{indent}--mmproj /models/{mmproj_file}")
+                        continue
+
+                    if stripped.startswith("--mmproj "):
+                        # Skip the old mmproj line, we regenerate it right after --model
+                        continue
+                else:
+                    if stripped == "volumes:":
+                        in_volumes = False
 
                 new_lines.append(line)
 
