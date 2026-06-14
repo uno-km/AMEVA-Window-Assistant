@@ -32,30 +32,30 @@
 ## 4. 주요 기술적 특징 (Technical Deep-Dive)
 
 ### 2.1. 하이브리드 동적 의도 라우팅 아키텍처 (Hybrid Dynamic Intent Routing)
-화면 분석이 필요한 모든 요청에 대해 무거운 VLM(Vision-Language Model) 연산을 수행하는 것은 극심한 텐서 연산 병목을 초래한다. 본 파이프라인은 사용자의 프롬프트 의도(Intent)를 $O(1)$ 수준의 휴리스틱과 경량 LLM(Qwen2.5-1.5b)의 JSON 스키마 강제 판별로 사전 분류한다.
+화면 분석이 필요한 모든 요청에 대해 무거운 VLM(Vision-Language Model) 연산을 수행하는 것은 극심한 텐서 연산 병목을 초래한다. 본 파이프라인은 사용자의 프롬프트 의도(Intent)를 O(1) 수준의 휴리스틱과 경량 LLM(Qwen2.5-1.5b)의 JSON 스키마 강제 판별로 사전 분류한다.
 - **Fast-Track Heuristics (초고속 휴리스틱 트리거)**: 자연어 프롬프트에서 "보여", "어디", "화면", "색상" 등 공간적, 시각적 전역 이해를 요구하는 형태소가 감지될 경우, 정규표현식 매칭을 통해 곧바로 VLM 계층으로 직행시킨다.
-- **LLM-driven Scene Graph Routing (컨텍스트 기반 라우팅)**: 프롬프트가 모호할 경우 경량 라우터 모델에게 OCR 텍스트 밀도와 질문을 교차 검증하게 한다. 라우터 모델은 프롬프트를 영어로 번역함과 동시에(VLM이 영어 중심 모델임을 고려), $\text{Route} \in \{\text{OCR}, \text{VLM}\}$ 형태의 이산적 결정(Discrete Decision)을 출력한다.
+- **LLM-driven Scene Graph Routing (컨텍스트 기반 라우팅)**: 프롬프트가 모호할 경우 경량 라우터 모델에게 OCR 텍스트 밀도와 질문을 교차 검증하게 한다. 라우터 모델은 프롬프트를 영어로 번역함과 동시에(VLM이 영어 중심 모델임을 고려), {Route} in {{OCR}, {VLM}} 형태의 이산적 결정(Discrete Decision)을 출력한다.
 - **Confidence-based VLM Fallback (신뢰도 기반 안전망)**: 라우터가 'OCR'을 지시했으나 Tesseract 추출 결과의 엔트로피가 현저히 낮거나 밀도가 부족할 경우, 시스템은 자가 판단하여 VLM 모드로 동적 폴백(Fallback)을 수행한다.
 
 ### 2.2. 무지연 실시간 음성 인지 및 STT 전처리 (Zero-latency Audio Engineering)
 
 본 파이프라인은 음성 캡처와 추론 사이의 병목을 수학적으로 최소화하기 위해 고도의 시그널 프로세싱 및 시스템 엔지니어링을 결합하였다.
-- **FFmpeg-Free Native PCM Capture**: 일반적인 파이프라인이 임의의 포맷으로 마이크를 녹음한 뒤 FFmpeg를 통해 $16,000\,Hz$ 변환을 거치는 것과 달리, 파이썬 `sounddevice`를 통해 OS 오디오 드라이버 계층에 직접 $f_s = 16,000\,Hz$, 16-bit PCM 포맷으로 인터럽트 캡처를 명령한다. 이로써 사후 리샘플링을 위한 I/O 비용 및 연산 오버헤드를 완벽히 $0$으로 소거하였다.
-- **Dynamic Silence Detection via RMS**: 연속적인 음성 스트림에서 배경 소음(Noise Floor)을 무시하고 발화 종결 시점을 식별한다. 매 $100\,ms$ 오디오 블록(Blocksize)마다 Root Mean Square(RMS) 에너지를 계산하며, 수식은 다음과 같다:
-  $$ \text{RMS}_{block} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2} $$
-  임계값(Threshold)을 초과하는 $x_i$가 탐지되면 발화 타이머를 갱신하고, $\Delta t > t_{silence}$ 조건이 만족되는 즉시 비동기 컷오프를 발동하여 스트림을 차단한다.
+- **FFmpeg-Free Native PCM Capture**: 일반적인 파이프라인이 임의의 포맷으로 마이크를 녹음한 뒤 FFmpeg를 통해 $16,000\,Hz$ 변환을 거치는 것과 달리, 파이썬 `sounddevice`를 통해 OS 오디오 드라이버 계층에 직접 f_s = 16,000 Hz, 16-bit PCM 포맷으로 인터럽트 캡처를 명령한다. 이로써 사후 리샘플링을 위한 I/O 비용 및 연산 오버헤드를 완벽히 $0$으로 소거하였다.
+- **Dynamic Silence Detection via RMS**: 연속적인 음성 스트림에서 배경 소음(Noise Floor)을 무시하고 발화 종결 시점을 식별한다. 매 100 ms 오디오 블록(Blocksize)마다 Root Mean Square(RMS) 에너지를 계산하며, 수식은 다음과 같다:
+  RMS_block = sqrt( (1 / N) * sum( x_i^2 ) )
+  임계값(Threshold)을 초과하는 x_i가 탐지되면 발화 타이머를 갱신하고, Δt > t_silence 조건이 만족되는 즉시 비동기 컷오프를 발동하여 스트림을 차단한다.
 - **Hardware-Aware Offline Decoding**: 수집된 최적의 텐서 데이터는 $4$-bit K-Quantization이 적용된 `whisper.cpp` 바이너리로 파이프라이닝되어, Windows CPU 환경에서도 GPU에 버금가는 초고속 오프라인 인퍼런스를 실현한다.
 
 ### 2.3. 다중 모니터 인지 및 화면 컨텍스트 병합 (Multi-monitor Cognition)
 
 운영체제의 데스크탑 환경은 1920x1080 이상의 다중 모니터 해상도를 가지며, UI 요소들은 DPI 스케일링에 의해 기하학적 왜곡을 갖는다.
 - **DPI-Aware Frame Extraction**: `mss` 라이브러리를 사용하여 모니터의 논리적 픽셀이 아닌 물리적 절대 좌표를 기반으로 화면 버퍼 메모리를 복사한다.
-- **Tesseract Scene Graph Construction**: 화면을 단순히 이미지로 보지 않고, 텍스트가 위치한 Bounding Box $(x, y, w, h)$ 좌표계를 추출하여 가상의 공간 그래프(Scene Graph)를 구축한다. LLM은 이 좌표계를 기반으로 사용자가 "우측 상단의 버튼"이라고 지칭할 때 시맨틱 매핑(Semantic Mapping)을 수행할 수 있다.
+- **Tesseract Scene Graph Construction**: 화면을 단순히 이미지로 보지 않고, 텍스트가 위치한 Bounding Box (x, y, w, h) 좌표계를 추출하여 가상의 공간 그래프(Scene Graph)를 구축한다. LLM은 이 좌표계를 기반으로 사용자가 "우측 상단의 버튼"이라고 지칭할 때 시맨틱 매핑(Semantic Mapping)을 수행할 수 있다.
 
 ### 2.4. 비동기 워커 오케스트레이션 및 상태 머신 (Asynchronous Worker Pipeline)
 
 GUI 프로그램(Tkinter)의 메인 이벤트 루프(Main Loop)가 블로킹(Blocking)되는 것을 방지하기 위해, 모든 무거운 인퍼런스 연산과 I/O 작업은 독립된 데몬 스레드(Daemon Thread) 계층에서 처리된다.
-- **Producer-Consumer Queue**: 사용자의 키보드 타이핑, 마이크 입력, 단축키 트리거는 모두 Queue 시스템의 `Producer`로 동작하며, 단일 Worker Thread가 `Consumer`로서 락(Lock) 충돌 없이 순차적 파이프라인(캡처 $\rightarrow$ 라우팅 $\rightarrow$ LLM 추론 $\rightarrow$ SAPI 음성 합성)을 진행시킨다.
+- **Producer-Consumer Queue**: 사용자의 키보드 타이핑, 마이크 입력, 단축키 트리거는 모두 Queue 시스템의 `Producer`로 동작하며, 단일 Worker Thread가 `Consumer`로서 락(Lock) 충돌 없이 순차적 파이프라인(캡처 arrow 라우팅 arrow LLM 추론 arrow SAPI 음성 합성)을 진행시킨다.
 
 ---
 
