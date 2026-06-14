@@ -1,3 +1,18 @@
+> **[프로젝트 요약 (Resume Profile)]**
+> 
+> * **① 제목:** 로컬 멀티모달 데스크탑 어시스턴트 (AMEVA Window Assistant)
+> * **② 주제:** 
+>   * `Copilot` 및 `Gemini` 화면공유 AI 에이전트를 리버스 엔지니어링 시선으로 설계하여, 외부 서버 의존 없는 오프라인/온프레미스 작동 검증을 목표로 함
+>   * 데스크탑 화면 및 사용자 음성 질문(`STT`)을 획득하고, `VLM` 기반 화면 분석과 `LLM` 콘텍스트 판독을 거쳐 친화적인 오디오 피드백(`TTS`)을 제공하는 로컬 개인 비서 파이프라인
+>   * 완전 격리된 엣지 환경에서 고가용성 데이터센터 없이도 실용적 수준의 비서 시스템 구동이 가능한지 가능 여부 및 한계 연구
+> * **③ 내용요지:**
+>   * **사용 기술:** `화면 캡처 (Screen Capture)`, `VLM (Vision-Language Model)`, `LLM (Large Language Model)`, `STT Engine (Speech-to-Text)`, `TTS Engine (Text-to-Speech)`, `OCR (Optical Character Recognition)` 기술 체계 기반 하이브리드 파이프라인
+>   * **사용 모델:** `Whisper.cpp (Small, Tiny)` (STT), `Llama-3.1 (8B)`, `Qwen2.5 (1.5B)` (LLM), `Qwen2-VL (2B)` (VLM), `Windows SAPI` (TTS), `Tesseract OCR` (OCR)
+>   * **핵심 알고리즘:** VLM 병목 우회를 위해 텍스트 밀도가 높은 화면이나 간단한 문서는 `OCR`을 통한 텍스트화 후 `LLM`으로 즉시 전송하고 공간/시각적 정보 분석 필요 시 `VLM`으로 동적 전환하는 하이브리드 의도 라우팅(Intent Routing), Windows SAPI 연계용 텍스트 정규식 정제 (`_clean_text_for_speech`), 실시간 오디오 16kHz PCM 캡처 및 `RMS` 기반 사일런스 디텍션(무음 구간 감지)을 통한 발화 차단 및 STT 텍스트 변환 매핑
+>   * **에이전트/보안 제어 (또는 핵심 아키텍처 흐름):** 핫키/보이스 입력 -> OS 직접 오디오 16kHz PCM 스트림 수집 -> RMS 실시간 모니터링 후 무음 차단 -> STT 엔진 전사 -> intent_router 분기 판정 -> [OCR 경로: 화면 캡처 및 OCR Scene Graph LLM 전송] 혹은 [VLM 경로: 화면 캡처 Base64 변환 VLM 전송] -> 결과 텍스트 정제 -> TTS 음성 재생 및 SQLite3 영속화
+>   * **연구 성과:** 로컬 엣지 장비 단독 가동은 성공했으나 명확한 자원 한계를 확인: 구동 가능한 최적 파라미터는 `LLM` 8B 이하, `VLM` 2B 이하로 한정, 4대 핵심 컴포넌트(STT, LLM, VLM, TTS) 동시 구동 시 RAM/VRAM 약 12~14GB 이상 점유, 음성 입력부터 오디오 합성 출력까지 약 5~8초의 End-to-End 지연 발생으로 저성능 컴퓨터 환경의 한계를 명확히 규명
+> * **④ 기여도:** 단독 개발 (100% - 아키텍처 설계, 보안 시스템 구축, 코어 로직 구현 전담)
+
 # 📊 AMEVA-Window-Assistant: Multi-modal Desktop AI & Dynamic Orchestration Pipeline
 
 ## 1. 개요 (Abstract)
