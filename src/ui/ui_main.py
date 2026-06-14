@@ -343,7 +343,7 @@ class MainWindow(tk.Tk):
         self._lbl_queue.pack(side=tk.LEFT, padx=12)
 
         self._lbl_server_status = tk.Label(
-            bar, text="⚫ 도커 헬스체크 대기중...", font=("Segoe UI", 9, "bold"),
+            bar, text="⚫ 로컬 서버 헬스체크 대기중...", font=("Segoe UI", 9, "bold"),
             bg=_CLR_BG_LIGHT, fg=_CLR_FG, anchor="e",
         )
         self._lbl_server_status.pack(side=tk.RIGHT, padx=8)
@@ -982,8 +982,12 @@ class MainWindow(tk.Tk):
         import urllib.request
         import threading
         
-        llm_url = self.cfg.get("llm", "base_url", default="http://127.0.0.1:8080/v1") + "/models"
-        vlm_url = "http://127.0.0.1:9083/v1/models"
+        llm_url = self.cfg.get("llm", "base_url", default="http://127.0.0.1:8780/v1") + "/models"
+        vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
+        if "/chat/completions" in vlm_endpoint:
+            vlm_url = vlm_endpoint.split("/chat/completions")[0] + "/models"
+        else:
+            vlm_url = vlm_endpoint + "/models"
         
         def do_check():
             def check_url(url):
@@ -1000,11 +1004,11 @@ class MainWindow(tk.Tk):
             def update_ui():
                 try:
                     if llm_ok and vlm_ok:
-                        self._lbl_server_status.configure(text="🔵 도커 서버(LLM+VLM) 온라인", fg="#89b4fa")
+                        self._lbl_server_status.configure(text="🔵 로컬 AI 서버 온라인", fg="#89b4fa")
                     elif llm_ok or vlm_ok:
                         self._lbl_server_status.configure(text="🟡 서버 로딩 중...", fg="#f39c12")
                     else:
-                        self._lbl_server_status.configure(text="🔴 도커 서버 오프라인", fg="#f38ba8")
+                        self._lbl_server_status.configure(text="🔴 로컬 AI 서버 오프라인", fg="#f38ba8")
                 except Exception:
                     pass
             self.after(0, update_ui)

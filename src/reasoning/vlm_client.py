@@ -35,14 +35,15 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
             from PIL import Image
             import io
             with Image.open(image_path) as img:
+                img_rgb = img.convert("RGB")
                 max_size = 1024
-                if img.width > max_size or img.height > max_size:
-                    logger.info(f"[VLM] Resizing image from {img.width}x{img.height} to fit within {max_size}x{max_size}")
-                    img.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
-                    img_bytes = io.BytesIO()
-                    fmt = img.format if img.format else "JPEG"
-                    img.save(img_bytes, format=fmt)
-                    return base64.b64encode(img_bytes.getvalue()).decode('utf-8')
+                if img_rgb.width > max_size or img_rgb.height > max_size:
+                    logger.info(f"[VLM] Resizing image from {img_rgb.width}x{img_rgb.height} to fit within {max_size}x{max_size}")
+                    img_rgb.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
+                
+                img_bytes = io.BytesIO()
+                img_rgb.save(img_bytes, format="JPEG", quality=85)
+                return base64.b64encode(img_bytes.getvalue()).decode('utf-8')
         except Exception as e:
             logger.warning(f"[VLM] Failed to optimize image: {e}. Falling back to original.")
             
@@ -52,8 +53,8 @@ class LocalLlamaCppMultimodalAdapter(LocalMultimodalAdapter):
     def generate(self, image_path: str, prompt: str, **kwargs) -> str:
         try:
             base64_image = self._encode_image(image_path)
-            # Port-based API branch
-            if "9083" in self.endpoint_url:
+            # Port-based API branch (9083 and 8783 are Qwen2-VL)
+            if "9083" in self.endpoint_url or "8783" in self.endpoint_url:
                 # Qwen2-VL natively supports OpenAI Chat API
                 req_url = self.endpoint_url
                 payload = {
@@ -134,7 +135,7 @@ class VLMClient:
         self.cfg = cfg
         self.provider_name = self.cfg.get("vlm", "provider", default="llama_cpp").lower()
         
-        url = endpoint_url or self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:9083/v1/chat/completions")
+        url = endpoint_url or self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
         
         if self.provider_name == "llama_cpp":
             self.adapter = LocalLlamaCppMultimodalAdapter(

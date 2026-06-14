@@ -15,9 +15,9 @@ from typing import Tuple
 logger = logging.getLogger("ameva.router.intent")
 
 class IntentRouter:
-    """Uses a local Qwen LLM on port 9082 to classify intent."""
+    """Uses a local Qwen LLM on port 8782 to classify intent."""
     
-    def __init__(self, endpoint_url="http://127.0.0.1:9082/v1/chat/completions"):
+    def __init__(self, endpoint_url="http://127.0.0.1:8782/v1/chat/completions"):
         self.endpoint_url = endpoint_url
         self.timeout = 30
         

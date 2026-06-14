@@ -229,18 +229,22 @@ def _stop_docker(logger):
 
 def _try_start_local_servers(logger):
     global local_processes
-    import sys
-    python_exe = sys.executable
+    from src.config import CFG
 
     logger.info("Starting local native llama_cpp servers...")
     hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
 
+    llama_server_exe = CFG.get("llm", "llama_server_executable", default="C:/ameva/AI_Models/llama.cpp/llama-server.exe")
+    if not os.path.exists(llama_server_exe):
+        logger.error(f"[LOCAL SERVER ERROR] Native llama-server executable not found at: {llama_server_exe}")
+        return False
+
     llm_model = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
 
     configs = [
-        ("llm-server", 8080, llm_model, ["--n_ctx", "8192"]),
-        ("router-server", 9082, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--n_ctx", "2048"]),
-        ("vlm-server", 9083, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--n_ctx", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
+        ("llm-server", 8780, llm_model, ["--ctx-size", "8192"]),
+        ("router-server", 8782, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--ctx-size", "2048"]),
+        ("vlm-server", 8783, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
     ]
 
     startupinfo = None
@@ -255,14 +259,14 @@ def _try_start_local_servers(logger):
             continue
 
         cmd = [
-            python_exe, "-m", "llama_cpp.server",
+            llama_server_exe,
             "--model", model_path,
             "--host", "0.0.0.0",
             "--port", str(port),
-            "--n_gpu_layers", str(gpu_layers)
+            "--n-gpu-layers", str(gpu_layers)
         ] + extra
 
-        logger.info(f"Spawning local server '{name}' on port {port}: {' '.join(cmd)}")
+        logger.info(f"Spawning local native server '{name}' on port {port}: {' '.join(cmd)}")
         try:
             env = os.environ.copy()
             env["PYTHONUTF8"] = "1"
@@ -320,15 +324,24 @@ def main():
     has_gpu = (hw_mode == "gpu")
 
     # Auto-start LLM and VLM servers if not alive
-    llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
-    vlm_url = "http://127.0.0.1:9083/v1"
-    router_url = "http://127.0.0.1:9082/v1"
+    llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8780/v1")
+    vlm_endpoint = CFG.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
+    router_endpoint = CFG.get("router", "endpoint", default="http://127.0.0.1:8782/v1/chat/completions")
+
+    def _get_base_v1(url_str):
+        if "/chat/completions" in url_str:
+            return url_str.split("/chat/completions")[0]
+        return url_str
+
+    vlm_url = _get_base_v1(vlm_endpoint)
+    router_url = _get_base_v1(router_endpoint)
 
     max_retries = 3
     max_wait = 45
     servers_alive = False
 
-    docker_running = _is_docker_available()
+    use_docker = CFG.get("llm", "use_docker", default=True)
+    docker_running = _is_docker_available() and use_docker
 
     for attempt in range(1, max_retries + 1):
         llm_alive = _is_server_alive(llm_url)
@@ -346,7 +359,7 @@ def main():
             _prepare_docker_override(logger, has_gpu)
             _try_start_docker(logger)
         else:
-            logger.info("Docker is not running/available. Attempting local native startup...")
+            logger.info("Docker is not running/available or disabled. Attempting local native startup...")
             _try_start_local_servers(logger)
 
         logger.info(f"Waiting up to {max_wait}s for models to load into memory...")

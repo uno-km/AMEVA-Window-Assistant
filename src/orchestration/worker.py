@@ -148,6 +148,7 @@ class WorkerThread(threading.Thread):
             # 2. OCR Extraction
             stage = "ocr"
             ocr_data = {}
+            ocr_failed = False
             if job.capture_path:
                 ocr = self._get_ocr()
                 if ocr:
@@ -157,6 +158,7 @@ class WorkerThread(threading.Thread):
                         job.extra["ocr_cleaned"] = ocr_data.get("blocks", [])
                     except Exception as e:
                         logger.warning(f"OCR failed: {e}", exc_info=True)
+                        ocr_failed = True
             
             # 3. Semantic Normalization
             stage = "semantic"
@@ -177,7 +179,7 @@ class WorkerThread(threading.Thread):
 
             # Qwen Intent Routing
             from src.orchestration.intent_router import IntentRouter
-            qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:9082/v1/chat/completions"))
+            qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:8782/v1/chat/completions"))
             route_decision, route_reason, translated_prompt = qwen_router.route(job.input_text)
             self.db.update_job_routing(job.job_id, route_decision, route_reason)
 
@@ -189,9 +191,10 @@ class WorkerThread(threading.Thread):
                 reasons.append(f"Qwen Router: {route_reason}")
             else:
                 # Even if Qwen chooses OCR, fallback if OCR is physically broken/poor
-                should_fallback = (ocr_fallback or sg_fallback)
+                should_fallback = (ocr_fallback or sg_fallback or ocr_failed)
                 if ocr_fallback: reasons.append("Poor OCR Quality")
                 if sg_fallback: reasons.append("SG Classification Failed")
+                if ocr_failed: reasons.append("OCR Engine Failed")
                 
             llm_prov = "Unknown"
 
@@ -214,8 +217,8 @@ class WorkerThread(threading.Thread):
                 use_qwen_vl = True
                 
                 if use_qwen_vl:
-                    logger.info("Image is large (full screen). Routing to Qwen2-VL (9083).")
-                    vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:9083/v1/chat/completions")
+                    logger.info("Image is large (full screen). Routing to Qwen2-VL (8783).")
+                    vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
                 else:
                     logger.info("Image is small/cropped. Routing to Moondream2 (8081).")
                     vlm_endpoint = self.cfg.get("vlm", "endpoint", default="http://127.0.0.1:8081/v1/chat/completions")
@@ -333,7 +336,7 @@ class WorkerThread(threading.Thread):
             self.db.insert_message(
                 sess_id=job.session_id,
                 role="assistant",
-                content=final_response,
+                content=response_text,
                 cap_path=job.capture_path,
                 llm_prov=llm_prov,
                 llm_mdl=llm_mdl,
