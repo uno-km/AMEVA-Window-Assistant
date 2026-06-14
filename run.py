@@ -148,7 +148,9 @@ def _prepare_docker_override(logger, has_gpu):
 services:
   llm-server:
     image: ghcr.io/ggml-org/llama.cpp:server-cuda
-    command: --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 99
+    command: --model /models/qwen2.5-3b-instruct-q4_k_m.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 99
+    environment:
+      - NVIDIA_DISABLE_REQUIRE=1
     deploy:
       resources:
         reservations:
@@ -160,6 +162,8 @@ services:
   qwen-router-server:
     image: ghcr.io/ggml-org/llama.cpp:server-cuda
     command: --model /models/qwen2.5-0.5b-q4_k_m.gguf --host 0.0.0.0 --port 8082 --ctx-size 2048 --n-gpu-layers 99
+    environment:
+      - NVIDIA_DISABLE_REQUIRE=1
     deploy:
       resources:
         reservations:
@@ -171,6 +175,8 @@ services:
   qwen-vlm-server:
     image: ghcr.io/ggml-org/llama.cpp:server-cuda
     command: --model /models/Qwen2-VL-2B-Instruct-Q4_K_M.gguf --mmproj /models/mmproj-Qwen2-VL-2B-Instruct-f16.gguf --host 0.0.0.0 --port 8083 --ctx-size 4096 --n-gpu-layers 99
+    environment:
+      - NVIDIA_DISABLE_REQUIRE=1
     deploy:
       resources:
         reservations:
@@ -229,12 +235,12 @@ def _try_start_local_servers(logger):
     logger.info("Starting local native llama_cpp servers...")
     hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
 
-    llm_model = "C:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf" if hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+    llm_model = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
 
     configs = [
-        ("llm-server", 8080, llm_model, ["--ctx-size", "8192"]),
-        ("router-server", 9082, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--ctx-size", "2048"]),
-        ("vlm-server", 9083, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
+        ("llm-server", 8080, llm_model, ["--n_ctx", "8192"]),
+        ("router-server", 9082, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--n_ctx", "2048"]),
+        ("vlm-server", 9083, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--n_ctx", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
     ]
 
     startupinfo = None
@@ -258,11 +264,14 @@ def _try_start_local_servers(logger):
 
         logger.info(f"Spawning local server '{name}' on port {port}: {' '.join(cmd)}")
         try:
+            env = os.environ.copy()
+            env["PYTHONUTF8"] = "1"
             proc = subprocess.Popen(
                 cmd,
                 startupinfo=startupinfo,
                 stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
+                stderr=subprocess.DEVNULL,
+                env=env
             )
             local_processes.append(proc)
             started += 1

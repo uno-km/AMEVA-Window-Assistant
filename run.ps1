@@ -1,5 +1,6 @@
 $Host.UI.RawUI.WindowTitle = "AMEVA Voice Screen Assistant"
 Set-Location $PSScriptRoot
+$env:PYTHONUTF8 = "1"
 
 Write-Host "Starting AMEVA Voice Screen Assistant..."
 Write-Host ""
