@@ -74,23 +74,123 @@ def _setup_logging():
 
 
 # ---------------------------------------------------------------------------
-# Server Health Check and Launcher
+# Server Health Check, GPU Auto-Detection & Native Fallback
 # ---------------------------------------------------------------------------
 import socket
 import urllib.parse
 import urllib.request
 import subprocess
 import time
+import os
+
+local_processes = []
 
 def _is_server_alive(base_url):
     try:
-        # Perform an actual HTTP GET to /models to verify it's a genuine LLM server
         url = f"{base_url}/models"
         req = urllib.request.Request(url, method="GET")
         with urllib.request.urlopen(req, timeout=1.5) as resp:
             return resp.status == 200
     except Exception:
         return False
+
+
+def _is_docker_available():
+    try:
+        res = subprocess.run(["docker", "info"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return res.returncode == 0
+    except Exception:
+        return False
+
+
+def detect_hardware_and_get_config(logger):
+    # Try nvidia-smi first
+    try:
+        res = subprocess.run(
+            ["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader,nounits"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            timeout=5
+        )
+        if res.returncode == 0:
+            lines = [line.strip() for line in res.stdout.strip().split("\n") if line.strip()]
+            if lines:
+                parts = lines[0].split(",")
+                gpu_name = parts[0].strip()
+                gpu_memory = int(parts[1].strip())
+                logger.info(f"[GPU DETECTION] Detected GPU: {gpu_name} (VRAM: {gpu_memory}MB)")
+                return "gpu", 99
+    except Exception:
+        pass
+
+    # Try GPUtil
+    try:
+        import GPUtil
+        gpus = GPUtil.getGPUs()
+        if len(gpus) > 0:
+            logger.info(f"[GPU DETECTION] Detected GPU via GPUtil: {gpus[0].name} (VRAM: {gpus[0].memoryTotal}MB)")
+            return "gpu", 99
+    except Exception:
+        pass
+
+    logger.info("[GPU DETECTION] No GPU detected or failed to check. Using CPU mode.")
+    return "cpu", 0
+
+
+def _prepare_docker_override(logger, has_gpu):
+    docker_dir = _PROJECT_ROOT / "docker"
+    override_path = docker_dir / "docker-compose.override.yml"
+    if has_gpu:
+        logger.info("[GPU SETUP] Writing docker-compose.override.yml with CUDA acceleration...")
+        override_content = """version: '3.8'
+
+services:
+  llm-server:
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda
+    command: --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 99
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  qwen-router-server:
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda
+    command: --model /models/qwen2.5-0.5b-q4_k_m.gguf --host 0.0.0.0 --port 8082 --ctx-size 2048 --n-gpu-layers 99
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  qwen-vlm-server:
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda
+    command: --model /models/Qwen2-VL-2B-Instruct-Q4_K_M.gguf --mmproj /models/mmproj-Qwen2-VL-2B-Instruct-f16.gguf --host 0.0.0.0 --port 8083 --ctx-size 4096 --n-gpu-layers 99
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+"""
+        try:
+            with open(override_path, "w", encoding="utf-8") as f:
+                f.write(override_content)
+        except Exception as e:
+            logger.error(f"Failed to write docker-compose.override.yml: {e}")
+    else:
+        if override_path.exists():
+            logger.info("[GPU SETUP] Removing docker-compose.override.yml (using CPU mode)...")
+            try:
+                override_path.unlink()
+            except Exception:
+                pass
 
 
 def _try_start_docker(logger):
@@ -121,6 +221,71 @@ def _stop_docker(logger):
         logger.error(f"Failed to stop Docker Compose: {e}")
 
 
+def _try_start_local_servers(logger):
+    global local_processes
+    import sys
+    python_exe = sys.executable
+
+    logger.info("Starting local native llama_cpp servers...")
+    hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
+
+    configs = [
+        ("llm-server", 8080, "C:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf", ["--ctx-size", "8192"]),
+        ("router-server", 9082, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--ctx-size", "2048"]),
+        ("vlm-server", 9083, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
+    ]
+
+    startupinfo = None
+    if os.name == 'nt':
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+
+    started = 0
+    for name, port, model_path, extra in configs:
+        if not os.path.exists(model_path):
+            logger.error(f"[LOCAL SERVER ERROR] Model file not found: {model_path}")
+            continue
+
+        cmd = [
+            python_exe, "-m", "llama_cpp.server",
+            "--model", model_path,
+            "--host", "0.0.0.0",
+            "--port", str(port),
+            "--n_gpu_layers", str(gpu_layers)
+        ] + extra
+
+        logger.info(f"Spawning local server '{name}' on port {port}: {' '.join(cmd)}")
+        try:
+            proc = subprocess.Popen(
+                cmd,
+                startupinfo=startupinfo,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+            local_processes.append(proc)
+            started += 1
+        except Exception as e:
+            logger.error(f"Failed to start local server '{name}': {e}")
+
+    return started > 0
+
+
+def _stop_local_servers(logger):
+    global local_processes
+    if local_processes:
+        logger.info("Stopping local llama_cpp servers...")
+        for proc in local_processes:
+            try:
+                proc.terminate()
+                proc.wait(timeout=3)
+            except Exception:
+                try:
+                    proc.kill()
+                except Exception:
+                    pass
+        local_processes = []
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -130,7 +295,7 @@ def main():
     logger = _setup_logging()
     logger.info("=== AMEVA Voice Screen Assistant starting ===")
 
-    # Config singleton (already loaded on import)
+    # Config singleton
     from src.config import CFG
 
     # Database setup early for logging errors
@@ -139,50 +304,63 @@ def main():
     db = DatabaseManager(db_path)
     logger.info(f"Database ready: {db_path}")
 
+    # Determine GPU settings
+    hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
+    has_gpu = (hw_mode == "gpu")
+
     # Auto-start LLM and VLM servers if not alive
     llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8080/v1")
     vlm_url = "http://127.0.0.1:9083/v1"
     router_url = "http://127.0.0.1:9082/v1"
-    
-    max_retries = 5
-    max_wait = 60
-    
+
+    max_retries = 3
+    max_wait = 45
     servers_alive = False
-    
+
+    docker_running = _is_docker_available()
+
     for attempt in range(1, max_retries + 1):
         llm_alive = _is_server_alive(llm_url)
         vlm_alive = _is_server_alive(vlm_url)
         router_alive = _is_server_alive(router_url)
-        
+
         if llm_alive and vlm_alive and router_alive:
             servers_alive = True
             break
-            
+
         logger.warning(f"LLM, VLM or Router Server is unreachable. (Attempt {attempt}/{max_retries})")
-        logger.info("Attempting to start servers via Docker Compose...")
-        _try_start_docker(logger)
-        
+
+        if docker_running:
+            logger.info("Attempting to start servers via Docker Compose...")
+            _prepare_docker_override(logger, has_gpu)
+            _try_start_docker(logger)
+        else:
+            logger.info("Docker is not running/available. Attempting local native startup...")
+            _try_start_local_servers(logger)
+
         logger.info(f"Waiting up to {max_wait}s for models to load into memory...")
         for _ in range(max_wait):
             time.sleep(1.0)
             if _is_server_alive(llm_url) and _is_server_alive(vlm_url) and _is_server_alive(router_url):
-                logger.info("LLM, VLM & Router Servers successfully started via Docker!")
+                logger.info("LLM, VLM & Router Servers successfully started!")
                 servers_alive = True
                 break
-                
+
         if servers_alive:
             break
-            
+
     if not servers_alive:
-        err_msg = "Docker Compose failed to start the models after 5 attempts. Shutting down system."
+        err_msg = "Failed to start the model servers. Shutting down system."
         logger.error(err_msg)
         db.insert_log(level="ERROR", message=err_msg)
-        _stop_docker(logger)
+        if docker_running:
+            _stop_docker(logger)
+        else:
+            _stop_local_servers(logger)
         sys.exit(1)
 
     # Bind DB to exception guard
     from src.guard import set_db_ref
-
     set_db_ref(db)
 
     # Ensure at least one session exists
@@ -194,11 +372,17 @@ def main():
     # Launch UI
     from src.ui.ui_main import MainWindow
 
-    app = MainWindow(db=db, cfg=CFG)
-    logger.info("UI launched — entering main loop")
-    app.mainloop()
-
-    logger.info("=== AMEVA Voice Screen Assistant stopped ===")
+    try:
+        app = MainWindow(db=db, cfg=CFG)
+        logger.info("UI launched — entering main loop")
+        app.mainloop()
+    finally:
+        logger.info("=== AMEVA Voice Screen Assistant stopping ===")
+        if docker_running:
+            _stop_docker(logger)
+        else:
+            _stop_local_servers(logger)
+        logger.info("=== AMEVA Voice Screen Assistant stopped ===")
 
 
 if __name__ == "__main__":
@@ -207,3 +391,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n[INFO] Application gracefully stopped by user (Ctrl+C).")
         sys.exit(0)
+
+
+
+

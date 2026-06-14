@@ -12,3 +12,7 @@ numpy>=1.20
 
 # OCR
 pytesseract>=0.3.10
+
+# Local LLM Server & GPU Detection
+llama-cpp-python[server]>=0.2.77
+GPUtil>=1.4.0
