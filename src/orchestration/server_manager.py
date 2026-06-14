@@ -83,8 +83,14 @@ class ServerManager:
 
         elif name == "vlm-server":
             port = 8783
-            model_path = "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf"
-            extra = ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"]
+            model_7b = "C:/ameva/models/vlm/Qwen_Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
+            mmproj_7b = "C:/ameva/models/vlm/mmproj-Qwen_Qwen2.5-VL-7B-Instruct-f16.gguf"
+            if os.path.exists(model_7b) and os.path.exists(mmproj_7b):
+                model_path = model_7b
+                extra = ["--ctx-size", "4096", "--mmproj", mmproj_7b]
+            else:
+                model_path = "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf"
+                extra = ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"]
         else:
             raise ValueError(f"Unknown server: {name}")
 
