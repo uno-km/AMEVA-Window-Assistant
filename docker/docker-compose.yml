@@ -8,7 +8,7 @@ services:
     volumes:
       - C:/ameva/models/llm:/models
     command: >
-      --model /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 0
+      --model /models/Llama-3.2-1B-Instruct-Q4_K_M.gguf --host 0.0.0.0 --port 8080 --ctx-size 8192 --n-gpu-layers 0
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://127.0.0.1:8080/v1/models" ]

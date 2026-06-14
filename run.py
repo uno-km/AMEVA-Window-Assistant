@@ -229,8 +229,10 @@ def _try_start_local_servers(logger):
     logger.info("Starting local native llama_cpp servers...")
     hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
 
+    llm_model = "C:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf" if hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+
     configs = [
-        ("llm-server", 8080, "C:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf", ["--ctx-size", "8192"]),
+        ("llm-server", 8080, llm_model, ["--ctx-size", "8192"]),
         ("router-server", 9082, "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf", ["--ctx-size", "2048"]),
         ("vlm-server", 9083, "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf", ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
     ]
