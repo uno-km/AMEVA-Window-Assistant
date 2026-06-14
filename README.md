@@ -1,3 +1,5 @@
+#  AMEVA-Window-Assistant: Multi-modal Desktop AI & Dynamic Orchestration Pipeline
+
 > **[프로젝트 요약 (Resume Profile)]**
 > 
 > * **① 제목:** 로컬 멀티모달 데스크탑 어시스턴트 (AMEVA Window Assistant)
@@ -13,16 +15,21 @@
 >   * **연구 성과:** 로컬 엣지 장비 단독 가동은 성공했으나 명확한 자원 한계를 확인: 구동 가능한 최적 파라미터는 `LLM` 8B 이하, `VLM` 2B 이하로 한정, 4대 핵심 컴포넌트(STT, LLM, VLM, TTS) 동시 구동 시 RAM/VRAM 약 12~14GB 이상 점유, 음성 입력부터 오디오 합성 출력까지 약 5~8초의 End-to-End 지연 발생으로 저성능 컴퓨터 환경의 한계를 명확히 규명
 > * **④ 기여도:** 단독 개발 (100% - 아키텍처 설계, 보안 시스템 구축, 코어 로직 구현 전담)
 
-# 📊 AMEVA-Window-Assistant: Multi-modal Desktop AI & Dynamic Orchestration Pipeline
+#  AMEVA-Window-Assistant: Multi-modal Desktop AI & Dynamic Orchestration Pipeline
 
-## 1. 개요 (Abstract)
+---
+
+---
+
+## 3. 개요 (Abstract)
+
 본 프로젝트는 사용자의 데스크탑 화면 환경을 전방위적으로 인지하고 텍스트 및 음성 언어 인터페이스를 통해 지능적인 상호작용을 수행하는 차세대 **멀티모달(Multi-modal) AI 어시스턴트 플랫폼**이다. 로컬 환경에서 데이터를 완전히 보호하는 오프라인 추론 생태계를 지향하며, 다중 모니터 캡처, Tesseract 기반 Scene Graph 추출, 비동기 시스템 큐(Queue) 엔진을 근간으로 삼고 있다.
 
 특히 제한된 엣지 컴퓨팅 리소스(Local PC) 내에서 무거운 시각-언어 모델(VLM)의 오버헤드를 우회하기 위한 **하이브리드 동적 의도 라우팅(Hybrid Dynamic Intent Routing)** 체계를 도입하였으며, **네이티브 16kHz PCM 무지연 캡처** 및 **Whisper.cpp GGML 양자화(Quantization) 엔진**을 통합하여 업계 최고 수준의 실시간 MLOps 신뢰성과 사용자 경험(UX)을 확보하였다.
 
 ---
 
-## 2. 주요 기술적 특징 (Technical Deep-Dive)
+## 4. 주요 기술적 특징 (Technical Deep-Dive)
 
 ### 2.1. 하이브리드 동적 의도 라우팅 아키텍처 (Hybrid Dynamic Intent Routing)
 화면 분석이 필요한 모든 요청에 대해 무거운 VLM(Vision-Language Model) 연산을 수행하는 것은 극심한 텐서 연산 병목을 초래한다. 본 파이프라인은 사용자의 프롬프트 의도(Intent)를 $O(1)$ 수준의 휴리스틱과 경량 LLM(Qwen2.5-1.5b)의 JSON 스키마 강제 판별로 사전 분류한다.
@@ -31,6 +38,7 @@
 - **Confidence-based VLM Fallback (신뢰도 기반 안전망)**: 라우터가 'OCR'을 지시했으나 Tesseract 추출 결과의 엔트로피가 현저히 낮거나 밀도가 부족할 경우, 시스템은 자가 판단하여 VLM 모드로 동적 폴백(Fallback)을 수행한다.
 
 ### 2.2. 무지연 실시간 음성 인지 및 STT 전처리 (Zero-latency Audio Engineering)
+
 본 파이프라인은 음성 캡처와 추론 사이의 병목을 수학적으로 최소화하기 위해 고도의 시그널 프로세싱 및 시스템 엔지니어링을 결합하였다.
 - **FFmpeg-Free Native PCM Capture**: 일반적인 파이프라인이 임의의 포맷으로 마이크를 녹음한 뒤 FFmpeg를 통해 $16,000\,Hz$ 변환을 거치는 것과 달리, 파이썬 `sounddevice`를 통해 OS 오디오 드라이버 계층에 직접 $f_s = 16,000\,Hz$, 16-bit PCM 포맷으로 인터럽트 캡처를 명령한다. 이로써 사후 리샘플링을 위한 I/O 비용 및 연산 오버헤드를 완벽히 $0$으로 소거하였다.
 - **Dynamic Silence Detection via RMS**: 연속적인 음성 스트림에서 배경 소음(Noise Floor)을 무시하고 발화 종결 시점을 식별한다. 매 $100\,ms$ 오디오 블록(Blocksize)마다 Root Mean Square(RMS) 에너지를 계산하며, 수식은 다음과 같다:
@@ -39,17 +47,19 @@
 - **Hardware-Aware Offline Decoding**: 수집된 최적의 텐서 데이터는 $4$-bit K-Quantization이 적용된 `whisper.cpp` 바이너리로 파이프라이닝되어, Windows CPU 환경에서도 GPU에 버금가는 초고속 오프라인 인퍼런스를 실현한다.
 
 ### 2.3. 다중 모니터 인지 및 화면 컨텍스트 병합 (Multi-monitor Cognition)
+
 운영체제의 데스크탑 환경은 1920x1080 이상의 다중 모니터 해상도를 가지며, UI 요소들은 DPI 스케일링에 의해 기하학적 왜곡을 갖는다.
 - **DPI-Aware Frame Extraction**: `mss` 라이브러리를 사용하여 모니터의 논리적 픽셀이 아닌 물리적 절대 좌표를 기반으로 화면 버퍼 메모리를 복사한다.
 - **Tesseract Scene Graph Construction**: 화면을 단순히 이미지로 보지 않고, 텍스트가 위치한 Bounding Box $(x, y, w, h)$ 좌표계를 추출하여 가상의 공간 그래프(Scene Graph)를 구축한다. LLM은 이 좌표계를 기반으로 사용자가 "우측 상단의 버튼"이라고 지칭할 때 시맨틱 매핑(Semantic Mapping)을 수행할 수 있다.
 
 ### 2.4. 비동기 워커 오케스트레이션 및 상태 머신 (Asynchronous Worker Pipeline)
+
 GUI 프로그램(Tkinter)의 메인 이벤트 루프(Main Loop)가 블로킹(Blocking)되는 것을 방지하기 위해, 모든 무거운 인퍼런스 연산과 I/O 작업은 독립된 데몬 스레드(Daemon Thread) 계층에서 처리된다.
 - **Producer-Consumer Queue**: 사용자의 키보드 타이핑, 마이크 입력, 단축키 트리거는 모두 Queue 시스템의 `Producer`로 동작하며, 단일 Worker Thread가 `Consumer`로서 락(Lock) 충돌 없이 순차적 파이프라인(캡처 $\rightarrow$ 라우팅 $\rightarrow$ LLM 추론 $\rightarrow$ SAPI 음성 합성)을 진행시킨다.
 
 ---
 
-## 3. 핵심 알고리즘 및 구현체 명세 (Core Algorithms & Implementations)
+## 5. 핵심 알고리즘 및 구현체 명세 (Core Algorithms & Implementations)
 
 #### 3.1. 지능형 라우팅 및 폴백 알고리즘 (Intelligent Routing & Fallback Mechanism)
 * **물리적 소스코드 주소**: [src/orchestration/intent_router.py](file:///c:/ameva/AMEVA-Window-Assistant/src/orchestration/intent_router.py)
@@ -85,6 +95,7 @@ def decide_route(self, prompt: str, ocr_text: str, scene_graph: dict) -> RouteDe
 ```
 
 #### 3.2. 실시간 오디오 에너지 스캐닝 (Real-time Audio Energy Scanning)
+
 * **물리적 소스코드 주소**: [src/input/audio_input.py](file:///c:/ameva/AMEVA-Window-Assistant/src/input/audio_input.py)
 * **설계 목적**: 연속 스트림 환경에서 데시벨 진폭 연산을 통해 사용자 발화 종료 여부를 밀리초 단위로 스캐닝하고 강제 컷오프를 수행한다.
 
@@ -125,6 +136,7 @@ def _monitor_silence(self):
 ```
 
 #### 3.3. 시스템 레벨 TTS 텍스트 정제 (System-level TTS Text Sanitization)
+
 * **물리적 소스코드 주소**: [src/output/tts_client.py](file:///c:/ameva/AMEVA-Window-Assistant/src/output/tts_client.py)
 * **설계 목적**: LLM의 Chain-of-Thought(사고 과정) 덤프 및 Markdown 문법 기호를 완벽하게 스트리핑하여, 오직 낭독 가능한 순수 자연어만 Windows SAPI API 계층으로 통과시킨다.
 
@@ -150,11 +162,12 @@ def _clean_text_for_speech(self, text: str) -> str:
 
 ---
 
-## 4. 시스템 아키텍처 설계 (Software Architecture Design)
+## 6. 시스템 아키텍처 설계 (Software Architecture Design)
 
 본 시스템은 거대한 멀티모달 컴포넌트들을 단일 윈도우 프로세스에서 엉킴 없이 관리하기 위해 **Layered Modular Architecture** 패턴을 채택하였으며, 각 모듈의 의존성을 단방향으로 통제하였다.
 
 ### 4.1. 모듈별 설계 의도
+
 - **`src/orchestration/` (Orchestration Layer)**: 시스템의 심장부로, `worker.py`가 상태 머신(State Machine) 역할을 수행하며 사용자의 모든 Action Queue를 소비한다.
 - **`src/input/` & `src/output/` (I/O Layer)**:
   - `stt_engine.py`: Whisper.cpp 바이너리 프로세스 생성 및 타임스탬프, 환각(Hallucination) 필터링 래퍼.
@@ -166,6 +179,7 @@ def _clean_text_for_speech(self, text: str) -> str:
   - LLM 클라이언트 및 VLM 클라이언트의 공통 추상화를 제공하며, HuggingFace Chat Template 규격에 맞춘 Base64 인코딩 페이로드 조립 로직을 은닉한다.
 
 ### 4.2. 디렉토리 구조 (Repository Layout)
+
 ```text
 AMEVA-Window-Assistant/
 ├── db/                     # SQLite3 기반 대화 히스토리 및 영구 메타데이터 저장소 (ACID 준수)
@@ -191,11 +205,12 @@ AMEVA-Window-Assistant/
 
 ---
 
-## 5. Docker 기반 컨테이너 오케스트레이션 (Docker-based Isolation)
+## 7. Docker 기반 컨테이너 오케스트레이션 (Docker-based Isolation)
 
 엣지 디바이스(Local PC) 환경에서 수 기가바이트의 파라미터를 갖는 딥러닝 모델들을 UI 스레드와 동일한 파이썬 프로세스 메모리 공간에 올리는 것은 치명적인 Out-of-Memory (OOM) 크래시를 유발한다.
 
 ### 5.1. 로컬 엣지 추론 분리 전략 (Local Edge Inference Isolation)
+
 본 시스템은 UI 클라이언트 레이어와 AI 추론 서버 레이어를 **Docker Compose**를 통해 물리적 네트워크 레벨로 완벽히 격리하였다.
 - **Port 8080 (Text LLM)**: 대화의 맥락 유지와 일반적인 정보 질의응답을 전담하는 `Meta-Llama-3.1-8B-Instruct-Q4` 인퍼런스 서버.
 - **Port 9083 (Vision VLM)**: 복잡한 GUI의 토폴로지 해독과 컴포넌트 이해를 수행하는 `Qwen2-VL-2B-Instruct` 다중 모달리티 서버.
@@ -217,7 +232,7 @@ sequenceDiagram
     Worker Queue-->>User: 응답 출력 및 SAPI TTS 합성
 ```
 
-## 6. 실험 로드맵 및 향후 연구 과제 (Experimental Roadmap & Future Works)
+## 8. 실험 로드맵 및 향후 연구 과제 (Experimental Roadmap & Future Works)
 
 AMEVA 프로젝트는 단순한 데스크탑 어시스턴트를 넘어, 사용자의 작업 패턴(Workflow)을 완전 자율(Autonomous)로 관측하고 운영체제 레벨의 API를 직접 제어하는 진정한 Computer Use 에이전트로 진화할 예정이다.
 
@@ -233,3 +248,19 @@ AMEVA 프로젝트는 단순한 데스크탑 어시스턴트를 넘어, 사용�
 ---
 > **"운영체제의 경계를 허무는 멀티모달 상호작용, 데스크탑 AI의 새로운 패러다임."** 
 > - AMEVA Window Assistant Project
+
+## 9. 연락처 (Contact)
+
+저는 Multi-Agent Systems, Edge Computing, 그리고 AI SRE 분야에 대한 학술적 담론을 언제나 환영합니다.
+
+- **GitHub**: [@uno-km](https://github.com/uno-km)
+- **Email**: zhfldk014745@naver.com
+- **Tstory**: [my-blog](https://uno-kim.tistory.com/)
+- **Research Focus**: Hierarchical AI Orchestration, Edge-native Inference, Data Sovereignty
+- **Generated by AMEVA Researcher Portfolio Builder**
+
+*Last Updated: June 9, 2026*
+
+---
+
+<sub>*빅테크의 클라우드 종속을 거부하고, 온프레미스 자율 지능의 독립과 생존을 실증합니다.*</sub>
