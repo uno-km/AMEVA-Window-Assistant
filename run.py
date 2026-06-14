@@ -312,6 +312,46 @@ def main():
 
     # Config singleton
     from src.config import CFG
+    from src.orchestration.server_manager import ServerManager
+
+    # CLI parse or prompt user for mode selection
+    selected_mode = "speed"
+    for idx, arg in enumerate(sys.argv):
+        if arg in ["-m", "--mode"] and idx + 1 < len(sys.argv):
+            val = sys.argv[idx + 1]
+            if val in ["1", "speed"]:
+                selected_mode = "speed"
+            elif val in ["2", "performance"]:
+                selected_mode = "performance"
+            break
+        elif arg == "-1":
+            selected_mode = "speed"
+            break
+        elif arg == "-2":
+            selected_mode = "performance"
+            break
+    else:
+        # Prompt user
+        print("\n" + "="*60)
+        print("          AMEVA Voice Screen Assistant Startup Mode")
+        print("="*60)
+        print(" [1] Speed Mode (Default: Load all servers in VRAM for fast response)")
+        print(" [2] Performance Mode (Dynamic VRAM-saving: Load/unload on demand)")
+        print("-"*60)
+        try:
+            choice = input("Select mode [1/2] (Default 1): ").strip()
+            if choice == "2":
+                selected_mode = "performance"
+            else:
+                selected_mode = "speed"
+        except (KeyboardInterrupt, EOFError):
+            selected_mode = "speed"
+
+    logger.info(f"Selected runtime mode: {selected_mode.upper()}")
+    
+    # Initialize global ServerManager
+    CFG.server_manager = ServerManager(mode=selected_mode)
+    CFG.set("app", "mode", selected_mode)
 
     # Database setup early for logging errors
     from src.storage.db import DatabaseManager
@@ -320,67 +360,66 @@ def main():
     logger.info(f"Database ready: {db_path}")
 
     # Determine GPU settings
-    hw_mode, gpu_layers = detect_hardware_and_get_config(logger)
+    hw_mode, gpu_layers = CFG.server_manager.hw_mode, CFG.server_manager.gpu_layers
     has_gpu = (hw_mode == "gpu")
-
-    # Auto-start LLM and VLM servers if not alive
-    llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8780/v1")
-    vlm_endpoint = CFG.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
-    router_endpoint = CFG.get("router", "endpoint", default="http://127.0.0.1:8782/v1/chat/completions")
-
-    def _get_base_v1(url_str):
-        if "/chat/completions" in url_str:
-            return url_str.split("/chat/completions")[0]
-        return url_str
-
-    vlm_url = _get_base_v1(vlm_endpoint)
-    router_url = _get_base_v1(router_endpoint)
-
-    max_retries = 3
-    max_wait = 45
-    servers_alive = False
 
     use_docker = CFG.get("llm", "use_docker", default=True)
     docker_running = _is_docker_available() and use_docker
 
-    for attempt in range(1, max_retries + 1):
-        llm_alive = _is_server_alive(llm_url)
-        vlm_alive = _is_server_alive(vlm_url)
-        router_alive = _is_server_alive(router_url)
-
-        if llm_alive and vlm_alive and router_alive:
-            servers_alive = True
-            break
-
-        logger.warning(f"LLM, VLM or Router Server is unreachable. (Attempt {attempt}/{max_retries})")
-
+    servers_alive = False
+    
+    if selected_mode == "speed":
         if docker_running:
             logger.info("Attempting to start servers via Docker Compose...")
             _prepare_docker_override(logger, has_gpu)
             _try_start_docker(logger)
+            # Wait for ports
+            llm_url = CFG.get("llm", "base_url", default="http://127.0.0.1:8780/v1")
+            vlm_endpoint = CFG.get("vlm", "endpoint", default="http://127.0.0.1:8783/v1/chat/completions")
+            router_endpoint = CFG.get("router", "endpoint", default="http://127.0.0.1:8782/v1/chat/completions")
+            
+            def _get_base_v1(url_str):
+                if "/chat/completions" in url_str:
+                    return url_str.split("/chat/completions")[0]
+                return url_str
+                
+            vlm_url = _get_base_v1(vlm_endpoint)
+            router_url = _get_base_v1(router_endpoint)
+            
+            logger.info("Waiting up to 45s for docker models to load into memory...")
+            for _ in range(45):
+                time.sleep(1.0)
+                if _is_server_alive(llm_url) and _is_server_alive(vlm_url) and _is_server_alive(router_url):
+                    servers_alive = True
+                    break
         else:
-            logger.info("Docker is not running/available or disabled. Attempting local native startup...")
-            _try_start_local_servers(logger)
-
-        logger.info(f"Waiting up to {max_wait}s for models to load into memory...")
-        for _ in range(max_wait):
-            time.sleep(1.0)
-            if _is_server_alive(llm_url) and _is_server_alive(vlm_url) and _is_server_alive(router_url):
-                logger.info("LLM, VLM & Router Servers successfully started!")
-                servers_alive = True
-                break
-
+            logger.info("Starting all servers in Speed Mode...")
+            llm_ok = CFG.server_manager.start_server("llm-server")
+            router_ok = CFG.server_manager.start_server("router-server")
+            vlm_ok = CFG.server_manager.start_server("vlm-server")
+            servers_alive = llm_ok and router_ok and vlm_ok
+    else:
+        # Performance mode: Don't start any servers now. Just verify model files exist.
+        logger.info("Verifying model files for Performance Mode...")
+        all_models_exist = True
+        for name in ["llm-server", "router-server", "vlm-server"]:
+            _, model_path, _ = CFG.server_manager.get_server_config(name)
+            if not os.path.exists(model_path):
+                logger.error(f"Required model for {name} is missing at: {model_path}")
+                all_models_exist = False
+        
+        servers_alive = all_models_exist
         if servers_alive:
-            break
+            logger.info("Performance Mode setup verified. Servers will load dynamically on demand.")
 
     if not servers_alive:
-        err_msg = "Failed to start the model servers. Shutting down system."
+        err_msg = "Failed to initialize the model servers. Shutting down system."
         logger.error(err_msg)
         db.insert_log(level="ERROR", message=err_msg)
         if docker_running:
             _stop_docker(logger)
         else:
-            _stop_local_servers(logger)
+            CFG.server_manager.stop_all()
         sys.exit(1)
 
     # Bind DB to exception guard
@@ -405,7 +444,7 @@ def main():
         if docker_running:
             _stop_docker(logger)
         else:
-            _stop_local_servers(logger)
+            CFG.server_manager.stop_all()
         logger.info("=== AMEVA Voice Screen Assistant stopped ===")
 
 

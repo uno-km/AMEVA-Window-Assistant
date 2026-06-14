@@ -180,7 +180,17 @@ class WorkerThread(threading.Thread):
             # Qwen Intent Routing
             from src.orchestration.intent_router import IntentRouter
             qwen_router = IntentRouter(endpoint_url=self.cfg.get("router", "endpoint", default="http://127.0.0.1:8782/v1/chat/completions"))
-            route_decision, route_reason, translated_prompt = qwen_router.route(job.input_text)
+            
+            is_perf = (self.cfg.get("app", "mode", default="speed") == "performance")
+            if is_perf and getattr(self.cfg, "server_manager", None):
+                self.cfg.server_manager.start_server("router-server")
+                
+            try:
+                route_decision, route_reason, translated_prompt = qwen_router.route(job.input_text)
+            finally:
+                if is_perf and getattr(self.cfg, "server_manager", None):
+                    self.cfg.server_manager.stop_server("router-server")
+
             self.db.update_job_routing(job.job_id, route_decision, route_reason)
 
             should_fallback = False
@@ -236,46 +246,65 @@ class WorkerThread(threading.Thread):
                 else:
                     vlm_prompt = base_prompt
 
-                while job.backend_retry_count < 3:
-                    try:
-                        t0 = time.perf_counter()
-                        r_text = vlm.ask_image(job.capture_path, vlm_prompt)
-                        raw_vlm_text = r_text
-                        
-                        # Translate Moondream2 (English) response to Korean
-                        if not use_qwen_vl:
-                            logger.info("[Worker/Narrative] Moondream2 output is English. Translating to Korean via Text LLM...")
-                            try:
-                                translator_llm = self._get_llm()
-                                trans_msgs = [
-                                    {"role": "system", "content": "You are a professional translator. Translate the following English text into natural Korean. Output ONLY the Korean translation without any additional comments."},
-                                    {"role": "user", "content": r_text}
-                                ]
-                                translated_r_text = translator_llm.generate(trans_msgs)
-                                if translated_r_text and translated_r_text.strip():
-                                    r_text = translated_r_text.strip()
-                            except Exception as ex:
-                                logger.warning(f"Translation of VLM response failed: {ex}")
-                                
-                        job.latency_ms = int((time.perf_counter() - t0) * 1000)
-                        return r_text, vlm.adapter.__class__.__name__
-                    except Exception as e:
-                        job.backend_retry_count += 1
-                        logger.warning(f"VLM backend failed (retry {job.backend_retry_count}/3): {e}")
-                        time.sleep(1)
-                
-                logger.error("VLM failed after 3 retries. Degraded response.")
-                return '{"status": "local_vlm_unavailable", "message": "Failed to connect to local VLM"}', "FallbackFailed"
+                if is_perf and getattr(self.cfg, "server_manager", None):
+                    self.cfg.server_manager.start_server("vlm-server")
+
+                try:
+                    while job.backend_retry_count < 3:
+                        try:
+                            t0 = time.perf_counter()
+                            r_text = vlm.ask_image(job.capture_path, vlm_prompt)
+                            raw_vlm_text = r_text
+                            
+                            # Translate Moondream2 (English) response to Korean
+                            if not use_qwen_vl:
+                                logger.info("[Worker/Narrative] Moondream2 output is English. Translating to Korean via Text LLM...")
+                                try:
+                                    if is_perf and getattr(self.cfg, "server_manager", None):
+                                        self.cfg.server_manager.start_server("llm-server")
+                                    try:
+                                        translator_llm = self._get_llm()
+                                        trans_msgs = [
+                                            {"role": "system", "content": "You are a professional translator. Translate the following English text into natural Korean. Output ONLY the Korean translation without any additional comments."},
+                                            {"role": "user", "content": r_text}
+                                        ]
+                                        translated_r_text = translator_llm.generate(trans_msgs)
+                                        if translated_r_text and translated_r_text.strip():
+                                            r_text = translated_r_text.strip()
+                                    finally:
+                                        if is_perf and getattr(self.cfg, "server_manager", None):
+                                            self.cfg.server_manager.stop_server("llm-server")
+                                except Exception as ex:
+                                    logger.warning(f"Translation of VLM response failed: {ex}")
+                                    
+                            job.latency_ms = int((time.perf_counter() - t0) * 1000)
+                            return r_text, vlm.adapter.__class__.__name__
+                        except Exception as e:
+                            job.backend_retry_count += 1
+                            logger.warning(f"VLM backend failed (retry {job.backend_retry_count}/3): {e}")
+                            time.sleep(1)
+                    
+                    logger.error("VLM failed after 3 retries. Degraded response.")
+                    return '{"status": "local_vlm_unavailable", "message": "Failed to connect to local VLM"}', "FallbackFailed"
+                finally:
+                    if is_perf and getattr(self.cfg, "server_manager", None):
+                        self.cfg.server_manager.stop_server("vlm-server")
 
             if should_fallback and not job.semantic_fallback_used:
                 reason_str = " + ".join(reasons) if reasons else "Unknown Fallback"
                 response_text, llm_prov = run_vlm_fallback(reason_str)
             else:
-                llm = self._get_llm()
-                llm_prov = type(llm).__name__
-                t0 = time.perf_counter()
-                response_text = llm.generate(messages)
-                job.latency_ms = int((time.perf_counter() - t0) * 1000)
+                if is_perf and getattr(self.cfg, "server_manager", None):
+                    self.cfg.server_manager.start_server("llm-server")
+                try:
+                    llm = self._get_llm()
+                    llm_prov = type(llm).__name__
+                    t0 = time.perf_counter()
+                    response_text = llm.generate(messages)
+                    job.latency_ms = int((time.perf_counter() - t0) * 1000)
+                finally:
+                    if is_perf and getattr(self.cfg, "server_manager", None):
+                        self.cfg.server_manager.stop_server("llm-server")
                 
                 # Retry-based LLM failure check
                 if FallbackRouter.should_fallback_based_on_llm_failure(response_text) and not job.semantic_fallback_used:
