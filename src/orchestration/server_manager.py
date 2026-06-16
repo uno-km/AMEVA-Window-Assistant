@@ -83,9 +83,10 @@ class ServerManager:
 
         elif name == "vlm-server":
             port = 8783
+            model_size = CFG.get("vlm", "model_size", default="2b")
             model_7b = "C:/ameva/models/vlm/Qwen_Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
             mmproj_7b = "C:/ameva/models/vlm/mmproj-Qwen_Qwen2.5-VL-7B-Instruct-f16.gguf"
-            if os.path.exists(model_7b) and os.path.exists(mmproj_7b):
+            if model_size == "7b" and os.path.exists(model_7b) and os.path.exists(mmproj_7b):
                 model_path = model_7b
                 extra = ["--ctx-size", "4096", "--mmproj", mmproj_7b]
             else:

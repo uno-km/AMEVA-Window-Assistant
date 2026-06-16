@@ -74,6 +74,68 @@ if ($hasNvidia -and $engineStatus -eq "CPU") {
     Write-Host "Hardware and Engine configuration matches." -ForegroundColor Green
 }
 
+# [2.5] Tesseract OCR Engine 검증 및 자동 설치
+Write-Host "Verifying Tesseract OCR Engine..." -ForegroundColor Cyan
+$tessRoot = "C:\Program Files\Tesseract-OCR"
+$tessExe = Join-Path $tessRoot "tesseract.exe"
+if (-not (Test-Path $tessExe)) {
+    $tessRoot = "C:\ameva\AI_Models\Tesseract-OCR"
+    $tessExe = Join-Path $tessRoot "tesseract.exe"
+}
+
+if (-not (Test-Path $tessExe)) {
+    Write-Host "Tesseract OCR not found. Installing..." -ForegroundColor Yellow
+    
+    $downloadUrl = "https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.4.0.20240606.exe"
+    $tempDir = Join-Path $env:TEMP "ameva_tesseract"
+    if (-not (Test-Path $tempDir)) { New-Item -ItemType Directory -Path $tempDir -Force | Out-Null }
+    $installerPath = Join-Path $tempDir "tesseract-setup.exe"
+    
+    Write-Host "Downloading Tesseract installer (approx. 40MB)..." -ForegroundColor Gray
+    try {
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest -Uri $downloadUrl -UserAgent "Mozilla/5.0" -OutFile $installerPath -TimeoutSec 300
+        Write-Host "Download complete." -ForegroundColor Green
+    } catch {
+        Write-Host "[WARNING] Failed to download Tesseract installer: $_" -ForegroundColor Red
+    }
+    
+    if (Test-Path $installerPath) {
+        Write-Host "Installing Tesseract silently to $tessRoot..." -ForegroundColor Gray
+        try {
+            $process = Start-Process -FilePath $installerPath -ArgumentList "/S", "/D=$tessRoot" -Wait -PassThru -NoNewWindow
+            if ($process.ExitCode -eq 0 -or (Test-Path $tessExe)) {
+                Write-Host "Tesseract installed successfully." -ForegroundColor Green
+            } else {
+                Write-Host "[WARNING] Tesseract installation exited with code $($process.ExitCode)" -ForegroundColor Red
+            }
+        } catch {
+            Write-Host "[WARNING] Failed to run Tesseract installer: $_" -ForegroundColor Red
+        } finally {
+            Remove-Item $installerPath -Force -ErrorAction SilentlyContinue | Out-Null
+        }
+    }
+} else {
+    Write-Host "Tesseract OCR Engine configuration matches." -ForegroundColor Green
+}
+
+# Verify and download Korean language data
+if (Test-Path $tessRoot) {
+    $tessDataDir = Join-Path $tessRoot "tessdata"
+    $korTrainedData = Join-Path $tessDataDir "kor.traineddata"
+    if (-not (Test-Path $tessDataDir)) { New-Item -ItemType Directory -Path $tessDataDir -Force | Out-Null }
+    if (-not (Test-Path $korTrainedData)) {
+        Write-Host "Korean language pack not found. Downloading..." -ForegroundColor Yellow
+        $korUrl = "https://github.com/tesseract-ocr/tessdata_fast/raw/master/kor.traineddata"
+        try {
+            Invoke-WebRequest -Uri $korUrl -OutFile $korTrainedData -TimeoutSec 180
+            Write-Host "Downloaded kor.traineddata." -ForegroundColor Green
+        } catch {
+            Write-Host "[WARNING] Failed to download Korean language pack: $_" -ForegroundColor Red
+        }
+    }
+}
+
 # [3] 가상환경 활성화 단계
 Write-Host "Activating virtual environment..." -ForegroundColor Cyan
 . "$EnvDir\Scripts\Activate.ps1"

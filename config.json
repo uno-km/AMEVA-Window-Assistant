@@ -45,7 +45,8 @@
     },
     "vlm": {
         "provider": "llama_cpp",
-        "endpoint": "http://127.0.0.1:8783/v1/chat/completions"
+        "endpoint": "http://127.0.0.1:8783/v1/chat/completions",
+        "model_size": "7b"
     },
     "db": {
         "path": "db/ameva_assistant.db"
@@ -56,10 +57,14 @@
         "max_bytes": 5242880,
         "backup_count": 3
     },
+    "ocr": {
+        "tesseract_cmd": "C:/Program Files/Tesseract-OCR/tesseract.exe",
+        "lang": "kor+eng"
+    },
     "router": {
         "endpoint": "http://127.0.0.1:8782/v1/chat/completions"
     },
     "app": {
-        "mode": "performance"
+        "mode": "speed"
     }
 }
