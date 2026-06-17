@@ -71,14 +71,14 @@ class ServerManager:
                 if os.path.exists(model_8b):
                     model_path = model_8b
                 else:
-                    model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+                    model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
             else:
-                model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+                model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
             extra = ["--ctx-size", "8192"]
 
         elif name == "router-server":
             port = 8782
-            model_path = "C:/ameva/models/llm/qwen2.5-0.5b-q4_k_m.gguf"
+            model_path = "C:/ameva/models/llm/qwen2.5-0.5b-instruct-q4_k_m.gguf"
             extra = ["--ctx-size", "2048"]
 
         elif name == "vlm-server":
@@ -90,7 +90,7 @@ class ServerManager:
                 model_path = model_7b
                 extra = ["--ctx-size", "4096", "--mmproj", mmproj_7b]
             else:
-                model_path = "C:/ameva/models/vlm/Qwen2-VL-2B-Instruct-Q4_K_M.gguf"
+                model_path = "C:/ameva/models/vlm/qwen2-vl-2b-instruct-q4_k_m.gguf"
                 extra = ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"]
         else:
             raise ValueError(f"Unknown server: {name}")

@@ -65,6 +65,6 @@
         "endpoint": "http://127.0.0.1:8782/v1/chat/completions"
     },
     "app": {
-        "mode": "speed"
+        "mode": "performance"
     }
 }

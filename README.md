@@ -2,22 +2,68 @@
 
 > **[프로젝트 요약 (Resume Profile)]**
 > 
-> * **① 제목:** 로컬 멀티모달 데스크탑 어시스턴트 (AMEVA Window Assistant)
+> * **① 제목:** 로컬 멀티모달 데스크톱 에이전트 (AMEVA Window Assistant)
 > * **② 주제:** 
->   * `Copilot` 및 `Gemini` 화면공유 AI 에이전트를 리버스 엔지니어링 시선으로 설계하여, 외부 서버 의존 없는 오프라인/온프레미스 작동 검증을 목표로 함
->   * 데스크탑 화면 및 사용자 음성 질문(`STT`)을 획득하고, `VLM` 기반 화면 분석과 `LLM` 콘텍스트 판독을 거쳐 친화적인 오디오 피드백(`TTS`)을 제공하는 로컬 개인 비서 파이프라인
->   * 완전 격리된 엣지 환경에서 고가용성 데이터센터 없이도 실용적 수준의 비서 시스템 구동이 가능한지 가능 여부 및 한계 연구
-> * **③ 내용요지:**
->   * **사용 기술:** `화면 캡처 (Screen Capture)`, `VLM (Vision-Language Model)`, `LLM (Large Language Model)`, `STT Engine (Speech-to-Text)`, `TTS Engine (Text-to-Speech)`, `OCR (Optical Character Recognition)` 기술 체계 기반 하이브리드 파이프라인
->   * **사용 모델:** `Whisper.cpp (Small, Tiny)` (STT), `Llama-3.1 (8B)`, `Qwen2.5 (1.5B)` (LLM), `Qwen2-VL (2B)` (VLM), `Windows SAPI` (TTS), `Tesseract OCR` (OCR)
->   * **핵심 알고리즘:** VLM 병목 우회를 위해 텍스트 밀도가 높은 화면이나 간단한 문서는 `OCR`을 통한 텍스트화 후 `LLM`으로 즉시 전송하고 공간/시각적 정보 분석 필요 시 `VLM`으로 동적 전환하는 하이브리드 의도 라우팅(Intent Routing), Windows SAPI 연계용 텍스트 정규식 정제 (`_clean_text_for_speech`), 실시간 오디오 16kHz PCM 캡처 및 `RMS` 기반 사일런스 디텍션(무음 구간 감지)을 통한 발화 차단 및 STT 텍스트 변환 매핑
->   * **에이전트/보안 제어 (또는 핵심 아키텍처 흐름):** 핫키/보이스 입력 -> OS 직접 오디오 16kHz PCM 스트림 수집 -> RMS 실시간 모니터링 후 무음 차단 -> STT 엔진 전사 -> intent_router 분기 판정 -> [OCR 경로: 화면 캡처 및 OCR Scene Graph LLM 전송] 혹은 [VLM 경로: 화면 캡처 Base64 변환 VLM 전송] -> 결과 텍스트 정제 -> TTS 음성 재생 및 SQLite3 영속화
->   * **연구 성과:** 로컬 엣지 장비 단독 가동은 성공했으나 명확한 자원 한계를 확인: 구동 가능한 최적 파라미터는 `LLM` 8B 이하, `VLM` 2B 이하로 한정, 4대 핵심 컴포넌트(STT, LLM, VLM, TTS) 동시 구동 시 RAM/VRAM 약 12~14GB 이상 점유, 음성 입력부터 오디오 합성 출력까지 약 5~8초의 End-to-End 지연 발생으로 저성능 컴퓨터 환경의 한계를 명확히 규명
-> * **④ 기여도:** 단독 개발 (100% - 아키텍처 설계, 보안 시스템 구축, 코어 로직 구현 전담)
-
-#  AMEVA-Window-Assistant: Multi-modal Desktop AI & Dynamic Orchestration Pipeline
+>   * 외부 API 의존 없이 온프레미스 단독 환경에서 화면 상황 인지 및 실시간 오프라인 음성 대화가 가능한 데스크톱 개인 비서 개발.
+>   * 화면 동적 캡처 데이터와 사용자 마이크 입력을 실시간으로 병합 가공하여 시각, 언어, 음성 추론 파이프라인 구축.
+>   * VRAM 8GB 미만의 저사양 연산 제약을 우회하기 위한 의도 라우팅 및 독립 프로세스 격리 최적화 설계.
+> * **③ 기술 스택 & 사용 모델:**
+>   * **기술 스택:**
+>     * **Audio DSP:** sounddevice 기반 16kHz PCM 무압축 실시간 마이크 입력 수집 및 RMS 기반 무음 감지
+>     * **mss:** 다중 모니터 고속 화면 캡처 및 이미지 버퍼 덤프
+>     * **OCR:** Tesseract OCR (공간 Scene Graph 구축)
+>     * **TTS:** Windows SAPI Native Engine
+>   * **사용 모델:**
+>     * **STT:** Whisper.cpp (Small, Tiny)
+>     * **LLM:** Llama-3.1 (8B-Instruct-Q4)
+>     * **VLM:** Qwen2-VL (7B-Instruct) / Qwen2-VL (2B-Instruct) (선택 장착 가능)
+>     * **Router:** Qwen2.5 (1.5B/0.5B)
+> * **④ 아키텍처 흐름 및 사용자-시스템 상호작용 (Flow):**
+>   * **1) 입력 트리거 (음성 또는 단축키):**
+>     * **사용자:** 단축키를 눌러 화면 분석을 요청하거나 마이크에 대고 음성 명령을 수행함.
+>     * **시스템:** sounddevice를 가동해 16kHz 무압축 PCM 스트림을 직접 수집하며, CPU 점유율 과부하를 막기 위해 RMS 무음 판별기가 동작해 실제 발화 구간만 STT 엔진으로 넘김.
+>   * **2) 의도 분석 및 라우팅 분기:**
+>     * **사용자:** 화면의 특정 로컬 요소("이 버튼 뭐야?") 또는 설명 요청("이 화면 전체 요약해줘")을 명령함.
+>     * **시스템:** 경량 라우터(Qwen2.5 0.5B)가 프롬프트를 분석하여 공간 지시어 감지 여부에 따라 분기함. 시각 전처리 전용 VLM 패스 또는 OCR(텍스트 추출 후 Llama 8B) 패스로 스위칭함.
+>   * **3) 화면 토폴로지 인지 및 추론:**
+>     * **사용자:** 명령에 대응하는 시스템 판단 및 분석 과정을 기다림.
+>     * **시스템:** 분기된 경로에 맞춰 Tesseract OCR로 Bounding Box 공간 그래프를 추출해 LLM에 피딩하거나, Base64로 인코딩된 스크린샷 텐서를 VLM 모델(Qwen2-VL 7B 또는 2B)에 입력하여 시각 상황을 최종 추론함.
+>   * **4) 정제 및 TTS 합성 출력:**
+>     * **사용자:** 기계적 특수문자가 필터링된 깨끗하고 자연스러운 한국어 음성 답변을 받음.
+>     * **시스템:** SAPI 출력 직전 정규식 필터(_clean_text_for_speech)를 통해 마크다운 문법 기호를 무손실 소거하고, Windows Native SAPI 엔진으로 음성을 발화한 뒤 대화 히스토리를 SQLite3 DB에 영속화함.
+> * **⑤ 트러블슈팅:**
+>   * **VLM 추론 병목 및 VRAM 초과:** 단일 로컬 PC에서 화면 캡처본을 매번 VLM에 전송하여 처리하는 경우, 심각한 연산 지연과 VRAM OOM 문제가 발생했습니다. 이를 해결하기 위해 경량 라우터 모델(Qwen2.5)의 JSON Schema 판별과 키워드 트리거를 결합한 **하이브리드 동적 의도 라우팅(Hybrid Intent Routing)** 체계를 도입했습니다. 화면 분석이 불필요한 요청은 OCR과 LLM 패스로 우회하도록 처리하여 연산 효율을 높였습니다.
+>   * **Windows SAPI TTS의 마크다운 기호 낭독 오류:** LLM이 답변하는 과정에서 포함한 마크다운 형식 기호(*, #, `)나 태그(<details> 등)를 TTS 엔진이 그대로 소리 내어 읽어 음질을 저해하는 문제가 있었습니다. 낭독용 문자열로 필터링하는 정밀 정제 함수(`_clean_text_for_speech`)를 구현하여 자연스러운 음성 출력을 실현했습니다.
+>   * **오디오 버퍼 및 인코딩 지연:** 마이크 녹음 후 임시 파일을 저장하고 FFmpeg 리샘플링을 거쳐 STT 엔진에 전달하는 초기 설계는 디스크 I/O와 CPU에 큰 부하를 주었습니다. sounddevice 라이브러리를 통해 OS 오디오 드라이버 버퍼에서 직접 16kHz PCM 스트림으로 수집하도록 개선하여 데이터 변환 오버헤드를 해소했습니다.
+> * **⑥ 트레이드오프:**
+>   * **서빙 모드 선택 (Speed vs Performance):** 모든 모델 서버(LLM, VLM, Router)를 VRAM에 상시 로드하여 응답 속도를 최대로 높이는 Speed 모드와, VRAM 자원을 절약하기 위해 요청 시점에 필요한 모델을 동적으로 로드 및 언로드하는 Performance 모드를 제공하여 시스템 리소스와 추론 속도 간의 절충안을 구현했습니다.
+>   * **리소스 격리와 UI 반응성 확보:** 멀티모달 추론 서버를 UI 프로세스 내부 메모리에 직접 할당해 사용하면 추론 연산 중 UI가 멈추거나 전체 프로그램이 강제 종료되었습니다. 이를 분리하기 위해 추론 엔진은 Docker Compose 또는 독립 프로세스로 서빙 레이어를 격리하고, UI 측은 Producer-Consumer Queue 기반의 백그라운드 스레드 워커로 연동하여 UI가 멈추지 않고 처리 중에도 신규 입력을 버퍼링할 수 있는 요청 큐 스케줄러를 가동했습니다.
+>   * **STT 인식 정확도와 연산 부하 간의 절충:** 한국어 인식률이 우수한 Whisper.cpp Small 모델을 채택하여 전사 품질을 높였으나, 저사양 CPU 환경에서의 음성 디코딩 연산 부담을 해소하기 위해 RMS 기반 무음 감지를 연동해 불필요한 디코딩 요청을 최소화하도록 설계했습니다.
+> * **⑦ 주요 성과 및 한계 (Performance & Baseline):**
+>   * **온프레미스 4대 AI 컴포넌트 유기적 통합**: 외부 API 연결 없이 STT, LLM, VLM, TTS를 하나의 로컬 파이프라인으로 엮어 실시간 제어 가능한 데스크톱 개인 비서 환경 구축.
+>   * **2B VLM의 독해력 한계 극복을 위한 7B 스케일업**: 초기 Qwen2-VL 2B 가동 시 소형 화면 텍스트나 조밀한 UI 캡처본에 대한 텍스트 오인식 및 지시 이행력 붕괴 문제를 식별. VLM 엔진을 Qwen2-VL 7B-Instruct급으로 스케일업하여 화면 분석의 정확도와 독해 신뢰성을 대폭 향상시킴.
+>   * **VRAM 한계 제어 및 격리성 확보**: 8B LLM과 7B VLM을 로컬 환경(합산 VRAM 12~14GB 점유)에서 리소스 충돌 없이 동시 서빙하기 위해, 모델 서버 동적 로드/언로드 기법을 도입하여 OOM 크래시를 방지함.
+>   * **엔드투엔드 지연(Latency) 실측 및 병목 도출**: 음성 입력 후 합성음 출력까지의 전체 지연 시간(5~8초대)을 실측하고 하드웨어 연산 자원에 따른 최적의 밸런스 프로파일(속도 vs 정확도) 가이드를 확립함.
+> * **⑧ 기여도:** 단독 개발 (100% - 시스템 아키텍처 설계, 보안 격리 컨테이너 구축, 코어 오디오/추론 로직 구현 및 UI 비동기 스레드 통합 개발 전담)
 
 ---
+
+## 1. 프로젝트 목적 및 필요성 (Development & Research Purpose)
+
+**AMEVA Window Assistant**는 외부 클라우드 API 의존성 0%를 지향하며, 로컬/온프레미스 단독 환경에서 작동 가능한 고성능 멀티모달 데스크톱 개인 비서 시스템을 실증하기 위해 개발되었습니다.
+
+현대 비즈니스 및 개발 환경에서 화면 인지 기반 AI 비서가 대중화되고 있으나, 이들은 모두 대량의 개인 데이터와 업무 컨텍스트가 외부 클라우드 서버로 유출되는 보안 위협을 수반합니다. 본 프로젝트는 네트워크가 완전히 차단된 극단적인 폐쇄망 환경에서도 개별 PC의 독자적 연산 자원(CPU/GPU)을 최적화하여 화면 인지, OCR 분석, 자연어 의도 추론, 음성 합성(TTS)이 유기적으로 결합된 통합 비서 시스템을 구축함으로써, 완전한 데이터 주권(Data Sovereignty)과 무조건적인 정보 보안을 보장하는 것을 목적으로 합니다.
+
+---
+
+## 2. 주요 기능 및 연구 목표 (Key Features & Research Goals)
+
+본 프로젝트는 제한된 로컬 하드웨어 환경 내에서 다중 멀티모달 인공지능 모델을 통합 가동할 때 발생하는 병목을 해결하고 가용성을 확보하는 데 중점을 둡니다.
+
+* **하이브리드 동적 의도 라우팅(Hybrid Dynamic Intent Routing)**: 고성능 시각-언어 모델(VLM) 구동 시 발생하는 심각한 연산 지연과 VRAM OOM 문제를 극복하기 위해, 사용자의 프롬프트를 자연어 키워드로 사전 분석하고 초소형 라우터 모델(Qwen2.5)을 통해 OCR 및 VLM 추론 경로를 스마트하게 배분하여 최적의 응답 속도를 도출합니다.
+* **네이티브 16kHz PCM 실시간 오디오 캡처**: 오디오 리샘플링과 임시 파일 I/O로 인한 CPU 과부하를 최소화하기 위해, OS 드라이버 버퍼에서 직접 16kHz PCM 오디오 스트림을 캡처하고 RMS 에너지 실시간 감지를 연동하여 무음 상태 시 전송을 자동 차단하는 고성능 DSP 오디오 엔진을 실증합니다.
+* **Tesseract 기반 데스크톱 공간 Scene Graph 구축**: 단순히 모니터 화면을 이미지로 분석하는 것을 넘어, 다중 모니터 해상도 및 DPI 왜곡에 대응하여 OCR 텍스트 블록의 절대적 기하 바운딩 박스를 좌표 공간 그래프로 전처리하여 LLM이 컴포넌트의 시맨틱 매핑(Semantic Mapping)을 정상 수행하도록 지원합니다.
+* **비동기 큐 기반 리소스 격리 오케스트레이션**: AI 추론 연산 중 UI 이벤트 루프가 멈추거나 시스템이 크래시되는 현상을 막기 위해, 추론 프로세스는 독립된 Docker 컨테이너 공간에 격리하고 UI는 Producer-Consumer 큐와 백그라운드 스레드 워커로 느슨하게 결합한 아키텍처를 구현합니다.
 
 ---
 
@@ -232,9 +278,40 @@ sequenceDiagram
     Worker Queue-->>User: 응답 출력 및 SAPI TTS 합성
 ```
 
+### 5.2. 전체 아키텍처 흐름도 (System Flowchart)
+
+```mermaid
+graph TD
+    User([사용자 입력: 음성 또는 단축키/스크린샷]) --> InputType{입력 형태 판별}
+    
+    InputType -->|음성 입력| SoundDevice[sounddevice: 16kHz PCM 수집]
+    SoundDevice --> SilenceCheck{RMS 기반 무음 판별}
+    SilenceCheck -->|무음| User
+    SilenceCheck -->|발화 감지| STT[Whisper.cpp: STT 전사]
+    
+    InputType -->|단축키/스크린샷| Capture[mss: 다중 모니터 캡처]
+    
+    STT --> Router[Qwen2.5 0.5B: 의도 라우터 작동]
+    Capture --> Router
+    
+    Router --> Intent{의도 분류 판별}
+    Intent -->|국소 영역/OCR 대상| OCRPath[Tesseract OCR: 공간 Scene Graph 구축]
+    Intent -->|시각적 설명/VLM 대상| VLMPath[Qwen2-VL 2B: Base64 이미지 시각 분석]
+    
+    OCRPath --> LLM[Llama-3.1 8B: 텍스트 맥락 추론]
+    VLMPath --> LLM
+    
+    LLM --> CleanText[_clean_text_for_speech: 마크다운/태그 노이즈 정제]
+    CleanText --> OutputType{응답 방식 선택}
+    
+    OutputType -->|텍스트 단독| SaveDB[SQLite3: 대화 이력 저장 및 GUI 출력]
+    OutputType -->|음성 합성 필요| TTS[Windows SAPI: TTS 한글 음성 출력]
+    TTS --> SaveDB
+```
+
 ## 8. 실험 로드맵 및 향후 연구 과제 (Experimental Roadmap & Future Works)
 
-AMEVA 프로젝트는 단순한 데스크탑 어시스턴트를 넘어, 사용자의 작업 패턴(Workflow)을 완전 자율(Autonomous)로 관측하고 운영체제 레벨의 API를 직접 제어하는 진정한 Computer Use 에이전트로 진화할 예정이다.
+AMEVA는 로컬 LLM을 활용한 고성능 데스크탑 제어 자동화 솔루션으로, 생산성 향상을 위한 최적화된 에이전트 워크플로우를 제공합니다.
 
 | 완료 | 페이즈 | 목표 스펙 | 코어 테크놀로지 | 현재 상태 |
 | :---: | :--- | :--- | :--- | :--- |
