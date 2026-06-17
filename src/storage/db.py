@@ -83,6 +83,14 @@ CREATE TABLE IF NOT EXISTS tb_log (
     traceback   TEXT,
     create_dt   TEXT    NOT NULL
 );
+
+-- 5. Secrets table (Vault)
+CREATE TABLE IF NOT EXISTS tb_secrets (
+    id              TEXT PRIMARY KEY,
+    encrypted_value TEXT NOT NULL,
+    description     TEXT,
+    create_dt       TEXT NOT NULL
+);
 """
 
 
@@ -360,5 +368,46 @@ class DatabaseManager:
                 (limit,),
             ).fetchall()
             return [dict(r) for r in rows]
+        finally:
+            conn.close()
+
+    # ==================================================================
+    #  VAULT (Secrets) operations
+    # ==================================================================
+    def save_secret(self, secret_id: str, encrypted_value: str, description: str = ""):
+        """Insert or update an encrypted secret in the Vault."""
+        conn = self._connect()
+        try:
+            conn.execute(
+                "INSERT INTO tb_secrets (id, encrypted_value, description, create_dt) "
+                "VALUES (?, ?, ?, ?) "
+                "ON CONFLICT(id) DO UPDATE SET "
+                "encrypted_value=excluded.encrypted_value, "
+                "description=excluded.description, "
+                "create_dt=excluded.create_dt",
+                (secret_id, encrypted_value, description, _now())
+            )
+            conn.commit()
+        finally:
+            conn.close()
+
+    def get_secret(self, secret_id: str) -> str:
+        """Retrieve the encrypted value of a secret by its ID."""
+        conn = self._connect()
+        try:
+            row = conn.execute(
+                "SELECT encrypted_value FROM tb_secrets WHERE id = ?",
+                (secret_id,)
+            ).fetchone()
+            return row["encrypted_value"] if row else ""
+        finally:
+            conn.close()
+
+    def delete_secret(self, secret_id: str):
+        """Delete a secret from the Vault."""
+        conn = self._connect()
+        try:
+            conn.execute("DELETE FROM tb_secrets WHERE id = ?", (secret_id,))
+            conn.commit()
         finally:
             conn.close()

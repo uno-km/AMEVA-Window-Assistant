@@ -10,12 +10,59 @@ class SyncMCPClient:
     """
     def __init__(self, script_path: str):
         self.script_path = script_path
+        self._cached_env = None
         
+    def _get_mcp_env(self) -> dict:
+        """Fetch Secrets via Hybrid Architecture (Memory Hijacking + Vault Fallback)"""
+        if self._cached_env is not None:
+            return self._cached_env
+            
+        env = os.environ.copy()
+        token = None
+        
+        # 1. 1st Priority: Memory Hijacking via git credential fill
+        try:
+            import subprocess
+            proc = subprocess.run(
+                ["git", "credential", "fill"],
+                input="url=https://github.com\n\n",
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            if proc.returncode == 0:
+                for line in proc.stdout.splitlines():
+                    if line.startswith("password="):
+                        token = line.split("=", 1)[1].strip()
+                        break
+        except Exception:
+            pass
+            
+        # 2. 2nd Priority: Vault Fallback
+        if not token:
+            try:
+                from src.storage.db import DatabaseManager
+                from src.storage.secret_manager import SecretManager
+                db = DatabaseManager(r"C:\ameva\AMEVA-Window-Assistant\ameva_assistant.db")
+                sm = SecretManager()
+                enc_token = db.get_secret("github_master_token")
+                if enc_token:
+                    token = sm.decrypt(enc_token)
+            except Exception:
+                pass
+                
+        if token:
+            env["AMEVA_GITHUB_TOKEN"] = token
+            
+        self._cached_env = env
+        return env
+
     def execute_tool(self, tool_name: str, arguments: dict) -> str:
         async def _run():
             server_params = StdioServerParameters(
                 command="python",
-                args=[self.script_path]
+                args=[self.script_path],
+                env=self._get_mcp_env()
             )
             async with stdio_client(server_params) as (read, write):
                 async with ClientSession(read, write) as session:
@@ -35,7 +82,8 @@ class SyncMCPClient:
         async def _get():
             server_params = StdioServerParameters(
                 command="python",
-                args=[self.script_path]
+                args=[self.script_path],
+                env=self._get_mcp_env()
             )
             async with stdio_client(server_params) as (read, write):
                 async with ClientSession(read, write) as session:
