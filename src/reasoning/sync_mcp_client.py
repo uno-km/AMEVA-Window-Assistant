@@ -72,32 +72,12 @@ class SyncMCPClient:
         return name, email
 
     def _get_server_params(self) -> StdioServerParameters:
-        token = self._get_mcp_env().get("AMEVA_GITHUB_TOKEN", "")
-        git_name, git_email = self._get_git_identity()
         return StdioServerParameters(
-            command="docker",
-            args=[
-                "run",
-                "-i",
-                "--rm",
-                "-v",
-                r"C:\ameva:/app/workspace",
-                "-e",
-                "AMEVA_IN_CONTAINER=true",
-                "-e",
-                f"AMEVA_GITHUB_TOKEN={token}",
-                "-e",
-                f"GIT_AUTHOR_NAME={git_name}",
-                "-e",
-                f"GIT_AUTHOR_EMAIL={git_email}",
-                "-e",
-                f"GIT_COMMITTER_NAME={git_name}",
-                "-e",
-                f"GIT_COMMITTER_EMAIL={git_email}",
-                "ameva-mcp-server"
-            ],
-            env={}
+            command="python",
+            args=[self.script_path],
+            env=self._get_mcp_env()
         )
+
 
 
     def execute_tool(self, tool_name: str, arguments: dict) -> str:
