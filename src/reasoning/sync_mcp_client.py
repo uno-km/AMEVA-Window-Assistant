@@ -57,13 +57,52 @@ class SyncMCPClient:
         self._cached_env = env
         return env
 
+    def _get_git_identity(self) -> tuple:
+        import subprocess
+        name, email = "AMEVA Agent", "agent@ameva.ai"
+        try:
+            res_name = subprocess.run(["git", "config", "--global", "user.name"], capture_output=True, text=True, timeout=2)
+            if res_name.returncode == 0 and res_name.stdout.strip():
+                name = res_name.stdout.strip()
+            res_email = subprocess.run(["git", "config", "--global", "user.email"], capture_output=True, text=True, timeout=2)
+            if res_email.returncode == 0 and res_email.stdout.strip():
+                email = res_email.stdout.strip()
+        except Exception:
+            pass
+        return name, email
+
+    def _get_server_params(self) -> StdioServerParameters:
+        token = self._get_mcp_env().get("AMEVA_GITHUB_TOKEN", "")
+        git_name, git_email = self._get_git_identity()
+        return StdioServerParameters(
+            command="docker",
+            args=[
+                "run",
+                "-i",
+                "--rm",
+                "-v",
+                r"C:\ameva:/app/workspace",
+                "-e",
+                "AMEVA_IN_CONTAINER=true",
+                "-e",
+                f"AMEVA_GITHUB_TOKEN={token}",
+                "-e",
+                f"GIT_AUTHOR_NAME={git_name}",
+                "-e",
+                f"GIT_AUTHOR_EMAIL={git_email}",
+                "-e",
+                f"GIT_COMMITTER_NAME={git_name}",
+                "-e",
+                f"GIT_COMMITTER_EMAIL={git_email}",
+                "ameva-mcp-server"
+            ],
+            env={}
+        )
+
+
     def execute_tool(self, tool_name: str, arguments: dict) -> str:
         async def _run():
-            server_params = StdioServerParameters(
-                command="python",
-                args=[self.script_path],
-                env=self._get_mcp_env()
-            )
+            server_params = self._get_server_params()
             async with stdio_client(server_params) as (read, write):
                 async with ClientSession(read, write) as session:
                     await session.initialize()
@@ -80,11 +119,7 @@ class SyncMCPClient:
         
     def get_tools(self) -> list:
         async def _get():
-            server_params = StdioServerParameters(
-                command="python",
-                args=[self.script_path],
-                env=self._get_mcp_env()
-            )
+            server_params = self._get_server_params()
             async with stdio_client(server_params) as (read, write):
                 async with ClientSession(read, write) as session:
                     await session.initialize()
