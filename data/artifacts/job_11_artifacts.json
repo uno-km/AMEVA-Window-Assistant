@@ -1,1990 +1,1112 @@
 {
   "ocr_raw": [
     {
-      "text": "Vv",
+      "text": "i",
       "bbox": [
-        14,
-        12,
-        33,
-        38
+        10,
+        6,
+        31,
+        26
       ],
-      "confidence": 0.56
+      "confidence": 0.57
     },
     {
-      "text": "hometax.go.kr/html/comm/error/:",
+      "text": "Ecosystem",
       "bbox": [
-        91,
-        20,
-        305,
-        34
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "X",
-      "bbox": [
-        325,
-        20,
-        335,
-        30
-      ],
-      "confidence": 0.34
-    },
-    {
-      "text": "@",
-      "bbox": [
-        360,
-        16,
-        378,
-        34
-      ],
-      "confidence": 0.34
-    },
-    {
-      "text": "OCR",
-      "bbox": [
-        389,
-        18,
-        490,
-        32
-      ],
-      "confidence": 0.88
-    },
-    {
-      "text": "-",
-      "bbox": [
-        420,
-        12,
-        430,
-        38
-      ],
-      "confidence": 0.86
-    },
-    {
-      "text": "x",
-      "bbox": [
-        623,
-        20,
-        634,
-        30
-      ],
-      "confidence": 0.85
-    },
-    {
-      "text": "+",
-      "bbox": [
-        664,
-        16,
-        683,
-        35
-      ],
-      "confidence": 0.6
-    },
-    {
-      "text": "=",
-      "bbox": [
-        1769,
-        23,
-        1782,
-        24
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "a",
-      "bbox": [
-        1827,
-        18,
-        1840,
-        31
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "Ss",
-      "bbox": [
-        60,
-        15,
-        80,
-        35
-      ],
-      "confidence": 0.45
-    },
-    {
-      "text": "<",
-      "bbox": [
-        15,
-        67,
-        35,
-        84
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "CB",
-      "bbox": [
-        62,
-        66,
-        123,
-        84
-      ],
-      "confidence": 0.44
-    },
-    {
-      "text": "hitps://namu.wiki/w/OCR",
-      "bbox": [
-        136,
-        67,
-        330,
-        85
-      ],
-      "confidence": 0.65
-    },
-    {
-      "text": "So",
-      "bbox": [
-        15,
-        113,
-        35,
-        126
-      ],
-      "confidence": 0.46
-    },
-    {
-      "text": "&",
-      "bbox": [
-        70,
-        110,
-        90,
-        129
+        42,
+        8,
+        139,
+        28
       ],
       "confidence": 0.83
     },
     {
-      "text": "|",
+      "text": "Architecture",
       "bbox": [
-        246,
-        110,
-        247,
-        130
-      ],
-      "confidence": 0.82
-    },
-    {
-      "text": "SAA7|S",
-      "bbox": [
-        433,
-        110,
-        519,
-        127
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "SOM",
-      "bbox": [
-        659,
-        110,
-        730,
-        127
-      ],
-      "confidence": 0.5
-    },
-    {
-      "text": "Aas",
-      "bbox": [
-        738,
-        112,
-        766,
-        126
-      ],
-      "confidence": 0.56
-    },
-    {
-      "text": "Bel",
-      "bbox": [
-        835,
-        112,
-        863,
-        126
-      ],
-      "confidence": 0.76
-    },
-    {
-      "text": "2.",
-      "bbox": [
-        127,
-        177,
-        141,
-        191
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "ABBYY",
-      "bbox": [
-        147,
-        177,
-        203,
-        191
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "OCR",
-      "bbox": [
-        209,
-        177,
-        246,
-        191
+        146,
+        7,
+        262,
+        23
       ],
       "confidence": 0.96
     },
     {
-      "text": "Ye",
+      "text": "Overview",
       "bbox": [
-        168,
-        217,
-        182,
-        224
-      ],
-      "confidence": 0.35
-    },
-    {
-      "text": "tow",
-      "bbox": [
-        225,
-        217,
-        240,
-        224
-      ],
-      "confidence": 0.39
-    },
-    {
-      "text": "este",
-      "bbox": [
-        714,
-        216,
-        749,
-        224
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "=a",
-      "bbox": [
-        129,
-        226,
-        218,
-        238
-      ],
-      "confidence": 0.39
-    },
-    {
-      "text": "Clan",
-      "bbox": [
-        281,
-        230,
-        312,
-        258
-      ],
-      "confidence": 0.43
-    },
-    {
-      "text": "SD",
-      "bbox": [
-        130,
-        239,
-        156,
-        273
-      ],
-      "confidence": 0.43
-    },
-    {
-      "text": "te)",
-      "bbox": [
-        175,
-        239,
-        224,
-        273
-      ],
-      "confidence": 0.64
-    },
-    {
-      "text": "|",
-      "bbox": [
-        481,
-        239,
-        493,
-        273
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "Se",
-      "bbox": [
-        537,
-        246,
-        606,
-        260
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "4",
-      "bbox": [
-        744,
-        257,
-        750,
-        260
-      ],
-      "confidence": 0.74
-    },
-    {
-      "text": "inne",
-      "bbox": [
-        324,
         268,
+        7,
         357,
-        278
+        23
       ],
-      "confidence": 0.43
+      "confidence": 0.96
     },
     {
-      "text": "1",
+      "text": "AMEVA",
       "bbox": [
-        364,
-        270,
-        369,
-        278
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "ma",
-      "bbox": [
-        378,
-        258,
-        393,
-        286
-      ],
-      "confidence": 0.58
-    },
-    {
-      "text": "ety",
-      "bbox": [
-        397,
-        258,
-        416,
-        286
-      ],
-      "confidence": 0.58
-    },
-    {
-      "text": "nd",
-      "bbox": [
-        506,
-        269,
-        521,
-        275
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "se",
-      "bbox": [
-        1487,
-        523,
-        1550,
-        549
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "|",
-      "bbox": [
-        1787,
-        478,
-        1793,
-        536
-      ],
-      "confidence": 0.62
-    },
-    {
-      "text": "OCR",
-      "bbox": [
-        127,
-        673,
-        164,
-        687
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "J",
-      "bbox": [
-        247,
-        672,
-        255,
-        689
-      ],
-      "confidence": 0.59
-    },
-    {
-      "text": "7/4",
-      "bbox": [
-        267,
-        671,
-        301,
-        689
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "SCH",
-      "bbox": [
-        364,
-        671,
-        414,
-        689
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "ABBYY",
-      "bbox": [
-        477,
-        673,
-        533,
-        687
+        6,
+        56,
+        52,
+        66
       ],
       "confidence": 0.91
     },
     {
-      "text": "FineReader",
+      "text": "에",
       "bbox": [
-        539,
-        672,
-        637,
-        687
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "11.",
-      "bbox": [
-        643,
-        673,
-        667,
-        687
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "5X",
-      "bbox": [
-        738,
-        671,
-        764,
-        688
-      ],
-      "confidence": 0.47
-    },
-    {
-      "text": "7|%",
-      "bbox": [
-        771,
-        671,
-        804,
-        689
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "ABBYY",
-      "bbox": [
-        810,
-        673,
-        866,
-        687
-      ],
-      "confidence": 0.9
-    },
-    {
-      "text": "FineReader",
-      "bbox": [
-        872,
-        672,
-        970,
-        687
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "PDF",
-      "bbox": [
-        976,
-        673,
-        1010,
-        687
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "4/4!",
-      "bbox": [
-        1077,
-        671,
-        1109,
-        689
-      ],
-      "confidence": 0.49
-    },
-    {
-      "text": "HA",
-      "bbox": [
-        1117,
-        671,
-        1149,
-        689
-      ],
-      "confidence": 0.45
-    },
-    {
-      "text": "14",
-      "bbox": [
-        1231,
-        671,
-        1256,
-        688
-      ],
-      "confidence": 0.67
-    },
-    {
-      "text": "FS",
-      "bbox": [
-        1263,
-        672,
-        1297,
-        689
-      ],
-      "confidence": 0.6
-    },
-    {
-      "text": "AWA",
-      "bbox": [
-        429,
-        702,
-        497,
-        719
-      ],
-      "confidence": 0.64
-    },
-    {
-      "text": "S",
-      "bbox": [
-        561,
-        703,
-        577,
-        720
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "BA",
-      "bbox": [
-        680,
-        702,
-        712,
-        720
-      ],
-      "confidence": 0.86
-    },
-    {
-      "text": "DS",
-      "bbox": [
-        777,
-        703,
-        810,
-        720
-      ],
-      "confidence": 0.7
-    },
-    {
-      "text": "AHL",
-      "bbox": [
-        816,
-        702,
-        866,
-        720
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "So]",
-      "bbox": [
-        873,
-        702,
-        906,
-        720
-      ],
-      "confidence": 0.56
-    },
-    {
-      "text": "WSS",
-      "bbox": [
-        914,
-        702,
-        964,
-        719
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "Pole",
-      "bbox": [
-        971,
-        702,
-        1038,
-        720
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "BH]",
-      "bbox": [
-        1044,
-        702,
-        1094,
-        720
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "SAS",
-      "bbox": [
-        1146,
-        702,
-        1197,
-        720
-      ],
-      "confidence": 0.55
-    },
-    {
-      "text": "PDF",
-      "bbox": [
-        1295,
-        704,
-        1329,
-        718
+        55,
+        50,
+        67,
+        76
       ],
       "confidence": 0.85
     },
     {
-      "text": "Uf",
+      "text": "코",
       "bbox": [
-        1335,
-        702,
-        1352,
-        720
+        67,
+        54,
+        81,
+        67
       ],
-      "confidence": 0.52
+      "confidence": 0.89
     },
     {
-      "text": "22",
+      "text": "시",
       "bbox": [
-        127,
-        730,
-        161,
-        747
-      ],
-      "confidence": 0.41
-    },
-    {
-      "text": "Seal,",
-      "bbox": [
-        167,
-        730,
-        223,
-        749
-      ],
-      "confidence": 0.63
-    },
-    {
-      "text": "2",
-      "bbox": [
-        229,
-        730,
-        262,
-        748
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "BOM",
-      "bbox": [
-        387,
-        730,
-        435,
-        748
-      ],
-      "confidence": 0.6
-    },
-    {
-      "text": "AA",
-      "bbox": [
-        443,
-        730,
-        475,
-        748
-      ],
-      "confidence": 0.45
-    },
-    {
-      "text": "PDFS",
-      "bbox": [
-        541,
-        732,
-        591,
-        746
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "OHS",
-      "bbox": [
-        127,
-        786,
-        161,
-        804
-      ],
-      "confidence": 0.36
-    },
-    {
-      "text": "10S",
-      "bbox": [
-        167,
-        787,
-        196,
-        802
-      ],
-      "confidence": 0.77
-    },
-    {
-      "text": "169]",
-      "bbox": [
-        203,
-        786,
-        238,
-        804
-      ],
-      "confidence": 0.75
-    },
-    {
-      "text": "AS",
-      "bbox": [
-        376,
-        786,
-        407,
-        804
-      ],
-      "confidence": 0.8
-    },
-    {
-      "text": "HA",
-      "bbox": [
-        603,
-        786,
-        635,
-        804
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "OCR",
-      "bbox": [
-        700,
-        788,
-        737,
-        802
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "7/50]",
-      "bbox": [
-        744,
-        786,
-        792,
-        804
-      ],
-      "confidence": 0.62
-    },
-    {
-      "text": "3.",
-      "bbox": [
-        127,
-        844,
-        141,
-        858
+        82,
+        54,
+        93,
+        67
       ],
       "confidence": 0.92
     },
     {
-      "text": "Deepseek-OCR",
+      "text": "스",
       "bbox": [
-        149,
-        843,
-        276,
-        862
+        94,
+        55,
+        107,
+        66
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "템",
+      "bbox": [
+        108,
+        54,
+        119,
+        67
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "은",
+      "bbox": [
+        120,
+        55,
+        129,
+        67
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "다음",
+      "bbox": [
+        137,
+        54,
+        162,
+        67
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "세",
+      "bbox": [
+        166,
+        54,
+        179,
+        67
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "가지",
+      "bbox": [
+        183,
+        54,
+        208,
+        67
+      ],
+      "confidence": 0.97
+    },
+    {
+      "text": "핵심",
+      "bbox": [
+        212,
+        54,
+        237,
+        67
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Paradigm",
+      "bbox": [
+        243,
+        56,
+        300,
+        69
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "위에",
+      "bbox": [
+        304,
+        54,
+        330,
+        67
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "구",
+      "bbox": [
+        333,
+        50,
+        347,
+        76
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "축",
+      "bbox": [
+        346,
+        54,
+        360,
+        67
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "되었습니다:",
+      "bbox": [
+        360,
+        54,
+        427,
+        67
+      ],
+      "confidence": 0.81
+    },
+    {
+      "text": "＊",
+      "bbox": [
+        17,
+        95,
+        22,
+        100
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "Hierarchical",
+      "bbox": [
+        34,
+        93,
+        109,
+        103
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "단순한",
+      "bbox": [
+        168,
+        91,
+        206,
+        104
       ],
       "confidence": 0.91
     },
     {
-      "text": "SHH",
+      "text": "Prompt-response",
       "bbox": [
-        127,
-        871,
-        178,
-        888
+        210,
+        93,
+        317,
+        106
       ],
-      "confidence": 0.42
+      "confidence": 0.9
     },
     {
-      "text": "OCRS",
+      "text": "패",
       "bbox": [
-        549,
-        872,
-        602,
-        888
-      ],
-      "confidence": 0.89
-    },
-    {
-      "text": "S",
-      "bbox": [
-        609,
-        871,
-        625,
-        888
-      ],
-      "confidence": 0.5
-    },
-    {
-      "text": "+",
-      "bbox": [
-        629,
-        867,
-        640,
-        898
-      ],
-      "confidence": 0.87
-    },
-    {
-      "text": "Sich.",
-      "bbox": [
-        654,
-        871,
-        692,
-        888
-      ],
-      "confidence": 0.46
-    },
-    {
-      "text": "§",
-      "bbox": [
-        490,
-        900,
-        498,
-        916
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "O92",
-      "bbox": [
-        505,
-        900,
-        537,
-        916
-      ],
-      "confidence": 0.32
-    },
-    {
-      "text": "AAS",
-      "bbox": [
-        544,
-        901,
-        595,
-        914
-      ],
-      "confidence": 0.95
-    },
-    {
-      "text": "SHE!",
-      "bbox": [
-        602,
-        899,
-        651,
-        916
-      ],
-      "confidence": 0.44
-    },
-    {
-      "text": "Al",
-      "bbox": [
-        657,
-        901,
-        673,
-        915
-      ],
-      "confidence": 0.89
-    },
-    {
-      "text": "t",
-      "bbox": [
-        1851,
-        889,
-        1869,
-        910
-      ],
-      "confidence": 0.71
-    },
-    {
-      "text": "v",
-      "bbox": [
-        1851,
-        940,
-        1869,
-        961
-      ],
-      "confidence": 0.56
-    },
-    {
-      "text": "[az]",
-      "bbox": [
-        1315,
-        967,
-        1353,
-        983
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "2H",
-      "bbox": [
-        1833,
-        1032,
-        1861,
-        1046
-      ],
-      "confidence": 0.31
-    },
-    {
-      "text": "1:03",
-      "bbox": [
-        1869,
-        1034,
-        1895,
-        1045
-      ],
-      "confidence": 0.71
-    },
-    {
-      "text": "2026-06-01",
-      "bbox": [
-        1818,
-        1054,
-        1893,
-        1065
-      ],
-      "confidence": 0.95
-    }
-  ],
-  "ocr_cleaned": [
-    {
-      "text": "Vv Ss",
-      "bbox": [
-        14,
-        12,
-        80,
-        38
-      ],
-      "confidence": 0.505
-    },
-    {
-      "text": "OCR",
-      "bbox": [
-        389,
-        18,
-        490,
-        32
-      ],
-      "confidence": 0.88
-    },
-    {
-      "text": "a hometax.go.kr/html/comm/error/: X x",
-      "bbox": [
+        320,
         91,
-        18,
-        1840,
-        34
+        359,
+        104
       ],
-      "confidence": 0.698
+      "confidence": 0.93
     },
     {
-      "text": "CB hitps://namu.wiki/w/OCR",
+      "text": "턴",
       "bbox": [
-        62,
-        66,
-        330,
-        85
+        334,
+        87,
+        346,
+        111
       ],
-      "confidence": 0.545
+      "confidence": 0.93
     },
     {
-      "text": "SAA7|S",
+      "text": "을",
       "bbox": [
-        433,
-        110,
-        519,
-        127
+        346,
+        87,
+        355,
+        111
       ],
-      "confidence": 0.54
+      "confidence": 0.95
     },
     {
-      "text": "SOM Aas",
+      "text": "넘어,",
       "bbox": [
-        659,
-        110,
-        766,
-        127
+        364,
+        91,
+        392,
+        104
       ],
-      "confidence": 0.53
+      "confidence": 0.93
     },
     {
-      "text": "Bel So",
+      "text": "구",
       "bbox": [
-        15,
+        397,
+        92,
+        411,
+        104
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "조",
+      "bbox": [
+        410,
+        87,
+        424,
+        111
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "화",
+      "bbox": [
+        424,
+        91,
+        438,
+        104
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "된",
+      "bbox": [
+        437,
+        87,
+        447,
+        111
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "\"Nobles",
+      "bbox": [
+        451,
+        93,
+        500,
+        103
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "&",
+      "bbox": [
+        504,
+        93,
+        516,
+        103
+      ],
+      "confidence": 0.49
+    },
+    {
+      "text": "Workers”",
+      "bbox": [
+        34,
+        114,
+        90,
+        124
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "ASS",
+      "bbox": [
+        94,
         112,
-        863,
-        126
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "2. ABBYY OCR",
-      "bbox": [
-        127,
-        177,
-        246,
-        191
-      ],
-      "confidence": 0.943
-    },
-    {
-      "text": "este Ye tow",
-      "bbox": [
-        168,
-        216,
-        749,
-        224
-      ],
-      "confidence": 0.375
-    },
-    {
-      "text": "=a",
-      "bbox": [
-        129,
-        226,
-        218,
-        238
-      ],
-      "confidence": 0.39
-    },
-    {
-      "text": "Clan SD te)",
-      "bbox": [
-        130,
-        230,
-        312,
-        273
-      ],
-      "confidence": 0.535
-    },
-    {
-      "text": "Se",
-      "bbox": [
-        537,
-        246,
-        606,
-        260
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "4 ma ety",
-      "bbox": [
-        378,
-        257,
-        750,
-        286
-      ],
-      "confidence": 0.62
-    },
-    {
-      "text": "inne",
-      "bbox": [
-        324,
-        268,
-        357,
-        278
-      ],
-      "confidence": 0.43
-    },
-    {
-      "text": "nd 1",
-      "bbox": [
-        364,
-        269,
-        521,
-        278
-      ],
-      "confidence": 0.44
-    },
-    {
-      "text": "se",
-      "bbox": [
-        1487,
-        523,
-        1550,
-        549
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "7/4",
-      "bbox": [
-        267,
-        671,
-        301,
-        689
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "SCH",
-      "bbox": [
-        364,
-        671,
-        414,
-        689
-      ],
-      "confidence": 0.37
-    },
-    {
-      "text": "5X 7|%",
-      "bbox": [
-        738,
-        671,
-        804,
-        689
-      ],
-      "confidence": 0.445
-    },
-    {
-      "text": "4/4! HA",
-      "bbox": [
-        1077,
-        671,
-        1149,
-        689
-      ],
-      "confidence": 0.47
-    },
-    {
-      "text": "14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF",
-      "bbox": [
-        127,
-        671,
-        1297,
-        689
-      ],
-      "confidence": 0.919
-    },
-    {
-      "text": "AWA",
-      "bbox": [
-        429,
-        702,
-        497,
-        719
+        132,
+        125
       ],
       "confidence": 0.64
     },
     {
-      "text": "BA",
+      "text": "제",
       "bbox": [
-        680,
-        702,
-        712,
-        720
+        137,
+        112,
+        149,
+        125
       ],
-      "confidence": 0.86
+      "confidence": 0.93
     },
     {
-      "text": "AHL So] WSS Pole BH]",
+      "text": "어",
       "bbox": [
-        816,
-        702,
-        1094,
-        720
+        150,
+        112,
+        175,
+        125
       ],
-      "confidence": 0.506
+      "confidence": 0.93
     },
     {
-      "text": "SAS",
+      "text": "를",
       "bbox": [
-        1146,
-        702,
-        1197,
-        720
+        163,
+        108,
+        172,
+        134
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "지",
+      "bbox": [
+        179,
+        112,
+        191,
+        125
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "향",
+      "bbox": [
+        192,
+        108,
+        206,
+        134
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "합니다.",
+      "bbox": [
+        192,
+        112,
+        246,
+        125
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "＊",
+      "bbox": [
+        17,
+        141,
+        22,
+        146
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "Hardware-Software",
+      "bbox": [
+        35,
+        129,
+        158,
+        159
       ],
       "confidence": 0.55
     },
     {
-      "text": "Uf S DS PDF",
+      "text": "Co-Design:",
       "bbox": [
-        561,
-        702,
-        1352,
-        720
+        165,
+        129,
+        231,
+        159
       ],
-      "confidence": 0.741
+      "confidence": 0.77
     },
     {
-      "text": "22 Seal, 2",
+      "text": "각",
       "bbox": [
-        127,
-        730,
-        262,
-        749
+        239,
+        137,
+        247,
+        150
       ],
-      "confidence": 0.445
+      "confidence": 0.93
     },
     {
-      "text": "BOM AA",
+      "text": "Edge",
       "bbox": [
-        387,
-        730,
-        475,
-        748
+        255,
+        129,
+        281,
+        159
       ],
-      "confidence": 0.525
+      "confidence": 0.9
     },
     {
-      "text": "PDFS",
+      "text": "004106",
       "bbox": [
-        541,
-        732,
-        591,
-        746
+        288,
+        129,
+        328,
+        159
       ],
-      "confidence": 0.51
+      "confidence": 0.49
     },
     {
-      "text": "OHS",
+      "text": "의",
       "bbox": [
-        127,
-        786,
-        161,
-        804
+        328,
+        129,
+        340,
+        159
       ],
-      "confidence": 0.36
+      "confidence": 0.93
     },
     {
-      "text": "169]",
+      "text": "Power/Compute",
       "bbox": [
-        203,
-        786,
-        238,
-        804
+        345,
+        129,
+        441,
+        159
       ],
-      "confidence": 0.75
+      "confidence": 0.91
     },
     {
-      "text": "AS",
+      "text": "profile",
       "bbox": [
-        376,
-        786,
-        407,
-        804
-      ],
-      "confidence": 0.8
-    },
-    {
-      "text": "HA",
-      "bbox": [
-        603,
-        786,
-        635,
-        804
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "7/50] 10S OCR",
-      "bbox": [
-        167,
-        786,
-        792,
-        804
-      ],
-      "confidence": 0.827
-    },
-    {
-      "text": "Deepseek-OCR 3.",
-      "bbox": [
-        127,
-        843,
-        276,
-        862
-      ],
-      "confidence": 0.915
-    },
-    {
-      "text": "SHH",
-      "bbox": [
-        127,
-        871,
-        178,
-        888
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "S",
-      "bbox": [
-        609,
-        871,
-        625,
-        888
-      ],
-      "confidence": 0.5
-    },
-    {
-      "text": "Sich. OCRS",
-      "bbox": [
-        549,
-        871,
-        692,
-        888
-      ],
-      "confidence": 0.675
-    },
-    {
-      "text": "t",
-      "bbox": [
-        1851,
-        889,
-        1869,
-        910
+        445,
+        129,
+        493,
+        159
       ],
       "confidence": 0.71
     },
     {
-      "text": "SHE! O92 AAS Al",
+      "text": "고",
       "bbox": [
-        505,
-        899,
-        673,
-        916
+        506,
+        138,
+        516,
+        149
       ],
-      "confidence": 0.778
+      "confidence": 0.71
     },
     {
-      "text": "v",
+      "text": "려",
       "bbox": [
-        1851,
-        940,
-        1869,
-        961
+        34,
+        158,
+        46,
+        171
       ],
-      "confidence": 0.56
+      "confidence": 0.92
     },
     {
-      "text": "[az]",
+      "text": "하여",
       "bbox": [
-        1315,
-        967,
-        1353,
-        983
+        47,
+        154,
+        71,
+        180
       ],
-      "confidence": 0.38
+      "confidence": 0.96
     },
     {
-      "text": "2H 1:03",
+      "text": "Inference",
       "bbox": [
-        1833,
-        1032,
-        1895,
-        1046
+        77,
+        160,
+        134,
+        170
       ],
-      "confidence": 0.51
+      "confidence": 0.96
     },
     {
-      "text": "2026-06-01",
+      "text": "HIS",
       "bbox": [
-        1818,
-        1054,
-        1893,
-        1065
+        137,
+        158,
+        176,
+        171
       ],
-      "confidence": 0.95
+      "confidence": 0.5
+    },
+    {
+      "text": "최",
+      "bbox": [
+        180,
+        158,
+        192,
+        171
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "적",
+      "bbox": [
+        193,
+        158,
+        205,
+        171
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "화",
+      "bbox": [
+        206,
+        158,
+        219,
+        171
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "합니다.",
+      "bbox": [
+        219,
+        158,
+        260,
+        171
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "ㆍ",
+      "bbox": [
+        17,
+        186,
+        22,
+        191
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "Relial",
+      "bbox": [
+        34,
+        184,
+        64,
+        194
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "by",
+      "bbox": [
+        96,
+        178,
+        112,
+        202
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Design:",
+      "bbox": [
+        118,
+        178,
+        166,
+        202
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Al",
+      "bbox": [
+        172,
+        178,
+        186,
+        202
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "추론",
+      "bbox": [
+        187,
+        178,
+        209,
+        202
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "과",
+      "bbox": [
+        216,
+        182,
+        230,
+        195
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "정",
+      "bbox": [
+        229,
+        178,
+        243,
+        202
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "을",
+      "bbox": [
+        243,
+        182,
+        252,
+        195
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "하",
+      "bbox": [
+        261,
+        178,
+        275,
+        202
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "나",
+      "bbox": [
+        274,
+        182,
+        288,
+        195
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "의",
+      "bbox": [
+        288,
+        178,
+        299,
+        202
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Mission-critical",
+      "bbox": [
+        302,
+        178,
+        392,
+        202
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "간",
+      "bbox": [
+        450,
+        182,
+        462,
+        195
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "주",
+      "bbox": [
+        462,
+        178,
+        476,
+        202
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "하고,",
+      "bbox": [
+        475,
+        178,
+        507,
+        202
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Site",
+      "bbox": [
+        34,
+        205,
+        57,
+        215
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Reliability",
+      "bbox": [
+        61,
+        205,
+        120,
+        218
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Engineering",
+      "bbox": [
+        124,
+        205,
+        197,
+        218
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "(SRE)",
+      "bbox": [
+        202,
+        205,
+        232,
+        217
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "2413",
+      "bbox": [
+        236,
+        203,
+        275,
+        216
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "적",
+      "bbox": [
+        279,
+        203,
+        291,
+        216
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "용",
+      "bbox": [
+        292,
+        203,
+        305,
+        216
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "합니다.",
+      "bbox": [
+        305,
+        203,
+        346,
+        216
+      ],
+      "confidence": 0.93
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "i Ecosystem Architecture Overview",
+      "bbox": [
+        10,
+        6,
+        357,
+        28
+      ],
+      "confidence": 0.895
+    },
+    {
+      "text": "AMEVA 에 코 시 스 템 은 다음 세 가지 핵심 Paradigm 위에 구 축 되었습니다:",
+      "bbox": [
+        6,
+        50,
+        427,
+        76
+      ],
+      "confidence": 0.871
+    },
+    {
+      "text": "단순한 Prompt-response 패 턴 을 넘어, 구 조 화 된 \"Nobles",
+      "bbox": [
+        168,
+        87,
+        500,
+        111
+      ],
+      "confidence": 0.833
+    },
+    {
+      "text": "Hierarchical",
+      "bbox": [
+        34,
+        93,
+        109,
+        103
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Workers” ASS 제 어 를 지 향 합니다.",
+      "bbox": [
+        34,
+        108,
+        246,
+        134
+      ],
+      "confidence": 0.939
+    },
+    {
+      "text": "Hardware-Software Co-Design: 각 Edge 004106 의 Power/Compute profile 고",
+      "bbox": [
+        35,
+        129,
+        516,
+        159
+      ],
+      "confidence": 0.746
+    },
+    {
+      "text": "려 하여 Inference HIS 최 적 화 합니다.",
+      "bbox": [
+        34,
+        154,
+        260,
+        180
+      ],
+      "confidence": 0.922
+    },
+    {
+      "text": "by Design: Al 추론 과 정 을 하 나 의 Mission-critical",
+      "bbox": [
+        96,
+        178,
+        392,
+        202
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "간 주 하고,",
+      "bbox": [
+        450,
+        178,
+        507,
+        202
+      ],
+      "confidence": 0.945
+    },
+    {
+      "text": "Relial",
+      "bbox": [
+        34,
+        184,
+        64,
+        194
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Site Reliability Engineering (SRE) 2413 적 용 합니다.",
+      "bbox": [
+        34,
+        203,
+        346,
+        218
+      ],
+      "confidence": 0.901
     }
   ],
   "scene_graph": {
     "screen_type": "unknown_application",
     "resolution": {
-      "width": 1920,
-      "height": 1080
+      "width": 527,
+      "height": 233
     },
     "regions": {
       "toolbar": [
         {
           "role": "text",
           "bbox": [
-            14,
-            12,
-            80,
-            38
+            10,
+            6,
+            357,
+            28
           ],
-          "text": "Vv Ss",
-          "confidence": 0.505
-        },
-        {
-          "role": "title",
-          "bbox": [
-            389,
-            18,
-            490,
-            32
-          ],
-          "text": "OCR",
-          "confidence": 0.88
-        },
-        {
-          "role": "log",
-          "bbox": [
-            91,
-            18,
-            1840,
-            34
-          ],
-          "text": "a hometax.go.kr/html/comm/error/: X x",
-          "confidence": 0.698
-        },
-        {
-          "role": "text",
-          "bbox": [
-            62,
-            66,
-            330,
-            85
-          ],
-          "text": "CB hitps://namu.wiki/w/OCR",
-          "confidence": 0.545
-        },
-        {
-          "role": "title",
-          "bbox": [
-            433,
-            110,
-            519,
-            127
-          ],
-          "text": "SAA7|S",
-          "confidence": 0.54
-        },
-        {
-          "role": "text",
-          "bbox": [
-            659,
-            110,
-            766,
-            127
-          ],
-          "text": "SOM Aas",
-          "confidence": 0.53
-        },
-        {
-          "role": "text",
-          "bbox": [
-            15,
-            112,
-            863,
-            126
-          ],
-          "text": "Bel So",
-          "confidence": 0.61
+          "text": "i Ecosystem Architecture Overview",
+          "confidence": 0.895
         }
       ],
       "sidebar": [
         {
-          "role": "title",
+          "role": "text",
           "bbox": [
-            127,
-            177,
-            246,
-            191
+            34,
+            93,
+            109,
+            103
           ],
-          "text": "2. ABBYY OCR",
-          "confidence": 0.943
+          "text": "Hierarchical",
+          "confidence": 0.94
         },
         {
           "role": "text",
           "bbox": [
-            168,
-            216,
-            749,
-            224
+            34,
+            184,
+            64,
+            194
           ],
-          "text": "este Ye tow",
-          "confidence": 0.375
-        },
-        {
-          "role": "text",
-          "bbox": [
-            129,
-            226,
-            218,
-            238
-          ],
-          "text": "=a",
-          "confidence": 0.39
-        },
-        {
-          "role": "text",
-          "bbox": [
-            130,
-            230,
-            312,
-            273
-          ],
-          "text": "Clan SD te)",
-          "confidence": 0.535
-        },
-        {
-          "role": "text",
-          "bbox": [
-            324,
-            268,
-            357,
-            278
-          ],
-          "text": "inne",
-          "confidence": 0.43
-        },
-        {
-          "role": "text",
-          "bbox": [
-            364,
-            269,
-            521,
-            278
-          ],
-          "text": "nd 1",
-          "confidence": 0.44
-        },
-        {
-          "role": "text",
-          "bbox": [
-            267,
-            671,
-            301,
-            689
-          ],
-          "text": "7/4",
-          "confidence": 0.73
-        },
-        {
-          "role": "title",
-          "bbox": [
-            364,
-            671,
-            414,
-            689
-          ],
-          "text": "SCH",
-          "confidence": 0.37
-        },
-        {
-          "role": "title",
-          "bbox": [
-            429,
-            702,
-            497,
-            719
-          ],
-          "text": "AWA",
-          "confidence": 0.64
-        },
-        {
-          "role": "text",
-          "bbox": [
-            127,
-            730,
-            262,
-            749
-          ],
-          "text": "22 Seal, 2",
-          "confidence": 0.445
-        },
-        {
-          "role": "title",
-          "bbox": [
-            387,
-            730,
-            475,
-            748
-          ],
-          "text": "BOM AA",
-          "confidence": 0.525
-        },
-        {
-          "role": "title",
-          "bbox": [
-            127,
-            786,
-            161,
-            804
-          ],
-          "text": "OHS",
-          "confidence": 0.36
-        },
-        {
-          "role": "text",
-          "bbox": [
-            203,
-            786,
-            238,
-            804
-          ],
-          "text": "169]",
-          "confidence": 0.75
-        },
-        {
-          "role": "title",
-          "bbox": [
-            376,
-            786,
-            407,
-            804
-          ],
-          "text": "AS",
-          "confidence": 0.8
-        },
-        {
-          "role": "title",
-          "bbox": [
-            167,
-            786,
-            792,
-            804
-          ],
-          "text": "7/50] 10S OCR",
-          "confidence": 0.827
-        },
-        {
-          "role": "text",
-          "bbox": [
-            127,
-            843,
-            276,
-            862
-          ],
-          "text": "Deepseek-OCR 3.",
-          "confidence": 0.915
-        },
-        {
-          "role": "title",
-          "bbox": [
-            127,
-            871,
-            178,
-            888
-          ],
-          "text": "SHH",
-          "confidence": 0.42
+          "text": "Relial",
+          "confidence": 0.54
         }
       ],
       "body": [
         {
           "role": "text",
           "bbox": [
-            537,
+            6,
+            50,
+            427,
+            76
+          ],
+          "text": "AMEVA 에 코 시 스 템 은 다음 세 가지 핵심 Paradigm 위에 구 축 되었습니다:",
+          "confidence": 0.871
+        },
+        {
+          "role": "text",
+          "bbox": [
+            168,
+            87,
+            500,
+            111
+          ],
+          "text": "단순한 Prompt-response 패 턴 을 넘어, 구 조 화 된 \"Nobles",
+          "confidence": 0.833
+        },
+        {
+          "role": "text",
+          "bbox": [
+            34,
+            108,
             246,
-            606,
-            260
+            134
           ],
-          "text": "Se",
-          "confidence": 0.51
+          "text": "Workers” ASS 제 어 를 지 향 합니다.",
+          "confidence": 0.939
         },
         {
           "role": "text",
           "bbox": [
-            378,
-            257,
-            750,
-            286
+            35,
+            129,
+            516,
+            159
           ],
-          "text": "4 ma ety",
-          "confidence": 0.62
+          "text": "Hardware-Software Co-Design: 각 Edge 004106 의 Power/Compute profile 고",
+          "confidence": 0.746
         },
         {
           "role": "text",
           "bbox": [
-            1487,
-            523,
-            1550,
-            549
+            34,
+            154,
+            260,
+            180
           ],
-          "text": "se",
-          "confidence": 0.38
-        },
-        {
-          "role": "title",
-          "bbox": [
-            738,
-            671,
-            804,
-            689
-          ],
-          "text": "5X 7|%",
-          "confidence": 0.445
-        },
-        {
-          "role": "title",
-          "bbox": [
-            1077,
-            671,
-            1149,
-            689
-          ],
-          "text": "4/4! HA",
-          "confidence": 0.47
+          "text": "려 하여 Inference HIS 최 적 화 합니다.",
+          "confidence": 0.922
         },
         {
           "role": "text",
           "bbox": [
-            127,
-            671,
-            1297,
-            689
+            96,
+            178,
+            392,
+            202
           ],
-          "text": "14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF",
-          "confidence": 0.919
-        },
-        {
-          "role": "title",
-          "bbox": [
-            680,
-            702,
-            712,
-            720
-          ],
-          "text": "BA",
-          "confidence": 0.86
+          "text": "by Design: Al 추론 과 정 을 하 나 의 Mission-critical",
+          "confidence": 0.92
         },
         {
           "role": "text",
           "bbox": [
-            816,
-            702,
-            1094,
-            720
+            450,
+            178,
+            507,
+            202
           ],
-          "text": "AHL So] WSS Pole BH]",
-          "confidence": 0.506
-        },
-        {
-          "role": "title",
-          "bbox": [
-            1146,
-            702,
-            1197,
-            720
-          ],
-          "text": "SAS",
-          "confidence": 0.55
+          "text": "간 주 하고,",
+          "confidence": 0.945
         },
         {
           "role": "text",
           "bbox": [
-            561,
-            702,
-            1352,
-            720
+            34,
+            203,
+            346,
+            218
           ],
-          "text": "Uf S DS PDF",
-          "confidence": 0.741
-        },
-        {
-          "role": "title",
-          "bbox": [
-            541,
-            732,
-            591,
-            746
-          ],
-          "text": "PDFS",
-          "confidence": 0.51
-        },
-        {
-          "role": "title",
-          "bbox": [
-            603,
-            786,
-            635,
-            804
-          ],
-          "text": "HA",
-          "confidence": 0.54
-        },
-        {
-          "role": "title",
-          "bbox": [
-            609,
-            871,
-            625,
-            888
-          ],
-          "text": "S",
-          "confidence": 0.5
-        },
-        {
-          "role": "text",
-          "bbox": [
-            549,
-            871,
-            692,
-            888
-          ],
-          "text": "Sich. OCRS",
-          "confidence": 0.675
-        },
-        {
-          "role": "text",
-          "bbox": [
-            1851,
-            889,
-            1869,
-            910
-          ],
-          "text": "t",
-          "confidence": 0.71
-        },
-        {
-          "role": "text",
-          "bbox": [
-            505,
-            899,
-            673,
-            916
-          ],
-          "text": "SHE! O92 AAS Al",
-          "confidence": 0.778
-        },
-        {
-          "role": "text",
-          "bbox": [
-            1851,
-            940,
-            1869,
-            961
-          ],
-          "text": "v",
-          "confidence": 0.56
-        },
-        {
-          "role": "text",
-          "bbox": [
-            1315,
-            967,
-            1353,
-            983
-          ],
-          "text": "[az]",
-          "confidence": 0.38
+          "text": "Site Reliability Engineering (SRE) 2413 적 용 합니다.",
+          "confidence": 0.901
         }
       ],
-      "status_bar": [
-        {
-          "role": "title",
-          "bbox": [
-            1833,
-            1032,
-            1895,
-            1046
-          ],
-          "text": "2H 1:03",
-          "confidence": 0.51
-        },
-        {
-          "role": "text",
-          "bbox": [
-            1818,
-            1054,
-            1893,
-            1065
-          ],
-          "text": "2026-06-01",
-          "confidence": 0.95
-        }
-      ]
+      "status_bar": []
     }
   },
   "prompt": [
     {
       "role": "system",
-      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라.\n7. 사용자가 한국어로 질문하면 번역 요청 여부와 상관없이 반드시 한국어로 친절하게 답변하라."
     },
     {
       "role": "user",
-      "content": "이거 무슨화면이야?"
+      "content": "여기화면에 아메바 유니버스에 대해서 설명해줘"
     },
     {
       "role": "assistant",
-      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
+      "content": "아메바 유니버스는 아메바의 AI 기술과 서비스를 통합한 생태계입니다. 이 생태계는 다양한 프로젝트와 기능으로 구성되어 있으며, 각 프로젝트는 특정 역할을 수행합니다.\n\n1. **Agent Orchestra**: 이 프로젝트는 계층적 작업 분해 및 에이전트 관리 역할을 수행합니다.\n2. **Model Nexus**: 이 프로젝트는 통합 API 게이트웨이와 SRE 기반 동적 토스팅을 제공합니다.\n3. **Benchmark Suite**: 이 프로젝트는 경험적 히어니스와 하드웨어 테스트를 위한 기능을 제공합니다.\n4. **Doc AI**: 이 프로젝트는 개인 정보 보호를 위한 오프라인 문서 인지 파이프라인을 제공합니다.\n5. **Conductor**: 이 프로젝트는 원격 크로스 플랫폼 인터페이스를 통해 인간-에이전트 상호작용을 지원합니다.\n6. **Data Harvester**: 이 프로젝트는 하이퍼-리저런트, 제로-러스-에지 포워더와 다운스트림 백업을 위한 데이터 레이어를 제공합니다.\n7. **Database**: 이 프로젝트는 분산 아메바 에코시스템을 위한 가벼운 SQLite 및 로그 인스펙터를 제공합니다.\n8. **STT Trainer**: 이 프로젝트는 블라퍼 기반 한국어 STT와 LoRA 투어닝을 제공합니다.\n9. **STT Agent**: 이 프로젝트는 음성 인식 에이전트 통합을 제공합니다.\n10. **Window Assistant**: 이 프로젝트는 윈도우 네이티브 AI 데스크톱 어시스턴트를 제공합니다.\n11. **Dead Internet Theatre**: 이 프로젝트는 완전 자동화된 Docker 기반 다중 인터넷 시뮬레이션을 제공합니다.\n12. **BitNet**: 이 프로젝트는 ARM/Exynos 스칼라 떨어짐을 위한 BitNet 인프라 프레임워크를 제공합니다.\n\n이러한 프로젝트들은 아메바의 AI 기술과 서비스를 통합하여 다양한 엔터프라이즈 애플리케이션에 적용할 수 있도록 지원합니다."
     },
     {
       "role": "user",
-      "content": "이거 무슨화면이야?"
-    },
-    {
-      "role": "assistant",
-      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
-    },
-    {
-      "role": "user",
-      "content": "이거 무슨화면이야?"
-    },
-    {
-      "role": "assistant",
-      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
-    },
-    {
-      "role": "user",
-      "content": "ELdyd"
-    },
-    {
-      "role": "assistant",
-      "content": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
-    },
-    {
-      "role": "user",
-      "content": "도커온라인인데..\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] (7 items hidden) ---\n--- [REGION: SIDEBAR] (17 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] Se\n[TEXT] 4 ma ety\n[TEXT] se\n[TITLE] 5X 7|%\n[TITLE] 4/4! HA\n[TEXT] 14 J FineReader FineReader FS OCR ABBYY 11. ABBYY PDF\n[TITLE] BA\n[TEXT] AHL So] WSS Pole BH]\n[TITLE] SAS\n[TEXT] Uf S DS PDF\n[TITLE] PDFS\n[TITLE] HA\n[TITLE] S\n[TEXT] Sich. OCRS\n[TEXT] t\n[TEXT] SHE! O92 AAS Al\n[TEXT] v\n[TEXT] [az]\n--- [REGION: STATUS_BAR] ---\n[TITLE] 2H 1:03\n[TEXT] 2026-06-01"
+      "content": "여기 글자들을 추출해줘\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] ---\n[TEXT] i Ecosystem Architecture Overview\n--- [REGION: SIDEBAR] ---\n[TEXT] Hierarchical\n[TEXT] Relial\n--- [REGION: BODY] ---\n[TEXT] AMEVA 에 코 시 스 템 은 다음 세 가지 핵심 Paradigm 위에 구 축 되었습니다:\n[TEXT] 단순한 Prompt-response 패 턴 을 넘어, 구 조 화 된 \"Nobles\n[TEXT] Workers” ASS 제 어 를 지 향 합니다.\n[TEXT] Hardware-Software Co-Design: 각 Edge 004106 의 Power/Compute profile 고\n[TEXT] 려 하여 Inference HIS 최 적 화 합니다.\n[TEXT] by Design: Al 추론 과 정 을 하 나 의 Mission-critical\n[TEXT] 간 주 하고,\n[TEXT] Site Reliability Engineering (SRE) 2413 적 용 합니다."
     }
   ],
-  "llm_response": "[가짜 LLM 서버 응답] 질문 확인: '도커온라인인데..'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+  "llm_response": "<details><summary>💡 추론 과정 보기</summary>\n\n- **라우터 판단**: OCR\n- **판단 근거**: 키워드 분석 ('글자')에 의해 OCR로 판단됨\n- **영문 번역**: 여기 글자들을 추출해줘\n- **최종 응답 모델**: LlamaCppOpenAICompat\n</details>\n\n아래는 OCR 결과에서 추출한 텍스트입니다.\n\n1. **i Ecosystem Architecture Overview**\n2. **Hierarchical**\n3. **Relial** (정확한 단어는 불명확합니다.)\n4. **AMEVA 에 코 시 스 템 은 다음 세 가지 핵심 Paradigm 위에 구 축 되었습니다:**\n5. **단순한 Prompt-response 패 턴 을 넘어, 구 조 화 된 \"Nobles**\n6. **Workers” ASS 제 어 를 지 향 합니다.**\n7. **Hardware-Software Co-Design: 각 Edge 004106 의 Power/Compute profile 고 려 하여 Inference HIS 최 적 화 합니다.**\n8. **by Design: Al 추론 과 정 을 하 나 의 Mission-critical 간 주 하고,**\n9. **Site Reliability Engineering (SRE) 2413 적 용 합니다.**\n\n추출한 텍스트를 기반으로 설명을 제공하겠습니다.\n\n아메바 에코시스템은 다음 세 가지 핵심 패러다임 위에 구축되었습니다.\n\n1. 단순한 Prompt-response 패턴을 넘어, 구조화된 \"Nobles Workers\" ASS 제어를 향합니다.\n2. 하드웨어-소프트웨어 코디자인: 각 Edge 004106의 Power/Compute profile 고려하여 Inference HIS 최적화합니다.\n3. by Design: Al 추론과 정을 하나의 Mission-critical 간주하고, Site Reliability Engineering (SRE) 2413 적용합니다.\n\n이러한 패러다임은 아메바 에코시스템의 핵심 구성 요소입니다."
 }

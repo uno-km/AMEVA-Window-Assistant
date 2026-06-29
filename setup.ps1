@@ -98,22 +98,21 @@ if (Test-Path $tessExe) {
 }
 
 # Verify and download Korean language data
-if (Test-Path $tessRoot) {
-    $tessDataDir = Join-Path $tessRoot "tessdata"
-    $korTrainedData = Join-Path $tessDataDir "kor.traineddata"
-    if (-not (Test-Path $tessDataDir)) { New-Item -ItemType Directory -Path $tessDataDir -Force | Out-Null }
-    if (-not (Test-Path $korTrainedData)) {
-        Write-Host "  Korean language pack not found. Downloading..." -ForegroundColor Yellow
-        $korUrl = "https://github.com/tesseract-ocr/tessdata_fast/raw/master/kor.traineddata"
-        try {
-            Invoke-WebRequest -Uri $korUrl -OutFile $korTrainedData -TimeoutSec 180
-            Write-Host "  Downloaded kor.traineddata." -ForegroundColor Green
-        } catch {
-            Write-Host "  WARNING: Failed to download Korean language pack: $_" -ForegroundColor Red
-        }
-    } else {
-        Write-Host "  Korean language pack is already present." -ForegroundColor Green
+$userTessDataDir = "C:\ameva\models\ocr\tessdata"
+$korTrainedData = Join-Path $userTessDataDir "kor.traineddata"
+if (-not (Test-Path $userTessDataDir)) { New-Item -ItemType Directory -Path $userTessDataDir -Force | Out-Null }
+if (-not (Test-Path $korTrainedData)) {
+    Write-Host "  Korean language pack not found. Downloading..." -ForegroundColor Yellow
+    $korUrl = "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kor.traineddata"
+    try {
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest -Uri $korUrl -UserAgent "Mozilla/5.0" -OutFile $korTrainedData -TimeoutSec 180
+        Write-Host "  Downloaded kor.traineddata." -ForegroundColor Green
+    } catch {
+        Write-Host "  WARNING: Failed to download Korean language pack: $_" -ForegroundColor Red
     }
+} else {
+    Write-Host "  Korean language pack is already present." -ForegroundColor Green
 }
 
 # --- Create runtime directories ---

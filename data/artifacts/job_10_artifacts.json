@@ -1,1946 +1,3656 @@
 {
   "ocr_raw": [
     {
-      "text": "a",
-      "bbox": [
-        23,
-        24,
-        46,
-        45
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "O",
-      "bbox": [
-        25,
-        84,
-        46,
-        105
-      ],
-      "confidence": 0.89
-    },
-    {
-      "text": "AE",
-      "bbox": [
-        59,
-        88,
-        109,
-        103
-      ],
-      "confidence": 0.5
-    },
-    {
-      "text": "Q",
-      "bbox": [
-        27,
-        131,
-        45,
-        149
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "as",
-      "bbox": [
-        59,
-        133,
-        88,
-        148
-      ],
-      "confidence": 0.45
-    },
-    {
-      "text": "(0)",
-      "bbox": [
-        25,
-        174,
-        46,
-        195
-      ],
-      "confidence": 0.36
-    },
-    {
-      "text": "IT",
-      "bbox": [
-        60,
-        279,
-        72,
-        292
-      ],
-      "confidence": 0.94
-    },
-    {
-      "text": "Bel",
-      "bbox": [
-        78,
-        278,
-        107,
-        293
-      ],
-      "confidence": 0.36
-    },
-    {
-      "text": "120049]",
-      "bbox": [
-        116,
-        278,
-        172,
-        293
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "@",
-      "bbox": [
-        24,
-        321,
-        49,
-        346
-      ],
-      "confidence": 0.84
-    },
-    {
-      "text": "waa!",
-      "bbox": [
-        60,
-        327,
-        121,
-        342
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "BH",
-      "bbox": [
-        24,
-        371,
-        48,
-        393
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "A",
-      "bbox": [
-        59,
-        375,
-        72,
-        390
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "BE",
-      "bbox": [
-        58,
-        422,
-        89,
-        437
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "#",
-      "bbox": [
-        24,
-        528,
-        34,
-        540
-      ],
-      "confidence": 0.89
-    },
-    {
-      "text": "AMEVA",
-      "bbox": [
-        39,
-        528,
-        98,
-        541
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "Global",
-      "bbox": [
-        103,
-        527,
-        153,
-        541
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "DB",
-      "bbox": [
-        160,
-        528,
-        181,
-        541
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "Inspector...",
-      "bbox": [
-        188,
-        528,
-        274,
-        545
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "Traceback",
-      "bbox": [
-        24,
-        573,
-        100,
-        587
-      ],
-      "confidence": 0.9
-    },
-    {
-      "text": "(most",
-      "bbox": [
-        106,
-        574,
-        148,
-        590
-      ],
-      "confidence": 0.9
-    },
-    {
-      "text": "recent",
-      "bbox": [
-        154,
-        575,
-        201,
-        587
-      ],
-      "confidence": 0.94
-    },
-    {
-      "text": "call",
-      "bbox": [
-        207,
-        573,
-        230,
-        587
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "last):",
-      "bbox": [
-        238,
-        573,
-        271,
-        590
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "vba",
-      "bbox": [
-        24,
-        620,
-        50,
-        634
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "&",
-      "bbox": [
-        57,
-        620,
-        71,
-        635
-      ],
-      "confidence": 0.83
-    },
-    {
-      "text": "2}",
-      "bbox": [
-        147,
-        620,
-        162,
-        635
-      ],
-      "confidence": 0.86
-    },
-    {
-      "text": "AES",
-      "bbox": [
-        168,
-        620,
-        214,
-        635
-      ],
-      "confidence": 0.47
-    },
-    {
-      "text": "Bhat...",
-      "bbox": [
-        221,
-        619,
-        264,
-        635
-      ],
-      "confidence": 0.36
-    },
-    {
-      "text": "Of",
-      "bbox": [
-        137,
-        656,
-        150,
-        691
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "Xa",
-      "bbox": [
-        25,
-        713,
-        55,
-        728
-      ],
-      "confidence": 0.53
-    },
-    {
-      "text": "VAL",
-      "bbox": [
-        136,
-        713,
-        182,
-        728
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "a...",
-      "bbox": [
-        242,
-        713,
-        269,
-        728
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": ">>",
-      "bbox": [
-        26,
-        763,
-        46,
-        772
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "venv\\Scripts\\python.exe",
-      "bbox": [
-        53,
-        759,
-        237,
-        777
-      ],
-      "confidence": 0.78
-    },
-    {
-      "text": "sr...",
-      "bbox": [
-        243,
-        764,
-        268,
-        773
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "SAIS",
-      "bbox": [
-        24,
-        805,
-        102,
-        821
-      ],
-      "confidence": 0.32
-    },
-    {
-      "text": "(SS",
-      "bbox": [
-        25,
-        851,
-        61,
-        869
-      ],
-      "confidence": 0.49
-    },
-    {
-      "text": "AB]",
-      "bbox": [
-        67,
-        852,
-        102,
-        869
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "He",
-      "bbox": [
-        110,
-        852,
-        140,
-        867
-      ],
-      "confidence": 0.65
-    },
-    {
-      "text": "ite,",
-      "bbox": [
-        146,
-        852,
-        196,
-        868
-      ],
-      "confidence": 0.39
-    },
-    {
-      "text": "...",
-      "bbox": [
-        260,
-        864,
-        271,
-        866
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "o",
-      "bbox": [
-        30,
-        917,
-        38,
-        925
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "Copilot",
-      "bbox": [
-        60,
-        929,
-        99,
-        942
-      ],
-      "confidence": 0.87
-    },
-    {
-      "text": "Chat",
-      "bbox": [
-        103,
-        929,
-        128,
-        939
-      ],
-      "confidence": 0.95
-    },
-    {
-      "text": "(71)",
-      "bbox": [
-        132,
-        929,
-        161,
-        941
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "©",
-      "bbox": [
-        170,
-        929,
-        183,
-        942
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "#",
-      "bbox": [
-        353,
-        91,
-        363,
-        103
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "AMEVA",
-      "bbox": [
-        368,
-        91,
-        425,
-        104
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "Global",
-      "bbox": [
-        430,
-        90,
-        478,
-        104
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "DB",
-      "bbox": [
-        486,
-        91,
-        506,
-        104
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "Inspector",
-      "bbox": [
-        513,
-        91,
-        583,
-        108
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "---",
-      "bbox": [
-        589,
-        98,
-        608,
-        99
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "##",
-      "bbox": [
-        614,
-        91,
-        634,
-        103
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "1.",
-      "bbox": [
-        641,
-        91,
-        645,
-        104
-      ],
-      "confidence": 0.94
-    },
-    {
-      "text": "(Ov",
-      "bbox": [
-        695,
-        91,
-        721,
-        107
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "ASS",
-      "bbox": [
-        666,
-        159,
-        718,
-        178
-      ],
-      "confidence": 0.79
-    },
-    {
-      "text": "SAE",
-      "bbox": [
-        727,
-        159,
-        779,
-        178
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": "07H,",
-      "bbox": [
-        787,
-        159,
-        818,
-        179
-      ],
-      "confidence": 0.49
-    },
-    {
-      "text": "07H,",
-      "bbox": [
-        912,
-        159,
-        943,
-        179
-      ],
-      "confidence": 0.58
-    },
-    {
-      "text": "HES",
-      "bbox": [
-        952,
-        159,
-        1003,
-        178
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "SAE",
-      "bbox": [
-        1013,
-        159,
-        1065,
-        178
-      ],
-      "confidence": 0.64
-    },
-    {
-      "text": "**\"OCRO|",
-      "bbox": [
-        677,
-        219,
-        756,
-        238
-      ],
-      "confidence": 0.68
-    },
-    {
-      "text": "SEO]",
-      "bbox": [
-        970,
-        219,
-        1003,
-        238
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "0|24",
-      "bbox": [
-        635,
-        254,
-        669,
-        273
-      ],
-      "confidence": 0.54
-    },
-    {
-      "text": "SAH",
-      "bbox": [
-        677,
-        254,
-        711,
-        273
-      ],
-      "confidence": 0.71
-    },
-    {
-      "text": "scene_graph_bui",
-      "bbox": [
-        719,
-        256,
-        879,
-        273
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "Ider",
-      "bbox": [
-        888,
-        256,
-        926,
-        271
-      ],
-      "confidence": 0.77
-    },
-    {
-      "text": ".py7t",
-      "bbox": [
-        933,
-        254,
-        978,
-        273
-      ],
-      "confidence": 0.64
-    },
-    {
-      "text": "SS",
-      "bbox": [
-        985,
-        254,
-        1018,
-        273
+      "text": "로",
+      "bbox": [
+        2,
+        3,
+        15,
+        19
       ],
       "confidence": 0.31
     },
     {
-      "text": "AO]",
+      "text": "=",
       "bbox": [
-        1027,
-        254,
-        1080,
-        273
+        985,
+        11,
+        995,
+        13
       ],
-      "confidence": 0.52
+      "confidence": 0.95
     },
     {
-      "text": "PE",
+      "text": "<",
       "bbox": [
-        1088,
-        254,
-        1122,
-        273
+        1033,
+        10,
+        1045,
+        22
       ],
-      "confidence": 0.4
+      "confidence": 0.73
     },
     {
-      "text": "OF.",
+      "text": "github.com/uno-km",
       "bbox": [
-        635,
-        289,
-        656,
-        308
-      ],
-      "confidence": 0.7
-    },
-    {
-      "text": "sharepoint",
-      "bbox": [
-        670,
-        294,
-        727,
-        307
-      ],
-      "confidence": 0.67
-    },
-    {
-      "text": "AM",
-      "bbox": [
-        635,
-        339,
-        669,
-        358
-      ],
-      "confidence": 0.74
-    },
-    {
-      "text": "Se",
-      "bbox": [
-        677,
-        340,
-        712,
-        358
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "TALS",
-      "bbox": [
-        719,
-        339,
-        772,
-        358
+        1174,
+        11,
+        1301,
+        25
       ],
       "confidence": 0.63
     },
     {
-      "text": "chs",
+      "text": "<",
       "bbox": [
-        780,
-        339,
-        814,
-        358
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": "error",
-      "bbox": [
-        670,
-        391,
-        718,
-        401
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "/",
-      "bbox": [
-        730,
-        384,
-        739,
-        402
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "exception",
-      "bbox": [
-        750,
-        386,
-        838,
-        403
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "/",
-      "bbox": [
-        850,
-        384,
-        859,
-        402
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "fall",
-      "bbox": [
-        870,
-        386,
-        905,
-        401
+        13,
+        60,
+        25,
+        70
       ],
       "confidence": 0.81
     },
     {
-      "text": "GPT",
+      "text": ">",
       "bbox": [
-        1561,
-        91,
-        1593,
-        104
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "5.2",
-      "bbox": [
-        1599,
-        91,
-        1620,
-        104
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "Think",
-      "bbox": [
-        1626,
-        90,
-        1670,
-        104
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "~",
-      "bbox": [
-        1678,
-        96,
-        1687,
-        101
-      ],
-      "confidence": 0.63
-    },
-    {
-      "text": "title",
-      "bbox": [
-        1208,
-        256,
-        1243,
-        271
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "/",
-      "bbox": [
-        1249,
-        257,
-        1257,
-        273
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "log",
-      "bbox": [
-        1264,
-        256,
-        1290,
-        276
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "/",
-      "bbox": [
-        1297,
-        257,
-        1305,
-        273
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "27]",
-      "bbox": [
-        1495,
-        254,
-        1528,
-        273
-      ],
-      "confidence": 0.6
-    },
-    {
-      "text": "zo)",
-      "bbox": [
-        1537,
-        254,
-        1589,
-        273
+        43,
+        60,
+        76,
+        70
       ],
       "confidence": 0.41
     },
     {
-      "text": "+",
+      "text": "|",
       "bbox": [
-        647,
-        427,
-        652,
-        432
+        118,
+        56,
+        124,
+        72
       ],
-      "confidence": 0.56
+      "confidence": 0.73
     },
     {
-      "text": "ok",
+      "text": "dey",
       "bbox": [
-        670,
-        421,
-        688,
-        436
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "/",
-      "bbox": [
-        700,
-        419,
-        709,
-        437
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "cancel",
-      "bbox": [
-        720,
-        421,
-        775,
-        436
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "/",
-      "bbox": [
-        790,
-        419,
-        799,
-        437
-      ],
-      "confidence": 0.91
-    },
-    {
-      "text": "retry",
-      "bbox": [
-        812,
-        422,
-        859,
-        438
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "/",
-      "bbox": [
-        870,
-        419,
-        879,
-        437
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "submit",
-      "bbox": [
-        890,
-        421,
-        947,
-        436
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "BE",
-      "bbox": [
-        1016,
-        419,
-        1051,
-        437
-      ],
-      "confidence": 0.79
-    },
-    {
-      "text": "HAE",
-      "bbox": [
-        1059,
-        419,
-        1111,
-        438
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": "—",
-      "bbox": [
-        1120,
-        428,
-        1134,
-        433
-      ],
-      "confidence": 0.74
-    },
-    {
-      "text": "button",
-      "bbox": [
-        1142,
-        421,
-        1199,
-        436
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "+",
-      "bbox": [
-        647,
-        462,
-        652,
-        467
-      ],
-      "confidence": 0.82
-    },
-    {
-      "text": "BD",
-      "bbox": [
-        712,
-        454,
-        747,
-        472
-      ],
-      "confidence": 0.75
-    },
-    {
-      "text": "isupperOH",
-      "bbox": [
-        758,
-        454,
-        859,
-        473
-      ],
-      "confidence": 0.52
-    },
-    {
-      "text": "-",
-      "bbox": [
-        864,
-        450,
-        873,
-        482
-      ],
-      "confidence": 0.36
-    },
-    {
-      "text": "title",
-      "bbox": [
-        869,
-        456,
-        922,
-        471
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "+",
-      "bbox": [
-        647,
-        497,
-        652,
-        502
+        341,
+        50,
+        360,
+        78
       ],
       "confidence": 0.76
     },
     {
-      "text": "AS",
+      "text": "se",
       "bbox": [
-        749,
-        489,
-        783,
-        508
+        982,
+        55,
+        994,
+        60
       ],
-      "confidence": 0.5
+      "confidence": 0.44
     },
     {
-      "text": "body/text",
+      "text": "ao",
       "bbox": [
-        791,
-        491,
-        875,
-        511
+        1029,
+        56,
+        1043,
+        62
       ],
-      "confidence": 0.89
+      "confidence": 0.44
     },
     {
-      "text": "M2]",
+      "text": "^",
       "bbox": [
-        902,
-        489,
-        916,
-        508
+        298,
+        83,
+        305,
+        87
       ],
-      "confidence": 0.43
+      "confidence": 0.91
     },
     {
-      "text": "U7}",
+      "text": "대",
       "bbox": [
-        664,
-        539,
-        698,
-        558
+        980,
+        79,
+        995,
+        89
       ],
-      "confidence": 0.63
+      "confidence": 0.49
     },
     {
-      "text": "SAAS",
+      "text": "4",
       "bbox": [
-        765,
-        539,
-        835,
-        558
+        28,
+        105,
+        37,
+        116
       ],
-      "confidence": 0.66
+      "confidence": 0.67
     },
     {
-      "text": "SHO]",
+      "text": "SANTI",
       "bbox": [
-        844,
-        539,
-        896,
-        558
+        46,
+        105,
+        91,
+        116
       ],
-      "confidence": 0.34
-    },
-    {
-      "text": "ZS",
-      "bbox": [
-        905,
-        539,
-        940,
-        557
-      ],
-      "confidence": 0.59
-    },
-    {
-      "text": "$179",
-      "bbox": [
-        947,
-        539,
-        999,
-        558
-      ],
-      "confidence": 0.57
-    },
-    {
-      "text": "Ul=",
-      "bbox": [
-        1125,
-        540,
-        1161,
-        557
-      ],
-      "confidence": 0.85
-    },
-    {
-      "text": "OCRO|",
-      "bbox": [
-        1168,
-        539,
-        1223,
-        558
-      ],
-      "confidence": 0.81
-    },
-    {
-      "text": "a",
-      "bbox": [
-        925,
-        551,
-        938,
-        558
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "title/log/button",
-      "bbox": [
-        634,
-        576,
-        777,
-        596
-      ],
-      "confidence": 0.93
-    },
-    {
-      "text": "0",
-      "bbox": [
-        863,
-        577,
-        872,
-        591
-      ],
-      "confidence": 0.9
-    },
-    {
-      "text": "O|",
-      "bbox": [
-        880,
-        574,
-        894,
-        593
-      ],
-      "confidence": 0.65
-    },
-    {
-      "text": "2",
-      "bbox": [
-        904,
-        574,
-        919,
-        592
-      ],
-      "confidence": 0.35
-    },
-    {
-      "text": "74540]",
-      "bbox": [
-        927,
-        574,
-        997,
-        593
-      ],
-      "confidence": 0.31
-    },
-    {
-      "text": "HOF.",
-      "bbox": [
-        1048,
-        574,
-        1087,
-        593
-      ],
-      "confidence": 0.47
-    },
-    {
-      "text": "sharepoint",
-      "bbox": [
-        1101,
-        579,
-        1159,
-        592
-      ],
-      "confidence": 0.71
-    },
-    {
-      "text": "“ON?",
-      "bbox": [
-        754,
-        687,
-        802,
-        709
-      ],
-      "confidence": 0.59
-    },
-    {
-      "text": "Lt",
-      "bbox": [
-        836,
-        687,
-        869,
-        713
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": "Et",
-      "bbox": [
-        1390,
-        686,
-        1423,
-        723
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "SHAS",
-      "bbox": [
-        703,
-        755,
-        783,
-        783
-      ],
-      "confidence": 0.55
-    },
-    {
-      "text": "&",
-      "bbox": [
-        824,
-        813,
-        832,
-        827
-      ],
-      "confidence": 0.35
-    },
-    {
-      "text": "Hm",
-      "bbox": [
-        845,
-        812,
-        880,
-        827
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "Al",
-      "bbox": [
-        947,
-        812,
-        963,
-        827
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "CopilotO]",
-      "bbox": [
-        635,
-        858,
-        715,
-        879
-      ],
-      "confidence": 0.57
-    },
-    {
-      "text": "+",
-      "bbox": [
-        638,
-        925,
-        660,
-        947
-      ],
-      "confidence": 0.96
-    },
-    {
-      "text": "—",
-      "bbox": [
-        1284,
-        709,
-        1294,
-        724
-      ],
-      "confidence": 0.63
+      "confidence": 0.53
     },
     {
       "text": "©",
       "bbox": [
-        1583,
-        923,
-        1601,
-        948
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "2",
-      "bbox": [
-        1833,
-        1032,
-        1861,
-        1046
-      ],
-      "confidence": 0.58
-    },
-    {
-      "text": "1:00",
-      "bbox": [
-        1869,
-        1034,
-        1896,
-        1045
-      ],
-      "confidence": 0.84
-    },
-    {
-      "text": "2026-06-01",
-      "bbox": [
-        1818,
+        1042,
+        91,
         1054,
-        1893,
-        1065
-      ],
-      "confidence": 0.95
-    }
-  ],
-  "ocr_cleaned": [
-    {
-      "text": "a",
-      "bbox": [
-        23,
-        24,
-        46,
-        45
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "O AE",
-      "bbox": [
-        25,
-        84,
-        109,
         105
       ],
-      "confidence": 0.695
+      "confidence": 0.93
     },
     {
-      "text": "Global",
+      "text": "Sungnamcity",
       "bbox": [
-        430,
-        90,
-        478,
-        104
+        1064,
+        93,
+        1145,
+        106
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "mie",
+      "bbox": [
+        32,
+        129,
+        77,
+        141
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "화면",
+      "bbox": [
+        81,
+        129,
+        104,
+        140
       ],
       "confidence": 0.96
     },
     {
-      "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
+      "text": "@",
       "bbox": [
-        368,
-        90,
-        1670,
-        108
+        1041,
+        120,
+        1054,
+        134
       ],
-      "confidence": 0.957
+      "confidence": 0.65
     },
     {
-      "text": "Q as",
+      "text": "@",
       "bbox": [
-        27,
-        131,
-        88,
-        149
+        1041,
+        149,
+        1054,
+        163
       ],
-      "confidence": 0.685
+      "confidence": 0.58
     },
     {
-      "text": "ASS SAE 07H,",
+      "text": "hitps//uno-km.github.io/uno-km/",
       "bbox": [
-        666,
-        159,
-        818,
-        179
-      ],
-      "confidence": 0.542
-    },
-    {
-      "text": "07H, HES SAE",
-      "bbox": [
-        912,
-        159,
         1065,
-        179
+        151,
+        1276,
+        164
       ],
-      "confidence": 0.695
+      "confidence": 0.45
     },
     {
-      "text": "(0)",
+      "text": "+",
       "bbox": [
-        25,
-        174,
-        46,
-        195
+        982,
+        163,
+        994,
+        175
       ],
-      "confidence": 0.36
+      "confidence": 0.96
     },
     {
-      "text": "**\"OCRO|",
+      "text": "Bex",
       "bbox": [
-        677,
-        219,
-        756,
-        238
+        34,
+        175,
+        76,
+        191
       ],
-      "confidence": 0.68
+      "confidence": 0.72
     },
     {
-      "text": "SEO]",
+      "text": "Achievements:",
       "bbox": [
-        970,
-        219,
-        1003,
-        238
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "0|24 SAH",
-      "bbox": [
-        635,
-        254,
-        711,
-        273
-      ],
-      "confidence": 0.625
-    },
-    {
-      "text": ".py7t SS AO] PE",
-      "bbox": [
-        933,
-        254,
-        1122,
-        273
-      ],
-      "confidence": 0.449
-    },
-    {
-      "text": "27] zo) scene_graph_bui Ider title log",
-      "bbox": [
-        719,
-        254,
-        1589,
-        276
-      ],
-      "confidence": 0.875
-    },
-    {
-      "text": "Bel 120049] IT",
-      "bbox": [
-        60,
-        278,
-        172,
-        293
-      ],
-      "confidence": 0.742
-    },
-    {
-      "text": "OF. sharepoint",
-      "bbox": [
-        635,
-        289,
-        727,
-        308
-      ],
-      "confidence": 0.685
-    },
-    {
-      "text": "waa!",
-      "bbox": [
-        60,
-        327,
-        121,
-        342
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "AM",
-      "bbox": [
-        635,
-        339,
-        669,
-        358
-      ],
-      "confidence": 0.74
-    },
-    {
-      "text": "TALS chs Se",
-      "bbox": [
-        677,
-        339,
-        814,
-        358
-      ],
-      "confidence": 0.468
-    },
-    {
-      "text": "BH A",
-      "bbox": [
-        24,
-        371,
-        72,
-        393
-      ],
-      "confidence": 0.52
-    },
-    {
-      "text": "exception",
-      "bbox": [
-        750,
-        386,
-        838,
-        403
-      ],
-      "confidence": 0.92
-    },
-    {
-      "text": "fall error",
-      "bbox": [
-        670,
-        386,
-        905,
-        401
-      ],
-      "confidence": 0.865
-    },
-    {
-      "text": "BE HAE ok cancel submit",
-      "bbox": [
-        670,
-        419,
-        1111,
-        438
-      ],
-      "confidence": 0.902
-    },
-    {
-      "text": "button BE retry",
-      "bbox": [
-        58,
-        421,
-        1199,
-        438
-      ],
-      "confidence": 0.87
-    },
-    {
-      "text": "BD isupperOH title",
-      "bbox": [
-        712,
-        454,
-        922,
-        473
-      ],
-      "confidence": 0.797
-    },
-    {
-      "text": "AS",
-      "bbox": [
-        749,
-        489,
-        783,
-        508
-      ],
-      "confidence": 0.5
-    },
-    {
-      "text": "M2] body/text",
-      "bbox": [
-        791,
-        489,
-        916,
-        511
-      ],
-      "confidence": 0.66
-    },
-    {
-      "text": "Global AMEVA DB Inspector...",
-      "bbox": [
-        39,
-        527,
-        274,
-        545
-      ],
-      "confidence": 0.839
-    },
-    {
-      "text": "U7}",
-      "bbox": [
-        664,
-        539,
-        698,
-        558
-      ],
-      "confidence": 0.63
-    },
-    {
-      "text": "SAAS SHO] ZS $179",
-      "bbox": [
-        765,
-        539,
-        999,
-        558
-      ],
-      "confidence": 0.557
-    },
-    {
-      "text": "OCRO| Ul=",
-      "bbox": [
-        1125,
-        539,
-        1223,
-        558
-      ],
-      "confidence": 0.83
-    },
-    {
-      "text": "a",
-      "bbox": [
-        925,
-        551,
-        938,
-        558
-      ],
-      "confidence": 0.51
-    },
-    {
-      "text": "Traceback",
-      "bbox": [
-        24,
-        573,
-        100,
-        587
-      ],
-      "confidence": 0.9
-    },
-    {
-      "text": "call last): (most",
-      "bbox": [
-        106,
-        573,
-        271,
-        590
-      ],
-      "confidence": 0.917
-    },
-    {
-      "text": "O| 2 74540]",
-      "bbox": [
-        880,
-        574,
-        997,
-        593
-      ],
-      "confidence": 0.405
-    },
-    {
-      "text": "HOF. recent title/log/button 0 sharepoint",
-      "bbox": [
-        154,
-        574,
-        1159,
-        596
-      ],
-      "confidence": 0.784
-    },
-    {
-      "text": "Bhat... vba 2} AES",
-      "bbox": [
-        24,
-        619,
-        264,
-        635
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "Of",
-      "bbox": [
-        137,
-        656,
-        150,
-        691
-      ],
-      "confidence": 0.61
-    },
-    {
-      "text": "Et “ON? Lt",
-      "bbox": [
-        754,
-        686,
-        1423,
-        723
-      ],
-      "confidence": 0.53
-    },
-    {
-      "text": "Xa",
-      "bbox": [
-        25,
-        713,
-        55,
-        728
-      ],
-      "confidence": 0.53
-    },
-    {
-      "text": "VAL",
-      "bbox": [
-        136,
-        713,
-        182,
-        728
-      ],
-      "confidence": 0.42
-    },
-    {
-      "text": "a...",
-      "bbox": [
-        242,
-        713,
-        269,
-        728
-      ],
-      "confidence": 0.4
-    },
-    {
-      "text": "SHAS venv\\Scripts\\python.exe sr...",
-      "bbox": [
-        53,
-        755,
-        783,
-        783
-      ],
-      "confidence": 0.788
-    },
-    {
-      "text": "SAIS",
-      "bbox": [
-        24,
-        805,
-        102,
-        821
-      ],
-      "confidence": 0.32
-    },
-    {
-      "text": "Hm",
-      "bbox": [
-        845,
-        812,
-        880,
-        827
-      ],
-      "confidence": 0.38
-    },
-    {
-      "text": "Al",
-      "bbox": [
-        947,
-        812,
-        963,
-        827
-      ],
-      "confidence": 0.73
-    },
-    {
-      "text": "(SS AB] He ite,",
-      "bbox": [
-        25,
-        851,
-        196,
-        869
-      ],
-      "confidence": 0.482
-    },
-    {
-      "text": "CopilotO]",
-      "bbox": [
-        635,
-        858,
-        715,
-        879
-      ],
-      "confidence": 0.57
-    },
-    {
-      "text": "o",
-      "bbox": [
-        30,
-        917,
-        38,
-        925
+        1040,
+        205,
+        1142,
+        217
       ],
       "confidence": 0.54
     },
     {
-      "text": "Copilot Chat (71)",
+      "text": "여",
       "bbox": [
-        60,
-        929,
-        161,
-        942
+        228,
+        300,
+        238,
+        312
       ],
-      "confidence": 0.725
+      "confidence": 0.92
     },
     {
-      "text": "2 1:00",
+      "text": "기",
       "bbox": [
-        1833,
-        1032,
-        1896,
-        1046
+        241,
+        300,
+        251,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "화",
+      "bbox": [
+        253,
+        300,
+        266,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "면",
+      "bbox": [
+        267,
+        300,
+        277,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "에",
+      "bbox": [
+        280,
+        300,
+        288,
+        312
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "아메바",
+      "bbox": [
+        297,
+        300,
+        402,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "유",
+      "bbox": [
+        339,
+        296,
+        353,
+        321
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "니",
+      "bbox": [
+        352,
+        296,
+        365,
+        321
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "버",
+      "bbox": [
+        364,
+        296,
+        379,
+        321
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "스",
+      "bbox": [
+        378,
+        296,
+        392,
+        321
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "에",
+      "bbox": [
+        391,
+        296,
+        401,
+        321
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "대해서",
+      "bbox": [
+        409,
+        300,
+        445,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "설",
+      "bbox": [
+        452,
+        300,
+        463,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "명",
+      "bbox": [
+        465,
+        300,
+        475,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "해",
+      "bbox": [
+        478,
+        300,
+        488,
+        312
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "줘",
+      "bbox": [
+        492,
+        300,
+        501,
+        312
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "‘Session",
+      "bbox": [
+        40,
+        325,
+        83,
+        334
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "2026-06-16",
+      "bbox": [
+        88,
+        325,
+        154,
+        334
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "1510",
+      "bbox": [
+        159,
+        325,
+        182,
+        334
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "plz",
+      "bbox": [
+        41,
+        342,
+        57,
+        355
       ],
       "confidence": 0.71
     },
     {
-      "text": "2026-06-01",
+      "text": "extract",
       "bbox": [
-        1818,
-        1054,
-        1893,
-        1065
+        62,
+        343,
+        100,
+        352
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "words”",
+      "bbox": [
+        104,
+        342,
+        143,
+        352
+      ],
+      "confidence": 0.55
+    },
+    {
+      "text": "ns",
+      "bbox": [
+        1126,
+        343,
+        1141,
+        351
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "며",
+      "bbox": [
+        41,
+        359,
+        64,
+        371
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "기",
+      "bbox": [
+        52,
+        355,
+        62,
+        380
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "단",
+      "bbox": [
+        71,
+        359,
+        83,
+        371
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "머",
+      "bbox": [
+        84,
+        359,
+        94,
+        371
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "들",
+      "bbox": [
+        97,
+        359,
+        106,
+        371
       ],
       "confidence": 0.95
+    },
+    {
+      "text": "추출",
+      "bbox": [
+        114,
+        359,
+        138,
+        371
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "@",
+      "bbox": [
+        1081,
+        877,
+        1095,
+        894
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "기",
+      "bbox": [
+        272,
+        929,
+        281,
+        940
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "해",
+      "bbox": [
+        642,
+        928,
+        652,
+        942
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "영역",
+      "bbox": [
+        661,
+        929,
+        682,
+        940
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "지정",
+      "bbox": [
+        688,
+        929,
+        709,
+        940
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "|",
+      "bbox": [
+        1023,
+        916,
+        1040,
+        954
+      ],
+      "confidence": 0.76
+    },
+    {
+      "text": "send",
+      "bbox": [
+        1045,
+        916,
+        1090,
+        954
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "|",
+      "bbox": [
+        1106,
+        916,
+        1118,
+        954
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "0",
+      "bbox": [
+        219,
+        963,
+        237,
+        972
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "@",
+      "bbox": [
+        979,
+        965,
+        989,
+        975
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "로컬",
+      "bbox": [
+        995,
+        962,
+        1017,
+        973
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "시",
+      "bbox": [
+        1021,
+        963,
+        1032,
+        972
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "서버",
+      "bbox": [
+        1037,
+        962,
+        1059,
+        973
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "오프라인",
+      "bbox": [
+        1064,
+        962,
+        1110,
+        973
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "BE)",
+      "bbox": [
+        270,
+        999,
+        309,
+        1020
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "…~",
+      "bbox": [
+        329,
+        1006,
+        351,
+        1014
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "ㅇ",
+      "bbox": [
+        358,
+        1003,
+        370,
+        1015
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "9",
+      "bbox": [
+        405,
+        1048,
+        429,
+        1072
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "aie",
+      "bbox": [
+        454,
+        1049,
+        527,
+        1072
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "500000",
+      "bbox": [
+        489,
+        1004,
+        529,
+        1015
+      ],
+      "confidence": 0.63
+    },
+    {
+      "text": "(90000",
+      "bbox": [
+        545,
+        1001,
+        585,
+        1017
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "@2A0",
+      "bbox": [
+        750,
+        1002,
+        803,
+        1016
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "22791",
+      "bbox": [
+        14,
+        1023,
+        39,
+        1034
+      ],
+      "confidence": 0.51
+    },
+    {
+      "text": "항목",
+      "bbox": [
+        44,
+        1022,
+        68,
+        1034
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "|",
+      "bbox": [
+        78,
+        1023,
+        79,
+        1034
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "1",
+      "bbox": [
+        90,
+        1024,
+        94,
+        1033
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "개",
+      "bbox": [
+        97,
+        1023,
+        102,
+        1031
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "항목",
+      "bbox": [
+        112,
+        1022,
+        136,
+        1034
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "선택",
+      "bbox": [
+        141,
+        1023,
+        163,
+        1034
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "28",
+      "bbox": [
+        61,
+        1049,
+        133,
+        1071
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "^",
+      "bbox": [
+        310,
+        1052,
+        328,
+        1068
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "할",
+      "bbox": [
+        164,
+        1022,
+        176,
+        1034
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "|",
+      "bbox": [
+        186,
+        1023,
+        187,
+        1034
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Qanrx",
+      "bbox": [
+        1318,
+        8,
+        1429,
+        24
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "oO",
+      "bbox": [
+        1465,
+        7,
+        1481,
+        23
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": ">",
+      "bbox": [
+        1521,
+        9,
+        1533,
+        22
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "물",
+      "bbox": [
+        1604,
+        0,
+        1617,
+        27
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "어",
+      "bbox": [
+        1616,
+        0,
+        1629,
+        27
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "보기",
+      "bbox": [
+        1628,
+        0,
+        1652,
+        27
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": ":",
+      "bbox": [
+        1725,
+        10,
+        1727,
+        22
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "-",
+      "bbox": [
+        1800,
+        16,
+        1810,
+        17
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "oF",
+      "bbox": [
+        1846,
+        12,
+        1856,
+        22
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "x",
+      "bbox": [
+        1892,
+        12,
+        1902,
+        22
+      ],
+      "confidence": 0.82
+    },
+    {
+      "text": "26",
+      "bbox": [
+        1817,
+        49,
+        1833,
+        61
+      ],
+      "confidence": 0.43
+    },
+    {
+      "text": "모든",
+      "bbox": [
+        1841,
+        49,
+        1865,
+        60
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "북마크",
+      "bbox": [
+        1870,
+        49,
+        1905,
+        60
+      ],
+      "confidence": 0.79
+    },
+    {
+      "text": "며",
+      "bbox": [
+        1366,
+        76,
+        1377,
+        86
+      ],
+      "confidence": 0.56
+    },
+    {
+      "text": "하며",
+      "bbox": [
+        1379,
+        76,
+        1401,
+        86
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "Inference",
+      "bbox": [
+        1408,
+        76,
+        1465,
+        85
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "과",
+      "bbox": [
+        1470,
+        76,
+        1483,
+        86
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "섬",
+      "bbox": [
+        1482,
+        65,
+        1496,
+        96
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "블",
+      "bbox": [
+        1495,
+        76,
+        1504,
+        86
+      ],
+      "confidence": 0.66
+    },
+    {
+      "text": "쇠",
+      "bbox": [
+        1512,
+        76,
+        1523,
+        86
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "석",
+      "bbox": [
+        1525,
+        76,
+        1536,
+        86
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "와",
+      "bbox": [
+        1538,
+        76,
+        1550,
+        86
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "압",
+      "bbox": [
+        1551,
+        76,
+        1564,
+        86
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "니",
+      "bbox": [
+        1563,
+        65,
+        1578,
+        96
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "나.",
+      "bbox": [
+        1577,
+        76,
+        1591,
+        86
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "©",
+      "bbox": [
+        1348,
+        101,
+        1353,
+        106
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "Reliability",
+      "bbox": [
+        1366,
+        99,
+        1427,
+        112
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "by",
+      "bbox": [
+        1431,
+        99,
+        1447,
+        112
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Design:",
+      "bbox": [
+        1451,
+        99,
+        1497,
+        112
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "시",
+      "bbox": [
+        1501,
+        99,
+        1513,
+        109
+      ],
+      "confidence": 0.77
+    },
+    {
+      "text": "추론",
+      "bbox": [
+        1518,
+        97,
+        1543,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "과",
+      "bbox": [
+        1547,
+        97,
+        1560,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "정",
+      "bbox": [
+        1573,
+        97,
+        1586,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "을",
+      "bbox": [
+        1572,
+        90,
+        1582,
+        119
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "하",
+      "bbox": [
+        1590,
+        97,
+        1602,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "나",
+      "bbox": [
+        1603,
+        97,
+        1615,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "의",
+      "bbox": [
+        1617,
+        97,
+        1627,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Mission-critical",
+      "bbox": [
+        1633,
+        99,
+        1724,
+        109
+      ],
+      "confidence": 0.39
+    },
+    {
+      "text": "utility",
+      "bbox": [
+        1729,
+        98,
+        1776,
+        112
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "간",
+      "bbox": [
+        1780,
+        97,
+        1792,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "주",
+      "bbox": [
+        1793,
+        98,
+        1805,
+        110
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "하고,",
+      "bbox": [
+        1806,
+        90,
+        1837,
+        119
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Site",
+      "bbox": [
+        1365,
+        120,
+        1388,
+        130
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "Reliability",
+      "bbox": [
+        1393,
+        120,
+        1451,
+        133
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "Engineering",
+      "bbox": [
+        1456,
+        120,
+        1528,
+        133
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "(SRE)",
+      "bbox": [
+        1533,
+        120,
+        1563,
+        132
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "뭔",
+      "bbox": [
+        1568,
+        118,
+        1579,
+        131
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "칙",
+      "bbox": [
+        1581,
+        118,
+        1606,
+        131
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "을",
+      "bbox": [
+        1593,
+        114,
+        1603,
+        141
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "적",
+      "bbox": [
+        1610,
+        118,
+        1622,
+        131
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "용",
+      "bbox": [
+        1623,
+        118,
+        1635,
+        131
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "합니다.",
+      "bbox": [
+        1636,
+        118,
+        1677,
+        131
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "@",
+      "bbox": [
+        1341,
+        192,
+        1360,
+        211
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "The",
+      "bbox": [
+        1370,
+        193,
+        1405,
+        209
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        1411,
+        194,
+        1482,
+        209
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Universe",
+      "bbox": [
+        1489,
+        193,
+        1569,
+        209
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Role",
+      "bbox": [
+        1498,
+        249,
+        1526,
+        259
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "in",
+      "bbox": [
+        1530,
+        249,
+        1541,
+        259
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "Core",
+      "bbox": [
+        1667,
+        260,
+        1675,
+        270
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "Innovatior",
+      "bbox": [
+        1701,
+        260,
+        1760,
+        270
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "Project",
+      "bbox": [
+        1373,
+        248,
+        1424,
+        280
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "‘ore",
+      "bbox": [
+        1675,
+        263,
+        1697,
+        270
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "Int",
+      "bbox": [
+        1705,
+        263,
+        1712,
+        270
+      ],
+      "confidence": 0.62
+    },
+    {
+      "text": "Agent",
+      "bbox": [
+        1351,
+        304,
+        1389,
+        318
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "orchestrator",
+      "bbox": [
+        1473,
+        315,
+        1551,
+        325
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "task",
+      "bbox": [
+        1669,
+        304,
+        1694,
+        314
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "decomposition",
+      "bbox": [
+        1698,
+        304,
+        1790,
+        317
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "&",
+      "bbox": [
+        1794,
+        304,
+        1806,
+        314
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Orchestra",
+      "bbox": [
+        1351,
+        313,
+        1411,
+        345
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "jestrat",
+      "bbox": [
+        1503,
+        316,
+        1537,
+        325
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "‘Agent",
+      "bbox": [
+        1593,
+        325,
+        1631,
+        338
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "management",
+      "bbox": [
+        1635,
+        326,
+        1716,
+        338
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Unified",
+      "bbox": [
+        1594,
+        359,
+        1637,
+        369
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "API",
+      "bbox": [
+        1641,
+        359,
+        1661,
+        369
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "gateway",
+      "bbox": [
+        1666,
+        360,
+        1718,
+        372
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "with",
+      "bbox": [
+        1732,
+        359,
+        1747,
+        369
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "SRE-based",
+      "bbox": [
+        1751,
+        359,
+        1816,
+        369
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Model",
+      "bbox": [
+        1352,
+        370,
+        1391,
+        380
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Nexus",
+      "bbox": [
+        1396,
+        370,
+        1434,
+        380
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "Infrastructure",
+      "bbox": [
+        1474,
+        370,
+        1556,
+        380
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "미",
+      "bbox": [
+        1603,
+        362,
+        1610,
+        369
+      ],
+      "confidence": 0.69
+    },
+    {
+      "text": "wi",
+      "bbox": [
+        1721,
+        362,
+        1731,
+        369
+      ],
+      "confidence": 0.32
+    },
+    {
+      "text": "aa",
+      "bbox": [
+        1347,
+        368,
+        1435,
+        400
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "‘dynamic",
+      "bbox": [
+        1593,
+        380,
+        1645,
+        393
+      ],
+      "confidence": 0.73
+    },
+    {
+      "text": "throttling",
+      "bbox": [
+        1649,
+        380,
+        1707,
+        393
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Benchmark",
+      "bbox": [
+        1348,
+        402,
+        1422,
+        434
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Empirical",
+      "bbox": [
+        1594,
+        414,
+        1649,
+        427
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "power/performance",
+      "bbox": [
+        1654,
+        414,
+        1776,
+        427
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "profiling",
+      "bbox": [
+        1780,
+        414,
+        1831,
+        427
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Validation",
+      "bbox": [
+        1473,
+        425,
+        1534,
+        435
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "Suite",
+      "bbox": [
+        1351,
+        435,
+        1382,
+        445
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "for",
+      "bbox": [
+        1593,
+        435,
+        1611,
+        445
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "edge",
+      "bbox": [
+        1615,
+        435,
+        1646,
+        448
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "hardware",
+      "bbox": [
+        1650,
+        435,
+        1707,
+        445
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Privacy-first",
+      "bbox": [
+        1594,
+        469,
+        1665,
+        482
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "offiine",
+      "bbox": [
+        1669,
+        469,
+        1708,
+        479
+      ],
+      "confidence": 0.8
+    },
+    {
+      "text": "document",
+      "bbox": [
+        1712,
+        469,
+        1775,
+        479
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "Doc",
+      "bbox": [
+        1352,
+        480,
+        1375,
+        490
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "Al",
+      "bbox": [
+        1380,
+        480,
+        1392,
+        490
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "Interface",
+      "bbox": [
+        1474,
+        480,
+        1527,
+        490
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "intelligence",
+      "bbox": [
+        1594,
+        490,
+        1664,
+        503
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "pipeline",
+      "bbox": [
+        1668,
+        490,
+        1717,
+        503
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Remote",
+      "bbox": [
+        1594,
+        524,
+        1641,
+        534
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "cross-platform",
+      "bbox": [
+        1645,
+        524,
+        1734,
+        537
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Ul",
+      "bbox": [
+        1739,
+        524,
+        1751,
+        534
+      ],
+      "confidence": 0.81
+    },
+    {
+      "text": "for",
+      "bbox": [
+        1756,
+        524,
+        1774,
+        534
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "human-",
+      "bbox": [
+        1778,
+        524,
+        1825,
+        534
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Conductor",
+      "bbox": [
+        1351,
+        523,
+        1418,
+        555
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Control",
+      "bbox": [
+        1473,
+        524,
+        1518,
+        555
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "ee",
+      "bbox": [
+        1351,
+        533,
+        1422,
+        565
+      ],
+      "confidence": 0.4
+    },
+    {
+      "text": "agent",
+      "bbox": [
+        1593,
+        546,
+        1629,
+        558
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "interaction",
+      "bbox": [
+        1633,
+        546,
+        1698,
+        555
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Data",
+      "bbox": [
+        1347,
+        568,
+        1385,
+        600
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Hyper-resilient,",
+      "bbox": [
+        1594,
+        579,
+        1687,
+        592
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "zero-loss",
+      "bbox": [
+        1691,
+        579,
+        1747,
+        589
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "edge",
+      "bbox": [
+        1751,
+        579,
+        1782,
+        592
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Harvester",
+      "bbox": [
+        1352,
+        588,
+        1412,
+        620
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "forwarder",
+      "bbox": [
+        1593,
+        600,
+        1654,
+        610
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "with",
+      "bbox": [
+        1657,
+        600,
+        1683,
+        610
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "multi-transport",
+      "bbox": [
+        1688,
+        600,
+        1781,
+        613
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "backup",
+      "bbox": [
+        1785,
+        600,
+        1829,
+        613
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Lightweight",
+      "bbox": [
+        1594,
+        634,
+        1666,
+        647
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "SQLite",
+      "bbox": [
+        1670,
+        634,
+        1710,
+        645
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "&",
+      "bbox": [
+        1714,
+        634,
+        1725,
+        644
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "log",
+      "bbox": [
+        1729,
+        634,
+        1748,
+        647
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "inspector",
+      "bbox": [
+        1753,
+        635,
+        1810,
+        647
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "for",
+      "bbox": [
+        1813,
+        634,
+        1831,
+        644
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "02066",
+      "bbox": [
+        1473,
+        645,
+        1527,
+        658
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "distributed",
+      "bbox": [
+        1593,
+        655,
+        1660,
+        665
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        1664,
+        655,
+        1710,
+        665
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "ecosystem",
+      "bbox": [
+        1714,
+        656,
+        1778,
+        668
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Whisper-based",
+      "bbox": [
+        1593,
+        689,
+        1686,
+        702
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "Korean",
+      "bbox": [
+        1691,
+        689,
+        1733,
+        699
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "STT",
+      "bbox": [
+        1738,
+        677,
+        1757,
+        709
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "with",
+      "bbox": [
+        1765,
+        677,
+        1789,
+        709
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "LRA",
+      "bbox": [
+        1794,
+        689,
+        1826,
+        699
+      ],
+      "confidence": 0.64
+    },
+    {
+      "text": "Perception",
+      "bbox": [
+        1474,
+        700,
+        1538,
+        713
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "fine-tuning",
+      "bbox": [
+        1593,
+        710,
+        1662,
+        723
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "STT",
+      "bbox": [
+        1351,
+        744,
+        1374,
+        754
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "Agent",
+      "bbox": [
+        1396,
+        745,
+        1417,
+        754
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Perception",
+      "bbox": [
+        1470,
+        732,
+        1542,
+        764
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Speech",
+      "bbox": [
+        1594,
+        744,
+        1638,
+        757
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "recognition",
+      "bbox": [
+        1642,
+        744,
+        1712,
+        757
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "agent",
+      "bbox": [
+        1716,
+        745,
+        1752,
+        757
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "integration",
+      "bbox": [
+        1756,
+        744,
+        1823,
+        757
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Windows-native",
+      "bbox": [
+        1593,
+        778,
+        1693,
+        788
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "local",
+      "bbox": [
+        1697,
+        778,
+        1725,
+        788
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Al",
+      "bbox": [
+        1729,
+        778,
+        1741,
+        788
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "desktop",
+      "bbox": [
+        1746,
+        778,
+        1795,
+        791
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Interface",
+      "bbox": [
+        1474,
+        788,
+        1527,
+        819
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "assistant",
+      "bbox": [
+        1593,
+        800,
+        1646,
+        809
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "with",
+      "bbox": [
+        1650,
+        799,
+        1676,
+        809
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "screen",
+      "bbox": [
+        1740,
+        802,
+        1780,
+        809
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Assistant",
+      "bbox": [
+        1347,
+        809,
+        1413,
+        837
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "understanding",
+      "bbox": [
+        1594,
+        820,
+        1683,
+        833
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Dead",
+      "bbox": [
+        1352,
+        854,
+        1383,
+        864
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Internet",
+      "bbox": [
+        1389,
+        854,
+        1438,
+        864
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Fully",
+      "bbox": [
+        1594,
+        854,
+        1622,
+        867
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "autonomous",
+      "bbox": [
+        1625,
+        855,
+        1704,
+        864
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Docker-based",
+      "bbox": [
+        1708,
+        854,
+        1793,
+        864
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "multi-",
+      "bbox": [
+        1798,
+        854,
+        1834,
+        864
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Simulation",
+      "bbox": [
+        1473,
+        865,
+        1538,
+        875
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "Theatre",
+      "bbox": [
+        1351,
+        863,
+        1399,
+        895
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "agent",
+      "bbox": [
+        1593,
+        876,
+        1629,
+        888
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "simulation",
+      "bbox": [
+        1633,
+        875,
+        1696,
+        885
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": ".",
+      "bbox": [
+        1512,
+        920,
+        1515,
+        921
+      ],
+      "confidence": 0.37
+    },
+    {
+      "text": "BitNet",
+      "bbox": [
+        1594,
+        909,
+        1632,
+        919
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "inference",
+      "bbox": [
+        1636,
+        909,
+        1693,
+        919
+      ],
+      "confidence": 0.86
+    },
+    {
+      "text": "framework",
+      "bbox": [
+        1696,
+        909,
+        1763,
+        919
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "with",
+      "bbox": [
+        1766,
+        909,
+        1792,
+        919
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "itNet",
+      "bbox": [
+        1359,
+        908,
+        1391,
+        940
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "Optimization",
+      "bbox": [
+        1473,
+        920,
+        1553,
+        933
+      ],
+      "confidence": 0.81
+    },
+    {
+      "text": "ARM/Exynos",
+      "bbox": [
+        1593,
+        930,
+        1671,
+        943
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "scalar",
+      "bbox": [
+        1675,
+        930,
+        1710,
+        940
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "fallback",
+      "bbox": [
+        1713,
+        930,
+        1761,
+        940
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "@",
+      "bbox": [
+        1340,
+        979,
+        1358,
+        996
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "AMEVA",
+      "bbox": [
+        1366,
+        981,
+        1425,
+        994
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "Core",
+      "bbox": [
+        1430,
+        981,
+        1467,
+        994
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Infrastructure",
+      "bbox": [
+        1473,
+        980,
+        1579,
+        994
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "AMEVAS|",
+      "bbox": [
+        1337,
+        1018,
+        1394,
+        1031
+      ],
+      "confidence": 0.85
+    },
+    {
+      "text": "구",
+      "bbox": [
+        1400,
+        1019,
+        1412,
+        1031
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "조",
+      "bbox": [
+        1413,
+        1019,
+        1425,
+        1030
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "를",
+      "bbox": [
+        1425,
+        1019,
+        1434,
+        1031
+      ],
+      "confidence": 0.97
+    },
+    {
+      "text": "먼저",
+      "bbox": [
+        1443,
+        1018,
+        1467,
+        1031
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "구",
+      "bbox": [
+        1472,
+        1019,
+        1484,
+        1031
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "경",
+      "bbox": [
+        1485,
+        1018,
+        1496,
+        1031
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "하세요!",
+      "bbox": [
+        1498,
+        1018,
+        1536,
+        1031
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "23301",
+      "bbox": [
+        1801,
+        1045,
+        1851,
+        1056
+      ],
+      "confidence": 0.78
+    },
+    {
+      "text": "2026-06-16",
+      "bbox": [
+        1794,
+        1064,
+        1860,
+        1073
+      ],
+      "confidence": 0.64
+    }
+  ],
+  "ocr_cleaned": [
+    {
+      "text": "물 어 보기",
+      "bbox": [
+        1604,
+        0,
+        1652,
+        27
+      ],
+      "confidence": 0.935
+    },
+    {
+      "text": "로",
+      "bbox": [
+        2,
+        3,
+        15,
+        19
+      ],
+      "confidence": 0.31
+    },
+    {
+      "text": "oO",
+      "bbox": [
+        1465,
+        7,
+        1481,
+        23
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "github.com/uno-km Qanrx",
+      "bbox": [
+        1174,
+        8,
+        1429,
+        25
+      ],
+      "confidence": 0.515
+    },
+    {
+      "text": "oF",
+      "bbox": [
+        1846,
+        12,
+        1856,
+        22
+      ],
+      "confidence": 0.35
+    },
+    {
+      "text": "x",
+      "bbox": [
+        1892,
+        12,
+        1902,
+        22
+      ],
+      "confidence": 0.82
+    },
+    {
+      "text": "26 모든 북마크",
+      "bbox": [
+        1817,
+        49,
+        1905,
+        61
+      ],
+      "confidence": 0.7
+    },
+    {
+      "text": "dey",
+      "bbox": [
+        341,
+        50,
+        360,
+        78
+      ],
+      "confidence": 0.76
+    },
+    {
+      "text": "대 se",
+      "bbox": [
+        980,
+        55,
+        995,
+        89
+      ],
+      "confidence": 0.465
+    },
+    {
+      "text": "ao",
+      "bbox": [
+        1029,
+        56,
+        1043,
+        62
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "며 하며 Inference 과 섬 블 쇠 석 와 압 니 나.",
+      "bbox": [
+        1366,
+        65,
+        1591,
+        96
+      ],
+      "confidence": 0.935
+    },
+    {
+      "text": "Reliability by Design: 시 추론 과 을 정 하 나 의 Mission-critical utility 간 주 하고,",
+      "bbox": [
+        1366,
+        90,
+        1837,
+        119
+      ],
+      "confidence": 0.923
+    },
+    {
+      "text": "Sungnamcity",
+      "bbox": [
+        1064,
+        93,
+        1145,
+        106
+      ],
+      "confidence": 0.53
+    },
+    {
+      "text": "4 SANTI",
+      "bbox": [
+        28,
+        105,
+        91,
+        116
+      ],
+      "confidence": 0.6
+    },
+    {
+      "text": "Site Reliability Engineering (SRE) 뭔 칙 을 적 용 합니다.",
+      "bbox": [
+        1365,
+        114,
+        1677,
+        141
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "mie 화면",
+      "bbox": [
+        32,
+        129,
+        104,
+        141
+      ],
+      "confidence": 0.675
+    },
+    {
+      "text": "hitps//uno-km.github.io/uno-km/",
+      "bbox": [
+        1065,
+        151,
+        1276,
+        164
+      ],
+      "confidence": 0.45
+    },
+    {
+      "text": "Bex",
+      "bbox": [
+        34,
+        175,
+        76,
+        191
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "The AMEVA Universe",
+      "bbox": [
+        1370,
+        193,
+        1569,
+        209
+      ],
+      "confidence": 0.945
+    },
+    {
+      "text": "Achievements:",
+      "bbox": [
+        1040,
+        205,
+        1142,
+        217
+      ],
+      "confidence": 0.54
+    },
+    {
+      "text": "Project",
+      "bbox": [
+        1373,
+        248,
+        1424,
+        280
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Role in",
+      "bbox": [
+        1498,
+        249,
+        1541,
+        259
+      ],
+      "confidence": 0.72
+    },
+    {
+      "text": "Core ‘ore Innovatior Int",
+      "bbox": [
+        1667,
+        260,
+        1760,
+        270
+      ],
+      "confidence": 0.672
+    },
+    {
+      "text": "여 기 화 면 에 아메바 유 니 버 스 에 대해서 설 명 해 줘",
+      "bbox": [
+        228,
+        296,
+        501,
+        321
+      ],
+      "confidence": 0.915
+    },
+    {
+      "text": "Agent",
+      "bbox": [
+        1351,
+        304,
+        1389,
+        318
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "task decomposition",
+      "bbox": [
+        1669,
+        304,
+        1790,
+        317
+      ],
+      "confidence": 0.915
+    },
+    {
+      "text": "Orchestra",
+      "bbox": [
+        1351,
+        313,
+        1411,
+        345
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "orchestrator jestrat",
+      "bbox": [
+        1473,
+        315,
+        1551,
+        325
+      ],
+      "confidence": 0.47
+    },
+    {
+      "text": "‘Session 2026-06-16 1510",
+      "bbox": [
+        40,
+        325,
+        182,
+        334
+      ],
+      "confidence": 0.728
+    },
+    {
+      "text": "‘Agent management",
+      "bbox": [
+        1593,
+        325,
+        1716,
+        338
+      ],
+      "confidence": 0.895
+    },
+    {
+      "text": "plz extract words”",
+      "bbox": [
+        41,
+        342,
+        143,
+        355
+      ],
+      "confidence": 0.693
+    },
+    {
+      "text": "ns",
+      "bbox": [
+        1126,
+        343,
+        1141,
+        351
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "며 기 단 머 들 추출",
+      "bbox": [
+        41,
+        355,
+        138,
+        380
+      ],
+      "confidence": 0.943
+    },
+    {
+      "text": "‘dynamic Unified 미 API throttling gateway wi with SRE-based",
+      "bbox": [
+        1593,
+        359,
+        1816,
+        393
+      ],
+      "confidence": 0.847
+    },
+    {
+      "text": "aa Model Nexus",
+      "bbox": [
+        1347,
+        368,
+        1435,
+        400
+      ],
+      "confidence": 0.812
+    },
+    {
+      "text": "Infrastructure",
+      "bbox": [
+        1474,
+        370,
+        1556,
+        380
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "Benchmark",
+      "bbox": [
+        1348,
+        402,
+        1422,
+        434
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Empirical power/performance profiling",
+      "bbox": [
+        1594,
+        414,
+        1831,
+        427
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Validation",
+      "bbox": [
+        1473,
+        425,
+        1534,
+        435
+      ],
+      "confidence": 0.84
+    },
+    {
+      "text": "Suite",
+      "bbox": [
+        1351,
+        435,
+        1382,
+        445
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "for edge hardware",
+      "bbox": [
+        1593,
+        435,
+        1707,
+        448
+      ],
+      "confidence": 0.915
+    },
+    {
+      "text": "Privacy-first offiine document",
+      "bbox": [
+        1594,
+        469,
+        1775,
+        482
+      ],
+      "confidence": 0.77
+    },
+    {
+      "text": "Doc Al",
+      "bbox": [
+        1352,
+        480,
+        1392,
+        490
+      ],
+      "confidence": 0.67
+    },
+    {
+      "text": "Interface",
+      "bbox": [
+        1474,
+        480,
+        1527,
+        490
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "intelligence pipeline",
+      "bbox": [
+        1594,
+        490,
+        1717,
+        503
+      ],
+      "confidence": 0.935
+    },
+    {
+      "text": "Conductor ee Control",
+      "bbox": [
+        1351,
+        523,
+        1518,
+        565
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "agent Remote interaction cross-platform Ul for human-",
+      "bbox": [
+        1593,
+        524,
+        1825,
+        558
+      ],
+      "confidence": 0.889
+    },
+    {
+      "text": "Data",
+      "bbox": [
+        1347,
+        568,
+        1385,
+        600
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Hyper-resilient, zero-loss edge",
+      "bbox": [
+        1594,
+        579,
+        1782,
+        592
+      ],
+      "confidence": 0.917
+    },
+    {
+      "text": "Harvester",
+      "bbox": [
+        1352,
+        588,
+        1412,
+        620
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "forwarder with multi-transport backup",
+      "bbox": [
+        1593,
+        600,
+        1829,
+        613
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Lightweight SQLite log inspector for",
+      "bbox": [
+        1594,
+        634,
+        1831,
+        647
+      ],
+      "confidence": 0.937
+    },
+    {
+      "text": "02066",
+      "bbox": [
+        1473,
+        645,
+        1527,
+        658
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "distributed AMEVA ecosystem",
+      "bbox": [
+        1593,
+        655,
+        1778,
+        668
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Whisper-based Korean STT with LRA",
+      "bbox": [
+        1593,
+        677,
+        1826,
+        709
+      ],
+      "confidence": 0.74
+    },
+    {
+      "text": "Perception",
+      "bbox": [
+        1474,
+        700,
+        1538,
+        713
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "fine-tuning",
+      "bbox": [
+        1593,
+        710,
+        1662,
+        723
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Perception",
+      "bbox": [
+        1470,
+        732,
+        1542,
+        764
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "STT",
+      "bbox": [
+        1351,
+        744,
+        1374,
+        754
+      ],
+      "confidence": 0.83
+    },
+    {
+      "text": "Speech recognition agent integration",
+      "bbox": [
+        1594,
+        744,
+        1823,
+        757
+      ],
+      "confidence": 0.938
+    },
+    {
+      "text": "Agent",
+      "bbox": [
+        1396,
+        745,
+        1417,
+        754
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Windows-native local Al desktop",
+      "bbox": [
+        1593,
+        778,
+        1795,
+        791
+      ],
+      "confidence": 0.912
+    },
+    {
+      "text": "Interface",
+      "bbox": [
+        1474,
+        788,
+        1527,
+        819
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "assistant with",
+      "bbox": [
+        1593,
+        799,
+        1676,
+        809
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "screen",
+      "bbox": [
+        1740,
+        802,
+        1780,
+        809
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Assistant",
+      "bbox": [
+        1347,
+        809,
+        1413,
+        837
+      ],
+      "confidence": 0.87
+    },
+    {
+      "text": "understanding",
+      "bbox": [
+        1594,
+        820,
+        1683,
+        833
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Dead Internet",
+      "bbox": [
+        1352,
+        854,
+        1438,
+        864
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Fully autonomous Docker-based multi-",
+      "bbox": [
+        1594,
+        854,
+        1834,
+        867
+      ],
+      "confidence": 0.903
+    },
+    {
+      "text": "Theatre",
+      "bbox": [
+        1351,
+        863,
+        1399,
+        895
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Simulation",
+      "bbox": [
+        1473,
+        865,
+        1538,
+        875
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "agent simulation",
+      "bbox": [
+        1593,
+        875,
+        1696,
+        888
+      ],
+      "confidence": 0.815
+    },
+    {
+      "text": "itNet",
+      "bbox": [
+        1359,
+        908,
+        1391,
+        940
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "ARM/Exynos BitNet inference scalar framework fallback with",
+      "bbox": [
+        1593,
+        909,
+        1792,
+        943
+      ],
+      "confidence": 0.944
+    },
+    {
+      "text": "send",
+      "bbox": [
+        1045,
+        916,
+        1090,
+        954
+      ],
+      "confidence": 0.34
+    },
+    {
+      "text": "Optimization",
+      "bbox": [
+        1473,
+        920,
+        1553,
+        933
+      ],
+      "confidence": 0.81
+    },
+    {
+      "text": "해 영역 지정",
+      "bbox": [
+        642,
+        928,
+        709,
+        942
+      ],
+      "confidence": 0.632
+    },
+    {
+      "text": "기",
+      "bbox": [
+        272,
+        929,
+        281,
+        940
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "로컬 시 서버 오프라인",
+      "bbox": [
+        995,
+        962,
+        1110,
+        973
+      ],
+      "confidence": 0.943
+    },
+    {
+      "text": "0",
+      "bbox": [
+        219,
+        963,
+        237,
+        972
+      ],
+      "confidence": 0.44
+    },
+    {
+      "text": "AMEVA Core Infrastructure",
+      "bbox": [
+        1366,
+        980,
+        1579,
+        994
+      ],
+      "confidence": 0.932
+    },
+    {
+      "text": "BE)",
+      "bbox": [
+        270,
+        999,
+        309,
+        1020
+      ],
+      "confidence": 0.42
+    },
+    {
+      "text": "500000 (90000",
+      "bbox": [
+        489,
+        1001,
+        585,
+        1017
+      ],
+      "confidence": 0.5
+    },
+    {
+      "text": "@2A0",
+      "bbox": [
+        750,
+        1002,
+        803,
+        1016
+      ],
+      "confidence": 0.68
+    },
+    {
+      "text": "AMEVAS| 구 조 를 먼저 구 경 하세요!",
+      "bbox": [
+        1337,
+        1018,
+        1536,
+        1031
+      ],
+      "confidence": 0.919
+    },
+    {
+      "text": "22791 항목",
+      "bbox": [
+        14,
+        1022,
+        68,
+        1034
+      ],
+      "confidence": 0.685
+    },
+    {
+      "text": "1 개 항목 선택 할",
+      "bbox": [
+        90,
+        1022,
+        176,
+        1034
+      ],
+      "confidence": 0.654
+    },
+    {
+      "text": "2026-06-16 23301",
+      "bbox": [
+        1794,
+        1045,
+        1860,
+        1073
+      ],
+      "confidence": 0.71
+    },
+    {
+      "text": "9 aie",
+      "bbox": [
+        405,
+        1048,
+        527,
+        1072
+      ],
+      "confidence": 0.65
+    },
+    {
+      "text": "28",
+      "bbox": [
+        61,
+        1049,
+        133,
+        1071
+      ],
+      "confidence": 0.53
     }
   ],
   "scene_graph": {
@@ -1954,569 +3664,998 @@
         {
           "role": "text",
           "bbox": [
-            23,
-            24,
-            46,
-            45
+            1604,
+            0,
+            1652,
+            27
           ],
-          "text": "a",
-          "confidence": 0.66
+          "text": "물 어 보기",
+          "confidence": 0.935
+        },
+        {
+          "role": "text",
+          "bbox": [
+            2,
+            3,
+            15,
+            19
+          ],
+          "text": "로",
+          "confidence": 0.31
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1465,
+            7,
+            1481,
+            23
+          ],
+          "text": "oO",
+          "confidence": 0.41
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1174,
+            8,
+            1429,
+            25
+          ],
+          "text": "github.com/uno-km Qanrx",
+          "confidence": 0.515
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1846,
+            12,
+            1856,
+            22
+          ],
+          "text": "oF",
+          "confidence": 0.35
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1892,
+            12,
+            1902,
+            22
+          ],
+          "text": "x",
+          "confidence": 0.82
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1817,
+            49,
+            1905,
+            61
+          ],
+          "text": "26 모든 북마크",
+          "confidence": 0.7
+        },
+        {
+          "role": "text",
+          "bbox": [
+            341,
+            50,
+            360,
+            78
+          ],
+          "text": "dey",
+          "confidence": 0.76
+        },
+        {
+          "role": "text",
+          "bbox": [
+            980,
+            55,
+            995,
+            89
+          ],
+          "text": "대 se",
+          "confidence": 0.465
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1029,
+            56,
+            1043,
+            62
+          ],
+          "text": "ao",
+          "confidence": 0.44
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1366,
+            65,
+            1591,
+            96
+          ],
+          "text": "며 하며 Inference 과 섬 블 쇠 석 와 압 니 나.",
+          "confidence": 0.935
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1366,
+            90,
+            1837,
+            119
+          ],
+          "text": "Reliability by Design: 시 추론 과 을 정 하 나 의 Mission-critical utility 간 주 하고,",
+          "confidence": 0.923
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1064,
+            93,
+            1145,
+            106
+          ],
+          "text": "Sungnamcity",
+          "confidence": 0.53
         },
         {
           "role": "title",
           "bbox": [
-            25,
-            84,
-            109,
-            105
+            28,
+            105,
+            91,
+            116
           ],
-          "text": "O AE",
-          "confidence": 0.695
+          "text": "4 SANTI",
+          "confidence": 0.6
         },
         {
           "role": "text",
           "bbox": [
-            430,
-            90,
-            478,
-            104
+            1365,
+            114,
+            1677,
+            141
           ],
-          "text": "Global",
-          "confidence": 0.96
+          "text": "Site Reliability Engineering (SRE) 뭔 칙 을 적 용 합니다.",
+          "confidence": 0.93
         },
         {
           "role": "text",
           "bbox": [
-            368,
-            90,
-            1670,
-            108
+            32,
+            129,
+            104,
+            141
           ],
-          "text": "Think AMEVA DB Inspector 1. (Ov GPT 5.2",
-          "confidence": 0.957
+          "text": "mie 화면",
+          "confidence": 0.675
         },
         {
           "role": "text",
           "bbox": [
-            27,
-            131,
-            88,
-            149
+            1065,
+            151,
+            1276,
+            164
           ],
-          "text": "Q as",
-          "confidence": 0.685
+          "text": "hitps//uno-km.github.io/uno-km/",
+          "confidence": 0.45
         }
       ],
       "sidebar": [
         {
           "role": "text",
           "bbox": [
-            25,
-            174,
-            46,
-            195
+            34,
+            175,
+            76,
+            191
           ],
-          "text": "(0)",
-          "confidence": 0.36
+          "text": "Bex",
+          "confidence": 0.72
         },
         {
           "role": "text",
           "bbox": [
-            60,
-            278,
-            172,
-            293
+            228,
+            296,
+            501,
+            321
           ],
-          "text": "Bel 120049] IT",
-          "confidence": 0.742
+          "text": "여 기 화 면 에 아메바 유 니 버 스 에 대해서 설 명 해 줘",
+          "confidence": 0.915
         },
         {
           "role": "text",
           "bbox": [
-            60,
-            327,
-            121,
-            342
-          ],
-          "text": "waa!",
-          "confidence": 0.42
-        },
-        {
-          "role": "title",
-          "bbox": [
-            24,
-            371,
-            72,
-            393
-          ],
-          "text": "BH A",
-          "confidence": 0.52
-        },
-        {
-          "role": "text",
-          "bbox": [
-            39,
-            527,
-            274,
-            545
-          ],
-          "text": "Global AMEVA DB Inspector...",
-          "confidence": 0.839
-        },
-        {
-          "role": "text",
-          "bbox": [
-            24,
-            573,
-            100,
-            587
-          ],
-          "text": "Traceback",
-          "confidence": 0.9
-        },
-        {
-          "role": "text",
-          "bbox": [
-            106,
-            573,
-            271,
-            590
-          ],
-          "text": "call last): (most",
-          "confidence": 0.917
-        },
-        {
-          "role": "text",
-          "bbox": [
-            24,
-            619,
-            264,
-            635
-          ],
-          "text": "Bhat... vba 2} AES",
-          "confidence": 0.61
-        },
-        {
-          "role": "text",
-          "bbox": [
-            137,
-            656,
-            150,
-            691
-          ],
-          "text": "Of",
-          "confidence": 0.61
-        },
-        {
-          "role": "text",
-          "bbox": [
-            25,
-            713,
-            55,
-            728
-          ],
-          "text": "Xa",
-          "confidence": 0.53
-        },
-        {
-          "role": "title",
-          "bbox": [
-            136,
-            713,
+            40,
+            325,
             182,
-            728
+            334
           ],
-          "text": "VAL",
-          "confidence": 0.42
+          "text": "‘Session 2026-06-16 1510",
+          "confidence": 0.728
         },
         {
           "role": "text",
           "bbox": [
-            242,
-            713,
-            269,
-            728
+            41,
+            342,
+            143,
+            355
           ],
-          "text": "a...",
-          "confidence": 0.4
+          "text": "plz extract words”",
+          "confidence": 0.693
         },
         {
           "role": "text",
           "bbox": [
-            53,
-            755,
-            783,
-            783
+            41,
+            355,
+            138,
+            380
           ],
-          "text": "SHAS venv\\Scripts\\python.exe sr...",
-          "confidence": 0.788
+          "text": "며 기 단 머 들 추출",
+          "confidence": 0.943
+        },
+        {
+          "role": "text",
+          "bbox": [
+            272,
+            929,
+            281,
+            940
+          ],
+          "text": "기",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            219,
+            963,
+            237,
+            972
+          ],
+          "text": "0",
+          "confidence": 0.44
         },
         {
           "role": "title",
           "bbox": [
-            24,
-            805,
-            102,
-            821
+            270,
+            999,
+            309,
+            1020
           ],
-          "text": "SAIS",
-          "confidence": 0.32
+          "text": "BE)",
+          "confidence": 0.42
+        }
+      ],
+      "body": [
+        {
+          "role": "text",
+          "bbox": [
+            1370,
+            193,
+            1569,
+            209
+          ],
+          "text": "The AMEVA Universe",
+          "confidence": 0.945
         },
         {
           "role": "text",
           "bbox": [
-            25,
-            851,
-            196,
-            869
+            1040,
+            205,
+            1142,
+            217
           ],
-          "text": "(SS AB] He ite,",
-          "confidence": 0.482
-        },
-        {
-          "role": "text",
-          "bbox": [
-            30,
-            917,
-            38,
-            925
-          ],
-          "text": "o",
+          "text": "Achievements:",
           "confidence": 0.54
         },
         {
           "role": "text",
           "bbox": [
-            60,
-            929,
-            161,
-            942
+            1373,
+            248,
+            1424,
+            280
           ],
-          "text": "Copilot Chat (71)",
-          "confidence": 0.725
-        }
-      ],
-      "body": [
-        {
-          "role": "title",
-          "bbox": [
-            666,
-            159,
-            818,
-            179
-          ],
-          "text": "ASS SAE 07H,",
-          "confidence": 0.542
-        },
-        {
-          "role": "title",
-          "bbox": [
-            912,
-            159,
-            1065,
-            179
-          ],
-          "text": "07H, HES SAE",
-          "confidence": 0.695
-        },
-        {
-          "role": "title",
-          "bbox": [
-            677,
-            219,
-            756,
-            238
-          ],
-          "text": "**\"OCRO|",
-          "confidence": 0.68
-        },
-        {
-          "role": "title",
-          "bbox": [
-            970,
-            219,
-            1003,
-            238
-          ],
-          "text": "SEO]",
-          "confidence": 0.66
-        },
-        {
-          "role": "title",
-          "bbox": [
-            635,
-            254,
-            711,
-            273
-          ],
-          "text": "0|24 SAH",
-          "confidence": 0.625
+          "text": "Project",
+          "confidence": 0.93
         },
         {
           "role": "text",
           "bbox": [
-            933,
-            254,
-            1122,
-            273
+            1498,
+            249,
+            1541,
+            259
           ],
-          "text": ".py7t SS AO] PE",
-          "confidence": 0.449
+          "text": "Role in",
+          "confidence": 0.72
         },
         {
           "role": "text",
           "bbox": [
-            719,
-            254,
-            1589,
-            276
+            1667,
+            260,
+            1760,
+            270
           ],
-          "text": "27] zo) scene_graph_bui Ider title log",
-          "confidence": 0.875
+          "text": "Core ‘ore Innovatior Int",
+          "confidence": 0.672
         },
         {
           "role": "text",
           "bbox": [
-            635,
-            289,
-            727,
-            308
+            1351,
+            304,
+            1389,
+            318
           ],
-          "text": "OF. sharepoint",
-          "confidence": 0.685
+          "text": "Agent",
+          "confidence": 0.93
         },
         {
-          "role": "title",
+          "role": "text",
           "bbox": [
-            635,
-            339,
-            669,
-            358
+            1669,
+            304,
+            1790,
+            317
           ],
-          "text": "AM",
+          "text": "task decomposition",
+          "confidence": 0.915
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1351,
+            313,
+            1411,
+            345
+          ],
+          "text": "Orchestra",
+          "confidence": 0.89
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1473,
+            315,
+            1551,
+            325
+          ],
+          "text": "orchestrator jestrat",
+          "confidence": 0.47
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            325,
+            1716,
+            338
+          ],
+          "text": "‘Agent management",
+          "confidence": 0.895
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1126,
+            343,
+            1141,
+            351
+          ],
+          "text": "ns",
+          "confidence": 0.89
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            359,
+            1816,
+            393
+          ],
+          "text": "‘dynamic Unified 미 API throttling gateway wi with SRE-based",
+          "confidence": 0.847
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1347,
+            368,
+            1435,
+            400
+          ],
+          "text": "aa Model Nexus",
+          "confidence": 0.812
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1474,
+            370,
+            1556,
+            380
+          ],
+          "text": "Infrastructure",
+          "confidence": 0.44
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1348,
+            402,
+            1422,
+            434
+          ],
+          "text": "Benchmark",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            414,
+            1831,
+            427
+          ],
+          "text": "Empirical power/performance profiling",
+          "confidence": 0.92
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1473,
+            425,
+            1534,
+            435
+          ],
+          "text": "Validation",
+          "confidence": 0.84
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1351,
+            435,
+            1382,
+            445
+          ],
+          "text": "Suite",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            435,
+            1707,
+            448
+          ],
+          "text": "for edge hardware",
+          "confidence": 0.915
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            469,
+            1775,
+            482
+          ],
+          "text": "Privacy-first offiine document",
+          "confidence": 0.77
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1352,
+            480,
+            1392,
+            490
+          ],
+          "text": "Doc Al",
+          "confidence": 0.67
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1474,
+            480,
+            1527,
+            490
+          ],
+          "text": "Interface",
+          "confidence": 0.88
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            490,
+            1717,
+            503
+          ],
+          "text": "intelligence pipeline",
+          "confidence": 0.935
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1351,
+            523,
+            1518,
+            565
+          ],
+          "text": "Conductor ee Control",
           "confidence": 0.74
         },
         {
           "role": "text",
           "bbox": [
-            677,
-            339,
-            814,
-            358
+            1593,
+            524,
+            1825,
+            558
           ],
-          "text": "TALS chs Se",
-          "confidence": 0.468
+          "text": "agent Remote interaction cross-platform Ul for human-",
+          "confidence": 0.889
         },
         {
-          "role": "log",
+          "role": "text",
           "bbox": [
-            750,
-            386,
-            838,
-            403
+            1347,
+            568,
+            1385,
+            600
           ],
-          "text": "exception",
+          "text": "Data",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            579,
+            1782,
+            592
+          ],
+          "text": "Hyper-resilient, zero-loss edge",
+          "confidence": 0.917
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1352,
+            588,
+            1412,
+            620
+          ],
+          "text": "Harvester",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            600,
+            1829,
+            613
+          ],
+          "text": "forwarder with multi-transport backup",
+          "confidence": 0.94
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            634,
+            1831,
+            647
+          ],
+          "text": "Lightweight SQLite log inspector for",
+          "confidence": 0.937
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1473,
+            645,
+            1527,
+            658
+          ],
+          "text": "02066",
+          "confidence": 0.44
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            655,
+            1778,
+            668
+          ],
+          "text": "distributed AMEVA ecosystem",
           "confidence": 0.92
         },
         {
-          "role": "log",
+          "role": "text",
           "bbox": [
-            670,
-            386,
-            905,
-            401
+            1593,
+            677,
+            1826,
+            709
           ],
-          "text": "fall error",
-          "confidence": 0.865
+          "text": "Whisper-based Korean STT with LRA",
+          "confidence": 0.74
         },
         {
           "role": "text",
           "bbox": [
-            670,
-            419,
-            1111,
-            438
+            1474,
+            700,
+            1538,
+            713
           ],
-          "text": "BE HAE ok cancel submit",
-          "confidence": 0.902
+          "text": "Perception",
+          "confidence": 0.96
         },
         {
           "role": "text",
           "bbox": [
-            58,
-            421,
-            1199,
-            438
+            1593,
+            710,
+            1662,
+            723
           ],
-          "text": "button BE retry",
-          "confidence": 0.87
+          "text": "fine-tuning",
+          "confidence": 0.95
         },
         {
           "role": "text",
           "bbox": [
-            712,
-            454,
-            922,
-            473
+            1470,
+            732,
+            1542,
+            764
           ],
-          "text": "BD isupperOH title",
-          "confidence": 0.797
+          "text": "Perception",
+          "confidence": 0.96
         },
         {
           "role": "title",
           "bbox": [
-            749,
-            489,
-            783,
-            508
+            1351,
+            744,
+            1374,
+            754
           ],
-          "text": "AS",
-          "confidence": 0.5
-        },
-        {
-          "role": "text",
-          "bbox": [
-            791,
-            489,
-            916,
-            511
-          ],
-          "text": "M2] body/text",
-          "confidence": 0.66
-        },
-        {
-          "role": "title",
-          "bbox": [
-            664,
-            539,
-            698,
-            558
-          ],
-          "text": "U7}",
-          "confidence": 0.63
-        },
-        {
-          "role": "title",
-          "bbox": [
-            765,
-            539,
-            999,
-            558
-          ],
-          "text": "SAAS SHO] ZS $179",
-          "confidence": 0.557
-        },
-        {
-          "role": "text",
-          "bbox": [
-            1125,
-            539,
-            1223,
-            558
-          ],
-          "text": "OCRO| Ul=",
+          "text": "STT",
           "confidence": 0.83
         },
         {
           "role": "text",
           "bbox": [
-            925,
-            551,
-            938,
-            558
+            1594,
+            744,
+            1823,
+            757
           ],
-          "text": "a",
-          "confidence": 0.51
+          "text": "Speech recognition agent integration",
+          "confidence": 0.938
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1396,
+            745,
+            1417,
+            754
+          ],
+          "text": "Agent",
+          "confidence": 0.96
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            778,
+            1795,
+            791
+          ],
+          "text": "Windows-native local Al desktop",
+          "confidence": 0.912
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1474,
+            788,
+            1527,
+            819
+          ],
+          "text": "Interface",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            799,
+            1676,
+            809
+          ],
+          "text": "assistant with",
+          "confidence": 0.91
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1740,
+            802,
+            1780,
+            809
+          ],
+          "text": "screen",
+          "confidence": 0.94
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1347,
+            809,
+            1413,
+            837
+          ],
+          "text": "Assistant",
+          "confidence": 0.87
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            820,
+            1683,
+            833
+          ],
+          "text": "understanding",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1352,
+            854,
+            1438,
+            864
+          ],
+          "text": "Dead Internet",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1594,
+            854,
+            1834,
+            867
+          ],
+          "text": "Fully autonomous Docker-based multi-",
+          "confidence": 0.903
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1351,
+            863,
+            1399,
+            895
+          ],
+          "text": "Theatre",
+          "confidence": 0.95
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1473,
+            865,
+            1538,
+            875
+          ],
+          "text": "Simulation",
+          "confidence": 0.65
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            875,
+            1696,
+            888
+          ],
+          "text": "agent simulation",
+          "confidence": 0.815
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1359,
+            908,
+            1391,
+            940
+          ],
+          "text": "itNet",
+          "confidence": 0.91
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1593,
+            909,
+            1792,
+            943
+          ],
+          "text": "ARM/Exynos BitNet inference scalar framework fallback with",
+          "confidence": 0.944
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1045,
+            916,
+            1090,
+            954
+          ],
+          "text": "send",
+          "confidence": 0.34
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1473,
+            920,
+            1553,
+            933
+          ],
+          "text": "Optimization",
+          "confidence": 0.81
+        },
+        {
+          "role": "text",
+          "bbox": [
+            642,
+            928,
+            709,
+            942
+          ],
+          "text": "해 영역 지정",
+          "confidence": 0.632
+        },
+        {
+          "role": "text",
+          "bbox": [
+            995,
+            962,
+            1110,
+            973
+          ],
+          "text": "로컬 시 서버 오프라인",
+          "confidence": 0.943
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1366,
+            980,
+            1579,
+            994
+          ],
+          "text": "AMEVA Core Infrastructure",
+          "confidence": 0.932
+        },
+        {
+          "role": "text",
+          "bbox": [
+            489,
+            1001,
+            585,
+            1017
+          ],
+          "text": "500000 (90000",
+          "confidence": 0.5
         },
         {
           "role": "title",
           "bbox": [
-            880,
-            574,
-            997,
-            593
+            750,
+            1002,
+            803,
+            1016
           ],
-          "text": "O| 2 74540]",
-          "confidence": 0.405
+          "text": "@2A0",
+          "confidence": 0.68
         },
         {
-          "role": "text",
+          "role": "title",
           "bbox": [
-            154,
-            574,
-            1159,
-            596
+            1337,
+            1018,
+            1536,
+            1031
           ],
-          "text": "HOF. recent title/log/button 0 sharepoint",
-          "confidence": 0.784
-        },
-        {
-          "role": "text",
-          "bbox": [
-            754,
-            686,
-            1423,
-            723
-          ],
-          "text": "Et “ON? Lt",
-          "confidence": 0.53
-        },
-        {
-          "role": "text",
-          "bbox": [
-            845,
-            812,
-            880,
-            827
-          ],
-          "text": "Hm",
-          "confidence": 0.38
-        },
-        {
-          "role": "text",
-          "bbox": [
-            947,
-            812,
-            963,
-            827
-          ],
-          "text": "Al",
-          "confidence": 0.73
-        },
-        {
-          "role": "text",
-          "bbox": [
-            635,
-            858,
-            715,
-            879
-          ],
-          "text": "CopilotO]",
-          "confidence": 0.57
+          "text": "AMEVAS| 구 조 를 먼저 구 경 하세요!",
+          "confidence": 0.919
         }
       ],
       "status_bar": [
         {
           "role": "text",
           "bbox": [
-            1833,
-            1032,
-            1896,
-            1046
+            14,
+            1022,
+            68,
+            1034
           ],
-          "text": "2 1:00",
+          "text": "22791 항목",
+          "confidence": 0.685
+        },
+        {
+          "role": "text",
+          "bbox": [
+            90,
+            1022,
+            176,
+            1034
+          ],
+          "text": "1 개 항목 선택 할",
+          "confidence": 0.654
+        },
+        {
+          "role": "text",
+          "bbox": [
+            1794,
+            1045,
+            1860,
+            1073
+          ],
+          "text": "2026-06-16 23301",
           "confidence": 0.71
         },
         {
           "role": "text",
           "bbox": [
-            1818,
-            1054,
-            1893,
-            1065
+            405,
+            1048,
+            527,
+            1072
           ],
-          "text": "2026-06-01",
-          "confidence": 0.95
+          "text": "9 aie",
+          "confidence": 0.65
+        },
+        {
+          "role": "text",
+          "bbox": [
+            61,
+            1049,
+            133,
+            1071
+          ],
+          "text": "28",
+          "confidence": 0.53
         }
       ]
     }
@@ -2524,36 +4663,12 @@
   "prompt": [
     {
       "role": "system",
-      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라."
+      "content": "You are a helpful desktop assistant. Analyze the user's screen context and answer their questions clearly.\n\nYou are a precise screen analysis AI.\nCRITICAL RULES:\n1. 너는 OCR 및 scene graph 결과만을 근거로 답변해야 한다.\n2. 근거가 부족하면 추측하지 말고 '정확히 판단하기 어렵다'고 답하라.\n3. 깨진 문자열이나 의미 없는 토큰에 임의의 뜻을 부여하지 말라.\n4. 확실한 근거가 있는 경우에만 화면 유형이나 기능을 설명하라.\n5. 사용자의 질문과 관련된 정보만 우선 사용하라.\n6. 확실한 경우는 근거를 제시, 애매하면 '~처럼 보인다'로 추정, 판단 불가면 '판단 어렵다'고 명시하라.\n7. 사용자가 한국어로 질문하면 번역 요청 여부와 상관없이 반드시 한국어로 친절하게 답변하라."
     },
     {
       "role": "user",
-      "content": "이거 무슨화면이야?"
-    },
-    {
-      "role": "assistant",
-      "content": "{\"status\": \"local_vlm_unavailable\", \"message\": \"Failed to connect to local VLM\"}"
-    },
-    {
-      "role": "user",
-      "content": "이거 무슨화면이야?"
-    },
-    {
-      "role": "assistant",
-      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
-    },
-    {
-      "role": "user",
-      "content": "이거 무슨화면이야?"
-    },
-    {
-      "role": "assistant",
-      "content": "[가짜 LLM 서버 응답] 질문 확인: '이거 무슨화면이야?'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
-    },
-    {
-      "role": "user",
-      "content": "ELdyd\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] ---\n[TEXT] a\n[TITLE] O AE\n[TEXT] Global\n[TEXT] Think AMEVA DB Inspector 1. (Ov GPT 5.2\n[TEXT] Q as\n--- [REGION: SIDEBAR] (17 items hidden) ---\n--- [REGION: BODY] ---\n[TITLE] ASS SAE 07H,\n[TITLE] 07H, HES SAE\n[TITLE] **\"OCRO|\n[TITLE] SEO]\n[TITLE] 0|24 SAH\n[TEXT] .py7t SS AO] PE\n[TEXT] 27] zo) scene_graph_bui Ider title log\n[TEXT] OF. sharepoint\n[TITLE] AM\n[TEXT] TALS chs Se\n[LOG] exception\n[LOG] fall error\n[TEXT] BE HAE ok cancel submit\n[TEXT] button BE retry\n[TEXT] BD isupperOH title\n[TITLE] AS\n[TEXT] M2] body/text\n[TITLE] U7}\n[TITLE] SAAS SHO] ZS $179\n[TEXT] OCRO| Ul=\n[TEXT] a\n[TITLE] O| 2 74540]\n[TEXT] HOF. recent title/log/button 0 sharepoint\n[TEXT] Et “ON? Lt\n[TEXT] Hm\n[TEXT] Al\n[TEXT] CopilotO]\n--- [REGION: STATUS_BAR] ---\n[TEXT] 2 1:00\n[TEXT] 2026-06-01"
+      "content": "여기화면에 아메바 유니버스에 대해서 설명해줘\n\n[Screen Context from OCR]:\n--- [REGION: TOOLBAR] (17 items hidden) ---\n--- [REGION: SIDEBAR] (8 items hidden) ---\n--- [REGION: BODY] ---\n[TEXT] The AMEVA Universe\n[TEXT] Achievements:\n[TEXT] Project\n[TEXT] Role in\n[TEXT] Core ‘ore Innovatior Int\n[TEXT] Agent\n[TEXT] task decomposition\n[TEXT] Orchestra\n[TEXT] orchestrator jestrat\n[TEXT] ‘Agent management\n[TEXT] ns\n[TEXT] ‘dynamic Unified 미 API throttling gateway wi with SRE-based\n[TEXT] aa Model Nexus\n[TEXT] Infrastructure\n[TEXT] Benchmark\n[TEXT] Empirical power/performance profiling\n[TEXT] Validation\n[TEXT] Suite\n[TEXT] for edge hardware\n[TEXT] Privacy-first offiine document\n[TEXT] Doc Al\n[TEXT] Interface\n[TEXT] intelligence pipeline\n[TEXT] Conductor ee Control\n[TEXT] agent Remote interaction cross-platform Ul for human-\n[TEXT] Data\n[TEXT] Hyper-resilient, zero-loss edge\n[TEXT] Harvester\n[TEXT] forwarder with multi-transport backup\n[TEXT] Lightweight SQLite log inspector for\n[TEXT] 02066\n[TEXT] distributed AMEVA ecosystem\n[TEXT] Whisper-based Korean STT with LRA\n[TEXT] Perception\n[TEXT] fine-tuning\n[TEXT] Perception\n[TITLE] STT\n[TEXT] Speech recognition agent integration\n[TEXT] Agent\n[TEXT] Windows-native local Al desktop\n[TEXT] Interface\n[TEXT] assistant with\n[TEXT] screen\n[TEXT] Assistant\n[TEXT] understanding\n[TEXT] Dead Internet\n[TEXT] Fully autonomous Docker-based multi-\n[TEXT] Theatre\n[TEXT] Simulation\n[TEXT] agent simulation\n[TEXT] itNet\n[TEXT] ARM/Exynos BitNet inference scalar framework fallback with\n[TEXT] send\n[TEXT] Optimization\n[TEXT] 해 영역 지정\n[TEXT] 로컬 시 서버 오프라인\n[TEXT] AMEVA Core Infrastructure\n[TEXT] 500000 (90000\n[TITLE] @2A0\n[TITLE] AMEVAS| 구 조 를 먼저 구 경 하세요!\n--- [REGION: STATUS_BAR] (5 items hidden) ---"
     }
   ],
-  "llm_response": "[가짜 LLM 서버 응답] 질문 확인: 'ELdyd'\n\n지금 화면에서 제목형 텍스트 0개, 에러/로그 0개, 버튼형 텍스트 0개가 Tesseract OCR을 통해 성공적으로 감지되었습니다!\n\n실제 도커(Docker) LLM 서버가 연결되면 이 데이터를 분석하여 진짜 답변을 드립니다."
+  "llm_response": "<details><summary>💡 추론 과정 보기</summary>\n\n- **라우터 판단**: VLM\n- **판단 근거**: 키워드 분석 ('화면')에 의해 VLM으로 판단됨\n- **영문 번역**: 여기화면에 아메바 유니버스에 대해서 설명해줘\n- **폴백(Fallback) 발생**: Qwen Router: 키워드 분석 ('화면')에 의해 VLM으로 판단됨\n- **최종 응답 모델**: LocalLlamaCppMultimodalAdapter\n</details>\n\n아메바 유니버스는 아메바의 AI 기술과 서비스를 통합한 생태계입니다. 이 생태계는 다양한 프로젝트와 기능으로 구성되어 있으며, 각 프로젝트는 특정 역할을 수행합니다.\n\n1. **Agent Orchestra**: 이 프로젝트는 계층적 작업 분해 및 에이전트 관리 역할을 수행합니다.\n2. **Model Nexus**: 이 프로젝트는 통합 API 게이트웨이와 SRE 기반 동적 토스팅을 제공합니다.\n3. **Benchmark Suite**: 이 프로젝트는 경험적 히어니스와 하드웨어 테스트를 위한 기능을 제공합니다.\n4. **Doc AI**: 이 프로젝트는 개인 정보 보호를 위한 오프라인 문서 인지 파이프라인을 제공합니다.\n5. **Conductor**: 이 프로젝트는 원격 크로스 플랫폼 인터페이스를 통해 인간-에이전트 상호작용을 지원합니다.\n6. **Data Harvester**: 이 프로젝트는 하이퍼-리저런트, 제로-러스-에지 포워더와 다운스트림 백업을 위한 데이터 레이어를 제공합니다.\n7. **Database**: 이 프로젝트는 분산 아메바 에코시스템을 위한 가벼운 SQLite 및 로그 인스펙터를 제공합니다.\n8. **STT Trainer**: 이 프로젝트는 블라퍼 기반 한국어 STT와 LoRA 투어닝을 제공합니다.\n9. **STT Agent**: 이 프로젝트는 음성 인식 에이전트 통합을 제공합니다.\n10. **Window Assistant**: 이 프로젝트는 윈도우 네이티브 AI 데스크톱 어시스턴트를 제공합니다.\n11. **Dead Internet Theatre**: 이 프로젝트는 완전 자동화된 Docker 기반 다중 인터넷 시뮬레이션을 제공합니다.\n12. **BitNet**: 이 프로젝트는 ARM/Exynos 스칼라 떨어짐을 위한 BitNet 인프라 프레임워크를 제공합니다.\n\n이러한 프로젝트들은 아메바의 AI 기술과 서비스를 통합하여 다양한 엔터프라이즈 애플리케이션에 적용할 수 있도록 지원합니다."
 }
