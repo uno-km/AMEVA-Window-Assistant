@@ -239,12 +239,12 @@ def _try_start_local_servers(logger):
         logger.error(f"[LOCAL SERVER ERROR] Native llama-server executable not found at: {llama_server_exe}")
         return False
 
-    llm_model = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if hw_mode == "gpu" else "C:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+    llm_model = "D:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if hw_mode == "gpu" else "D:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
 
     configs = [
         ("llm-server", 8780, llm_model, ["--ctx-size", "8192"]),
-        ("router-server", 8782, "C:/ameva/models/llm/qwen2.5-0.5b-instruct-q4_k_m.gguf", ["--ctx-size", "2048"]),
-        ("vlm-server", 8783, "C:/ameva/models/vlm/qwen2-vl-2b-instruct-q4_k_m.gguf", ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
+        ("router-server", 8782, "D:/ameva/models/llm/qwen2.5-0.5b-instruct-q4_k_m.gguf", ["--ctx-size", "2048"]),
+        ("vlm-server", 8783, "D:/ameva/models/vlm/qwen2-vl-2b-instruct-q4_k_m.gguf", ["--ctx-size", "4096", "--mmproj", "D:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"])
     ]
 
     startupinfo = None

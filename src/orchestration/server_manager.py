@@ -67,31 +67,31 @@ class ServerManager:
             port = 8780
             if self.mode == "performance":
                 # Check for 8B model first
-                model_8b = "C:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"
+                model_8b = "D:/ameva/models/llm/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"
                 if os.path.exists(model_8b):
                     model_path = model_8b
                 else:
-                    model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+                    model_path = "D:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "D:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
             else:
-                model_path = "C:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "C:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+                model_path = "D:/ameva/models/llm/qwen2.5-3b-instruct-q4_k_m.gguf" if self.hw_mode == "gpu" else "D:/ameva/models/llm/qwen2.5-1.5b-instruct-q4_k_m.gguf"
             extra = ["--ctx-size", "8192"]
 
         elif name == "router-server":
             port = 8782
-            model_path = "C:/ameva/models/llm/qwen2.5-0.5b-instruct-q4_k_m.gguf"
+            model_path = "D:/ameva/models/llm/qwen2.5-0.5b-instruct-q4_k_m.gguf"
             extra = ["--ctx-size", "2048"]
 
         elif name == "vlm-server":
             port = 8783
             model_size = CFG.get("vlm", "model_size", default="2b")
-            model_7b = "C:/ameva/models/vlm/Qwen_Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
-            mmproj_7b = "C:/ameva/models/vlm/mmproj-Qwen_Qwen2.5-VL-7B-Instruct-f16.gguf"
+            model_7b = "D:/ameva/models/vlm/Qwen_Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
+            mmproj_7b = "D:/ameva/models/vlm/mmproj-Qwen_Qwen2.5-VL-7B-Instruct-f16.gguf"
             if model_size == "7b" and os.path.exists(model_7b) and os.path.exists(mmproj_7b):
                 model_path = model_7b
                 extra = ["--ctx-size", "4096", "--mmproj", mmproj_7b]
             else:
-                model_path = "C:/ameva/models/vlm/qwen2-vl-2b-instruct-q4_k_m.gguf"
-                extra = ["--ctx-size", "4096", "--mmproj", "C:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"]
+                model_path = "D:/ameva/models/vlm/qwen2-vl-2b-instruct-q4_k_m.gguf"
+                extra = ["--ctx-size", "4096", "--mmproj", "D:/ameva/models/vlm/mmproj-Qwen2-VL-2B-Instruct-f16.gguf"]
         else:
             raise ValueError(f"Unknown server: {name}")
 

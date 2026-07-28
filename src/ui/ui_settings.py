@@ -310,8 +310,8 @@ class SettingsDialog(tk.Toplevel):
                 # Proactively default model_dir if empty
                 if key == "docker.model_dir" and not val:
                     from pathlib import Path
-                    if Path("C:/ameva/models/llm").exists():
-                        val = "C:/ameva/models/llm"
+                    if Path("D:/ameva/models/llm").exists():
+                        val = "D:/ameva/models/llm"
                 var.set(str(val) if val is not None else "")
         
         # Force initial update of model dropdown values
